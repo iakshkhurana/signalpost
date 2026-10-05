@@ -5,8 +5,8 @@ Send this file, the repository link and the commit hash to submit@builderr.ai.
 
 | Item | Value |
 |---|---|
-| Repository | `<fill in: public repository URL>` |
-| Exact commit hash | `<fill in: output of git rev-parse HEAD>` |
+| Repository | https://github.com/iakshkhurana/signalpost |
+| Exact commit hash | `d5cb070546c10786f1faa8ceba50ef7c9e2f4ffa` (code and the 1000 profiles; the commit after it only fills in this sheet) |
 | One command to run | `./run.sh companies.txt` (or `python -m signalpost run --input companies.txt`) |
 | Input format | text file, one 9-digit Norwegian organisation number per line (`#` comments allowed) |
 | Output | `profiles/<orgnr>.json` per company, `profiles/index.json`, `runs/<timestamp>.json` run report |
