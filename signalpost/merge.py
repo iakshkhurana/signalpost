@@ -54,6 +54,9 @@ def merge(existing: list[Fact], fresh: Iterable[Fact], source_status: dict[str, 
         if key in seen:
             continue
         status = source_status.get(old.source, "skipped")
+        if status == "reused":          # source deliberately not re-fetched (--sources): keep as is, not stale
+            out.append(old)
+            continue
         if status in VERIFIED_STATUSES:
             if old.status != "retracted":
                 old.status = "retracted"

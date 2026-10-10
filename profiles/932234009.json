@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:09:55Z",
- "last_run": "2026-10-05T05:09:55Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:19:57Z",
+ "run_count": 3,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,47 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026373213 virksomhet.organisasjonsnummer=932234009 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Torvveien 3' 1940 -> matched 'Torvveien 3' 1940"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://2tentreprenor.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 932234009 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name '2T ENTREPRENØR AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "2tentreprenor.no -> 2tentreprenor.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +97,10 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: not_found (no central approval registered)",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +111,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +119,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +142,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +150,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +163,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +171,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +189,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +197,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +210,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2026-06-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +218,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +231,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +239,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -216,7 +257,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -224,7 +265,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -242,7 +283,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -250,7 +291,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +309,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +317,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -294,7 +335,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -302,7 +343,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +361,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +369,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -354,7 +395,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -362,7 +403,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -380,7 +421,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -388,7 +429,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -406,7 +447,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -414,7 +455,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -432,7 +473,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -440,7 +481,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -458,7 +499,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -466,7 +507,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -484,7 +525,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -492,7 +533,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +551,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +559,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +577,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +585,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +603,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +611,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -588,7 +629,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -596,7 +637,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -614,7 +655,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -622,7 +663,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -640,7 +681,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -648,7 +689,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -666,7 +707,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -674,7 +715,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +733,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +741,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -718,7 +759,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -726,7 +767,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +785,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +793,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -770,7 +811,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -778,7 +819,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -804,7 +845,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -812,7 +853,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -830,7 +871,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -838,7 +879,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -856,7 +897,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -864,7 +905,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -882,7 +923,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -890,7 +931,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -908,7 +949,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -916,7 +957,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -934,7 +975,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -942,7 +983,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -960,7 +1001,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -968,7 +1009,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -986,7 +1027,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -994,7 +1035,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1012,7 +1053,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1020,7 +1061,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1038,7 +1079,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1046,7 +1087,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1064,7 +1105,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1072,7 +1113,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1131,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1139,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1116,7 +1157,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1124,7 +1165,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1142,7 +1183,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1150,7 +1191,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1168,7 +1209,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1176,7 +1217,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1194,7 +1235,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1202,7 +1243,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1228,7 +1269,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1236,7 +1277,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1254,7 +1295,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1262,7 +1303,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1280,7 +1321,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1288,7 +1329,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1306,7 +1347,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1314,7 +1355,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1332,7 +1373,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1340,7 +1381,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1358,7 +1399,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1366,7 +1407,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1384,7 +1425,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1392,7 +1433,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1410,7 +1451,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1418,7 +1459,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1436,7 +1477,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1444,7 +1485,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1462,7 +1503,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1470,7 +1511,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1488,7 +1529,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1496,7 +1537,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1514,7 +1555,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1522,7 +1563,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1538,7 +1579,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1546,7 +1587,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1559,7 +1600,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-09-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1567,7 +1608,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1580,7 +1621,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1588,7 +1629,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1604,7 +1645,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1612,7 +1653,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1625,7 +1666,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1633,7 +1674,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1646,7 +1687,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1654,7 +1695,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1667,7 +1708,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1675,11 +1716,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.8864884911403,
+    "lon": 11.568811596800252,
+    "crs": "EPSG:4326",
+    "matched_address": "Torvveien 3",
+    "postal_code": "1940",
+    "city": "BJØRKELANGEN",
+    "municipality": "AURSKOG-HØLAND",
+    "municipality_number": "3226",
+    "cadastral": {
+     "gnr": 75,
+     "bnr": 104
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.8864884911403&lon=11.568811596800252&markerLat=59.8864884911403&markerLon=11.568811596800252"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Torvveien+3&postnummer=1940&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1688,7 +1764,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1696,11 +1772,89 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "news.item.4e762c1425da",
+   "value": {
+    "title": "Effektiv anleggsarbeid om natten: fordeler og hensyn",
+    "url": "https://www.2tentreprenor.no/effektiv-anleggsarbeid-om-natten-fordeler-og-hensyn/",
+    "date": "2025-04-25",
+    "summary": "Les om når nattarbeid er lurt, og hvordan vi sikrer trygg og stillegående drift etter mørkets frembrudd. The post Effektiv anleggsarbeid om natten: fordeler og hensyn appeared first on 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/effektiv-anleggsarbeid-om-natten-fordeler-og-hensyn/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": "2025-04-25",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.ab68829e4306",
+   "value": {
+    "title": "Hvorfor god drenering er viktig for boligen din",
+    "url": "https://www.2tentreprenor.no/hvorfor-god-drenering-er-viktig-for-boligen-din/",
+    "date": "2025-04-03",
+    "summary": "Lær hvordan riktig drenering kan forebygge fuktskader og verne verdien på ditt hjem. The post Hvorfor god drenering er viktig for boligen din appeared first on 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/hvorfor-god-drenering-er-viktig-for-boligen-din/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": "2025-04-03",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.efc7eda75e48",
+   "value": {
+    "title": "Planlegging av drømmehagen – fem tips for et vellykket uteprosjekt",
+    "url": "https://www.2tentreprenor.no/planlegging-av-drommehagen-fem-tips-for-et-vellykket-uteprosjekt/",
+    "date": "2025-04-25",
+    "summary": "Få inspirasjon og råd til å skape din egen drømmehage sammen med profesjonelle. The post Planlegging av drømmehagen – fem tips for et vellykket uteprosjekt appeared first on 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/planlegging-av-drommehagen-fem-tips-for-et-vellykket-uteprosjekt/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": "2025-04-25",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "org_form",
@@ -1712,7 +1866,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1720,7 +1874,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1733,7 +1887,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1741,7 +1895,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1754,7 +1908,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1762,7 +1916,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1775,7 +1929,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1783,7 +1937,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1803,7 +1957,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1811,7 +1965,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1827,7 +1981,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009/roller",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1835,7 +1989,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1850,7 +2004,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009/roller",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1858,7 +2012,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1873,7 +2027,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009/roller",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": "2023-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1881,7 +2035,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1897,7 +2051,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1905,7 +2059,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1922,7 +2076,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1930,7 +2084,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1943,7 +2097,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=932234009&size=100",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1951,7 +2105,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1964,7 +2118,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=932234009&size=100",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1972,7 +2126,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1994,7 +2148,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=932234009&size=100",
-     "retrieved_at": "2026-10-05T05:09:55Z",
+     "retrieved_at": "2026-10-10T13:19:57Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2002,11 +2156,424 @@
     }
    ],
    "first_seen": "2026-10-05T05:09:55Z",
-   "last_seen": "2026-10-05T05:09:55Z",
+   "last_seen": "2026-10-10T13:19:57Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "2T Entreprenør AS er et lokalt entreprenørfirma med lidenskap for kvalitet og service. Vi har i en årrekke hjulpet både private boligeiere, bedrifter og offentlige kunder i Oslo og Akershus med et bredt spekter av entreprenørtjenester. Vårt team består av erfarne fagfolk innen graving, betongarbeid, anleggsgartneri og mer. Hver ansatt deler våre kjerneverdier om pålitelighet, nøyaktighet og ærlig kommunikasjon. Med en moderne maskinpark som inkluderer gravemaskiner i ulike størrelser, lastebiler og spesialutstyr, kan vi ta på oss små og store oppdrag effektivt. Eget utstyr gjør oss fleksible og i stand til å levere til avtalt tid og pris. Vi er stolte av å være en allsidig totalleverandør. Enten det er snakk om drenering av enebolig, grunnarbeid for tilbygg, eller utbedring av akutte skader, så finner vi en løsning. Kundens behov står alltid i fokus hos oss, og vi strekker oss langt for å sikre et godt resultat og en positiv opplevelse. 2T Entreprenør AS legger stor vekt på sikkerhet og kvalitet i alle prosjektfaser. Vi følger gjeldende standarder og regelverk, tar hensyn til miljøet og omgivelsene, og dokumenterer arbeidet underveis. Resultatet er en solid referanseliste av fornøy",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/om-oss/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.2tentreprenor.no/kontakt-oss/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/kontakt-oss/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.description",
+   "value": "2T Entreprenør AS – din totalentreprenør for grunnarbeid, graving, drenering, betong, asfalt, steinlegging og hageprosjekter i Aurskog‑Høland.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "post@2tentreprenor.no",
+    "ramunas@2tentreprenor.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Velkommen til 2T Entreprenør AS – din allsidige partner innen graving, betong og utemiljø i Oslo og omegn.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "2T Entreprenør AS er et lokalt entreprenørfirma med lidenskap for kvalitet og service. Vi har i en årrekke hjulpet både private boligeiere, bedrifter og offentlige kunder i Oslo og Akershus med et bredt spekter av entreprenørtjenester. Conducting geological surveys, mapping, and prospecting to identify potential mining sites. Utilizing heavy machinery to remove overburden and transport extracted materials. Implementing strategies to mitigate environmental impact and ensure compliance with regulations. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue ipsum sed luctus interdum. Vestibulum est neque, tempus nec tincidunt ut, pellentesque eu nisi. Fusce accumsan felis odio",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.jsonld_organization",
+   "value": {
+    "name": "2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering",
+    "logo": "https://www.2tentreprenor.no/wp-content/uploads/2025/04/png-logo2.png",
+    "same_as": [
+     "https://www.facebook.com/profile.php?id=61558529317883"
+    ]
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "en-US",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.og_image",
+   "value": "https://www.2tentreprenor.no/wp-content/uploads/2025/04/IMG_4836.jpg",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.2tentreprenor.no/",
+    "contact": "https://www.2tentreprenor.no/kontakt-oss/",
+    "about": "https://www.2tentreprenor.no/om-oss/",
+    "feed": "https://www.2tentreprenor.no/feed/",
+    "products": "https://www.2tentreprenor.no/tjenester/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4748689837",
+    "48689837"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Tjenester",
+    "Extracting Wealth, Fueling Progress",
+    "Our Working Process",
+    "Våre Tjenester",
+    "Asfaltering",
+    "Gravearbeid",
+    "Steinlegging",
+    "Drenering",
+    "Hageplanlegging",
+    "Utbedring av vannlekkasje",
+    "Skiferlegging"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/tjenester/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://www.2tentreprenor.no/tjenester/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/tjenester/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.site_name",
+   "value": "2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "https://www.facebook.com/profile.php",
+    "instagram": "https://www.instagram.com/2tentreprenor"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "Hjem - 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://www.2tentreprenor.no/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.2tentreprenor.no/",
+     "retrieved_at": "2026-10-10T13:19:57Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:05Z",
+   "last_seen": "2026-10-10T13:19:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2015,7 +2582,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:09:55Z",
+   "retrieved_at": "2026-10-10T13:19:57Z",
    "facts": 20,
    "requests": 1,
    "checks": [
@@ -2033,7 +2600,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/932234009/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:09:55Z",
+   "retrieved_at": "2026-10-10T13:19:57Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2051,7 +2618,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=932234009&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:09:55Z",
+   "retrieved_at": "2026-10-10T13:19:57Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2069,7 +2636,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/932234009",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:09:55Z",
+   "retrieved_at": "2026-10-10T13:19:57Z",
    "facts": 51,
    "requests": 1,
    "checks": [
@@ -2097,7 +2664,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=932234009&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:09:55Z",
+   "retrieved_at": "2026-10-10T13:19:57Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2111,7 +2678,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22932234009%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:09:55Z",
+   "retrieved_at": "2026-10-10T13:19:57Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2121,812 +2688,91 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:09:55Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=2T+ENTREPREN%C3%98R&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:19:57Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
-  }
- ],
- "last_run_changes": [
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "name",
-   "type": "added",
-   "new": "2T ENTREPRENØR AS"
   },
   {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "org_form",
-   "type": "added",
-   "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2023-09-18"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2023-10-11"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2023-10-11"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Torvveien 3"
-    ],
-    "postal_code": "1940",
-    "city": "BJØRKELANGEN",
-    "municipality": "AURSKOG-HØLAND",
-    "municipality_number": "3226",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "industry.nace1",
-   "type": "added",
-   "new": {
-    "code": "43.120",
-    "description": "Grunnarbeid"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "employees",
-   "type": "added",
-   "new": 6
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Grunnarbeid, byggetjenester og anleggsleverandører, snekkerarbeid, asfaltarbeid og alt relatert til det."
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Grunnarbeid, byggetjenester og anleggsleverandører, snekkerarbeid, asfaltarbeid og alt relatert."
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 30000.0,
-    "currency": "NOK",
-    "shares": 100,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2023-10-16"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/932234009"
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Ramunas Goveika"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Ramunas Goveika"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "REGNSKAP GROUP AS",
-    "orgnr": "919227605"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Torvveien+3&postnummer=1940&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:19:57Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
     {
-     "orgnr": "832260762",
-     "name": "2T ENTREPRENØR AS",
-     "city": "BJØRKELANGEN",
-     "municipality": "AURSKOG-HØLAND",
-     "employees": 6,
-     "nace": "43.120"
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Torvveien 3' 1940 -> matched 'Torvveien 3' 1940"
     }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/932234009",
+   "status": "not_found",
+   "http_status": 404,
+   "retrieved_at": "2026-10-10T13:19:57Z",
+   "facts": 0,
+   "requests": 1,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "no central approval registered"
    ]
   },
   {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 6
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 259050.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 259050.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 12716.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 246334.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 246334.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 52968.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 193366.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 315586.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 315586.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 315586.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 217796.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 97790.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 97790.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-09-18",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": true,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024344239",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 3021800.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 474300.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 1983203.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 1038597.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -1089.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 1037507.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 230994.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 806514.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 1522140.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 305042.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 1217098.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 879219.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1024310.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 497831.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 496639.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1192.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": true,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025382538",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 5482869.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 5423069.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 5227199.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 255669.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -43636.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 212033.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 46692.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 165342.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 2476008.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 970135.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 1505873.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 1144402.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1189652.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 1286356.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 693701.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": true,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026373213",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:09:55Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
+   "source": "website",
+   "url": "https://2tentreprenor.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:19:57Z",
+   "facts": 21,
+   "requests": 7,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://2tentreprenor.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 932234009 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name '2T ENTREPRENØR AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "2tentreprenor.no -> 2tentreprenor.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
+ "last_run_changes": [],
  "changes": [
   {
    "at": "2026-10-05T05:09:55Z",
@@ -3717,17 +3563,252 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.8864884911403,
+    "lon": 11.568811596800252,
+    "crs": "EPSG:4326",
+    "matched_address": "Torvveien 3",
+    "postal_code": "1940",
+    "city": "BJØRKELANGEN",
+    "municipality": "AURSKOG-HØLAND",
+    "municipality_number": "3226",
+    "cadastral": {
+     "gnr": 75,
+     "bnr": 104
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.8864884911403&lon=11.568811596800252&markerLat=59.8864884911403&markerLon=11.568811596800252"
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.2tentreprenor.no/"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Hjem - 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "2T Entreprenør AS – din totalentreprenør for grunnarbeid, graving, drenering, betong, asfalt, steinlegging og hageprosjekter i Aurskog‑Høland."
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "en-US"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://www.2tentreprenor.no/wp-content/uploads/2025/04/IMG_4836.jpg"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "2T Entreprenør AS er et lokalt entreprenørfirma med lidenskap for kvalitet og service. Vi har i en årrekke hjulpet både private boligeiere, bedrifter og offentlige kunder i Oslo og Akershus med et bredt spekter av entreprenørtjenester. Conducting geological surveys, mapping, and prospecting to identify potential mining sites. Utilizing heavy machinery to remove overburden and transport extracted materials. Implementing strategies to mitigate environmental impact and ensure compliance with regulations. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam congue ipsum sed luctus interdum. Vestibulum est neque, tempus nec tincidunt ut, pellentesque eu nisi. Fusce accumsan felis odio"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Velkommen til 2T Entreprenør AS – din allsidige partner innen graving, betong og utemiljø i Oslo og omegn."
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {
+    "name": "2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering",
+    "logo": "https://www.2tentreprenor.no/wp-content/uploads/2025/04/png-logo2.png",
+    "same_as": [
+     "https://www.facebook.com/profile.php?id=61558529317883"
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "2T Entreprenør AS er et lokalt entreprenørfirma med lidenskap for kvalitet og service. Vi har i en årrekke hjulpet både private boligeiere, bedrifter og offentlige kunder i Oslo og Akershus med et bredt spekter av entreprenørtjenester. Vårt team består av erfarne fagfolk innen graving, betongarbeid, anleggsgartneri og mer. Hver ansatt deler våre kjerneverdier om pålitelighet, nøyaktighet og ærlig kommunikasjon. Med en moderne maskinpark som inkluderer gravemaskiner i ulike størrelser, lastebiler og spesialutstyr, kan vi ta på oss små og store oppdrag effektivt. Eget utstyr gjør oss fleksible og i stand til å levere til avtalt tid og pris. Vi er stolte av å være en allsidig totalleverandør. Enten det er snakk om drenering av enebolig, grunnarbeid for tilbygg, eller utbedring av akutte skader, så finner vi en løsning. Kundens behov står alltid i fokus hos oss, og vi strekker oss langt for å sikre et godt resultat og en positiv opplevelse. 2T Entreprenør AS legger stor vekt på sikkerhet og kvalitet i alle prosjektfaser. Vi følger gjeldende standarder og regelverk, tar hensyn til miljøet og omgivelsene, og dokumenterer arbeidet underveis. Resultatet er en solid referanseliste av fornøy"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.2tentreprenor.no/tjenester/"
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Tjenester",
+    "Extracting Wealth, Fueling Progress",
+    "Our Working Process",
+    "Våre Tjenester",
+    "Asfaltering",
+    "Gravearbeid",
+    "Steinlegging",
+    "Drenering",
+    "Hageplanlegging",
+    "Utbedring av vannlekkasje",
+    "Skiferlegging"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "news.item.efc7eda75e48",
+   "type": "added",
+   "new": {
+    "title": "Planlegging av drømmehagen – fem tips for et vellykket uteprosjekt",
+    "url": "https://www.2tentreprenor.no/planlegging-av-drommehagen-fem-tips-for-et-vellykket-uteprosjekt/",
+    "date": "2025-04-25",
+    "summary": "Få inspirasjon og råd til å skape din egen drømmehage sammen med profesjonelle. The post Planlegging av drømmehagen – fem tips for et vellykket uteprosjekt appeared first on 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "news.item.4e762c1425da",
+   "type": "added",
+   "new": {
+    "title": "Effektiv anleggsarbeid om natten: fordeler og hensyn",
+    "url": "https://www.2tentreprenor.no/effektiv-anleggsarbeid-om-natten-fordeler-og-hensyn/",
+    "date": "2025-04-25",
+    "summary": "Les om når nattarbeid er lurt, og hvordan vi sikrer trygg og stillegående drift etter mørkets frembrudd. The post Effektiv anleggsarbeid om natten: fordeler og hensyn appeared first on 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "news.item.ab68829e4306",
+   "type": "added",
+   "new": {
+    "title": "Hvorfor god drenering er viktig for boligen din",
+    "url": "https://www.2tentreprenor.no/hvorfor-god-drenering-er-viktig-for-boligen-din/",
+    "date": "2025-04-03",
+    "summary": "Lær hvordan riktig drenering kan forebygge fuktskader og verne verdien på ditt hjem. The post Hvorfor god drenering er viktig for boligen din appeared first on 2T ENTREPRENØR AS – Grunnarbeid, graving, drenering og asfaltering ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.2tentreprenor.no/kontakt-oss/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/profile.php",
+    "instagram": "https://www.instagram.com/2tentreprenor"
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "post@2tentreprenor.no",
+    "ramunas@2tentreprenor.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4748689837",
+    "48689837"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.2tentreprenor.no/",
+    "contact": "https://www.2tentreprenor.no/kontakt-oss/",
+    "about": "https://www.2tentreprenor.no/om-oss/",
+    "feed": "https://www.2tentreprenor.no/feed/",
+    "products": "https://www.2tentreprenor.no/tjenester/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:05Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 77,
+  "active_facts": 99,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.85
+  "requests": 19,
+  "seconds": 49.29
  },
  "explanation": {
   "mode": "template",
-  "text": "2T ENTREPRENØR AS (org.nr 932 234 009) is registered as Aksjeselskap (AS), founded 2023-09-18, registered 2023-10-11. Business address: Torvveien 3, 1940 BJØRKELANGEN. Main industry (NACE): 43.120 Grunnarbeid. Registered employees: 6 (as of 2026-06-10). Latest filed annual accounts (2025, company statement): revenue NOK 5,482,869; operating result NOK 255,669; net result NOK 165,342; total assets NOK 2,476,008; equity NOK 1,189,652. Leadership: general manager (daglig leder) Ramunas Goveika; board chair Ramunas Goveika. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 77 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "2T ENTREPRENØR AS (org.nr 932 234 009) is registered as Aksjeselskap (AS), founded 2023-09-18, registered 2023-10-11. [brreg_enheter] Main industry (NACE 43.120): Grunnarbeid. [brreg_enheter] Registered purpose: \"Grunnarbeid, byggetjenester og anleggsleverandører, snekkerarbeid, asfaltarbeid og alt relatert til det.\" [brreg_enheter] The company's website describes it as: \"2T Entreprenør AS – din totalentreprenør for grunnarbeid, graving, drenering, betong, asfalt, steinlegging og hageprosjekter i Aurskog‑Høland.\" [website] Business address: Torvveien 3, 1940 BJØRKELANGEN. [brreg_enheter] Products / services named on its website: Tjenester; Extracting Wealth, Fueling Progress; Our Working Process; Våre Tjenester; Asfaltering; Gravearbeid; Steinlegging; Drenering. [website] Leadership: general manager (daglig leder) Ramunas Goveika; board chair Ramunas Goveika. [brreg_roller]\n\nKey numbers:\n- Registered employees: 6 (as of 2026-06-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 5,482,869 (+81% vs 2024); operating result NOK 255,669 (-75% vs 2024); net result NOK 165,342 (-79% vs 2024); total assets NOK 2,476,008 (+63% vs 2024); equity NOK 1,189,652 (+16% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 30,000. [brreg_enheter]\n- 3 news items from the company's own site, latest 2025-04-25. [website]\n\nNo changes since the previous run.\n\nWhat remains unknown:\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n- No central approval for building work (DiBK): checked dibk: nothing registered (no central approval registered).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: not_found (no central approval registered)\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "2T ENTREPRENØR AS (org.nr 932 234 009) is registered as Aksjeselskap (AS), founded 2023-09-18, registered 2023-10-11. [brreg_enheter]",
+    "Main industry (NACE 43.120): Grunnarbeid. [brreg_enheter]",
+    "Registered purpose: \"Grunnarbeid, byggetjenester og anleggsleverandører, snekkerarbeid, asfaltarbeid og alt relatert til det.\" [brreg_enheter]",
+    "The company's website describes it as: \"2T Entreprenør AS – din totalentreprenør for grunnarbeid, graving, drenering, betong, asfalt, steinlegging og hageprosjekter i Aurskog‑Høland.\" [website]",
+    "Business address: Torvveien 3, 1940 BJØRKELANGEN. [brreg_enheter]",
+    "Products / services named on its website: Tjenester; Extracting Wealth, Fueling Progress; Our Working Process; Våre Tjenester; Asfaltering; Gravearbeid; Steinlegging; Drenering. [website]",
+    "Leadership: general manager (daglig leder) Ramunas Goveika; board chair Ramunas Goveika. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 6 (as of 2026-06-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 5,482,869 (+81% vs 2024); operating result NOK 255,669 (-75% vs 2024); net result NOK 165,342 (-79% vs 2024); total assets NOK 2,476,008 (+63% vs 2024); equity NOK 1,189,652 (+16% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 30,000. [brreg_enheter]",
+    "3 news items from the company's own site, latest 2025-04-25. [website]"
+   ],
+   "changes": [
+    "No changes since the previous run."
+   ],
+   "unknown": [
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).",
+    "No central approval for building work (DiBK): checked dibk: nothing registered (no central approval registered)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: not_found (no central approval registered)",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:49Z",
- "last_run": "2026-10-05T05:38:41Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:56:45Z",
+ "run_count": 6,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -57,6 +57,18 @@
     "detail": "Q11957085 has P2333 (Norwegian organisation number) = 835232972"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Flyplassvegen 93' 6977 -> matched 'Flyplassvegen 93' 6977"
+   },
+   {
+    "source": "wikipedia",
+    "check": "linked_via_wikidata",
+    "passed": true,
+    "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -66,7 +78,7 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 835232972 printed on https://www.airlift.no/"
+    "detail": "org number 835232972 not found on the pages checked"
    },
    {
     "source": "website",
@@ -88,12 +100,13 @@
    },
    {
     "check": "name_consistency.wikidata_vs_brreg",
-    "passed": true,
-    "detail": "Wikidata label 'Airlift AS' vs registry name 'AIRLIFT AS'"
+    "passed": false,
+    "detail": "Wikidata label None vs registry name 'AIRLIFT AS'"
    }
   ],
   "failed_checks": [
-   "orgnr_on_page"
+   "orgnr_on_page",
+   "name_consistency.wikidata_vs_brreg"
   ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
@@ -102,6 +115,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: item carries P2333 = org number",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
@@ -113,7 +129,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -121,7 +137,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -144,7 +160,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -152,7 +168,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -165,7 +181,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-03-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -173,7 +189,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -191,7 +207,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-04-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -199,7 +215,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -212,7 +228,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -220,7 +236,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -233,7 +249,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -241,7 +257,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -254,7 +270,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -262,7 +278,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -280,7 +296,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -288,7 +304,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -306,7 +322,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -314,7 +330,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -332,7 +348,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -340,7 +356,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -358,7 +374,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -366,7 +382,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -384,7 +400,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -392,7 +408,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -418,7 +434,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -426,7 +442,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -444,7 +460,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -452,7 +468,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -470,7 +486,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -478,7 +494,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -496,7 +512,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -504,7 +520,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -522,7 +538,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -530,7 +546,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -548,7 +564,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -556,7 +572,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -574,7 +590,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -582,7 +598,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -600,7 +616,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -608,7 +624,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -626,7 +642,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -634,7 +650,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -652,7 +668,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -660,7 +676,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -678,7 +694,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -686,7 +702,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -704,7 +720,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -712,7 +728,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -730,7 +746,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -738,7 +754,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -756,7 +772,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -764,7 +780,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -782,7 +798,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -790,7 +806,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -808,7 +824,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -816,7 +832,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -834,7 +850,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -842,7 +858,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -868,7 +884,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -876,7 +892,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -894,7 +910,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -902,7 +918,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -920,7 +936,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -928,7 +944,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -946,7 +962,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -954,7 +970,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -972,7 +988,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -980,7 +996,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -998,7 +1014,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1006,7 +1022,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1024,7 +1040,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1032,7 +1048,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1050,7 +1066,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1058,7 +1074,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1076,7 +1092,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1084,7 +1100,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1102,7 +1118,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1110,7 +1126,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1128,7 +1144,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1136,7 +1152,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1154,7 +1170,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1162,7 +1178,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1180,7 +1196,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1188,7 +1204,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1206,7 +1222,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1214,7 +1230,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1232,7 +1248,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1240,7 +1256,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1258,7 +1274,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1266,7 +1282,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1284,7 +1300,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1292,7 +1308,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1318,7 +1334,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1326,7 +1342,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1344,7 +1360,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1352,7 +1368,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1370,7 +1386,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1378,7 +1394,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1396,7 +1412,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1404,7 +1420,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1422,7 +1438,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1430,7 +1446,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1448,7 +1464,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1456,7 +1472,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1474,7 +1490,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1482,7 +1498,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1500,7 +1516,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1508,7 +1524,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1526,7 +1542,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1534,7 +1550,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1552,7 +1568,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1560,7 +1576,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1578,7 +1594,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1586,7 +1602,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1604,7 +1620,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1612,7 +1628,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1628,7 +1644,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1636,7 +1652,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1649,7 +1665,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "1984-05-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1657,7 +1673,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1670,7 +1686,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1678,7 +1694,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1694,7 +1710,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1702,7 +1718,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1718,7 +1734,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1726,7 +1742,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1739,7 +1755,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1747,7 +1763,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1760,7 +1776,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1768,7 +1784,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1781,7 +1797,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1789,11 +1805,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 61.39154194853373,
+    "lon": 5.767532942045961,
+    "crs": "EPSG:4326",
+    "matched_address": "Flyplassvegen 93",
+    "postal_code": "6977",
+    "city": "BYGSTAD",
+    "municipality": "SUNNFJORD",
+    "municipality_number": "4647",
+    "cadastral": {
+     "gnr": 211,
+     "bnr": 25
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=61.39154194853373&lon=5.767532942045961&markerLat=61.39154194853373&markerLon=5.767532942045961"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Flyplassvegen+93&postnummer=6977&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:36:41Z",
+     "source_date": "2023-03-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:36:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1802,7 +1853,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1810,7 +1861,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1826,7 +1877,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1834,7 +1885,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1847,7 +1898,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1855,7 +1906,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1868,7 +1919,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-03-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1876,7 +1927,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1889,7 +1940,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "1995-02-19",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1897,7 +1948,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1910,7 +1961,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "1989-08-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1918,7 +1969,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1938,7 +1989,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1946,7 +1997,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1962,7 +2013,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972/roller",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-11-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1970,7 +2021,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1985,7 +2036,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972/roller",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-11-25",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1993,7 +2044,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2013,7 +2064,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972/roller",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2025-11-25",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2021,7 +2072,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2036,7 +2087,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972/roller",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2016-08-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2044,7 +2095,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2060,7 +2111,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2068,7 +2119,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2085,7 +2136,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2093,7 +2144,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2106,7 +2157,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=835232972&size=100",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2114,7 +2165,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2127,7 +2178,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=835232972&size=100",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2135,7 +2186,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2259,7 +2310,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=835232972&size=100",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2267,7 +2318,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2280,7 +2331,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/om-airlift",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2288,7 +2339,30 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.airlift.no/kontakt-baser"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.airlift.no/kontakt-baser",
+     "retrieved_at": "2026-10-10T13:56:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:56:45Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2301,7 +2375,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2309,7 +2383,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2318,24 +2392,77 @@
   {
    "key": "web.emails",
    "value": [
+    "erlend.haugsbo@airlift.no",
     "firmapost@airlift.no",
-    "marked@airlift.no",
-    "trafikk@airlift.no",
-    "user@domain.com"
+    "ivan.smaland@airlift.no",
+    "jorn.sorensen@airlift.no",
+    "magne.kongsvik@airlift.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:17:49Z",
+   "last_seen": "2026-10-10T13:56:45Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "firmapost@airlift.no",
+      "marked@airlift.no",
+      "trafikk@airlift.no",
+      "user@domain.com"
+     ],
+     "until": "2026-10-05T05:38:41Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "HELIKOPTERTjenester",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.airlift.no/",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "first_seen": "2026-10-10T13:56:45Z",
+   "last_seen": "2026-10-10T13:56:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Airlift AS har sin hovedbase ved Førde Lufthavn Bringeland i Vestland, og er den største Nord-Europeiske tilbyder av innenlandske helikoptertjenester.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.airlift.no/",
+     "retrieved_at": "2026-10-10T13:56:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:56:45Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2357,7 +2484,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2365,7 +2492,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2378,7 +2505,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2386,7 +2513,69 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.news.headlines",
+   "value": [
+    {
+     "title": "Vi søker Task Specialists/Lastemenn!",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4-2nats-3wrrt"
+    },
+    {
+     "title": "Vi søker Task Specialists/Lastemenn for 2026",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4-2nats"
+    },
+    {
+     "title": "Vi søker Lærling 2026 - Flysystemmekaniker Helikopter !",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-laerling-zkt8n-glnrp-rr62g"
+    },
+    {
+     "title": "Vi søker leder for vår luftdyktighetsavdeling!",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-npca"
+    },
+    {
+     "title": "Vi søker Task Specialists/Lastemenn for 2026",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4"
+    },
+    {
+     "title": "Vi søker Camo Ingeniør AS350/AS332",
+     "url": "https://www.airlift.no/aktuelt/visokercam-z8lwc-ya976"
+    },
+    {
+     "title": "Vi søker flere ekstra Task Specialists/Lastemenn for høst sesongen 2025",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb"
+    },
+    {
+     "title": "Vi søker OCC Ingeniør til vår Part CAMO avdeling!",
+     "url": "https://www.airlift.no/aktuelt/visokeringeni-7plx5-hbcxdr"
+    },
+    {
+     "title": "Vi søker Teknisk Assistent til vår Part CAMO avdeling!",
+     "url": "https://www.airlift.no/aktuelt/visokerteknsikassistent-7plx5"
+    },
+    {
+     "title": "Er du vår nye treningssjef?",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-treningssjef"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.airlift.no/aktuelt",
+     "retrieved_at": "2026-10-10T13:56:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "latest headlines linked from the news page (no dates given on the page)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:56:45Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2399,7 +2588,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2407,7 +2596,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2420,7 +2609,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2428,7 +2617,33 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.airlift.no/",
+    "contact": "https://www.airlift.no/kontakt-baser",
+    "about": "https://www.airlift.no/om-airlift",
+    "news": "https://www.airlift.no/aktuelt"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.airlift.no/",
+     "retrieved_at": "2026-10-10T13:56:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:56:45Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2437,23 +2652,34 @@
   {
    "key": "web.phones",
    "value": [
-    "57718100"
+    "+4741610014",
+    "+4745206888",
+    "+4748002050",
+    "+4748206117",
+    "+4748303000"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
-     "note": null
+     "note": "tel: links on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
-   "history": [],
+   "history": [
+    {
+     "value": [
+      "57718100"
+     ],
+     "until": "2026-10-05T05:38:41Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -2464,7 +2690,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2472,7 +2698,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2489,7 +2715,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2497,7 +2723,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2510,7 +2736,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2518,7 +2744,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2531,7 +2757,7 @@
     {
      "source": "website",
      "url": "https://www.airlift.no/",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:56:45Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2539,7 +2765,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:56:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2552,7 +2778,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2560,7 +2786,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2573,7 +2799,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2581,7 +2807,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2596,7 +2822,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2604,7 +2830,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2617,7 +2843,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2625,7 +2851,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2638,7 +2864,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "1984-05-28",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2646,7 +2872,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2661,7 +2887,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2669,7 +2895,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2682,7 +2908,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2690,7 +2916,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2705,7 +2931,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2713,7 +2939,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2728,7 +2954,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2736,7 +2962,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2749,7 +2975,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2757,11 +2983,37 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "wikipedia.en.summary",
+   "value": {
+    "title": "Airlift (company)",
+    "description": "Norwegian helicopter operator",
+    "extract": "Airlift AS is a helicopter operator based at Førde Airport, Bringeland in Sunnfjord Municipality in Vestland county, Norway. The company operates a combined sixteen Eurocopter AS350 Écureuil and Eurocopter AS332 Super Puma. In addition to Bringeland, the company has bases at Kinsarvik, Stranda, Ljosland, and Hønefoss Airport, Eggemoen. Airlift is owned by Noordzee Helikopters Vlaanderen and has about seventy employees.",
+    "last_edited": "2026-03-24"
+   },
+   "evidence": [
+    {
+     "source": "wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Airlift_(company)",
+     "retrieved_at": "2026-10-10T13:36:41Z",
+     "source_date": "2026-03-24",
+     "match": "wikidata_p2333",
+     "confidence": "medium",
+     "note": "article is linked from the Wikidata item carrying this organisation number; encyclopaedic text, not a registry fact"
+    }
+   ],
+   "first_seen": "2026-10-10T13:36:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "wikipedia.no",
@@ -2770,7 +3022,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q11957085",
-     "retrieved_at": "2026-10-05T05:38:41Z",
+     "retrieved_at": "2026-10-10T13:36:41Z",
      "source_date": "2026-09-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2778,11 +3030,37 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:49Z",
-   "last_seen": "2026-10-05T05:38:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "wikipedia.no.summary",
+   "value": {
+    "title": "Airlift",
+    "extract": "Airlift AS er et norsk helikopterselskap med hovedkontor og hovedbase på Førde lufthamn, Bringeland i Sunnfjord (kommune). Selskapet er den største nord-europeiske tilbyderen av innenlandske helikoptertjenester.",
+    "thumbnail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Airlift_AS-350.jpg/330px-Airlift_AS-350.jpg?utm_source=no.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "last_edited": "2026-09-23"
+   },
+   "evidence": [
+    {
+     "source": "wikipedia",
+     "url": "https://no.wikipedia.org/wiki/Airlift",
+     "retrieved_at": "2026-10-10T13:36:41Z",
+     "source_date": "2026-09-23",
+     "match": "wikidata_p2333",
+     "confidence": "medium",
+     "note": "article is linked from the Wikidata item carrying this organisation number; encyclopaedic text, not a registry fact"
+    }
+   ],
+   "first_seen": "2026-10-10T13:36:41Z",
+   "last_seen": "2026-10-10T13:36:41Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2791,9 +3069,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:38:41Z",
-   "facts": 23,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2802,16 +3080,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/835232972/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:38:41Z",
-   "facts": 4,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2820,16 +3100,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=835232972&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:38:41Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2838,16 +3120,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/835232972",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:38:41Z",
-   "facts": 52,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2866,20 +3150,23 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=835232972&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:38:41Z",
+   "retrieved_at": "2026-10-10T13:36:41Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no LEI record lists this organisation number"
+    "no LEI record lists this organisation number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2887,9 +3174,9 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22835232972%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:38:41Z",
-   "facts": 11,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "wikidata_p2333",
@@ -2898,16 +3185,73 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=AIRLIFT&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Flyplassvegen+93&postnummer=6977&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Flyplassvegen 93' 6977 -> matched 'Flyplassvegen 93' 6977"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "wikipedia",
+   "url": "https://en.wikipedia.org/api/rest_v1/page/summary/Airlift_%28company%29",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:36:41Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "linked_via_wikidata",
+     "passed": true,
+     "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "website",
    "url": "https://www.airlift.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:38:41Z",
-   "facts": 12,
-   "requests": 3,
+   "retrieved_at": "2026-10-10T13:56:45Z",
+   "facts": 17,
+   "requests": 6,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2917,7 +3261,7 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 835232972 printed on https://www.airlift.no/"
+     "detail": "org number 835232972 not found on the pages checked"
     },
     {
      "check": "name_on_page",
@@ -2939,7 +3283,119 @@
    "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Airlift AS har sin hovedbase ved Førde Lufthavn Bringeland i Vestland, og er den største Nord-Europeiske tilbyder av innenlandske helikoptertjenester."
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "HELIKOPTERTjenester"
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "Vi søker Task Specialists/Lastemenn!",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4-2nats-3wrrt"
+    },
+    {
+     "title": "Vi søker Task Specialists/Lastemenn for 2026",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4-2nats"
+    },
+    {
+     "title": "Vi søker Lærling 2026 - Flysystemmekaniker Helikopter !",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-laerling-zkt8n-glnrp-rr62g"
+    },
+    {
+     "title": "Vi søker leder for vår luftdyktighetsavdeling!",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-npca"
+    },
+    {
+     "title": "Vi søker Task Specialists/Lastemenn for 2026",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4"
+    },
+    {
+     "title": "Vi søker Camo Ingeniør AS350/AS332",
+     "url": "https://www.airlift.no/aktuelt/visokercam-z8lwc-ya976"
+    },
+    {
+     "title": "Vi søker flere ekstra Task Specialists/Lastemenn for høst sesongen 2025",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb"
+    },
+    {
+     "title": "Vi søker OCC Ingeniør til vår Part CAMO avdeling!",
+     "url": "https://www.airlift.no/aktuelt/visokeringeni-7plx5-hbcxdr"
+    },
+    {
+     "title": "Vi søker Teknisk Assistent til vår Part CAMO avdeling!",
+     "url": "https://www.airlift.no/aktuelt/visokerteknsikassistent-7plx5"
+    },
+    {
+     "title": "Er du vår nye treningssjef?",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-treningssjef"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.airlift.no/kontakt-baser"
+   }
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "firmapost@airlift.no",
+    "marked@airlift.no",
+    "trafikk@airlift.no",
+    "user@domain.com"
+   ],
+   "new": [
+    "erlend.haugsbo@airlift.no",
+    "firmapost@airlift.no",
+    "ivan.smaland@airlift.no",
+    "jorn.sorensen@airlift.no",
+    "magne.kongsvik@airlift.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "57718100"
+   ],
+   "new": [
+    "+4741610014",
+    "+4745206888",
+    "+4748002050",
+    "+4748206117",
+    "+4748303000"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.airlift.no/",
+    "contact": "https://www.airlift.no/kontakt-baser",
+    "about": "https://www.airlift.no/om-airlift",
+    "news": "https://www.airlift.no/aktuelt"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:17:49Z",
@@ -4043,17 +4499,215 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Airlift AS har sin hovedbase ved Førde Lufthavn Bringeland i Vestland, og er den største Nord-Europeiske tilbyder av innenlandske helikoptertjenester. Airlift opererer en flåte på totalt 21 helikopter og har rundt 150 ansatte. Vi har helikopter stasjonert ved åtte forskjellige baser sør for Trondheim og er en ledene aktør i dette markedet. Airlift har også baser i Bergen, Tromsø og Hammerfest der hovedaktiviteten er knyttet til transport av los til større fartøy som anløper norske havner, samt politiberedskap. Det ble i januar 2025 signert en ny kontrakt for los operasjonen, der Airlift skal drive denne operasjonen i seks år med opsjon på ytterligere fire år, verdien av kontrakten har en verdi på opp imot 2 mrd. kroner i kontraktsperioden. Airlift AS ble etablert i 1986 og har gjennom snart 40 år, bygget seg opp betydelig erfaring og kompetanse på person- og lastetransport. I tillegg til flygning med long-line har Airlift lang erfaring innenfor søk og redning, blant annet fra Svalbard. Dette gjør at selskapet har solid erfaring også fra flygninger under vanskelige og krevende forhold. Airlift er også operatør av Nord-Europas eneste tungløft-helikopter med en løftekapasitet på over "
+  },
+  {
+   "at": "2026-10-10T13:36:41Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 61.39154194853373,
+    "lon": 5.767532942045961,
+    "crs": "EPSG:4326",
+    "matched_address": "Flyplassvegen 93",
+    "postal_code": "6977",
+    "city": "BYGSTAD",
+    "municipality": "SUNNFJORD",
+    "municipality_number": "4647",
+    "cadastral": {
+     "gnr": 211,
+     "bnr": 25
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=61.39154194853373&lon=5.767532942045961&markerLat=61.39154194853373&markerLon=5.767532942045961"
+   }
+  },
+  {
+   "at": "2026-10-10T13:36:41Z",
+   "key": "wikipedia.en.summary",
+   "type": "added",
+   "new": {
+    "title": "Airlift (company)",
+    "description": "Norwegian helicopter operator",
+    "extract": "Airlift AS is a helicopter operator based at Førde Airport, Bringeland in Sunnfjord Municipality in Vestland county, Norway. The company operates a combined sixteen Eurocopter AS350 Écureuil and Eurocopter AS332 Super Puma. In addition to Bringeland, the company has bases at Kinsarvik, Stranda, Ljosland, and Hønefoss Airport, Eggemoen. Airlift is owned by Noordzee Helikopters Vlaanderen and has about seventy employees.",
+    "last_edited": "2026-03-24"
+   }
+  },
+  {
+   "at": "2026-10-10T13:36:41Z",
+   "key": "wikipedia.no.summary",
+   "type": "added",
+   "new": {
+    "title": "Airlift",
+    "extract": "Airlift AS er et norsk helikopterselskap med hovedkontor og hovedbase på Førde lufthamn, Bringeland i Sunnfjord (kommune). Selskapet er den største nord-europeiske tilbyderen av innenlandske helikoptertjenester.",
+    "thumbnail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Airlift_AS-350.jpg/330px-Airlift_AS-350.jpg?utm_source=no.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "last_edited": "2026-09-23"
+   }
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Airlift AS har sin hovedbase ved Førde Lufthavn Bringeland i Vestland, og er den største Nord-Europeiske tilbyder av innenlandske helikoptertjenester."
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "HELIKOPTERTjenester"
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "Vi søker Task Specialists/Lastemenn!",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4-2nats-3wrrt"
+    },
+    {
+     "title": "Vi søker Task Specialists/Lastemenn for 2026",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4-2nats"
+    },
+    {
+     "title": "Vi søker Lærling 2026 - Flysystemmekaniker Helikopter !",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-laerling-zkt8n-glnrp-rr62g"
+    },
+    {
+     "title": "Vi søker leder for vår luftdyktighetsavdeling!",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-npca"
+    },
+    {
+     "title": "Vi søker Task Specialists/Lastemenn for 2026",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb-lncx4"
+    },
+    {
+     "title": "Vi søker Camo Ingeniør AS350/AS332",
+     "url": "https://www.airlift.no/aktuelt/visokercam-z8lwc-ya976"
+    },
+    {
+     "title": "Vi søker flere ekstra Task Specialists/Lastemenn for høst sesongen 2025",
+     "url": "https://www.airlift.no/aktuelt/task-specialists-lastemenn-fbpal-p3tcg-86986-9a3jb-rfyyf-9xwsd-fg3fs-68deb"
+    },
+    {
+     "title": "Vi søker OCC Ingeniør til vår Part CAMO avdeling!",
+     "url": "https://www.airlift.no/aktuelt/visokeringeni-7plx5-hbcxdr"
+    },
+    {
+     "title": "Vi søker Teknisk Assistent til vår Part CAMO avdeling!",
+     "url": "https://www.airlift.no/aktuelt/visokerteknsikassistent-7plx5"
+    },
+    {
+     "title": "Er du vår nye treningssjef?",
+     "url": "https://www.airlift.no/aktuelt/ledig-stilling-treningssjef"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.airlift.no/kontakt-baser"
+   }
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "firmapost@airlift.no",
+    "marked@airlift.no",
+    "trafikk@airlift.no",
+    "user@domain.com"
+   ],
+   "new": [
+    "erlend.haugsbo@airlift.no",
+    "firmapost@airlift.no",
+    "ivan.smaland@airlift.no",
+    "jorn.sorensen@airlift.no",
+    "magne.kongsvik@airlift.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "57718100"
+   ],
+   "new": [
+    "+4741610014",
+    "+4745206888",
+    "+4748002050",
+    "+4748206117",
+    "+4748303000"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:56:45Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.airlift.no/",
+    "contact": "https://www.airlift.no/kontakt-baser",
+    "about": "https://www.airlift.no/om-airlift",
+    "news": "https://www.airlift.no/aktuelt"
+   }
   }
  ],
  "stats": {
-  "active_facts": 105,
+  "active_facts": 113,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 10,
-  "seconds": 13.74
+  "requests": 6,
+  "seconds": 29.54
  },
  "explanation": {
   "mode": "template",
-  "text": "AIRLIFT AS (org.nr 835 232 972) is registered as Aksjeselskap (AS), founded 1984-05-28, registered 1995-02-19. Business address: Flyplassvegen 93, 6977 BYGSTAD. Main industry (NACE): 51.100 Lufttransport med passasjerer. Registered employees: 90 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 506,041,110; operating result NOK 20,696,578; net result NOK 15,610,780; total assets NOK 140,806,960; equity NOK 55,113,234. Leadership: general manager (daglig leder) Stian Hårklau; board chair Gunnar Bøyum; 2 other board members. Sub-units registered: 15. The website describes the company as: \"Airlift tilbyr alle typer helikoptertjenester som blant annet persontransport, betong- og materialtransport, linjebefaring, mastemontering og tungløft.\" Wikipedia: https://en.wikipedia.org/wiki/Airlift_(company).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: item carries P2333 = org number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run.\nNot available: gleif."
+  "text": "AIRLIFT AS (org.nr 835 232 972) is registered as Aksjeselskap (AS), founded 1984-05-28, registered 1995-02-19. [brreg_enheter] Main industry (NACE 51.100): Lufttransport med passasjerer; also Lasting og lossing. [brreg_enheter] Registered purpose: \"Luftfartsvirksomhet, herunder drift og utleie av fly og helikopter samt å delta i andre selskap med lignende virksomhet.\" [brreg_enheter] The company's website describes it as: \"Airlift tilbyr alle typer helikoptertjenester som blant annet persontransport, betong- og materialtransport, linjebefaring, mastemontering og tungløft.\" [website] Wikipedia: \"Airlift AS is a helicopter operator based at Førde Airport, Bringeland in Sunnfjord Municipality in Vestland county, Norway. The company operates a combined sixteen Eurocopter AS350 Écureuil and Eurocopter AS332 Super Puma. In addition to Bringeland, the company has bases at Kinsarvik, Stranda, Ljos\" [wikipedia] Business address: Flyplassvegen 93, 6977 BYGSTAD. [brreg_enheter] Leadership: general manager (daglig leder) Stian Hårklau; board chair Gunnar Bøyum; 2 other board members. [brreg_roller] Owner / parent organisation (Wikidata): Noordzee Helikopters Vlaanderen. [wikidata]\n\nKey numbers:\n- Registered employees: 90 (as of 2026-09-10); 15 registered sub-units. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 506,041,110 (+30% vs 2024); operating result NOK 20,696,578 (+185% vs 2024); net result NOK 15,610,780 (+191% vs 2024); total assets NOK 140,806,960 (+29% vs 2024); equity NOK 55,113,234 (+61% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 15,267,000. [brreg_enheter]\n\nChanges in this run (7):\n- web.home_text: added (Airlift AS har sin hovedbase ved Førde Lufthavn Bringelan...)\n- web.headline: added (HELIKOPTERTjenester)\n- web.news.headlines: added ([{'title': 'Vi søker Task Specialists/Lastemenn!', 'url':...)\n- web.contact_page: added ({'url': 'https://www.airlift.no/kontakt-baser'})\n- web.emails: ['firmapost@airlift.no', 'marked@airlift.no', 'trafikk@ai... -> ['erlend.haugsbo@airlift.no', 'firmapost@airlift.no', 'iv...\n- web.phones: ['57718100'] -> ['+4741610014', '+4745206888', '+4748002050', '+474820611...\n- web.pages_checked: added ({'home': 'https://www.airlift.no/', 'contact': 'https://w...)\n\nWhat remains unknown:\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: item carries P2333 = org number\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- wikipedia: article linked from the Wikidata item whose P2333 equals the org number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "AIRLIFT AS (org.nr 835 232 972) is registered as Aksjeselskap (AS), founded 1984-05-28, registered 1995-02-19. [brreg_enheter]",
+    "Main industry (NACE 51.100): Lufttransport med passasjerer; also Lasting og lossing. [brreg_enheter]",
+    "Registered purpose: \"Luftfartsvirksomhet, herunder drift og utleie av fly og helikopter samt å delta i andre selskap med lignende virksomhet.\" [brreg_enheter]",
+    "The company's website describes it as: \"Airlift tilbyr alle typer helikoptertjenester som blant annet persontransport, betong- og materialtransport, linjebefaring, mastemontering og tungløft.\" [website]",
+    "Wikipedia: \"Airlift AS is a helicopter operator based at Førde Airport, Bringeland in Sunnfjord Municipality in Vestland county, Norway. The company operates a combined sixteen Eurocopter AS350 Écureuil and Eurocopter AS332 Super Puma. In addition to Bringeland, the company has bases at Kinsarvik, Stranda, Ljos\" [wikipedia]",
+    "Business address: Flyplassvegen 93, 6977 BYGSTAD. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Stian Hårklau; board chair Gunnar Bøyum; 2 other board members. [brreg_roller]",
+    "Owner / parent organisation (Wikidata): Noordzee Helikopters Vlaanderen. [wikidata]"
+   ],
+   "key_numbers": [
+    "Registered employees: 90 (as of 2026-09-10); 15 registered sub-units. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 506,041,110 (+30% vs 2024); operating result NOK 20,696,578 (+185% vs 2024); net result NOK 15,610,780 (+191% vs 2024); total assets NOK 140,806,960 (+29% vs 2024); equity NOK 55,113,234 (+61% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 15,267,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (7):",
+    "- web.home_text: added (Airlift AS har sin hovedbase ved Førde Lufthavn Bringelan...)",
+    "- web.headline: added (HELIKOPTERTjenester)",
+    "- web.news.headlines: added ([{'title': 'Vi søker Task Specialists/Lastemenn!', 'url':...)",
+    "- web.contact_page: added ({'url': 'https://www.airlift.no/kontakt-baser'})",
+    "- web.emails: ['firmapost@airlift.no', 'marked@airlift.no', 'trafikk@ai... -> ['erlend.haugsbo@airlift.no', 'firmapost@airlift.no', 'iv...",
+    "- web.phones: ['57718100'] -> ['+4741610014', '+4745206888', '+4748002050', '+474820611...",
+    "- web.pages_checked: added ({'home': 'https://www.airlift.no/', 'contact': 'https://w...)"
+   ],
+   "unknown": [
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: item carries P2333 = org number",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

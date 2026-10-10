@@ -7,11 +7,11 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:18:01Z",
- "last_run": "2026-10-05T05:41:45Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:37:54Z",
+ "run_count": 5,
  "entity_status": "ok",
  "matching": {
-  "overall": "high",
+  "overall": "medium",
   "registry_name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
   "checks": [
    {
@@ -33,6 +33,12 @@
     "detail": "query overordnetEnhet=980358380; each returned unit re-checked for overordnetEnhet == 980358380"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Fredtunveien 5' 1386 -> matched 'Fredtunveien 5' 1386"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -42,13 +48,13 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 980358380 printed on https://abbr.no/"
+    "detail": "org number 980358380 not found on the pages checked"
    },
    {
     "source": "website",
     "check": "name_on_page",
-    "passed": true,
-    "detail": "company name 'ASKER OG BÆRUM BRANN OG REDNING IKS' found in page text"
+    "passed": false,
+    "detail": "company name 'ASKER OG BÆRUM BRANN OG REDNING IKS' not found in page text or domain"
    },
    {
     "source": "website",
@@ -59,12 +65,14 @@
    {
     "source": "website",
     "check": "not_placeholder",
-    "passed": true,
+    "passed": false,
     "detail": "page has real content (not parked/for sale)"
    }
   ],
   "failed_checks": [
-   "orgnr_on_page"
+   "orgnr_on_page",
+   "name_on_page",
+   "not_placeholder"
   ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
@@ -73,7 +81,9 @@
    "brreg_regnskap: not_found (no annual accounts available through the open API for this entity)",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: URL declared by the company in the registry; page match = unverified (low)"
   ]
  },
  "facts": [
@@ -84,7 +94,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -92,7 +102,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -115,7 +125,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -123,7 +133,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -146,7 +156,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -154,7 +164,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -167,7 +177,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2019-11-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -175,7 +185,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -188,7 +198,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -196,7 +206,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -209,7 +219,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -217,7 +227,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -230,7 +240,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -238,7 +248,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -251,7 +261,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2002-11-13",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -259,7 +269,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -272,7 +282,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -280,7 +290,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -296,7 +306,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -304,7 +314,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +330,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +338,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -341,7 +351,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -349,7 +359,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -362,7 +372,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -370,11 +380,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.829505750528654,
+    "lon": 10.439187002316826,
+    "crs": "EPSG:4326",
+    "matched_address": "Fredtunveien 5",
+    "postal_code": "1386",
+    "city": "ASKER",
+    "municipality": "ASKER",
+    "municipality_number": "3203",
+    "cadastral": {
+     "gnr": 52,
+     "bnr": 248
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.829505750528654&lon=10.439187002316826&markerLat=59.829505750528654&markerLon=10.439187002316826"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Fredtunveien+5&postnummer=1386&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:37:54Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:37:54Z",
+   "last_seen": "2026-10-10T13:37:54Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -383,7 +428,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -391,7 +436,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -415,7 +460,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -423,7 +468,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -439,7 +484,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -447,7 +492,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -460,7 +505,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -468,7 +513,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -481,7 +526,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2019-11-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -489,7 +534,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -502,7 +547,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "1998-12-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -510,7 +555,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -523,7 +568,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2003-11-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -531,7 +576,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -551,7 +596,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -559,7 +604,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -575,7 +620,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2019-07-09",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -583,7 +628,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -598,7 +643,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2026-05-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -606,7 +651,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -635,7 +680,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2026-05-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -643,7 +688,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -658,7 +703,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2026-05-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -666,7 +711,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -698,7 +743,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2026-05-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -706,7 +751,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -721,7 +766,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2022-02-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -729,7 +774,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -751,7 +796,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": "2020-03-09",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -759,7 +804,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -775,7 +820,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -783,7 +828,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -800,7 +845,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -808,7 +853,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -821,7 +866,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=980358380&size=100",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -829,7 +874,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -842,7 +887,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=980358380&size=100",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -850,7 +895,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -860,19 +905,19 @@
    "key": "subunits.list",
    "value": [
     {
-     "orgnr": "976667786",
-     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
-     "city": "TOFTE",
-     "municipality": "ASKER",
-     "employees": 20,
-     "nace": "84.250"
-    },
-    {
      "orgnr": "973746715",
      "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
      "city": "RØYKEN",
      "municipality": "ASKER",
      "employees": 29,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "976667786",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+     "city": "TOFTE",
+     "municipality": "ASKER",
+     "employees": 20,
      "nace": "84.250"
     },
     {
@@ -920,7 +965,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=980358380&size=100",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -928,7 +973,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [
     {
@@ -1052,6 +1097,67 @@
       }
      ],
      "until": "2026-10-05T05:36:42Z"
+    },
+    {
+     "value": [
+      {
+       "orgnr": "976667786",
+       "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+       "city": "TOFTE",
+       "municipality": "ASKER",
+       "employees": 20,
+       "nace": "84.250"
+      },
+      {
+       "orgnr": "973746715",
+       "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+       "city": "RØYKEN",
+       "municipality": "ASKER",
+       "employees": 29,
+       "nace": "84.250"
+      },
+      {
+       "orgnr": "923675140",
+       "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD ASKER BOLIGALARMER",
+       "city": "ASKER",
+       "municipality": "ASKER",
+       "employees": 7,
+       "nace": "80.090"
+      },
+      {
+       "orgnr": "980393380",
+       "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD ASKER BRANNVERN",
+       "city": "ASKER",
+       "municipality": "ASKER",
+       "employees": 74,
+       "nace": "84.250"
+      },
+      {
+       "orgnr": "989096680",
+       "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD BEKKESTUA",
+       "city": "BEKKESTUA",
+       "municipality": "BÆRUM",
+       "employees": 28,
+       "nace": "84.250"
+      },
+      {
+       "orgnr": "999657311",
+       "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD FORNEBU",
+       "city": "FORNEBU",
+       "municipality": "BÆRUM",
+       "employees": 15,
+       "nace": "84.250"
+      },
+      {
+       "orgnr": "989097431",
+       "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD GJETTUM",
+       "city": "GJETTUM",
+       "municipality": "BÆRUM",
+       "employees": 24,
+       "nace": "84.250"
+      }
+     ],
+     "until": "2026-10-05T05:41:45Z"
     }
    ],
    "stale": false,
@@ -1073,8 +1179,13 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Asker og Bærum brann og redning (ABBR) er en operativ og forebyggende brann- og redningstjeneste med ansvar for et område på 569 km2, og nærmere 230 000 innbyggere. ABBR ble etablert i 2020 etter sammenslåing mellom Asker og Bærum brannvesen, Røyken brann og redning og Hurum brannvesen. ABBR et interkommunalt selskap med hovedsete for administrasjon og ledelse på brannstasjonen i Asker. Brannstasjonene i Hurum og Røyken i Asker og på Bekkestua, Fornebu og Gjettum i Bærum er en del av beredskapen. Det skal i løpet av 2020 utarbeides en ny visjon for det nye brannvesenet basert på felles verdier, ansvarsområder og mål for vårt beredskaps- og forebyggende arbeid. Asker og Bærum brann og redning IKS ledes av et representantskap og et styre. Den daglige driften forestås av en ansatt brannsjef. Asker og Bærum brann og redning IKS (ABBR) er lokalisert på seks brannstasjoner, tre i Asker og tre i Bærum. Asker brannstasjon er ABBRs hovedbrannstasjon. I tillegg til brannstasjonene, har ABBR også et moderne og velutstyrt øvings- og kurssenter på Isi i Bærum (innkjøring Isiveien) Your privacy is important to us that's why we mainly use cookies for statistical purposes and to improve user exper",
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1094,8 +1205,13 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Asker og Bærum brann og redning IKS er en operativ og forebyggende brann- og redningstjeneste. I tillegg tilbyr vi boligalarm og alarmoverførsel fra bedrifter.",
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1118,8 +1234,16 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": [
+      "intranett@abbr.no",
+      "post@abbr.no"
+     ],
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1139,8 +1263,13 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "nb-NO",
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1160,8 +1289,13 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "http://abbv.wp2.idium.no/wp-content/uploads/2019/07/ABBR.png",
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1181,8 +1315,13 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": false,
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1204,8 +1343,15 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": {
+      "facebook": "https://www.facebook.com/abbriks"
+     },
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1225,8 +1371,13 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Asker og Bærum brann og redning IKS",
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1246,8 +1397,13 @@
    ],
    "first_seen": "2026-10-05T05:18:01Z",
    "last_seen": "2026-10-05T05:41:45Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "https://abbr.no/",
+     "until": "2026-10-05T05:41:45Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1258,7 +1414,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
-     "retrieved_at": "2026-10-05T05:41:45Z",
+     "retrieved_at": "2026-10-10T13:37:54Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -1266,7 +1422,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:18:01Z",
-   "last_seen": "2026-10-05T05:41:45Z",
+   "last_seen": "2026-10-10T13:37:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1279,7 +1435,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:45Z",
+   "retrieved_at": "2026-10-10T13:37:54Z",
    "facts": 24,
    "requests": 1,
    "checks": [
@@ -1297,7 +1453,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/980358380/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:45Z",
+   "retrieved_at": "2026-10-10T13:37:54Z",
    "facts": 7,
    "requests": 1,
    "checks": [
@@ -1315,7 +1471,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=980358380&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:45Z",
+   "retrieved_at": "2026-10-10T13:37:54Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -1333,7 +1489,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/980358380",
    "status": "not_found",
    "http_status": 404,
-   "retrieved_at": "2026-10-05T05:41:45Z",
+   "retrieved_at": "2026-10-10T13:37:54Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -1347,7 +1503,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=980358380&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:45Z",
+   "retrieved_at": "2026-10-10T13:37:54Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -1361,7 +1517,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22980358380%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:45Z",
+   "retrieved_at": "2026-10-10T13:37:54Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -1371,13 +1527,45 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=ASKER+OG+B%C3%86RUM+BRANN+OG+REDNING&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:37:54Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Fredtunveien+5&postnummer=1386&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:37:54Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Fredtunveien 5' 1386 -> matched 'Fredtunveien 5' 1386"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://www.abbr.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:45Z",
-   "facts": 9,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:37:54Z",
+   "facts": 0,
+   "requests": 2,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -1387,12 +1575,12 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 980358380 printed on https://abbr.no/"
+     "detail": "org number 980358380 not found on the pages checked"
     },
     {
      "check": "name_on_page",
-     "passed": true,
-     "detail": "company name 'ASKER OG BÆRUM BRANN OG REDNING IKS' found in page text"
+     "passed": false,
+     "detail": "company name 'ASKER OG BÆRUM BRANN OG REDNING IKS' not found in page text or domain"
     },
     {
      "check": "same_host_after_redirect",
@@ -1401,34 +1589,53 @@
     },
     {
      "check": "not_placeholder",
-     "passed": true,
+     "passed": false,
      "detail": "page has real content (not parked/for sale)"
     }
    ],
-   "rejected": [],
-   "notes": []
+   "rejected": [
+    {
+     "key": "web.url",
+     "reason": "page could not be tied to 980358380 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.title",
+     "reason": "page could not be tied to 980358380 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.language",
+     "reason": "page could not be tied to 980358380 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.orgnr_on_page",
+     "reason": "page could not be tied to 980358380 (no org number or company name on page); confidence=low"
+    }
+   ],
+   "notes": [
+    "website-derived facts withheld: page does not identify the company"
+   ]
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:41:45Z",
+   "at": "2026-10-10T13:37:54Z",
    "key": "subunits.list",
    "type": "changed",
    "old": [
-    {
-     "orgnr": "973746715",
-     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
-     "city": "RØYKEN",
-     "municipality": "ASKER",
-     "employees": 29,
-     "nace": "84.250"
-    },
     {
      "orgnr": "976667786",
      "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
      "city": "TOFTE",
      "municipality": "ASKER",
      "employees": 20,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "973746715",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+     "city": "RØYKEN",
+     "municipality": "ASKER",
+     "employees": 29,
      "nace": "84.250"
     },
     {
@@ -1474,19 +1681,19 @@
    ],
    "new": [
     {
-     "orgnr": "976667786",
-     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
-     "city": "TOFTE",
-     "municipality": "ASKER",
-     "employees": 20,
-     "nace": "84.250"
-    },
-    {
      "orgnr": "973746715",
      "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
      "city": "RØYKEN",
      "municipality": "ASKER",
      "employees": 29,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "976667786",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+     "city": "TOFTE",
+     "municipality": "ASKER",
+     "employees": 20,
      "nace": "84.250"
     },
     {
@@ -1530,6 +1737,85 @@
      "nace": "84.250"
     }
    ]
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.829505750528654,
+    "lon": 10.439187002316826,
+    "crs": "EPSG:4326",
+    "matched_address": "Fredtunveien 5",
+    "postal_code": "1386",
+    "city": "ASKER",
+    "municipality": "ASKER",
+    "municipality_number": "3203",
+    "cadastral": {
+     "gnr": 52,
+     "bnr": 248
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.829505750528654&lon=10.439187002316826&markerLat=59.829505750528654&markerLon=10.439187002316826"
+   }
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.about_text",
+   "type": "retracted",
+   "old": "Asker og Bærum brann og redning (ABBR) er en operativ og forebyggende brann- og redningstjeneste med ansvar for et område på 569 km2, og nærmere 230 000 innbyggere. ABBR ble etablert i 2020 etter sammenslåing mellom Asker og Bærum brannvesen, Røyken brann og redning og Hurum brannvesen. ABBR et interkommunalt selskap med hovedsete for administrasjon og ledelse på brannstasjonen i Asker. Brannstasjonene i Hurum og Røyken i Asker og på Bekkestua, Fornebu og Gjettum i Bærum er en del av beredskapen. Det skal i løpet av 2020 utarbeides en ny visjon for det nye brannvesenet basert på felles verdier, ansvarsområder og mål for vårt beredskaps- og forebyggende arbeid. Asker og Bærum brann og redning IKS ledes av et representantskap og et styre. Den daglige driften forestås av en ansatt brannsjef. Asker og Bærum brann og redning IKS (ABBR) er lokalisert på seks brannstasjoner, tre i Asker og tre i Bærum. Asker brannstasjon er ABBRs hovedbrannstasjon. I tillegg til brannstasjonene, har ABBR også et moderne og velutstyrt øvings- og kurssenter på Isi i Bærum (innkjøring Isiveien) Your privacy is important to us that's why we mainly use cookies for statistical purposes and to improve user exper"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.description",
+   "type": "retracted",
+   "old": "Asker og Bærum brann og redning IKS er en operativ og forebyggende brann- og redningstjeneste. I tillegg tilbyr vi boligalarm og alarmoverførsel fra bedrifter."
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.emails",
+   "type": "retracted",
+   "old": [
+    "intranett@abbr.no",
+    "post@abbr.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.language",
+   "type": "retracted",
+   "old": "nb-NO"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.og_image",
+   "type": "retracted",
+   "old": "http://abbv.wp2.idium.no/wp-content/uploads/2019/07/ABBR.png"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.orgnr_on_page",
+   "type": "retracted",
+   "old": false
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.social",
+   "type": "retracted",
+   "old": {
+    "facebook": "https://www.facebook.com/abbriks"
+   }
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.title",
+   "type": "retracted",
+   "old": "Asker og Bærum brann og redning IKS"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.url",
+   "type": "retracted",
+   "old": "https://abbr.no/"
   }
  ],
  "changes": [
@@ -2201,17 +2487,265 @@
      "nace": "84.250"
     }
    ]
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "subunits.list",
+   "type": "changed",
+   "old": [
+    {
+     "orgnr": "976667786",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+     "city": "TOFTE",
+     "municipality": "ASKER",
+     "employees": 20,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "973746715",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+     "city": "RØYKEN",
+     "municipality": "ASKER",
+     "employees": 29,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "923675140",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD ASKER BOLIGALARMER",
+     "city": "ASKER",
+     "municipality": "ASKER",
+     "employees": 7,
+     "nace": "80.090"
+    },
+    {
+     "orgnr": "980393380",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD ASKER BRANNVERN",
+     "city": "ASKER",
+     "municipality": "ASKER",
+     "employees": 74,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "989096680",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD BEKKESTUA",
+     "city": "BEKKESTUA",
+     "municipality": "BÆRUM",
+     "employees": 28,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "999657311",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD FORNEBU",
+     "city": "FORNEBU",
+     "municipality": "BÆRUM",
+     "employees": 15,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "989097431",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD GJETTUM",
+     "city": "GJETTUM",
+     "municipality": "BÆRUM",
+     "employees": 24,
+     "nace": "84.250"
+    }
+   ],
+   "new": [
+    {
+     "orgnr": "973746715",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+     "city": "RØYKEN",
+     "municipality": "ASKER",
+     "employees": 29,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "976667786",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS",
+     "city": "TOFTE",
+     "municipality": "ASKER",
+     "employees": 20,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "923675140",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD ASKER BOLIGALARMER",
+     "city": "ASKER",
+     "municipality": "ASKER",
+     "employees": 7,
+     "nace": "80.090"
+    },
+    {
+     "orgnr": "980393380",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD ASKER BRANNVERN",
+     "city": "ASKER",
+     "municipality": "ASKER",
+     "employees": 74,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "989096680",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD BEKKESTUA",
+     "city": "BEKKESTUA",
+     "municipality": "BÆRUM",
+     "employees": 28,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "999657311",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD FORNEBU",
+     "city": "FORNEBU",
+     "municipality": "BÆRUM",
+     "employees": 15,
+     "nace": "84.250"
+    },
+    {
+     "orgnr": "989097431",
+     "name": "ASKER OG BÆRUM BRANN OG REDNING IKS AVD GJETTUM",
+     "city": "GJETTUM",
+     "municipality": "BÆRUM",
+     "employees": 24,
+     "nace": "84.250"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.829505750528654,
+    "lon": 10.439187002316826,
+    "crs": "EPSG:4326",
+    "matched_address": "Fredtunveien 5",
+    "postal_code": "1386",
+    "city": "ASKER",
+    "municipality": "ASKER",
+    "municipality_number": "3203",
+    "cadastral": {
+     "gnr": 52,
+     "bnr": 248
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.829505750528654&lon=10.439187002316826&markerLat=59.829505750528654&markerLon=10.439187002316826"
+   }
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.about_text",
+   "type": "retracted",
+   "old": "Asker og Bærum brann og redning (ABBR) er en operativ og forebyggende brann- og redningstjeneste med ansvar for et område på 569 km2, og nærmere 230 000 innbyggere. ABBR ble etablert i 2020 etter sammenslåing mellom Asker og Bærum brannvesen, Røyken brann og redning og Hurum brannvesen. ABBR et interkommunalt selskap med hovedsete for administrasjon og ledelse på brannstasjonen i Asker. Brannstasjonene i Hurum og Røyken i Asker og på Bekkestua, Fornebu og Gjettum i Bærum er en del av beredskapen. Det skal i løpet av 2020 utarbeides en ny visjon for det nye brannvesenet basert på felles verdier, ansvarsområder og mål for vårt beredskaps- og forebyggende arbeid. Asker og Bærum brann og redning IKS ledes av et representantskap og et styre. Den daglige driften forestås av en ansatt brannsjef. Asker og Bærum brann og redning IKS (ABBR) er lokalisert på seks brannstasjoner, tre i Asker og tre i Bærum. Asker brannstasjon er ABBRs hovedbrannstasjon. I tillegg til brannstasjonene, har ABBR også et moderne og velutstyrt øvings- og kurssenter på Isi i Bærum (innkjøring Isiveien) Your privacy is important to us that's why we mainly use cookies for statistical purposes and to improve user exper"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.description",
+   "type": "retracted",
+   "old": "Asker og Bærum brann og redning IKS er en operativ og forebyggende brann- og redningstjeneste. I tillegg tilbyr vi boligalarm og alarmoverførsel fra bedrifter."
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.emails",
+   "type": "retracted",
+   "old": [
+    "intranett@abbr.no",
+    "post@abbr.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.language",
+   "type": "retracted",
+   "old": "nb-NO"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.og_image",
+   "type": "retracted",
+   "old": "http://abbv.wp2.idium.no/wp-content/uploads/2019/07/ABBR.png"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.orgnr_on_page",
+   "type": "retracted",
+   "old": false
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.social",
+   "type": "retracted",
+   "old": {
+    "facebook": "https://www.facebook.com/abbriks"
+   }
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.title",
+   "type": "retracted",
+   "old": "Asker og Bærum brann og redning IKS"
+  },
+  {
+   "at": "2026-10-10T13:37:54Z",
+   "key": "web.url",
+   "type": "retracted",
+   "old": "https://abbr.no/"
   }
  ],
  "stats": {
-  "active_facts": 43,
-  "retracted_facts": 0,
+  "active_facts": 35,
+  "retracted_facts": 9,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 23.29
+  "requests": 13,
+  "seconds": 19.16
  },
  "explanation": {
   "mode": "template",
-  "text": "ASKER OG BÆRUM BRANN OG REDNING IKS (org.nr 980 358 380) is registered as Interkommunalt selskap (IKS), founded 2002-11-13, registered 1998-12-23. Business address: Fredtunveien 5, 1386 ASKER. Main industry (NACE): 84.250 Brannvernaktiviteter. Registered employees: 197 (as of 2026-09-10). Leadership: general manager (daglig leder) Anders Løberg; board chair Erik Måseidvåg Tørrissen; 6 other board members. Sub-units registered: 7. Website: www.abbr.no. The website describes the company as: \"Asker og Bærum brann og redning IKS er en operativ og forebyggende brann- og redningstjeneste. I tillegg tilbyr vi boligalarm og alarmoverførsel fra bedrifter.\"\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: not_found (no annual accounts available through the open API for this entity)\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nChanges in this run (1):\n- subunits.list: [{'orgnr': '973746715', 'name': 'ASKER OG BÆRUM BRANN OG ... -> [{'orgnr': '976667786', 'name': 'ASKER OG BÆRUM BRANN OG ...\nNot available: brreg_regnskap, gleif, wikidata."
+  "text": "ASKER OG BÆRUM BRANN OG REDNING IKS (org.nr 980 358 380) is registered as Interkommunalt selskap (IKS), founded 2002-11-13, registered 1998-12-23. [brreg_enheter] Main industry (NACE 84.250): Brannvernaktiviteter; also Vakttjenester ikke nevnt annet sted. [brreg_enheter] Registered purpose: \"Selskapets formål er å ivareta de deltakende kommuners plikter og oppgaver vedrørende brann- og ulykkesberedskap og brannforebyggende arbeid, herunder  a) gjennomføre informasjons- og motivasjonstiltak om fare for brann, fare ved brann, brannverntiltak og opptreden i tilfelle brann og andre akutte u\" [brreg_enheter] Business address: Fredtunveien 5, 1386 ASKER. [brreg_enheter] Leadership: general manager (daglig leder) Anders Løberg; board chair Erik Måseidvåg Tørrissen; 6 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 197 (as of 2026-09-10); 7 registered sub-units. [brreg_enheter]\n\nChanges in this run (11):\n- subunits.list: [{'orgnr': '976667786', 'name': 'ASKER OG BÆRUM BRANN OG ... -> [{'orgnr': '973746715', 'name': 'ASKER OG BÆRUM BRANN OG ...\n- location.business.geo: added ({'lat': 59.829505750528654, 'lon': 10.439187002316826, 'c...)\n- web.about_text: retracted\n- web.description: retracted\n- web.emails: retracted\n- web.language: retracted\n- web.og_image: retracted\n- web.orgnr_on_page: retracted\n- web.social: retracted\n- web.title: retracted\n- web.url: retracted\n\nWhat remains unknown:\n- No filed annual accounts: checked brreg_regnskap: nothing registered (no annual accounts available through the open API for this entity).\n- No website content (description, about text): website reached, but website-derived facts withheld: page does not identify the company.\n- No social media profiles: website reached, but website-derived facts withheld: page does not identify the company.\n- No news items: website reached, but website-derived facts withheld: page does not identify the company.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but website-derived facts withheld: page does not identify the company.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n- 4 website fact(s) withheld because the page could not be tied to the company (see sources[].rejected).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: not_found (no annual accounts available through the open API for this entity)\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: URL declared by the company in the registry; page match = unverified (low)",
+  "sections": {
+   "what_it_does": [
+    "ASKER OG BÆRUM BRANN OG REDNING IKS (org.nr 980 358 380) is registered as Interkommunalt selskap (IKS), founded 2002-11-13, registered 1998-12-23. [brreg_enheter]",
+    "Main industry (NACE 84.250): Brannvernaktiviteter; also Vakttjenester ikke nevnt annet sted. [brreg_enheter]",
+    "Registered purpose: \"Selskapets formål er å ivareta de deltakende kommuners plikter og oppgaver vedrørende brann- og ulykkesberedskap og brannforebyggende arbeid, herunder  a) gjennomføre informasjons- og motivasjonstiltak om fare for brann, fare ved brann, brannverntiltak og opptreden i tilfelle brann og andre akutte u\" [brreg_enheter]",
+    "Business address: Fredtunveien 5, 1386 ASKER. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Anders Løberg; board chair Erik Måseidvåg Tørrissen; 6 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 197 (as of 2026-09-10); 7 registered sub-units. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (11):",
+    "- subunits.list: [{'orgnr': '976667786', 'name': 'ASKER OG BÆRUM BRANN OG ... -> [{'orgnr': '973746715', 'name': 'ASKER OG BÆRUM BRANN OG ...",
+    "- location.business.geo: added ({'lat': 59.829505750528654, 'lon': 10.439187002316826, 'c...)",
+    "- web.about_text: retracted",
+    "- web.description: retracted",
+    "- web.emails: retracted",
+    "- web.language: retracted",
+    "- web.og_image: retracted",
+    "- web.orgnr_on_page: retracted",
+    "- web.social: retracted",
+    "- web.title: retracted",
+    "- web.url: retracted"
+   ],
+   "unknown": [
+    "No filed annual accounts: checked brreg_regnskap: nothing registered (no annual accounts available through the open API for this entity).",
+    "No website content (description, about text): website reached, but website-derived facts withheld: page does not identify the company.",
+    "No social media profiles: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No news items: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).",
+    "4 website fact(s) withheld because the page could not be tied to the company (see sources[].rejected)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: not_found (no annual accounts available through the open API for this entity)",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: URL declared by the company in the registry; page match = unverified (low)"
+   ]
+  }
  }
 }

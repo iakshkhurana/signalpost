@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:14:05Z",
- "last_run": "2026-10-05T05:14:05Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:30:11Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,47 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026671062 virksomhet.organisasjonsnummer=917788243 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Holmavegen 29' 5750 -> matched 'Holmavegen 29' 5750"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://oddatechnology.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 917788243 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'ODDA TECHNOLOGY AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "oddatechnology.no -> oddatechnology.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +97,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +110,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +118,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +141,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +149,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +162,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-11-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +170,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +188,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-01-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +196,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +209,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +217,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +230,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +238,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -211,7 +251,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -219,7 +259,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -237,7 +277,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -245,7 +285,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -263,7 +303,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -271,7 +311,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -289,7 +329,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -297,7 +337,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -315,7 +355,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -323,7 +363,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -341,7 +381,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -349,7 +389,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -375,7 +415,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -383,7 +423,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -401,7 +441,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -409,7 +449,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -427,7 +467,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -435,7 +475,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -453,7 +493,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -461,7 +501,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -479,7 +519,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -487,7 +527,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -505,7 +545,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -513,7 +553,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -531,7 +571,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -539,7 +579,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -557,7 +597,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -565,7 +605,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -583,7 +623,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -591,7 +631,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -609,7 +649,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -617,7 +657,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -635,7 +675,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -643,7 +683,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -661,7 +701,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -669,7 +709,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -687,7 +727,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -695,7 +735,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -713,7 +753,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -721,7 +761,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -739,7 +779,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -747,7 +787,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -765,7 +805,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -773,7 +813,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -791,7 +831,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -799,7 +839,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -825,7 +865,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -833,7 +873,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -851,7 +891,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -859,7 +899,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -877,7 +917,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -885,7 +925,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -903,7 +943,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -911,7 +951,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -929,7 +969,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -937,7 +977,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -955,7 +995,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -963,7 +1003,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -981,7 +1021,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -989,7 +1029,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1007,7 +1047,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1015,7 +1055,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1033,7 +1073,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1041,7 +1081,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1059,7 +1099,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1067,7 +1107,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1085,7 +1125,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1093,7 +1133,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1111,7 +1151,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1119,7 +1159,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1137,7 +1177,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1145,7 +1185,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1163,7 +1203,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1171,7 +1211,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1189,7 +1229,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1197,7 +1237,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1215,7 +1255,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1223,7 +1263,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1241,7 +1281,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1249,7 +1289,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1275,7 +1315,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1283,7 +1323,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1301,7 +1341,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1309,7 +1349,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1327,7 +1367,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1335,7 +1375,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1353,7 +1393,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1361,7 +1401,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1379,7 +1419,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1387,7 +1427,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1405,7 +1445,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1413,7 +1453,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1431,7 +1471,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1439,7 +1479,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1457,7 +1497,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1465,7 +1505,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1483,7 +1523,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1491,7 +1531,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1509,7 +1549,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1517,7 +1557,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1535,7 +1575,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1543,7 +1583,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1561,7 +1601,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1569,7 +1609,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1585,7 +1625,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1593,7 +1633,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1606,7 +1646,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2016-09-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1614,7 +1654,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1627,7 +1667,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1635,7 +1675,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1651,7 +1691,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1659,7 +1699,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1672,7 +1712,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1680,7 +1720,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1693,7 +1733,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1701,7 +1741,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1714,7 +1754,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1722,11 +1762,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 60.0946275509324,
+    "lon": 6.532326053218453,
+    "crs": "EPSG:4326",
+    "matched_address": "Holmavegen 29",
+    "postal_code": "5750",
+    "city": "ODDA",
+    "municipality": "ULLENSVANG",
+    "municipality_number": "4618",
+    "cadastral": {
+     "gnr": 64,
+     "bnr": 146
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.0946275509324&lon=6.532326053218453&markerLat=60.0946275509324&markerLon=6.532326053218453"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Holmavegen+29&postnummer=5750&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "mobile",
@@ -1735,7 +1810,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1743,7 +1818,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1756,7 +1831,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1764,7 +1839,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1780,7 +1855,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1788,7 +1863,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1801,7 +1876,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2023-11-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1809,7 +1884,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1822,7 +1897,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2016-09-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1830,7 +1905,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1843,7 +1918,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2016-09-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1851,7 +1926,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1871,7 +1946,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1879,7 +1954,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1895,7 +1970,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243/roller",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2024-11-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1903,7 +1978,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1918,7 +1993,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243/roller",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2026-03-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1926,7 +2001,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1952,7 +2027,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243/roller",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2026-03-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1960,7 +2035,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1975,7 +2050,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243/roller",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": "2016-09-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1983,7 +2058,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1999,7 +2074,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2007,7 +2082,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2024,7 +2099,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2032,7 +2107,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2045,7 +2120,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917788243&size=100",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2053,7 +2128,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2066,7 +2141,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917788243&size=100",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2074,7 +2149,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2096,7 +2171,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917788243&size=100",
-     "retrieved_at": "2026-10-05T05:14:05Z",
+     "retrieved_at": "2026-10-10T13:30:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2104,11 +2179,340 @@
     }
    ],
    "first_seen": "2026-10-05T05:14:05Z",
-   "last_seen": "2026-10-05T05:14:05Z",
+   "last_seen": "2026-10-10T13:30:11Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "Your partner for high-precision manufacturing in demanding oil & gas, offshore, and renewable energy applications — where quality, reliability, and technical performance are critical. HP/HT and exotic material sourcing, supplier qualification, full BOM traceability. 5/6-axis CNC up to Ø2700 mm. Complex geometries, exotic alloys, 20-tonne components. ISO 3834-2 certified. TIG, MIG/MAG, FCAW, SAW, PAW. IWE-supervised. Nickel alloys. RT, UT, PAUT, PT, MT, PMI, CTR, ECT. Level 2–3 certified. Integrated throughout production. Integrated coating facility. Zinc phosphating, epoxy, Xylan, Molykote. FROSIO certified. ISO 9001 quality system. CMM dimensional control. Full MDR, material certs, NCR management. Full system assembly. Hydrostatic, gas, functional testing. Up to 2000 bar test capability. Real-time QR-based traceability. Live KPIs, NCR management, full project transparency. Agile prototype manufacturing for subsea, offshore, and emerging energy technologies. Machining through final test — all in a 6,000 m² facility in Odda in Hardanger. No sub-contracting. No quality gaps between stages. We engage at bid and design phase — DFM review, tolerance challenge, weld geometry assessment —",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no/about",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://oddatechnology.no/careers",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no/careers",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://oddatechnology.no/contact"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no/contact",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.description",
+   "value": "High-precision manufacturing for critical industrial applications. Subsea, offshore, and energy transition. Complex components, controlled end to end.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "post@oddatechnology.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Complex components. Controlled end to end.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Your partner for high-precision manufacturing in demanding oil & gas, offshore, and renewable energy applications — where quality, reliability, and technical performance are critical. HP/HT and exotic material sourcing, supplier qualification, full BOM traceability. 5/6-axis CNC up to Ø2700 mm. Complex geometries, exotic alloys, 20-tonne components. ISO 3834-2 certified. TIG, MIG/MAG, FCAW, SAW, PAW. IWE-supervised. Nickel alloys. RT, UT, PAUT, PT, MT, PMI, CTR, ECT. Level 2–3 certified. Integrated throughout production. Integrated coating facility. Zinc phosphating, epoxy, Xylan, Molykote. FROSIO certified. ISO 9001 quality system. CMM dimensional control. Full MDR, material certs, NCR mana",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "en",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.og_image",
+   "value": "https://oddatechnology.no/logo.png",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://oddatechnology.no",
+    "contact": "https://oddatechnology.no/contact",
+    "about": "https://oddatechnology.no/about",
+    "careers": "https://oddatechnology.no/careers",
+    "news": "https://oddatechnology.no/news"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4791359028"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "linkedin": "https://www.linkedin.com/company/odda-technology"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "Odda Technology — Precision Manufacturing for Critical Applications",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://oddatechnology.no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://oddatechnology.no",
+     "retrieved_at": "2026-10-10T13:30:11Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:30:11Z",
+   "last_seen": "2026-10-10T13:30:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2117,7 +2521,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:14:05Z",
+   "retrieved_at": "2026-10-10T13:30:11Z",
    "facts": 22,
    "requests": 1,
    "checks": [
@@ -2135,7 +2539,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917788243/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:14:05Z",
+   "retrieved_at": "2026-10-10T13:30:11Z",
    "facts": 4,
    "requests": 1,
    "checks": [
@@ -2153,7 +2557,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917788243&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:14:05Z",
+   "retrieved_at": "2026-10-10T13:30:11Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2171,7 +2575,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917788243",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:14:05Z",
+   "retrieved_at": "2026-10-10T13:30:11Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2199,7 +2603,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=917788243&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:14:05Z",
+   "retrieved_at": "2026-10-10T13:30:11Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2213,7 +2617,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22917788243%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:14:05Z",
+   "retrieved_at": "2026-10-10T13:30:11Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2223,852 +2627,200 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:14:05Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=ODDA+TECHNOLOGY&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:30:11Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Holmavegen+29&postnummer=5750&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:30:11Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Holmavegen 29' 5750 -> matched 'Holmavegen 29' 5750"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://oddatechnology.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:30:11Z",
+   "facts": 15,
+   "requests": 6,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://oddatechnology.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 917788243 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'ODDA TECHNOLOGY AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "oddatechnology.no -> oddatechnology.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "name",
-   "type": "added",
-   "new": "ODDA TECHNOLOGY AS"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:30:11Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2016-09-15"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2016-09-27"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2016-09-27"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Holmavegen 29"
-    ],
+    "lat": 60.0946275509324,
+    "lon": 6.532326053218453,
+    "crs": "EPSG:4326",
+    "matched_address": "Holmavegen 29",
     "postal_code": "5750",
     "city": "ODDA",
     "municipality": "ULLENSVANG",
     "municipality_number": "4618",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 64,
+     "bnr": 146
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.0946275509324&lon=6.532326053218453&markerLat=60.0946275509324&markerLon=6.532326053218453"
    }
   },
   {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://oddatechnology.no"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Odda Technology — Precision Manufacturing for Critical Applications"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "High-precision manufacturing for critical industrial applications. Subsea, offshore, and energy transition. Complex components, controlled end to end."
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "en"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://oddatechnology.no/logo.png"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Your partner for high-precision manufacturing in demanding oil & gas, offshore, and renewable energy applications — where quality, reliability, and technical performance are critical. HP/HT and exotic material sourcing, supplier qualification, full BOM traceability. 5/6-axis CNC up to Ø2700 mm. Complex geometries, exotic alloys, 20-tonne components. ISO 3834-2 certified. TIG, MIG/MAG, FCAW, SAW, PAW. IWE-supervised. Nickel alloys. RT, UT, PAUT, PT, MT, PMI, CTR, ECT. Level 2–3 certified. Integrated throughout production. Integrated coating facility. Zinc phosphating, epoxy, Xylan, Molykote. FROSIO certified. ISO 9001 quality system. CMM dimensional control. Full MDR, material certs, NCR mana"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Complex components. Controlled end to end."
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Your partner for high-precision manufacturing in demanding oil & gas, offshore, and renewable energy applications — where quality, reliability, and technical performance are critical. HP/HT and exotic material sourcing, supplier qualification, full BOM traceability. 5/6-axis CNC up to Ø2700 mm. Complex geometries, exotic alloys, 20-tonne components. ISO 3834-2 certified. TIG, MIG/MAG, FCAW, SAW, PAW. IWE-supervised. Nickel alloys. RT, UT, PAUT, PT, MT, PMI, CTR, ECT. Level 2–3 certified. Integrated throughout production. Integrated coating facility. Zinc phosphating, epoxy, Xylan, Molykote. FROSIO certified. ISO 9001 quality system. CMM dimensional control. Full MDR, material certs, NCR management. Full system assembly. Hydrostatic, gas, functional testing. Up to 2000 bar test capability. Real-time QR-based traceability. Live KPIs, NCR management, full project transparency. Agile prototype manufacturing for subsea, offshore, and emerging energy technologies. Machining through final test — all in a 6,000 m² facility in Odda in Hardanger. No sub-contracting. No quality gaps between stages. We engage at bid and design phase — DFM review, tolerance challenge, weld geometry assessment —"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://oddatechnology.no/careers"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "code": "25.530",
-    "description": "Bearbeiding av metaller"
+    "url": "https://oddatechnology.no/contact"
    }
   },
   {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.social",
    "type": "added",
    "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
+    "linkedin": "https://www.linkedin.com/company/odda-technology"
    }
   },
   {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "employees",
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.emails",
    "type": "added",
-   "new": 66
+   "new": [
+    "post@oddatechnology.no"
+   ]
   },
   {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "mobile",
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.phones",
    "type": "added",
-   "new": "913 59 028"
+   "new": [
+    "+4791359028"
+   ]
   },
   {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "email",
-   "type": "added",
-   "new": "ingvald.torblaa@oddatechnology.no"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Produksjon av maskindeler til industrien, annen produksjonsvirksomhet, handel og agenturvirksomhet, samt hva hermed står i forbindelse, herunder å delta i andre foretakender med tilsvarende virksomhet."
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Produksjon av maskindeler til industrien, annen produksjonsvirksomhet, handel og agenturvirksomhet, samt hva hermed står i forbindelse, herunder å delta i andre foretakender med tilsvarende virksomhet."
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "amount": 7446000.0,
-    "currency": "NOK",
-    "shares": 7446,
-    "type": "Aksjekapital"
+    "home": "https://oddatechnology.no",
+    "contact": "https://oddatechnology.no/contact",
+    "about": "https://oddatechnology.no/about",
+    "careers": "https://oddatechnology.no/careers",
+    "news": "https://oddatechnology.no/news"
    }
   },
   {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "group.is_parent",
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
    "new": false
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2023-11-10"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/917788243"
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Ingvald Torblå"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Stein Hogstad"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Marcio Rigueti De Alencar"
-    },
-    {
-     "name": "Reidar O Aga"
-    },
-    {
-     "name": "Torun Sleire Torblå"
-    },
-    {
-     "name": "Simone Rigueti De Alencar"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "AAUDIT AS",
-    "orgnr": "927653508"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "917854432",
-     "name": "ODDA TECHNOLOGY AS",
-     "city": "ODDA",
-     "municipality": "ULLENSVANG",
-     "employees": 66,
-     "nace": "25.530"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 66
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 116156245.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 113699042.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 105546066.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 10610179.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -4493238.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 6116941.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1349159.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 4767782.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 76436733.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 43113978.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 33322755.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 1396700.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 17241990.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 59194743.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 39640732.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 19554011.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024377446",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 138224681.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 134224410.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 124359629.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 13865052.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -5580899.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 8284153.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1828975.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 6455178.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 84275726.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 48329967.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 35945759.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 1627157.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 23697168.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 60578558.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 44080099.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 16498459.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025483752",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 145101346.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 142822598.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 132438011.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 12663335.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -3342192.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 9321143.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 2053447.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 7267696.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 92274386.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 57357517.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 34916869.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 1737470.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 30964864.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 61309521.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 46414925.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 14894596.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026671062",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:14:05Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
   }
  ],
  "changes": [
@@ -3903,17 +3655,193 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 60.0946275509324,
+    "lon": 6.532326053218453,
+    "crs": "EPSG:4326",
+    "matched_address": "Holmavegen 29",
+    "postal_code": "5750",
+    "city": "ODDA",
+    "municipality": "ULLENSVANG",
+    "municipality_number": "4618",
+    "cadastral": {
+     "gnr": 64,
+     "bnr": 146
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.0946275509324&lon=6.532326053218453&markerLat=60.0946275509324&markerLon=6.532326053218453"
+   }
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://oddatechnology.no"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Odda Technology — Precision Manufacturing for Critical Applications"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "High-precision manufacturing for critical industrial applications. Subsea, offshore, and energy transition. Complex components, controlled end to end."
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "en"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://oddatechnology.no/logo.png"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Your partner for high-precision manufacturing in demanding oil & gas, offshore, and renewable energy applications — where quality, reliability, and technical performance are critical. HP/HT and exotic material sourcing, supplier qualification, full BOM traceability. 5/6-axis CNC up to Ø2700 mm. Complex geometries, exotic alloys, 20-tonne components. ISO 3834-2 certified. TIG, MIG/MAG, FCAW, SAW, PAW. IWE-supervised. Nickel alloys. RT, UT, PAUT, PT, MT, PMI, CTR, ECT. Level 2–3 certified. Integrated throughout production. Integrated coating facility. Zinc phosphating, epoxy, Xylan, Molykote. FROSIO certified. ISO 9001 quality system. CMM dimensional control. Full MDR, material certs, NCR mana"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Complex components. Controlled end to end."
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Your partner for high-precision manufacturing in demanding oil & gas, offshore, and renewable energy applications — where quality, reliability, and technical performance are critical. HP/HT and exotic material sourcing, supplier qualification, full BOM traceability. 5/6-axis CNC up to Ø2700 mm. Complex geometries, exotic alloys, 20-tonne components. ISO 3834-2 certified. TIG, MIG/MAG, FCAW, SAW, PAW. IWE-supervised. Nickel alloys. RT, UT, PAUT, PT, MT, PMI, CTR, ECT. Level 2–3 certified. Integrated throughout production. Integrated coating facility. Zinc phosphating, epoxy, Xylan, Molykote. FROSIO certified. ISO 9001 quality system. CMM dimensional control. Full MDR, material certs, NCR management. Full system assembly. Hydrostatic, gas, functional testing. Up to 2000 bar test capability. Real-time QR-based traceability. Live KPIs, NCR management, full project transparency. Agile prototype manufacturing for subsea, offshore, and emerging energy technologies. Machining through final test — all in a 6,000 m² facility in Odda in Hardanger. No sub-contracting. No quality gaps between stages. We engage at bid and design phase — DFM review, tolerance challenge, weld geometry assessment —"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://oddatechnology.no/careers"
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://oddatechnology.no/contact"
+   }
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "linkedin": "https://www.linkedin.com/company/odda-technology"
+   }
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "post@oddatechnology.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4791359028"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://oddatechnology.no",
+    "contact": "https://oddatechnology.no/contact",
+    "about": "https://oddatechnology.no/about",
+    "careers": "https://oddatechnology.no/careers",
+    "news": "https://oddatechnology.no/news"
+   }
+  },
+  {
+   "at": "2026-10-10T13:30:11Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 81,
+  "active_facts": 97,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.41
+  "requests": 17,
+  "seconds": 23.99
  },
  "explanation": {
   "mode": "template",
-  "text": "ODDA TECHNOLOGY AS (org.nr 917 788 243) is registered as Aksjeselskap (AS), founded 2016-09-15, registered 2016-09-27. Business address: Holmavegen 29, 5750 ODDA. Main industry (NACE): 25.530 Bearbeiding av metaller. Registered employees: 66 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 145,101,346; operating result NOK 12,663,335; net result NOK 7,267,696; total assets NOK 92,274,386; equity NOK 30,964,864. Leadership: general manager (daglig leder) Ingvald Torblå; board chair Stein Hogstad; 4 other board members. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 81 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "ODDA TECHNOLOGY AS (org.nr 917 788 243) is registered as Aksjeselskap (AS), founded 2016-09-15, registered 2016-09-27. [brreg_enheter] Main industry (NACE 25.530): Bearbeiding av metaller. [brreg_enheter] Registered purpose: \"Produksjon av maskindeler til industrien, annen produksjonsvirksomhet, handel og agenturvirksomhet, samt hva hermed står i forbindelse, herunder å delta i andre foretakender med tilsvarende virksomhet.\" [brreg_enheter] The company's website describes it as: \"High-precision manufacturing for critical industrial applications. Subsea, offshore, and energy transition. Complex components, controlled end to end.\" [website] Business address: Holmavegen 29, 5750 ODDA. [brreg_enheter] Leadership: general manager (daglig leder) Ingvald Torblå; board chair Stein Hogstad; 4 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 66 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 145,101,346 (+5% vs 2024); operating result NOK 12,663,335 (-9% vs 2024); net result NOK 7,267,696 (+13% vs 2024); total assets NOK 92,274,386 (+9% vs 2024); equity NOK 30,964,864 (+31% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 7,446,000. [brreg_enheter]\n\nChanges in this run (16):\n- location.business.geo: added ({'lat': 60.0946275509324, 'lon': 6.532326053218453, 'crs'...)\n- web.url: added (https://oddatechnology.no)\n- web.title: added (Odda Technology — Precision Manufacturing for Critical Ap...)\n- web.description: added (High-precision manufacturing for critical industrial appl...)\n- web.language: added (en)\n- web.og_image: added (https://oddatechnology.no/logo.png)\n- web.home_text: added (Your partner for high-precision manufacturing in demandin...)\n- web.headline: added (Complex components. Controlled end to end.)\n- web.about_text: added (Your partner for high-precision manufacturing in demandin...)\n- web.careers_url: added (https://oddatechnology.no/careers)\n- web.contact_page: added ({'url': 'https://oddatechnology.no/contact'})\n- web.social: added ({'linkedin': 'https://www.linkedin.com/company/odda-techn...)\n- web.emails: added (['post@oddatechnology.no'])\n- web.phones: added (['+4791359028'])\n- web.pages_checked: added ({'home': 'https://oddatechnology.no', 'contact': 'https:/...)\n- ... and 1 more\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "ODDA TECHNOLOGY AS (org.nr 917 788 243) is registered as Aksjeselskap (AS), founded 2016-09-15, registered 2016-09-27. [brreg_enheter]",
+    "Main industry (NACE 25.530): Bearbeiding av metaller. [brreg_enheter]",
+    "Registered purpose: \"Produksjon av maskindeler til industrien, annen produksjonsvirksomhet, handel og agenturvirksomhet, samt hva hermed står i forbindelse, herunder å delta i andre foretakender med tilsvarende virksomhet.\" [brreg_enheter]",
+    "The company's website describes it as: \"High-precision manufacturing for critical industrial applications. Subsea, offshore, and energy transition. Complex components, controlled end to end.\" [website]",
+    "Business address: Holmavegen 29, 5750 ODDA. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Ingvald Torblå; board chair Stein Hogstad; 4 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 66 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 145,101,346 (+5% vs 2024); operating result NOK 12,663,335 (-9% vs 2024); net result NOK 7,267,696 (+13% vs 2024); total assets NOK 92,274,386 (+9% vs 2024); equity NOK 30,964,864 (+31% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 7,446,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (16):",
+    "- location.business.geo: added ({'lat': 60.0946275509324, 'lon': 6.532326053218453, 'crs'...)",
+    "- web.url: added (https://oddatechnology.no)",
+    "- web.title: added (Odda Technology — Precision Manufacturing for Critical Ap...)",
+    "- web.description: added (High-precision manufacturing for critical industrial appl...)",
+    "- web.language: added (en)",
+    "- web.og_image: added (https://oddatechnology.no/logo.png)",
+    "- web.home_text: added (Your partner for high-precision manufacturing in demandin...)",
+    "- web.headline: added (Complex components. Controlled end to end.)",
+    "- web.about_text: added (Your partner for high-precision manufacturing in demandin...)",
+    "- web.careers_url: added (https://oddatechnology.no/careers)",
+    "- web.contact_page: added ({'url': 'https://oddatechnology.no/contact'})",
+    "- web.social: added ({'linkedin': 'https://www.linkedin.com/company/odda-techn...)",
+    "- web.emails: added (['post@oddatechnology.no'])",
+    "- web.phones: added (['+4791359028'])",
+    "- web.pages_checked: added ({'home': 'https://oddatechnology.no', 'contact': 'https:/...)",
+    "- ... and 1 more"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

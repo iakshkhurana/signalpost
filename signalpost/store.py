@@ -5,6 +5,7 @@ import json
 import os
 from typing import Iterable, Optional
 
+from .facttypes import fact_type
 from .models import now_iso
 
 
@@ -51,6 +52,7 @@ class Store:
                 "name": p.get("name"),
                 "facts": len(active),
                 "sources_ok": [s["source"] for s in p.get("sources", []) if s.get("status") == "ok"],
+                "types": sorted({fact_type(f["key"]) for f in active}),
                 "match": (p.get("matching") or {}).get("overall"),
                 "last_run": p.get("last_run"),
                 "run_count": p.get("run_count", 1),

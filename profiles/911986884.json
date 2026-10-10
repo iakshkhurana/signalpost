@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:07Z",
- "last_run": "2026-10-05T05:17:07Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:34:03Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -39,12 +39,38 @@
     "detail": "LEI 5967007LIEEXZX76AW36: registeredAs='911 986 884' registeredAt=RA000472 country=NO"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Standardveien 1' 0581 -> matched 'Standardveien 1' 0581"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://obosbanken.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 911986884 not printed on https://www.obos.no/bank; guessed site discarded"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'OBOS-BANKEN AS' found in page text"
+   },
+   {
     "check": "name_consistency.gleif_vs_brreg",
     "passed": true,
     "detail": "GLEIF legal name 'OBOS-BANKEN AS' vs registry name 'OBOS-BANKEN AS'"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -52,7 +78,9 @@
    "brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))",
    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: not_found (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it)"
   ]
  },
  "facts": [
@@ -63,7 +91,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -71,7 +99,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -94,7 +122,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -102,7 +130,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -125,7 +153,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -133,7 +161,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -146,7 +174,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2021-04-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -154,7 +182,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -172,7 +200,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2021-02-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -180,7 +208,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -193,7 +221,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -201,7 +229,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -214,7 +242,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -222,7 +250,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -235,7 +263,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2013-05-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -243,7 +271,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -256,7 +284,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -264,7 +292,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -280,7 +308,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -288,7 +316,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -301,7 +329,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -309,7 +337,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -322,7 +350,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -330,7 +358,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -343,15 +371,15 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
-     "note": "GLEIF golden copy published 2026-10-04T16:00:00Z"
+     "note": "GLEIF golden copy published 2026-10-10T00:00:00Z"
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -368,7 +396,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -376,7 +404,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -389,7 +417,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2013-05-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -397,7 +425,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -410,7 +438,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -418,7 +446,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -439,7 +467,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -447,7 +475,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -468,7 +496,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -476,7 +504,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -489,7 +517,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -497,7 +525,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +538,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +546,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +564,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +572,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +590,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +598,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -590,7 +618,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/5967007LIEEXZX76AW36",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-14T04:52:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -598,7 +626,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -611,7 +639,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -619,11 +647,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.924017628728656,
+    "lon": 10.81017987877654,
+    "crs": "EPSG:4326",
+    "matched_address": "Standardveien 1",
+    "postal_code": "0581",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 131,
+     "bnr": 22
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.924017628728656&lon=10.81017987877654&markerLat=59.924017628728656&markerLon=10.81017987877654"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Standardveien+1&postnummer=0581&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:34:03Z",
+     "source_date": "2025-06-24",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:03Z",
+   "last_seen": "2026-10-10T13:34:03Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -632,7 +695,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -640,7 +703,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -659,7 +722,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -667,7 +730,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -683,7 +746,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -691,7 +754,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -704,7 +767,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -712,7 +775,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -725,7 +788,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2021-04-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -733,7 +796,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -746,7 +809,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2013-05-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -754,7 +817,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -767,7 +830,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2013-05-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -775,7 +838,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -795,7 +858,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -803,7 +866,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -819,7 +882,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884/roller",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2013-05-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -827,7 +890,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -843,7 +906,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884/roller",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-07-14",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -851,7 +914,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -866,7 +929,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884/roller",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -874,7 +937,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -894,7 +957,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884/roller",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -902,7 +965,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -931,7 +994,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884/roller",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2026-09-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -939,7 +1002,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -954,7 +1017,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884/roller",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": "2024-11-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -962,7 +1025,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -978,7 +1041,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -986,7 +1049,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1003,7 +1066,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1011,7 +1074,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1024,7 +1087,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=911986884&size=100",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1032,7 +1095,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1045,7 +1108,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=911986884&size=100",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1053,7 +1116,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1075,7 +1138,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=911986884&size=100",
-     "retrieved_at": "2026-10-05T05:17:07Z",
+     "retrieved_at": "2026-10-10T13:34:03Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1083,7 +1146,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:07Z",
-   "last_seen": "2026-10-05T05:17:07Z",
+   "last_seen": "2026-10-10T13:34:03Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1096,7 +1159,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:07Z",
+   "retrieved_at": "2026-10-10T13:34:03Z",
    "facts": 23,
    "requests": 1,
    "checks": [
@@ -1114,7 +1177,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/911986884/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:07Z",
+   "retrieved_at": "2026-10-10T13:34:03Z",
    "facts": 6,
    "requests": 1,
    "checks": [
@@ -1132,7 +1195,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=911986884&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:07Z",
+   "retrieved_at": "2026-10-10T13:34:03Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -1150,7 +1213,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/911986884",
    "status": "error",
    "http_status": 500,
-   "retrieved_at": "2026-10-05T05:17:07Z",
+   "retrieved_at": "2026-10-10T13:34:03Z",
    "facts": 0,
    "requests": 3,
    "checks": [],
@@ -1164,7 +1227,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=911+986+884&page%5Bsize%5D=10",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:07Z",
+   "retrieved_at": "2026-10-10T13:34:03Z",
    "facts": 11,
    "requests": 2,
    "checks": [
@@ -1182,9 +1245,9 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22911986884%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:07Z",
+   "retrieved_at": "2026-10-10T13:34:03Z",
    "facts": 0,
-   "requests": 1,
+   "requests": 2,
    "checks": [],
    "rejected": [],
    "notes": [
@@ -1192,407 +1255,87 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:17:07Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=OBOS-BANKEN&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:34:03Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Standardveien+1&postnummer=0581&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:34:03Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Standardveien 1' 0581 -> matched 'Standardveien 1' 0581"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://obosbanken.no",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:34:03Z",
+   "facts": 0,
+   "requests": 2,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://obosbanken.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 911986884 not printed on https://www.obos.no/bank; guessed site discarded"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'OBOS-BANKEN AS' found in page text"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "guessed site https://www.obos.no/bank does not identify the company; nothing taken from it"
    ]
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "name",
-   "type": "added",
-   "new": "OBOS-BANKEN AS"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "OBOSBANKEN AS",
-     "from": "2013-05-27 12:21:38",
-     "to": "2014-07-29 11:54:24"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:34:03Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2013-05-22"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2013-05-27"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2013-05-27"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Standardveien 1"
-    ],
+    "lat": 59.924017628728656,
+    "lon": 10.81017987877654,
+    "crs": "EPSG:4326",
+    "matched_address": "Standardveien 1",
     "postal_code": "0581",
     "city": "OSLO",
     "municipality": "OSLO",
     "municipality_number": "0301",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "address.postal",
-   "type": "added",
-   "new": {
-    "street": [
-     "Postboks 393 Alnabru"
-    ],
-    "postal_code": "0614",
-    "city": "OSLO",
-    "municipality": "OSLO",
-    "municipality_number": "0301",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "industry.nace1",
-   "type": "added",
-   "new": {
-    "code": "64.190",
-    "description": "Banker og kredittforetak"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "3200",
-    "description": "Banker"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "employees",
-   "type": "added",
-   "new": 95
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "phone",
-   "type": "added",
-   "new": "02333"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Banken skal innenfor rammen av den lovgivning som til enhver tid gjelder, utføre alle forretninger og tjenester som det er vanlig eller naturlig at banker utfører."
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Banken skal innenfor rammen av den lovgivning som til enhver tid gjelder, utføre alle forretninger og tjenester som det er vanlig eller naturlig at banker utfører."
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 898000000.0,
-    "currency": "NOK",
-    "shares": 8980,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": true,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": true
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2021-04-22"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/911986884"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Tore Weldingh"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Ingrid Tjønneland"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Trond Stabekk"
+    "cadastral": {
+     "gnr": 131,
+     "bnr": 22
     },
-    {
-     "name": "Hege Bømark"
-    },
-    {
-     "name": "Anders Lægreid"
-    },
-    {
-     "name": "Jørgen Inge Ringdal"
-    },
-    {
-     "name": "Synnøve Kihle"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "roles.board_deputies",
-   "type": "added",
-   "new": [
-    {
-     "name": "Boddvar Kaale"
-    },
-    {
-     "name": "Nils Kristian Fredlund Pilskog"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "KPMG AS",
-    "orgnr": "935174627"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "OBOS BBL",
-    "orgnr": "937052766"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "912049566",
-     "name": "OBOS-BANKEN AS",
-     "city": "OSLO",
-     "municipality": "OSLO",
-     "employees": 95,
-     "nace": "64.190"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 95
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei",
-   "type": "added",
-   "new": "5967007LIEEXZX76AW36"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.legal_name",
-   "type": "added",
-   "new": "OBOS-BANKEN AS"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.other_names",
-   "type": "added",
-   "new": [
-    {
-     "name": "OBOSBANKEN AS",
-     "type": "PREVIOUS_LEGAL_NAME"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.entity_status",
-   "type": "added",
-   "new": "ACTIVE"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.legal_address",
-   "type": "added",
-   "new": {
-    "street": [
-     "Standardveien 1"
-    ],
-    "postal_code": "0581",
-    "city": "Oslo",
-    "region": "NO-03",
-    "country": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.headquarters_address",
-   "type": "added",
-   "new": {
-    "street": [
-     "Standardveien 1"
-    ],
-    "postal_code": "0581",
-    "city": "Oslo",
-    "region": "NO-03",
-    "country": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.legal_form_elf",
-   "type": "added",
-   "new": "YI42"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.entity_creation_date",
-   "type": "added",
-   "new": "2013-05-22"
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.registration",
-   "type": "added",
-   "new": {
-    "status": "ISSUED",
-    "initial": "2014-11-04",
-    "last_update": "2026-09-14",
-    "next_renewal": "2027-11-09",
-    "managing_lou": "549300O897ZC5H7CY412",
-    "validation_sources": "911 986 884"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.parent_reporting",
-   "type": "added",
-   "new": {
-    "direct_parent_reported": true,
-    "direct_parent_exception": false,
-    "ultimate_parent_reported": true,
-    "ultimate_parent_exception": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:07Z",
-   "key": "lei.direct_parent",
-   "type": "added",
-   "new": {
-    "lei": "5967007LIEEXZXJ4UW55",
-    "relationship": "IS_DIRECTLY_CONSOLIDATED_BY",
-    "gleif_url": "https://search.gleif.org/#/record/5967007LIEEXZXJ4UW55"
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.924017628728656&lon=10.81017987877654&markerLat=59.924017628728656&markerLon=10.81017987877654"
    }
   }
  ],
@@ -1984,17 +1727,75 @@
     "relationship": "IS_DIRECTLY_CONSOLIDATED_BY",
     "gleif_url": "https://search.gleif.org/#/record/5967007LIEEXZXJ4UW55"
    }
+  },
+  {
+   "at": "2026-10-10T13:34:03Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.924017628728656,
+    "lon": 10.81017987877654,
+    "crs": "EPSG:4326",
+    "matched_address": "Standardveien 1",
+    "postal_code": "0581",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 131,
+     "bnr": 22
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.924017628728656&lon=10.81017987877654&markerLat=59.924017628728656&markerLon=10.81017987877654"
+   }
   }
  ],
  "stats": {
-  "active_facts": 43,
+  "active_facts": 44,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 9,
-  "seconds": 5.89
+  "requests": 16,
+  "seconds": 42.71
  },
  "explanation": {
   "mode": "template",
-  "text": "OBOS-BANKEN AS (org.nr 911 986 884) is registered as Aksjeselskap (AS), founded 2013-05-22, registered 2013-05-27. Business address: Standardveien 1, 0581 OSLO. Main industry (NACE): 64.190 Banker og kredittforetak. Registered employees: 95 (as of 2026-09-10). Leadership: general manager (daglig leder) Tore Weldingh; board chair Ingrid Tjønneland; 5 other board members. Sub-units registered: 1. LEI: 5967007LIEEXZX76AW36 (ACTIVE).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 43 facts recorded.\nNot available: wikidata, website.\nCould not be checked this run (previous values kept and marked stale): brreg_regnskap."
+  "text": "OBOS-BANKEN AS (org.nr 911 986 884) is registered as Aksjeselskap (AS), founded 2013-05-22, registered 2013-05-27. [brreg_enheter] Main industry (NACE 64.190): Banker og kredittforetak. [brreg_enheter] Registered purpose: \"Banken skal innenfor rammen av den lovgivning som til enhver tid gjelder, utføre alle forretninger og tjenester som det er vanlig eller naturlig at banker utfører.\" [brreg_enheter] Business address: Standardveien 1, 0581 OSLO. [brreg_enheter] Leadership: general manager (daglig leder) Tore Weldingh; board chair Ingrid Tjønneland; 5 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 95 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Share capital: NOK 898,000,000. [brreg_enheter]\n- LEI: 5967007LIEEXZX76AW36 (ACTIVE). [gleif]\n\nChanges in this run (1):\n- location.business.geo: added ({'lat': 59.924017628728656, 'lon': 10.81017987877654, 'cr...)\n\nWhat remains unknown:\n- No filed annual accounts: brreg_regnskap could not be reached this run (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats)).\n- No website content (description, about text): checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).\n- No social media profiles: checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).\n- No news items: checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: not_found (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it)",
+  "sections": {
+   "what_it_does": [
+    "OBOS-BANKEN AS (org.nr 911 986 884) is registered as Aksjeselskap (AS), founded 2013-05-22, registered 2013-05-27. [brreg_enheter]",
+    "Main industry (NACE 64.190): Banker og kredittforetak. [brreg_enheter]",
+    "Registered purpose: \"Banken skal innenfor rammen av den lovgivning som til enhver tid gjelder, utføre alle forretninger og tjenester som det er vanlig eller naturlig at banker utfører.\" [brreg_enheter]",
+    "Business address: Standardveien 1, 0581 OSLO. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Tore Weldingh; board chair Ingrid Tjønneland; 5 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 95 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Share capital: NOK 898,000,000. [brreg_enheter]",
+    "LEI: 5967007LIEEXZX76AW36 (ACTIVE). [gleif]"
+   ],
+   "changes": [
+    "Changes in this run (1):",
+    "- location.business.geo: added ({'lat': 59.924017628728656, 'lon': 10.81017987877654, 'cr...)"
+   ],
+   "unknown": [
+    "No filed annual accounts: brreg_regnskap could not be reached this run (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats)).",
+    "No website content (description, about text): checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).",
+    "No social media profiles: checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).",
+    "No news items: checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: checked website: nothing registered (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))",
+    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: not_found (guessed site https://www.obos.no/bank does not identify the company; nothing taken from it)"
+   ]
+  }
  }
 }

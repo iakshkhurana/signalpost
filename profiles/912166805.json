@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:12:53Z",
- "last_run": "2026-10-05T05:12:53Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:26:06Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -31,6 +31,18 @@
     "check": "parent_filter",
     "passed": true,
     "detail": "query overordnetEnhet=912166805; each returned unit re-checked for overordnetEnhet == 912166805"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Skodjevegen 476' 6260 -> matched 'Skodjevegen 476' 6260"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=912166805; looked up 912166805"
    }
   ],
   "failed_checks": [],
@@ -41,7 +53,10 @@
    "brreg_regnskap: not_found (no annual accounts available through the open API for this entity)",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
+   "website: skipped (no usable website declared; no domain guess attempted)"
   ]
  },
  "facts": [
@@ -52,7 +67,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -60,7 +75,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -83,7 +98,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -91,7 +106,49 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2029-08-26",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912166805/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/912166805",
+     "retrieved_at": "2026-10-10T13:26:06Z",
+     "source_date": "2029-08-26",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:06Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -104,7 +161,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -112,7 +169,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -125,7 +182,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -133,7 +190,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -146,7 +203,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -154,7 +211,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -170,7 +227,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -178,7 +235,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -191,7 +248,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -199,7 +256,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -212,7 +269,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -220,11 +277,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 62.49998728253742,
+    "lon": 6.70537343980859,
+    "crs": "EPSG:4326",
+    "matched_address": "Skodjevegen 476",
+    "postal_code": "6260",
+    "city": "SKODJE",
+    "municipality": "ÅLESUND",
+    "municipality_number": "1508",
+    "cadastral": {
+     "gnr": 521,
+     "bnr": 48
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.49998728253742&lon=6.70537343980859&markerLat=62.49998728253742&markerLon=6.70537343980859"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Skodjevegen+476&postnummer=6260&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:26:06Z",
+     "source_date": "2025-08-28",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:06Z",
+   "last_seen": "2026-10-10T13:26:06Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "mobile",
@@ -233,7 +325,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -241,7 +333,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -254,7 +346,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -262,7 +354,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -278,7 +370,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -286,7 +378,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -299,7 +391,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": "2013-07-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -307,7 +399,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +412,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": "2025-06-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +420,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -348,7 +440,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -356,7 +448,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -372,7 +464,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805/roller",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": "2013-07-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -380,7 +472,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -395,7 +487,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805/roller",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": "2013-07-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -403,7 +495,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -419,7 +511,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -427,7 +519,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -444,7 +536,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -452,7 +544,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -465,7 +557,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912166805&size=100",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -473,7 +565,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -494,7 +586,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912166805&size=100",
-     "retrieved_at": "2026-10-05T05:12:53Z",
+     "retrieved_at": "2026-10-10T13:26:06Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -502,7 +594,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:53Z",
-   "last_seen": "2026-10-05T05:12:53Z",
+   "last_seen": "2026-10-10T13:26:06Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -515,7 +607,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:53Z",
+   "retrieved_at": "2026-10-10T13:26:06Z",
    "facts": 16,
    "requests": 1,
    "checks": [
@@ -533,7 +625,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912166805/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:53Z",
+   "retrieved_at": "2026-10-10T13:26:06Z",
    "facts": 2,
    "requests": 1,
    "checks": [
@@ -551,7 +643,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912166805&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:53Z",
+   "retrieved_at": "2026-10-10T13:26:06Z",
    "facts": 2,
    "requests": 1,
    "checks": [
@@ -569,7 +661,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912166805",
    "status": "not_found",
    "http_status": 404,
-   "retrieved_at": "2026-10-05T05:12:53Z",
+   "retrieved_at": "2026-10-10T13:26:06Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -583,7 +675,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=912166805&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:53Z",
+   "retrieved_at": "2026-10-10T13:26:06Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -597,7 +689,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22912166805%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:53Z",
+   "retrieved_at": "2026-10-10T13:26:06Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -607,183 +699,117 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=FREMI+V%2F+FRODE+FREMMERLID&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:26:06Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Skodjevegen+476&postnummer=6260&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:06Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Skodjevegen 476' 6260 -> matched 'Skodjevegen 476' 6260"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/912166805",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:06Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=912166805; looked up 912166805"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "",
    "status": "skipped",
    "http_status": null,
-   "retrieved_at": "2026-10-05T05:12:53Z",
+   "retrieved_at": "2026-10-10T13:26:06Z",
    "facts": 0,
    "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "no usable website declared; no domain guess attempted"
    ]
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "name",
-   "type": "added",
-   "new": "FREMI V/ FRODE FREMMERLID"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:26:06Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "ENK",
-    "description": "Enkeltpersonforetak"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2013-07-02"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2025-06-12"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Skodjevegen 476"
-    ],
+    "lat": 62.49998728253742,
+    "lon": 6.70537343980859,
+    "crs": "EPSG:4326",
+    "matched_address": "Skodjevegen 476",
     "postal_code": "6260",
     "city": "SKODJE",
     "municipality": "ÅLESUND",
     "municipality_number": "1508",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 521,
+     "bnr": 48
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.49998728253742&lon=6.70537343980859&markerLat=62.49998728253742&markerLon=6.70537343980859"
    }
   },
   {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:26:06Z",
+   "key": "approvals.dibk_central_approval",
    "type": "added",
    "new": {
-    "code": "43.120",
-    "description": "Grunnarbeid"
+    "approved": true,
+    "valid_to": "2029-08-26",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912166805/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
    }
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "8200",
-    "description": "Personlig næringsdrivende"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "mobile",
-   "type": "added",
-   "new": "92 60 40 72"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "email",
-   "type": "added",
-   "new": "fro-fre@online.no"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Grunnarbeid (graving, drenering, sprengning, planering)."
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/912166805"
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "roles.owner",
-   "type": "added",
-   "new": {
-    "name": "Frode Fremmerlid"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "AS STETTE DATA",
-    "orgnr": "937195281"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:12:53Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "912205258",
-     "name": "FREMI V/ FRODE FREMMERLID",
-     "city": "SKODJE",
-     "municipality": "ÅLESUND",
-     "nace": "43.120"
-    }
-   ]
   }
  ],
  "changes": [
@@ -949,17 +975,103 @@
      "nace": "43.120"
     }
    ]
+  },
+  {
+   "at": "2026-10-10T13:26:06Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 62.49998728253742,
+    "lon": 6.70537343980859,
+    "crs": "EPSG:4326",
+    "matched_address": "Skodjevegen 476",
+    "postal_code": "6260",
+    "city": "SKODJE",
+    "municipality": "ÅLESUND",
+    "municipality_number": "1508",
+    "cadastral": {
+     "gnr": 521,
+     "bnr": 48
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.49998728253742&lon=6.70537343980859&markerLat=62.49998728253742&markerLon=6.70537343980859"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:06Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2029-08-26",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912166805/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
+   }
   }
  ],
  "stats": {
-  "active_facts": 20,
+  "active_facts": 22,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.34
+  "requests": 12,
+  "seconds": 15.72
  },
  "explanation": {
   "mode": "template",
-  "text": "FREMI V/ FRODE FREMMERLID (org.nr 912 166 805) is registered as Enkeltpersonforetak (ENK), registered 2013-07-02. Business address: Skodjevegen 476, 6260 SKODJE. Main industry (NACE): 43.120 Grunnarbeid. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: not_found (no annual accounts available through the open API for this entity)\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 20 facts recorded.\nNot available: brreg_regnskap, gleif, wikidata, website."
+  "text": "FREMI V/ FRODE FREMMERLID (org.nr 912 166 805) is registered as Enkeltpersonforetak (ENK), registered 2013-07-02. [brreg_enheter] Main industry (NACE 43.120): Grunnarbeid. [brreg_enheter] Registered activity: \"Grunnarbeid (graving, drenering, sprengning, planering).\" [brreg_enheter] Business address: Skodjevegen 476, 6260 SKODJE. [brreg_enheter]\n\nKey numbers:\n- DiBK central approval: valid until 2029-08-26, 2 approval area(s). [dibk]\n\nChanges in this run (2):\n- location.business.geo: added ({'lat': 62.49998728253742, 'lon': 6.70537343980859, 'crs'...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2029-08-26', 'certificate...)\n\nWhat remains unknown:\n- No filed annual accounts: checked brreg_regnskap: nothing registered (no annual accounts available through the open API for this entity).\n- No registered employee count: the registry holds no employee count for this entity.\n- No website content (description, about text): no usable website declared; no domain guess attempted.\n- No social media profiles: no usable website declared; no domain guess attempted.\n- No news items: no usable website declared; no domain guess attempted.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: no usable website declared; no domain guess attempted.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: not_found (no annual accounts available through the open API for this entity)\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: skipped (no usable website declared; no domain guess attempted)",
+  "sections": {
+   "what_it_does": [
+    "FREMI V/ FRODE FREMMERLID (org.nr 912 166 805) is registered as Enkeltpersonforetak (ENK), registered 2013-07-02. [brreg_enheter]",
+    "Main industry (NACE 43.120): Grunnarbeid. [brreg_enheter]",
+    "Registered activity: \"Grunnarbeid (graving, drenering, sprengning, planering).\" [brreg_enheter]",
+    "Business address: Skodjevegen 476, 6260 SKODJE. [brreg_enheter]"
+   ],
+   "key_numbers": [
+    "DiBK central approval: valid until 2029-08-26, 2 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (2):",
+    "- location.business.geo: added ({'lat': 62.49998728253742, 'lon': 6.70537343980859, 'crs'...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2029-08-26', 'certificate...)"
+   ],
+   "unknown": [
+    "No filed annual accounts: checked brreg_regnskap: nothing registered (no annual accounts available through the open API for this entity).",
+    "No registered employee count: the registry holds no employee count for this entity.",
+    "No website content (description, about text): no usable website declared; no domain guess attempted.",
+    "No social media profiles: no usable website declared; no domain guess attempted.",
+    "No news items: no usable website declared; no domain guess attempted.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: no usable website declared; no domain guess attempted.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: not_found (no annual accounts available through the open API for this entity)",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: skipped (no usable website declared; no domain guess attempted)"
+   ]
+  }
  }
 }

@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:33Z",
- "last_run": "2026-10-05T05:17:33Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:35:16Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,6 +49,48 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026391912 virksomhet.organisasjonsnummer=917367620 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Wernersholmvegen 49' 5232 -> matched 'Wernersholmvegen 49' 5232"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=917367620; looked up 917367620"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://kranproffen.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": true,
+    "detail": "org number 917367620 printed on https://kranproffen.no/kontakt/"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'KRANPROFFEN AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "kranproffen.no -> kranproffen.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
   "failed_checks": [],
@@ -59,7 +101,10 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
+   "website: home page guessed from the registered name; page match = orgnr_on_page (high)"
   ]
  },
  "facts": [
@@ -70,7 +115,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +123,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +146,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +154,43 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2028-06-12",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/917367620/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/917367620",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2028-06-12",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +203,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2018-11-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +211,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +229,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2016-06-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +237,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +250,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +258,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +271,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +279,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -216,7 +297,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -224,7 +305,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -242,7 +323,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -250,7 +331,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +349,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +357,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -294,7 +375,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -302,7 +383,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +401,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +409,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -354,7 +435,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -362,7 +443,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -380,7 +461,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -388,7 +469,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -406,7 +487,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -414,7 +495,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -432,7 +513,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -440,7 +521,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -458,7 +539,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -466,7 +547,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -484,7 +565,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -492,7 +573,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +591,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +599,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +617,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +625,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +643,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +651,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -588,7 +669,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -596,7 +677,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -614,7 +695,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -622,7 +703,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -640,7 +721,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -648,7 +729,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -666,7 +747,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -674,7 +755,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +773,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +781,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -718,7 +799,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -726,7 +807,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +825,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +833,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -770,7 +851,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -778,7 +859,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -804,7 +885,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -812,7 +893,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -830,7 +911,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -838,7 +919,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -856,7 +937,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -864,7 +945,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -882,7 +963,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -890,7 +971,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -908,7 +989,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -916,7 +997,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -934,7 +1015,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -942,7 +1023,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -960,7 +1041,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -968,7 +1049,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -986,7 +1067,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -994,7 +1075,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1012,7 +1093,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1020,7 +1101,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1038,7 +1119,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1046,7 +1127,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1064,7 +1145,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1072,7 +1153,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1171,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1179,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1116,7 +1197,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1124,7 +1205,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1142,7 +1223,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1150,7 +1231,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1168,7 +1249,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1176,7 +1257,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1194,7 +1275,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1202,7 +1283,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1228,7 +1309,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1236,7 +1317,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1254,7 +1335,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1262,7 +1343,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1280,7 +1361,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1288,7 +1369,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1306,7 +1387,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1314,7 +1395,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1332,7 +1413,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1340,7 +1421,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1358,7 +1439,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1366,7 +1447,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1384,7 +1465,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1392,7 +1473,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1410,7 +1491,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1418,7 +1499,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1436,7 +1517,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1444,7 +1525,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1462,7 +1543,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1470,7 +1551,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1488,7 +1569,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1496,7 +1577,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1514,7 +1595,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1522,7 +1603,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1538,7 +1619,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1546,7 +1627,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1559,7 +1640,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2016-05-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1567,7 +1648,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1580,7 +1661,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1588,7 +1669,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1604,7 +1685,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1612,7 +1693,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1625,7 +1706,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1633,7 +1714,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1646,7 +1727,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1654,7 +1735,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1667,7 +1748,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1675,11 +1756,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 60.32606604993437,
+    "lon": 5.338769198879823,
+    "crs": "EPSG:4326",
+    "matched_address": "Wernersholmvegen 49",
+    "postal_code": "5232",
+    "city": "PARADIS",
+    "municipality": "BERGEN",
+    "municipality_number": "4601",
+    "cadastral": {
+     "gnr": 41,
+     "bnr": 587
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.32606604993437&lon=5.338769198879823&markerLat=60.32606604993437&markerLon=5.338769198879823"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Wernersholmvegen+49&postnummer=5232&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1688,7 +1804,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1696,7 +1812,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1715,7 +1831,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1723,7 +1839,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1739,7 +1855,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1747,7 +1863,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1760,7 +1876,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2018-11-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1768,7 +1884,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1781,7 +1897,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2016-06-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1789,7 +1905,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1802,7 +1918,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2016-06-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1810,7 +1926,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1830,7 +1946,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1838,7 +1954,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1854,7 +1970,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620/roller",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2020-09-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1862,7 +1978,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1878,7 +1994,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620/roller",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2016-06-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1886,7 +2002,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1901,7 +2017,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620/roller",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2018-11-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1909,7 +2025,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1929,7 +2045,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620/roller",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2018-11-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1937,7 +2053,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1952,7 +2068,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620/roller",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2016-06-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1960,7 +2076,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1976,7 +2092,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1984,7 +2100,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2001,7 +2117,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2009,7 +2125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2022,7 +2138,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917367620&size=100",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2030,7 +2146,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2043,7 +2159,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917367620&size=100",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2051,7 +2167,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2073,7 +2189,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917367620&size=100",
-     "retrieved_at": "2026-10-05T05:17:33Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2081,7 +2197,462 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:33Z",
-   "last_seen": "2026-10-05T05:17:33Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "Kranproffen AS ble etablert i 2016 og har hovedsete i Bergen, med oppdrag i hele Norge. Flere av våre nøkkelpersoner har over 30 års erfaring fra bransjen – inkludert daglig leder. Vi leverer trygge kran- og løfteoperasjoner, samt montasje av prefab i betong, stål og limtre. Med solid fagkompetanse og stort engasjement for faget har vi bygget et sterkt personell og et solid omdømme i bransjen. Vi møter alle kunder med personlig oppfølging, høy arbeidsinnsats og et genuint ønske om å finne de beste løsningene. Med kvalitet, sikkerhet og helhetlig gjennomføring i fokus ønsker vi å være en samarbeidspartner du kan stole på. Kranproffen er spesialister på byggekraner og har lang erfaring med utleie av kraner og kranførere. Med verdiene Sikker, Sterk og Presis gjennomfører vi avanserte løfteoperasjoner og montasje av prefabrikkerte elementer for kunder innen olje og gass, offshore samt bygg- og anleggsindustrien. Kontakt oss gjerne for en prat om hvordan vi kan løse dine løftebehov. Vi leverer raskt og effektivt!",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no/om-oss/",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.careers.listings",
+   "value": [
+    {
+     "title": "Bli lærling",
+     "url": "https://kranproffen.no/karriere/bli-laerling/"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no/karriere/",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "links on the careers page that look like individual vacancies; titles as printed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://kranproffen.no/karriere/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no/karriere/",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://kranproffen.no/kontakt/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no/kontakt/",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.description",
+   "value": "Kranproffen sikrer trygge og effektive løft med ekspertise.Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "kranproffen@faktura.poweroffice.net",
+    "post@kranproffen.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.headline",
+   "value": "Kranproffen",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Kranproffen sikrer trygge og effektive løft med ekspertise. Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang. Vi leverer løfteoppdrag med fokus på sikkerhet, presisjon og effektiv gjennomføring. Enten det gjelder små eller komplekse prosjekter, finner vi løsninger som er tilpasset våre kunders behov. Vi leverer erfarent og høyt kvalifisert personell til kran- og løfteoperasjoner i et bredt spekter av bransjer, inkludert bygg og anlegg, olje og gass, offshore, samferdsel og energi. Våre fagfolk gir kundene pålitelig bemanning med solid forståelse for prosjekt og arbeidsmiljø. Kranproffen er en trygg og stabil samarbeidspartner med ledende kompetanse o",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.jsonld_organization",
+   "value": {
+    "name": "Kranproffen AS",
+    "logo": "https://kranproffen.no/wp-content/uploads/2026/05/kranproffen_logo-bghnd.jpg"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.language",
+   "value": "en-GB",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.og_image",
+   "value": "https://kranproffen.no/wp-content/uploads/2026/03/offshore_stord-johan-castberg-2024_3x2.webp",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": true,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no/kontakt/",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://kranproffen.no",
+    "contact": "https://kranproffen.no/kontakt/",
+    "about": "https://kranproffen.no/om-oss/",
+    "careers": "https://kranproffen.no/karriere/",
+    "products": "https://kranproffen.no/tjenester/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4746938308"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Tårnkraner",
+    "Personell",
+    "Offshore",
+    "Montasje",
+    "Mobilkraner",
+    "Logistikk",
+    "Løfteutstyr",
+    "Engineering"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no/tjenester/",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://kranproffen.no/tjenester/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no/tjenester/",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.site_name",
+   "value": "Kranproffen",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "linkedin": "https://www.linkedin.com/company/kranproffen",
+    "facebook": "https://www.facebook.com/kranproffen",
+    "instagram": "https://www.instagram.com/kranproffen",
+    "youtube": "https://www.youtube.com/@kran_proffen"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.title",
+   "value": "Kranproffen - Spesialistbedrift innen sikre løfteoperasjoner - Kranproffen",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.url",
+   "value": "https://kranproffen.no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://kranproffen.no",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2094,7 +2665,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:33Z",
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 21,
    "requests": 1,
    "checks": [
@@ -2112,7 +2683,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917367620/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:33Z",
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -2130,7 +2701,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=917367620&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:33Z",
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2148,7 +2719,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/917367620",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:33Z",
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 51,
    "requests": 1,
    "checks": [
@@ -2176,7 +2747,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=917367620&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:33Z",
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2190,7 +2761,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22917367620%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:33Z",
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2200,844 +2771,290 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:17:33Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=KRANPROFFEN&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Wernersholmvegen+49&postnummer=5232&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Wernersholmvegen 49' 5232 -> matched 'Wernersholmvegen 49' 5232"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/917367620",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=917367620; looked up 917367620"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://kranproffen.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 20,
+   "requests": 6,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://kranproffen.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": true,
+     "detail": "org number 917367620 printed on https://kranproffen.no/kontakt/"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'KRANPROFFEN AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "kranproffen.no -> kranproffen.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "name",
-   "type": "added",
-   "new": "KRANPROFFEN AS"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "DF CRANE AS",
-     "from": "2016-06-24 11:57:31",
-     "to": "2018-11-28 12:16:02"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2016-05-02"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2016-06-24"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2016-06-24"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Wernersholmvegen 49"
-    ],
+    "lat": 60.32606604993437,
+    "lon": 5.338769198879823,
+    "crs": "EPSG:4326",
+    "matched_address": "Wernersholmvegen 49",
     "postal_code": "5232",
     "city": "PARADIS",
     "municipality": "BERGEN",
     "municipality_number": "4601",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "industry.nace1",
-   "type": "added",
-   "new": {
-    "code": "43.990",
-    "description": "Annen spesialisert bygge- og anleggsvirksomhet ikke nevnt annet sted"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "employees",
-   "type": "added",
-   "new": 169
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Kjøp, utleie og salg av utstyr, utleie av personell, konsulenttjenester og annet som står i forbindelse med dette, herunder å eie aksjer i andre selskaper."
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Kjøp, utleie og salg av utstyr, utleie av personell, konsulenttjenester innenfor bygge- og anlegsvirksomhet."
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 1000000.0,
-    "currency": "NOK",
-    "shares": 1000,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2018-11-22"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/917367620"
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Morten Martinessen"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Dag Magne Vedvik"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Arild Brensdal"
+    "cadastral": {
+     "gnr": 41,
+     "bnr": 587
     },
-    {
-     "name": "Morten Martinessen"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "COLLEGIUM REVISJON AS",
-    "orgnr": "988782041"
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.32606604993437&lon=5.338769198879823&markerLat=60.32606604993437&markerLon=5.338769198879823"
    }
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "roles.accountant",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "approvals.dibk_central_approval",
    "type": "added",
    "new": {
-    "name": "DF ACCOUNTING AS",
-    "orgnr": "924375264"
+    "approved": true,
+    "valid_to": "2028-06-12",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/917367620/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
    }
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "subunits.count",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.url",
    "type": "added",
-   "new": 1
+   "new": "https://kranproffen.no"
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "subunits.list",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Kranproffen - Spesialistbedrift innen sikre løfteoperasjoner - Kranproffen"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "Kranproffen sikrer trygge og effektive løft med ekspertise.Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang."
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "Kranproffen"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "en-GB"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://kranproffen.no/wp-content/uploads/2026/03/offshore_stord-johan-castberg-2024_3x2.webp"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Kranproffen sikrer trygge og effektive løft med ekspertise. Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang. Vi leverer løfteoppdrag med fokus på sikkerhet, presisjon og effektiv gjennomføring. Enten det gjelder små eller komplekse prosjekter, finner vi løsninger som er tilpasset våre kunders behov. Vi leverer erfarent og høyt kvalifisert personell til kran- og løfteoperasjoner i et bredt spekter av bransjer, inkludert bygg og anlegg, olje og gass, offshore, samferdsel og energi. Våre fagfolk gir kundene pålitelig bemanning med solid forståelse for prosjekt og arbeidsmiljø. Kranproffen er en trygg og stabil samarbeidspartner med ledende kompetanse o"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Kranproffen"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {
+    "name": "Kranproffen AS",
+    "logo": "https://kranproffen.no/wp-content/uploads/2026/05/kranproffen_logo-bghnd.jpg"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Kranproffen AS ble etablert i 2016 og har hovedsete i Bergen, med oppdrag i hele Norge. Flere av våre nøkkelpersoner har over 30 års erfaring fra bransjen – inkludert daglig leder. Vi leverer trygge kran- og løfteoperasjoner, samt montasje av prefab i betong, stål og limtre. Med solid fagkompetanse og stort engasjement for faget har vi bygget et sterkt personell og et solid omdømme i bransjen. Vi møter alle kunder med personlig oppfølging, høy arbeidsinnsats og et genuint ønske om å finne de beste løsningene. Med kvalitet, sikkerhet og helhetlig gjennomføring i fokus ønsker vi å være en samarbeidspartner du kan stole på. Kranproffen er spesialister på byggekraner og har lang erfaring med utleie av kraner og kranførere. Med verdiene Sikker, Sterk og Presis gjennomfører vi avanserte løfteoperasjoner og montasje av prefabrikkerte elementer for kunder innen olje og gass, offshore samt bygg- og anleggsindustrien. Kontakt oss gjerne for en prat om hvordan vi kan løse dine løftebehov. Vi leverer raskt og effektivt!"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://kranproffen.no/karriere/"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.careers.listings",
    "type": "added",
    "new": [
     {
-     "orgnr": "917423733",
-     "name": "KRANPROFFEN AS",
-     "city": "PARADIS",
-     "municipality": "BERGEN",
-     "employees": 169,
-     "nace": "43.990"
+     "title": "Bli lærling",
+     "url": "https://kranproffen.no/karriere/bli-laerling/"
     }
    ]
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "subunits.employees_total",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.products_url",
    "type": "added",
-   "new": 169
+   "new": "https://kranproffen.no/tjenester/"
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.revenue",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Tårnkraner",
+    "Personell",
+    "Offshore",
+    "Montasje",
+    "Mobilkraner",
+    "Logistikk",
+    "Løfteutstyr",
+    "Engineering"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "amount": 75855872.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "url": "https://kranproffen.no/kontakt/"
    }
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.sales_revenue",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.social",
    "type": "added",
    "new": {
-    "amount": 75855872.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "linkedin": "https://www.linkedin.com/company/kranproffen",
+    "facebook": "https://www.facebook.com/kranproffen",
+    "instagram": "https://www.instagram.com/kranproffen",
+    "youtube": "https://www.youtube.com/@kran_proffen"
    }
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.operating_costs",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "kranproffen@faktura.poweroffice.net",
+    "post@kranproffen.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4746938308"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "amount": 71954624.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "home": "https://kranproffen.no",
+    "contact": "https://kranproffen.no/kontakt/",
+    "about": "https://kranproffen.no/om-oss/",
+    "careers": "https://kranproffen.no/karriere/",
+    "products": "https://kranproffen.no/tjenester/"
    }
   },
   {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.operating_result",
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
-   "new": {
-    "amount": 3901248.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -72531.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 3828717.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 842534.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 2986183.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 22037801.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1368602.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 20669199.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 8060699.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 2234986.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 19802816.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 19802816.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024342455",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 128397170.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 128397170.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 122918139.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 5479031.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -89933.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 5389097.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1197613.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 4191484.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 37974321.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1831574.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 36142747.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 14829517.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 4426470.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 33547851.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 33547851.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025562350",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 164317745.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 164317745.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 160109315.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 4208430.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -223.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 4208206.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 928229.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 3279978.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 44421246.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 2076925.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 42344322.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 9074507.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 4706448.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 39714799.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 39714799.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026391912",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:33Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
+   "new": true
   }
  ],
  "changes": [
@@ -3864,17 +3881,267 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 60.32606604993437,
+    "lon": 5.338769198879823,
+    "crs": "EPSG:4326",
+    "matched_address": "Wernersholmvegen 49",
+    "postal_code": "5232",
+    "city": "PARADIS",
+    "municipality": "BERGEN",
+    "municipality_number": "4601",
+    "cadastral": {
+     "gnr": 41,
+     "bnr": 587
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.32606604993437&lon=5.338769198879823&markerLat=60.32606604993437&markerLon=5.338769198879823"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2028-06-12",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/917367620/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://kranproffen.no"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Kranproffen - Spesialistbedrift innen sikre løfteoperasjoner - Kranproffen"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "Kranproffen sikrer trygge og effektive løft med ekspertise.Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang."
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "Kranproffen"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "en-GB"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://kranproffen.no/wp-content/uploads/2026/03/offshore_stord-johan-castberg-2024_3x2.webp"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Kranproffen sikrer trygge og effektive løft med ekspertise. Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang. Vi leverer løfteoppdrag med fokus på sikkerhet, presisjon og effektiv gjennomføring. Enten det gjelder små eller komplekse prosjekter, finner vi løsninger som er tilpasset våre kunders behov. Vi leverer erfarent og høyt kvalifisert personell til kran- og løfteoperasjoner i et bredt spekter av bransjer, inkludert bygg og anlegg, olje og gass, offshore, samferdsel og energi. Våre fagfolk gir kundene pålitelig bemanning med solid forståelse for prosjekt og arbeidsmiljø. Kranproffen er en trygg og stabil samarbeidspartner med ledende kompetanse o"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Kranproffen"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {
+    "name": "Kranproffen AS",
+    "logo": "https://kranproffen.no/wp-content/uploads/2026/05/kranproffen_logo-bghnd.jpg"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Kranproffen AS ble etablert i 2016 og har hovedsete i Bergen, med oppdrag i hele Norge. Flere av våre nøkkelpersoner har over 30 års erfaring fra bransjen – inkludert daglig leder. Vi leverer trygge kran- og løfteoperasjoner, samt montasje av prefab i betong, stål og limtre. Med solid fagkompetanse og stort engasjement for faget har vi bygget et sterkt personell og et solid omdømme i bransjen. Vi møter alle kunder med personlig oppfølging, høy arbeidsinnsats og et genuint ønske om å finne de beste løsningene. Med kvalitet, sikkerhet og helhetlig gjennomføring i fokus ønsker vi å være en samarbeidspartner du kan stole på. Kranproffen er spesialister på byggekraner og har lang erfaring med utleie av kraner og kranførere. Med verdiene Sikker, Sterk og Presis gjennomfører vi avanserte løfteoperasjoner og montasje av prefabrikkerte elementer for kunder innen olje og gass, offshore samt bygg- og anleggsindustrien. Kontakt oss gjerne for en prat om hvordan vi kan løse dine løftebehov. Vi leverer raskt og effektivt!"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://kranproffen.no/karriere/"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Bli lærling",
+     "url": "https://kranproffen.no/karriere/bli-laerling/"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://kranproffen.no/tjenester/"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Tårnkraner",
+    "Personell",
+    "Offshore",
+    "Montasje",
+    "Mobilkraner",
+    "Logistikk",
+    "Løfteutstyr",
+    "Engineering"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://kranproffen.no/kontakt/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "linkedin": "https://www.linkedin.com/company/kranproffen",
+    "facebook": "https://www.facebook.com/kranproffen",
+    "instagram": "https://www.instagram.com/kranproffen",
+    "youtube": "https://www.youtube.com/@kran_proffen"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "kranproffen@faktura.poweroffice.net",
+    "post@kranproffen.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4746938308"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://kranproffen.no",
+    "contact": "https://kranproffen.no/kontakt/",
+    "about": "https://kranproffen.no/om-oss/",
+    "careers": "https://kranproffen.no/karriere/",
+    "products": "https://kranproffen.no/tjenester/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": true
   }
  ],
  "stats": {
-  "active_facts": 80,
+  "active_facts": 102,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.45
+  "requests": 18,
+  "seconds": 20.16
  },
  "explanation": {
   "mode": "template",
-  "text": "KRANPROFFEN AS (org.nr 917 367 620) is registered as Aksjeselskap (AS), founded 2016-05-02, registered 2016-06-24. Business address: Wernersholmvegen 49, 5232 PARADIS. Main industry (NACE): 43.990 Annen spesialisert bygge- og anleggsvirksomhet ikke nevnt annet sted. Registered employees: 169 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 164,317,745; operating result NOK 4,208,430; net result NOK 3,279,978; total assets NOK 44,421,246; equity NOK 4,706,448. Leadership: general manager (daglig leder) Morten Martinessen; board chair Dag Magne Vedvik; 2 other board members. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 80 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "KRANPROFFEN AS (org.nr 917 367 620) is registered as Aksjeselskap (AS), founded 2016-05-02, registered 2016-06-24. [brreg_enheter] Main industry (NACE 43.990): Annen spesialisert bygge- og anleggsvirksomhet ikke nevnt annet sted. [brreg_enheter] Registered purpose: \"Kjøp, utleie og salg av utstyr, utleie av personell, konsulenttjenester og annet som står i forbindelse med dette, herunder å eie aksjer i andre selskaper.\" [brreg_enheter] The company's website describes it as: \"Kranproffen sikrer trygge og effektive løft med ekspertise.Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang.\" [website] Business address: Wernersholmvegen 49, 5232 PARADIS. [brreg_enheter] Products / services named on its website: Tårnkraner; Personell; Offshore; Montasje; Mobilkraner; Logistikk; Løfteutstyr; Engineering. [website] Leadership: general manager (daglig leder) Morten Martinessen; board chair Dag Magne Vedvik; 2 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 169 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 164,317,745 (+28% vs 2024); operating result NOK 4,208,430 (-23% vs 2024); net result NOK 3,279,978 (-22% vs 2024); total assets NOK 44,421,246 (+17% vs 2024); equity NOK 4,706,448 (+6% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 1,000,000. [brreg_enheter]\n- DiBK central approval: valid until 2028-06-12, 1 approval area(s). [dibk]\n\nChanges in this run (22):\n- location.business.geo: added ({'lat': 60.32606604993437, 'lon': 5.338769198879823, 'crs...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-06-12', 'certificate...)\n- web.url: added (https://kranproffen.no)\n- web.title: added (Kranproffen - Spesialistbedrift innen sikre løfteoperasjo...)\n- web.description: added (Kranproffen sikrer trygge og effektive løft med ekspertis...)\n- web.site_name: added (Kranproffen)\n- web.language: added (en-GB)\n- web.og_image: added (https://kranproffen.no/wp-content/uploads/2026/03/offshor...)\n- web.home_text: added (Kranproffen sikrer trygge og effektive løft med ekspertis...)\n- web.headline: added (Kranproffen)\n- web.jsonld_organization: added ({'name': 'Kranproffen AS', 'logo': 'https://kranproffen.n...)\n- web.about_text: added (Kranproffen AS ble etablert i 2016 og har hovedsete i Ber...)\n- web.careers_url: added (https://kranproffen.no/karriere/)\n- web.careers.listings: added ([{'title': 'Bli lærling', 'url': 'https://kranproffen.no/...)\n- web.products_url: added (https://kranproffen.no/tjenester/)\n- ... and 7 more\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: home page guessed from the registered name; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "KRANPROFFEN AS (org.nr 917 367 620) is registered as Aksjeselskap (AS), founded 2016-05-02, registered 2016-06-24. [brreg_enheter]",
+    "Main industry (NACE 43.990): Annen spesialisert bygge- og anleggsvirksomhet ikke nevnt annet sted. [brreg_enheter]",
+    "Registered purpose: \"Kjøp, utleie og salg av utstyr, utleie av personell, konsulenttjenester og annet som står i forbindelse med dette, herunder å eie aksjer i andre selskaper.\" [brreg_enheter]",
+    "The company's website describes it as: \"Kranproffen sikrer trygge og effektive løft med ekspertise.Vi har utstyret og personell som får jobben gjort riktig, effektivt og sikkert – hver gang.\" [website]",
+    "Business address: Wernersholmvegen 49, 5232 PARADIS. [brreg_enheter]",
+    "Products / services named on its website: Tårnkraner; Personell; Offshore; Montasje; Mobilkraner; Logistikk; Løfteutstyr; Engineering. [website]",
+    "Leadership: general manager (daglig leder) Morten Martinessen; board chair Dag Magne Vedvik; 2 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 169 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 164,317,745 (+28% vs 2024); operating result NOK 4,208,430 (-23% vs 2024); net result NOK 3,279,978 (-22% vs 2024); total assets NOK 44,421,246 (+17% vs 2024); equity NOK 4,706,448 (+6% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 1,000,000. [brreg_enheter]",
+    "DiBK central approval: valid until 2028-06-12, 1 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (22):",
+    "- location.business.geo: added ({'lat': 60.32606604993437, 'lon': 5.338769198879823, 'crs...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-06-12', 'certificate...)",
+    "- web.url: added (https://kranproffen.no)",
+    "- web.title: added (Kranproffen - Spesialistbedrift innen sikre løfteoperasjo...)",
+    "- web.description: added (Kranproffen sikrer trygge og effektive løft med ekspertis...)",
+    "- web.site_name: added (Kranproffen)",
+    "- web.language: added (en-GB)",
+    "- web.og_image: added (https://kranproffen.no/wp-content/uploads/2026/03/offshor...)",
+    "- web.home_text: added (Kranproffen sikrer trygge og effektive løft med ekspertis...)",
+    "- web.headline: added (Kranproffen)",
+    "- web.jsonld_organization: added ({'name': 'Kranproffen AS', 'logo': 'https://kranproffen.n...)",
+    "- web.about_text: added (Kranproffen AS ble etablert i 2016 og har hovedsete i Ber...)",
+    "- web.careers_url: added (https://kranproffen.no/karriere/)",
+    "- web.careers.listings: added ([{'title': 'Bli lærling', 'url': 'https://kranproffen.no/...)",
+    "- web.products_url: added (https://kranproffen.no/tjenester/)",
+    "- ... and 7 more"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: home page guessed from the registered name; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }

@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:01Z",
- "last_run": "2026-10-05T05:17:01Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:58:46Z",
+ "run_count": 3,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -57,6 +57,18 @@
     "detail": "Q17748232 has P2333 (Norwegian organisation number) = 920969798"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Ruseløkkveien 14' 0251 -> matched 'Ruseløkkveien 14' 0251"
+   },
+   {
+    "source": "wikipedia",
+    "check": "linked_via_wikidata",
+    "passed": true,
+    "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -71,8 +83,8 @@
    {
     "source": "website",
     "check": "name_on_page",
-    "passed": true,
-    "detail": "company name 'ADVOKATFIRMAET SELMER AS' matches the domain name"
+    "passed": false,
+    "detail": "company name 'ADVOKATFIRMAET SELMER AS' not found in page text or domain"
    },
    {
     "source": "website",
@@ -88,11 +100,14 @@
    },
    {
     "check": "name_consistency.wikidata_vs_brreg",
-    "passed": true,
-    "detail": "Wikidata label 'Advokatfirmaet Selmer' vs registry name 'ADVOKATFIRMAET SELMER AS'"
+    "passed": false,
+    "detail": "Wikidata label None vs registry name 'ADVOKATFIRMAET SELMER AS'"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "name_on_page",
+   "name_consistency.wikidata_vs_brreg"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -100,6 +115,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: item carries P2333 = org number",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
   ]
  },
@@ -111,7 +129,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -119,7 +137,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -142,7 +160,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -150,7 +168,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -173,7 +191,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -181,7 +199,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -194,7 +212,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2026-06-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -202,7 +220,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -220,7 +238,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2026-08-25",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -228,7 +246,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -241,7 +259,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -249,7 +267,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -262,7 +280,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -270,7 +288,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -288,7 +306,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -296,7 +314,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -314,7 +332,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -322,7 +340,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -340,7 +358,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -348,7 +366,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -366,7 +384,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -374,7 +392,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -392,7 +410,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -400,7 +418,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -426,7 +444,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -434,7 +452,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -452,7 +470,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -460,7 +478,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -478,7 +496,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -486,7 +504,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -504,7 +522,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -512,7 +530,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -530,7 +548,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -538,7 +556,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -556,7 +574,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -564,7 +582,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -582,7 +600,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -590,7 +608,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -608,7 +626,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -616,7 +634,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -634,7 +652,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -642,7 +660,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -660,7 +678,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -668,7 +686,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -686,7 +704,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -694,7 +712,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -712,7 +730,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -720,7 +738,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -738,7 +756,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -746,7 +764,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -764,7 +782,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -772,7 +790,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -790,7 +808,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -798,7 +816,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -816,7 +834,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -824,7 +842,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -842,7 +860,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -850,7 +868,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -876,7 +894,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -884,7 +902,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -902,7 +920,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -910,7 +928,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -928,7 +946,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -936,7 +954,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -954,7 +972,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -962,7 +980,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -980,7 +998,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -988,7 +1006,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1006,7 +1024,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1014,7 +1032,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1032,7 +1050,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1040,7 +1058,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1058,7 +1076,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1066,7 +1084,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1084,7 +1102,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1092,7 +1110,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1110,7 +1128,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1118,7 +1136,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1136,7 +1154,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1144,7 +1162,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1162,7 +1180,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1170,7 +1188,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1188,7 +1206,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1196,7 +1214,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1214,7 +1232,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1222,7 +1240,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1240,7 +1258,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1248,7 +1266,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1266,7 +1284,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1274,7 +1292,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1292,7 +1310,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1300,7 +1318,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1326,7 +1344,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1334,7 +1352,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1352,7 +1370,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1360,7 +1378,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1378,7 +1396,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1386,7 +1404,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1404,7 +1422,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1412,7 +1430,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1430,7 +1448,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1438,7 +1456,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1456,7 +1474,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1464,7 +1482,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1482,7 +1500,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1490,7 +1508,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1508,7 +1526,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1516,7 +1534,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1534,7 +1552,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1542,7 +1560,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1560,7 +1578,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1568,7 +1586,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1586,7 +1604,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1594,7 +1612,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1612,7 +1630,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1620,7 +1638,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1636,7 +1654,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1644,7 +1662,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1657,7 +1675,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2018-05-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1665,7 +1683,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1678,7 +1696,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1686,7 +1704,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1702,7 +1720,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1710,7 +1728,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1723,7 +1741,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1731,7 +1749,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1744,7 +1762,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1752,7 +1770,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1765,7 +1783,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1773,11 +1791,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.913498581158905,
+    "lon": 10.7284586944203,
+    "crs": "EPSG:4326",
+    "matched_address": "Ruseløkkveien 14",
+    "postal_code": "0251",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 209,
+     "bnr": 210
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.913498581158905&lon=10.7284586944203&markerLat=59.913498581158905&markerLon=10.7284586944203"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Rusel%C3%B8kkveien+14&postnummer=0251&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:33:54Z",
+     "source_date": "2020-09-10",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:54Z",
+   "last_seen": "2026-10-10T13:33:54Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1786,7 +1839,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1794,7 +1847,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1810,7 +1863,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1818,7 +1871,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1831,7 +1884,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2026-06-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1839,7 +1892,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1852,7 +1905,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2018-06-09",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1860,7 +1913,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1873,7 +1926,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2018-06-09",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1881,7 +1934,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1901,7 +1954,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1909,7 +1962,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1925,7 +1978,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798/roller",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2019-10-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1933,7 +1986,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1948,7 +2001,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798/roller",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2026-05-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1956,7 +2009,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1979,7 +2032,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798/roller",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2026-05-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1987,7 +2040,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2019,7 +2072,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798/roller",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2026-05-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2027,7 +2080,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2042,7 +2095,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798/roller",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2022-12-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2050,7 +2103,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2066,7 +2119,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2074,7 +2127,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2091,7 +2144,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2099,7 +2152,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2112,7 +2165,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=920969798&size=100",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2120,7 +2173,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2133,7 +2186,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=920969798&size=100",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2141,7 +2194,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2171,7 +2224,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=920969798&size=100",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2179,7 +2232,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2187,12 +2240,12 @@
   },
   {
    "key": "web.about_text",
-   "value": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Their combining of expert legal advice",
+   "value": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Chambers The team has a high level of ",
    "evidence": [
     {
      "source": "website",
      "url": "https://selmer.no/om-oss",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2200,7 +2253,63 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
+   "status": "active",
+   "history": [
+    {
+     "value": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Their combining of expert legal advice",
+     "until": "2026-10-05T05:17:01Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.careers.listings",
+   "value": [
+    {
+     "title": "Jobb i Stavanger",
+     "url": "https://selmer.no/karriere/vi-vokser-i-stavanger"
+    },
+    {
+     "title": "Analytiker i Selmer",
+     "url": "https://selmer.no/karriere/analytiker-i-selmer"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://selmer.no/karriere",
+     "retrieved_at": "2026-10-10T13:58:46Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "links on the careers page that look like individual vacancies; titles as printed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:46Z",
+   "last_seen": "2026-10-10T13:58:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://selmer.no/karriere",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://selmer.no/karriere",
+     "retrieved_at": "2026-10-10T13:58:46Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:46Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2213,7 +2322,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2221,7 +2330,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2230,21 +2339,71 @@
   {
    "key": "web.emails",
    "value": [
-    "selmer@selmer.no"
+    "selmer@selmer.no",
+    "v.rod@selmer.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "selmer@selmer.no"
+     ],
+     "until": "2026-10-05T05:17:01Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.headline",
+   "value": "Vi gjør utfordringer om til løsninger.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://selmer.no/",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "first_seen": "2026-10-10T13:58:46Z",
+   "last_seen": "2026-10-10T13:58:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskaping. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Regjeringens forslag til statsbudsjett for 2027 inneholder få skatteendringer av betydning, og det er tydelig at Regjeringen sparer seg til det skal forhandles i Stortinget om skatteforlik. Det mest oppsiktsvekkende med budsjettforslaget for 2027 er derfor at flere skatteendringer som var forventet ikke kom. Dette innebærer fortsatt usikre rammebetingelser for norsk næringsliv på områder det er",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://selmer.no/",
+     "retrieved_at": "2026-10-10T13:58:46Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:46Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2257,7 +2416,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2265,7 +2424,33 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.news.headlines",
+   "value": [
+    {
+     "title": "7.10.2026 Aktuelt Statsbudsjettet 2027",
+     "url": "https://selmer.no/aktuelt/statsbudsjettet-2027"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://selmer.no/aktuelt",
+     "retrieved_at": "2026-10-10T13:58:46Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "latest headlines linked from the news page (no dates given on the page)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:46Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2278,7 +2463,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2286,7 +2471,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2299,7 +2484,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2307,7 +2492,56 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://selmer.no/",
+    "about": "https://selmer.no/om-oss",
+    "careers": "https://selmer.no/karriere",
+    "news": "https://selmer.no/aktuelt"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://selmer.no/",
+     "retrieved_at": "2026-10-10T13:58:46Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:46Z",
+   "last_seen": "2026-10-10T13:58:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4748088478"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://selmer.no/",
+     "retrieved_at": "2026-10-10T13:58:46Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:46Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2320,7 +2554,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2328,7 +2562,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2345,7 +2579,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2353,7 +2587,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2366,7 +2600,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2374,7 +2608,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2387,7 +2621,7 @@
     {
      "source": "website",
      "url": "https://selmer.no/",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:58:46Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2395,7 +2629,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:58:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2408,7 +2642,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-02-28",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2416,7 +2650,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2431,7 +2665,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-02-28",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2439,7 +2673,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2452,7 +2686,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-02-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2460,7 +2694,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2473,7 +2707,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "1985-01-01",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2481,7 +2715,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2496,7 +2730,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-02-28",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2504,7 +2738,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2517,7 +2751,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-02-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2525,7 +2759,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2540,7 +2774,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-02-28",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2548,7 +2782,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2561,7 +2795,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q17748232",
-     "retrieved_at": "2026-10-05T05:17:01Z",
+     "retrieved_at": "2026-10-10T13:33:54Z",
      "source_date": "2024-02-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2569,11 +2803,36 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:01Z",
-   "last_seen": "2026-10-05T05:17:01Z",
+   "last_seen": "2026-10-10T13:33:54Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "wikipedia.no.summary",
+   "value": {
+    "title": "Advokatfirmaet Selmer",
+    "extract": "Advokatfirmaet Selmer AS er et norsk forretningsadvokatfirma. Det ble etablert 1. januar 1985 av Christian Selmer og har i dag kontorer i Vika i Oslo. Firmaet har over 130 advokater, hvorav 50 partnere, og har kompetanse på alle de sentrale forretningsjuridiske disiplinene. Firmaet har dessuten flere revisorer og økonomer ansatt i en egen gruppe for finansiell analyse og transaksjonsstøtte.",
+    "last_edited": "2024-02-28"
+   },
+   "evidence": [
+    {
+     "source": "wikipedia",
+     "url": "https://no.wikipedia.org/wiki/Advokatfirmaet_Selmer",
+     "retrieved_at": "2026-10-10T13:33:54Z",
+     "source_date": "2024-02-28",
+     "match": "wikidata_p2333",
+     "confidence": "medium",
+     "note": "article is linked from the Wikidata item carrying this organisation number; encyclopaedic text, not a registry fact"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:54Z",
+   "last_seen": "2026-10-10T13:33:54Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2582,9 +2841,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:01Z",
-   "facts": 21,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2593,16 +2852,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920969798/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:01Z",
-   "facts": 5,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2611,16 +2872,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=920969798&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:01Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2629,16 +2892,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/920969798",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:01Z",
-   "facts": 52,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2657,20 +2922,23 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=920969798&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:01Z",
+   "retrieved_at": "2026-10-10T13:33:54Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no LEI record lists this organisation number"
+    "no LEI record lists this organisation number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2678,9 +2946,9 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22920969798%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:01Z",
-   "facts": 8,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "wikidata_p2333",
@@ -2689,16 +2957,73 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=ADVOKATFIRMAET+SELMER&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Rusel%C3%B8kkveien+14&postnummer=0251&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Ruseløkkveien 14' 0251 -> matched 'Ruseløkkveien 14' 0251"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "wikipedia",
+   "url": "https://no.wikipedia.org/api/rest_v1/page/summary/Advokatfirmaet_Selmer",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:33:54Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "linked_via_wikidata",
+     "passed": true,
+     "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "website",
    "url": "https://www.selmer.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:01Z",
-   "facts": 10,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:58:46Z",
+   "facts": 17,
+   "requests": 6,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2712,8 +3037,8 @@
     },
     {
      "check": "name_on_page",
-     "passed": true,
-     "detail": "company name 'ADVOKATFIRMAET SELMER AS' matches the domain name"
+     "passed": false,
+     "detail": "company name 'ADVOKATFIRMAET SELMER AS' not found in page text or domain"
     },
     {
      "check": "same_host_after_redirect",
@@ -2732,990 +3057,86 @@
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "name",
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.home_text",
    "type": "added",
-   "new": "ADVOKATFIRMAET SELMER AS"
+   "new": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskaping. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Regjeringens forslag til statsbudsjett for 2027 inneholder få skatteendringer av betydning, og det er tydelig at Regjeringen sparer seg til det skal forhandles i Stortinget om skatteforlik. Det mest oppsiktsvekkende med budsjettforslaget for 2027 er derfor at flere skatteendringer som var forventet ikke kom. Dette innebærer fortsatt usikre rammebetingelser for norsk næringsliv på områder det er"
   },
   {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "entity_type",
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.headline",
    "type": "added",
-   "new": "enhet"
+   "new": "Vi gjør utfordringer om til løsninger."
   },
   {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "org_form",
-   "type": "added",
-   "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2018-05-30"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2018-06-09"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2018-06-09"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Ruseløkkveien 14"
-    ],
-    "postal_code": "0251",
-    "city": "OSLO",
-    "municipality": "OSLO",
-    "municipality_number": "0301",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "address.postal",
-   "type": "added",
-   "new": {
-    "street": [
-     "Postboks 1324 Vika"
-    ],
-    "postal_code": "0112",
-    "city": "OSLO",
-    "municipality": "OSLO",
-    "municipality_number": "0301",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "industry.nace1",
-   "type": "added",
-   "new": {
-    "code": "69.100",
-    "description": "Juridisk tjenesteyting"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "employees",
-   "type": "added",
-   "new": 161
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Advokatvirksomhet samt det som naturlig står i forbindelse med dette."
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Juridisk tjenesteyting."
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 1100000.0,
-    "currency": "NOK",
-    "shares": 55,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": true,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2026-06-08"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/920969798"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Hans Jørgen Bender"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Remi Christoffer Dramstad"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Karen Anne Rekkedal"
-    },
-    {
-     "name": "Nicolai Stamnes Myren"
-    },
-    {
-     "name": "Camilla Elisabeth Magnus"
-    },
-    {
-     "name": "Tor Herdlevær"
-    },
-    {
-     "name": "Marte Aarøe"
-    },
-    {
-     "name": "Julie Bjørnov Brustad"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "roles.board_deputies",
-   "type": "added",
-   "new": [
-    {
-     "name": "Anette Iversen Skjellum"
-    },
-    {
-     "name": "Christina Norland"
-    },
-    {
-     "name": "Håkon Christoffersen"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "CROWE PARTNER REVISJON AS",
-    "orgnr": "922829845"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 2
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "973227742",
-     "name": "ADVOKATFIRMAET SELMER AS AVD OSLO",
-     "city": "OSLO",
-     "municipality": "OSLO",
-     "employees": 147,
-     "nace": "69.100"
-    },
-    {
-     "orgnr": "926556177",
-     "name": "ADVOKATFIRMAET SELMER AS AVD STAVANGER",
-     "city": "STAVANGER",
-     "municipality": "STAVANGER",
-     "employees": 14,
-     "nace": "69.100"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 161
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 574856797.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 567991453.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 342975307.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 231881490.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 2041467.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 233922957.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 526809.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 233396148.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 288537469.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 24825272.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 263712197.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 71239357.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1230000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 287307467.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 225807467.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 61500000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024391640",
-    "parent_company": true
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 623888842.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 617977190.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 365319684.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 258569158.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 1779422.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 260348580.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 579456.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 259769124.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 337829914.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 21985776.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 315844138.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 100171315.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1350000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 336479914.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 273229914.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 63250000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025395616",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 706141716.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 697425849.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 391466647.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 314675068.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 2786248.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 317461316.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 733040.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 316728276.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 368881424.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 24256512.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 344624912.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 68193135.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1470000.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 367411424.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 304911424.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 62500000.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026359332",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikidata.id",
-   "type": "added",
-   "new": "Q17748232"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikidata.label",
-   "type": "added",
-   "new": "Advokatfirmaet Selmer"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikipedia.no",
-   "type": "added",
-   "new": "https://no.wikipedia.org/wiki/Advokatfirmaet_Selmer"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikidata.websites",
-   "type": "added",
-   "new": [
-    "https://www.selmer.no/"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikidata.inception",
-   "type": "added",
-   "new": "1985-01-01"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikidata.headquarters",
-   "type": "added",
-   "new": [
-    "Oslo"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikidata.industries",
-   "type": "added",
-   "new": [
-    "law firm"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "wikidata.employees",
-   "type": "added",
-   "new": 171
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.url",
-   "type": "added",
-   "new": "https://selmer.no/"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.orgnr_on_page",
-   "type": "added",
-   "new": true
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.title",
-   "type": "added",
-   "new": "Forside - Selmer"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.description",
-   "type": "added",
-   "new": "Fordi verden er i konstant endring, er helhet drivkraften i alt vi gjør."
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.site_name",
-   "type": "added",
-   "new": "Selmer"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.language",
-   "type": "added",
-   "new": "nb"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.og_image",
-   "type": "added",
-   "new": "https://selmer-site.transforms.svdcdn.com/production/Milj%C3%B8bilder-Ansatte/Selmer_050422_0553_web.jpg?w=1200&h=630&q=90&auto=format&fit=crop&dm=1666953935&s=aa148f2736a9a06e21e490bdd7c9ab87"
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.social",
-   "type": "added",
-   "new": {
-    "linkedin": "https://www.linkedin.com/company/advokatfirmaet-selmer-as",
-    "facebook": "https://www.facebook.com/AdvokatfirmaetSelmer",
-    "instagram": "https://www.instagram.com/advokatfirmaet_selmer"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
-   "key": "web.emails",
-   "type": "added",
-   "new": [
-    "selmer@selmer.no"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:01Z",
+   "at": "2026-10-10T13:58:46Z",
    "key": "web.about_text",
+   "type": "changed",
+   "old": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Their combining of expert legal advice",
+   "new": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Chambers The team has a high level of "
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.careers_url",
    "type": "added",
-   "new": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Their combining of expert legal advice"
+   "new": "https://selmer.no/karriere"
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Jobb i Stavanger",
+     "url": "https://selmer.no/karriere/vi-vokser-i-stavanger"
+    },
+    {
+     "title": "Analytiker i Selmer",
+     "url": "https://selmer.no/karriere/analytiker-i-selmer"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "7.10.2026 Aktuelt Statsbudsjettet 2027",
+     "url": "https://selmer.no/aktuelt/statsbudsjettet-2027"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "selmer@selmer.no"
+   ],
+   "new": [
+    "selmer@selmer.no",
+    "v.rod@selmer.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4748088478"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://selmer.no/",
+    "about": "https://selmer.no/om-oss",
+    "careers": "https://selmer.no/karriere",
+    "news": "https://selmer.no/aktuelt"
+   }
   }
  ],
  "changes": [
@@ -4704,17 +4125,174 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Their combining of expert legal advice"
+  },
+  {
+   "at": "2026-10-10T13:33:54Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.913498581158905,
+    "lon": 10.7284586944203,
+    "crs": "EPSG:4326",
+    "matched_address": "Ruseløkkveien 14",
+    "postal_code": "0251",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 209,
+     "bnr": 210
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.913498581158905&lon=10.7284586944203&markerLat=59.913498581158905&markerLon=10.7284586944203"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:54Z",
+   "key": "wikipedia.no.summary",
+   "type": "added",
+   "new": {
+    "title": "Advokatfirmaet Selmer",
+    "extract": "Advokatfirmaet Selmer AS er et norsk forretningsadvokatfirma. Det ble etablert 1. januar 1985 av Christian Selmer og har i dag kontorer i Vika i Oslo. Firmaet har over 130 advokater, hvorav 50 partnere, og har kompetanse på alle de sentrale forretningsjuridiske disiplinene. Firmaet har dessuten flere revisorer og økonomer ansatt i en egen gruppe for finansiell analyse og transaksjonsstøtte.",
+    "last_edited": "2024-02-28"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskaping. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Regjeringens forslag til statsbudsjett for 2027 inneholder få skatteendringer av betydning, og det er tydelig at Regjeringen sparer seg til det skal forhandles i Stortinget om skatteforlik. Det mest oppsiktsvekkende med budsjettforslaget for 2027 er derfor at flere skatteendringer som var forventet ikke kom. Dette innebærer fortsatt usikre rammebetingelser for norsk næringsliv på områder det er"
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Vi gjør utfordringer om til løsninger."
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Their combining of expert legal advice",
+   "new": "Samfunnet blir stadig mer krevende og komplekst å navigere i for alle som driver med verdiskapning. Å ikke bare forstå hva som er lov, men hva som er smart, er vanskeligere enn noensinne. Enten målet er vekst eller å begrense skade, er vår ambisjon den samme: Å gjøre dine utfordringer om til løsninger. Vi løser problemer, vi skaper dem ikke. Vi gir tydelige råd med et oversiktlig bilde over risiko og konsekvenser, som tar deg steget videre. Vi kjenner forretningen til klientene våre og tilbyr alltid strategisk rådgivning ut over det juridiske, der vi ser det bringer verdi. Vi følger bransjespesifikke endringer tett, slik at våre råd alltid er relevante – både i møte med dagens regelverk og fremtidige rammebetingelser. Vår visjon, våre kjerneverdier og pro bono-samarbeid beskriver hva som er viktigst for fellesskapet vårt. Topprangert av internasjonale rangeringsbyråer. Vår ledende posisjon i det norske markedet bekreftes gjennom de internasjonale rangeringsbyråene Chambers & Partners og Legal 500s årlige rangeringer. The team has a high level of knowledge and the ability to see what is most important in a case and what to focus on to solve it. Chambers The team has a high level of "
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://selmer.no/karriere"
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Jobb i Stavanger",
+     "url": "https://selmer.no/karriere/vi-vokser-i-stavanger"
+    },
+    {
+     "title": "Analytiker i Selmer",
+     "url": "https://selmer.no/karriere/analytiker-i-selmer"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "7.10.2026 Aktuelt Statsbudsjettet 2027",
+     "url": "https://selmer.no/aktuelt/statsbudsjettet-2027"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "selmer@selmer.no"
+   ],
+   "new": [
+    "selmer@selmer.no",
+    "v.rod@selmer.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4748088478"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:46Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://selmer.no/",
+    "about": "https://selmer.no/om-oss",
+    "careers": "https://selmer.no/karriere",
+    "news": "https://selmer.no/aktuelt"
+   }
   }
  ],
  "stats": {
-  "active_facts": 99,
+  "active_facts": 108,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 14.32
+  "requests": 6,
+  "seconds": 10.2
  },
  "explanation": {
   "mode": "template",
-  "text": "ADVOKATFIRMAET SELMER AS (org.nr 920 969 798) is registered as Aksjeselskap (AS), founded 2018-05-30, registered 2018-06-09. Business address: Ruseløkkveien 14, 0251 OSLO. Main industry (NACE): 69.100 Juridisk tjenesteyting. Registered employees: 161 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 706,141,716; operating result NOK 314,675,068; net result NOK 316,728,276; total assets NOK 368,881,424; equity NOK 1,470,000. Leadership: general manager (daglig leder) Hans Jørgen Bender; board chair Remi Christoffer Dramstad; 6 other board members. Sub-units registered: 2. The website describes the company as: \"Fordi verden er i konstant endring, er helhet drivkraften i alt vi gjør.\" Wikipedia: https://no.wikipedia.org/wiki/Advokatfirmaet_Selmer.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: item carries P2333 = org number\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)\n\nFirst run: 99 facts recorded.\nNot available: gleif."
+  "text": "ADVOKATFIRMAET SELMER AS (org.nr 920 969 798) is registered as Aksjeselskap (AS), founded 2018-05-30, registered 2018-06-09. [brreg_enheter] Main industry (NACE 69.100): Juridisk tjenesteyting. [brreg_enheter] Registered purpose: \"Advokatvirksomhet samt det som naturlig står i forbindelse med dette.\" [brreg_enheter] The company's website describes it as: \"Fordi verden er i konstant endring, er helhet drivkraften i alt vi gjør.\" [website] Wikipedia: \"Advokatfirmaet Selmer AS er et norsk forretningsadvokatfirma. Det ble etablert 1. januar 1985 av Christian Selmer og har i dag kontorer i Vika i Oslo. Firmaet har over 130 advokater, hvorav 50 partnere, og har kompetanse på alle de sentrale forretningsjuridiske disiplinene. Firmaet har dessuten fler\" [wikipedia] Business address: Ruseløkkveien 14, 0251 OSLO. [brreg_enheter] Leadership: general manager (daglig leder) Hans Jørgen Bender; board chair Remi Christoffer Dramstad; 6 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 161 (as of 2026-09-10); 2 registered sub-units. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 706,141,716 (+13% vs 2024); operating result NOK 314,675,068 (+22% vs 2024); net result NOK 316,728,276 (+22% vs 2024); total assets NOK 368,881,424 (+9% vs 2024); equity NOK 1,470,000 (+9% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 1,100,000. [brreg_enheter]\n\nChanges in this run (9):\n- web.home_text: added (Samfunnet blir stadig mer krevende og komplekst å naviger...)\n- web.headline: added (Vi gjør utfordringer om til løsninger.)\n- web.about_text: Samfunnet blir stadig mer krevende og komplekst å naviger... -> Samfunnet blir stadig mer krevende og komplekst å naviger...\n- web.careers_url: added (https://selmer.no/karriere)\n- web.careers.listings: added ([{'title': 'Jobb i Stavanger', 'url': 'https://selmer.no/...)\n- web.news.headlines: added ([{'title': '7.10.2026 Aktuelt Statsbudsjettet 2027', 'url...)\n- web.emails: ['selmer@selmer.no'] -> ['selmer@selmer.no', 'v.rod@selmer.no']\n- web.phones: added (['+4748088478'])\n- web.pages_checked: added ({'home': 'https://selmer.no/', 'about': 'https://selmer.n...)\n\nWhat remains unknown:\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: item carries P2333 = org number\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- wikipedia: article linked from the Wikidata item whose P2333 equals the org number\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "ADVOKATFIRMAET SELMER AS (org.nr 920 969 798) is registered as Aksjeselskap (AS), founded 2018-05-30, registered 2018-06-09. [brreg_enheter]",
+    "Main industry (NACE 69.100): Juridisk tjenesteyting. [brreg_enheter]",
+    "Registered purpose: \"Advokatvirksomhet samt det som naturlig står i forbindelse med dette.\" [brreg_enheter]",
+    "The company's website describes it as: \"Fordi verden er i konstant endring, er helhet drivkraften i alt vi gjør.\" [website]",
+    "Wikipedia: \"Advokatfirmaet Selmer AS er et norsk forretningsadvokatfirma. Det ble etablert 1. januar 1985 av Christian Selmer og har i dag kontorer i Vika i Oslo. Firmaet har over 130 advokater, hvorav 50 partnere, og har kompetanse på alle de sentrale forretningsjuridiske disiplinene. Firmaet har dessuten fler\" [wikipedia]",
+    "Business address: Ruseløkkveien 14, 0251 OSLO. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Hans Jørgen Bender; board chair Remi Christoffer Dramstad; 6 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 161 (as of 2026-09-10); 2 registered sub-units. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 706,141,716 (+13% vs 2024); operating result NOK 314,675,068 (+22% vs 2024); net result NOK 316,728,276 (+22% vs 2024); total assets NOK 368,881,424 (+9% vs 2024); equity NOK 1,470,000 (+9% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 1,100,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (9):",
+    "- web.home_text: added (Samfunnet blir stadig mer krevende og komplekst å naviger...)",
+    "- web.headline: added (Vi gjør utfordringer om til løsninger.)",
+    "- web.about_text: Samfunnet blir stadig mer krevende og komplekst å naviger... -> Samfunnet blir stadig mer krevende og komplekst å naviger...",
+    "- web.careers_url: added (https://selmer.no/karriere)",
+    "- web.careers.listings: added ([{'title': 'Jobb i Stavanger', 'url': 'https://selmer.no/...)",
+    "- web.news.headlines: added ([{'title': '7.10.2026 Aktuelt Statsbudsjettet 2027', 'url...)",
+    "- web.emails: ['selmer@selmer.no'] -> ['selmer@selmer.no', 'v.rod@selmer.no']",
+    "- web.phones: added (['+4748088478'])",
+    "- web.pages_checked: added ({'home': 'https://selmer.no/', 'about': 'https://selmer.n...)"
+   ],
+   "unknown": [
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: item carries P2333 = org number",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
+    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }

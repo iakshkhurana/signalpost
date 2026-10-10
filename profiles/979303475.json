@@ -7,11 +7,11 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:13:05Z",
- "last_run": "2026-10-05T05:41:41Z",
- "run_count": 4,
+ "last_run": "2026-10-10T14:02:05Z",
+ "run_count": 6,
  "entity_status": "ok",
  "matching": {
-  "overall": "medium",
+  "overall": "high",
   "registry_name": "FAIRTRADE NORGE STI",
   "checks": [
    {
@@ -57,6 +57,18 @@
     "detail": "Q61080189 has P2333 (Norwegian organisation number) = 979303475"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Storgata 13' 0155 -> matched 'Storgata 13' 0155"
+   },
+   {
+    "source": "wikipedia",
+    "check": "linked_via_wikidata",
+    "passed": true,
+    "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -65,8 +77,8 @@
    {
     "source": "website",
     "check": "orgnr_on_page",
-    "passed": false,
-    "detail": "org number 979303475 printed on https://www.fairtrade.net/no-no.html"
+    "passed": true,
+    "detail": "org number 979303475 printed on https://www.fairtrade.net/no-no/kontaktskjema.html"
    },
    {
     "source": "website",
@@ -88,13 +100,13 @@
    },
    {
     "check": "name_consistency.wikidata_vs_brreg",
-    "passed": true,
-    "detail": "Wikidata label 'Stiftelsen Fairtrade Norge' vs registry name 'FAIRTRADE NORGE STI'"
+    "passed": false,
+    "detail": "Wikidata label None vs registry name 'FAIRTRADE NORGE STI'"
    }
   ],
   "failed_checks": [
-   "orgnr_on_page",
-   "same_host_after_redirect"
+   "same_host_after_redirect",
+   "name_consistency.wikidata_vs_brreg"
   ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
@@ -103,7 +115,10 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: item carries P2333 = org number",
-   "website: URL declared by the company in the registry; page match = unverified (low)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
+   "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
   ]
  },
  "facts": [
@@ -114,7 +129,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -122,7 +137,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -145,7 +160,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -153,7 +168,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -170,7 +185,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2005-07-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -178,7 +193,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -191,7 +206,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -199,7 +214,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -212,7 +227,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-08-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -220,7 +235,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -233,7 +248,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -241,7 +256,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -259,7 +274,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -267,7 +282,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -285,7 +300,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -293,7 +308,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -311,7 +326,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -319,7 +334,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -337,7 +352,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -345,7 +360,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -363,7 +378,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -371,7 +386,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -397,7 +412,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -405,7 +420,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -423,7 +438,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -431,7 +446,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -449,7 +464,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -457,7 +472,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -475,7 +490,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -483,7 +498,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -501,7 +516,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -509,7 +524,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -527,7 +542,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -535,7 +550,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -553,7 +568,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -561,7 +576,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -579,7 +594,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -587,7 +602,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -605,7 +620,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -613,7 +628,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -631,7 +646,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -639,7 +654,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -657,7 +672,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -665,7 +680,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -683,7 +698,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -691,7 +706,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -709,7 +724,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -717,7 +732,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -735,7 +750,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -743,7 +758,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -761,7 +776,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -769,7 +784,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -787,7 +802,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -795,7 +810,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -821,7 +836,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -829,7 +844,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -847,7 +862,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -855,7 +870,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -873,7 +888,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -881,7 +896,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -899,7 +914,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -907,7 +922,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -925,7 +940,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -933,7 +948,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -951,7 +966,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -959,7 +974,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -977,7 +992,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -985,7 +1000,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1003,7 +1018,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1011,7 +1026,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1029,7 +1044,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1037,7 +1052,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1055,7 +1070,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1063,7 +1078,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1081,7 +1096,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1089,7 +1104,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1107,7 +1122,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1115,7 +1130,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1133,7 +1148,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1141,7 +1156,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1159,7 +1174,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1167,7 +1182,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1185,7 +1200,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1193,7 +1208,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1219,7 +1234,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1227,7 +1242,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1245,7 +1260,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1253,7 +1268,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1271,7 +1286,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1279,7 +1294,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1297,7 +1312,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1305,7 +1320,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1323,7 +1338,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1331,7 +1346,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1349,7 +1364,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1357,7 +1372,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1375,7 +1390,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1383,7 +1398,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1401,7 +1416,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1409,7 +1424,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1427,7 +1442,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1435,7 +1450,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1453,7 +1468,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1461,7 +1476,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1479,7 +1494,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1487,7 +1502,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1503,7 +1518,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1511,7 +1526,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1524,7 +1539,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "1997-06-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1532,7 +1547,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1545,7 +1560,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1553,7 +1568,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1569,7 +1584,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1577,7 +1592,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1590,7 +1605,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1598,7 +1613,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1611,7 +1626,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1619,7 +1634,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1632,7 +1647,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1640,11 +1655,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.9134528998995,
+    "lon": 10.749352215520497,
+    "crs": "EPSG:4326",
+    "matched_address": "Storgata 13",
+    "postal_code": "0155",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 208,
+     "bnr": 632
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.9134528998995&lon=10.749352215520497&markerLat=59.9134528998995&markerLon=10.749352215520497"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Storgata+13&postnummer=0155&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:26:49Z",
+     "source_date": "2026-03-26",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:49Z",
+   "last_seen": "2026-10-10T13:26:49Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1653,7 +1703,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1661,7 +1711,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1710,7 +1760,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1718,7 +1768,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1734,7 +1784,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1742,7 +1792,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1755,7 +1805,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1763,7 +1813,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1776,7 +1826,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "1997-10-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1784,7 +1834,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1804,7 +1854,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1812,7 +1862,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1828,7 +1878,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475/roller",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2013-06-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1836,7 +1886,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1852,7 +1902,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475/roller",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2025-12-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1860,7 +1910,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1875,7 +1925,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475/roller",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-07-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1883,7 +1933,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1900,7 +1950,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475/roller",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-07-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1908,7 +1958,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1943,7 +1993,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475/roller",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-07-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1951,7 +2001,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1966,7 +2016,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475/roller",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2022-08-09",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1974,7 +2024,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1990,7 +2040,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1998,7 +2048,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2015,7 +2065,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2023,7 +2073,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2036,7 +2086,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=979303475&size=100",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2044,7 +2094,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2057,7 +2107,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=979303475&size=100",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2065,7 +2115,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2087,7 +2137,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=979303475&size=100",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2095,7 +2145,249 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "Fairtrade Norge arbeider for å gjøre det enkelt for forbrukere og virksomheter å ta bærekraftige valg. Vår visjon er en verden hvor handel og næringsliv fremmer rettferdighet og bærekraftig utvikling for alle. Fairtrade Norge ble stiftet i 1997 av 12 norske organisasjoner: Det Kgl. Selskap for Norges Vel, Framtiden i våre hender, Kirkens Nødhjelp, Handel og Kontor, Norges Bondelag, Redd Barna, Kirkerådet, WWF, Norsk Folkehjelp, Frikirkens Globale Informasjon, Alternativ Handel og Norsk Næring- og Nytelsesarbeiderforbund (NNN). Fairtrade Norge er en del av den globale Fairtrade paraplyorganisasjonen Fairtrade International. Vi arbeider for økt markedstilgang for produsentene som gir større utviklingseffekter i form av økte inntekter, flere jobber og økt matsikkerhet. Sekretariatet holder sentralt til i Oslo. Fairtrade Norge har et aktivt styre med bred kompetanse. Vi er stolte over å kunne samarbeide med en rekke private og offentlige aktører for å bidra til oppnåelse av bærekraftsmålene. 22 norske bedrifter har lisens til å anvende Fairtrade-merket på sine produkter. Disse tilbyr rundt 400 Fairtrade-merkede produkter til sine kunder i Norge og i andre markeder. Bare råvarer og prod",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no/om-oss/om-fairtrade-norge.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.fairtrade.net/no-no/kontaktskjema.html"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no/kontaktskjema.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.description",
+   "value": "Fairtrade jobber for rettferdig handel, og er en av verdens største merkeordninger for bærekraft.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.headline",
+   "value": "Bærekraftig utvikling i praksis",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Fairtrade endrer internasjonal handel. Vi jobber for et mer bærekraftig jordbruk, tryggere arbeidsforhold og bedre liv for bønder og arbeidere. Vår visjon er å skape en verden der bønder og arbeidere har et trygt og bærekraftig levebrød, flere muligheter og kontroll over sin egen fremtid. Sammen med bedrifter, organisasjoner og forbrukere verden over, jobber vi for en mer likestilt fremtid. 01.09.26 Nyheter Møt Fairtrades nye medarbeidere Fairtrade vokser og har gleden av å presentere fem nye medarbeidere. Les mer 06.08.26 Nyheter Fairtrade oppdaterer standardene Fairtrade videreutvikler standardene for å styrke arbeidet med menneskerettigheter, miljø og ansvarlig handel. Les mer Fairtrade v",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.language",
+   "value": "no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": true,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no/kontaktskjema.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.fairtrade.net/no-no.html",
+    "contact": "https://www.fairtrade.net/no-no/kontaktskjema.html",
+    "about": "https://www.fairtrade.net/no-no/om-oss/om-fairtrade-norge.html"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "https://www.facebook.com/fairtradenorge",
+    "instagram": "https://www.instagram.com/fairtradenorge",
+    "linkedin": "https://www.linkedin.com/company/fairtrade-norge",
+    "youtube": "https://www.youtube.com/user/fairtradenorge"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.title",
+   "value": "Fairtrade Norge",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.url",
+   "value": "https://www.fairtrade.net/no-no.html",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.fairtrade.net/no-no.html",
+     "retrieved_at": "2026-10-10T14:02:05Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "resolved from the registry-declared website"
+    }
+   ],
+   "first_seen": "2026-10-10T14:02:05Z",
+   "last_seen": "2026-10-10T14:02:05Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2108,7 +2400,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2116,7 +2408,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2129,7 +2421,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2137,7 +2429,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2152,7 +2444,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2160,7 +2452,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2173,7 +2465,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2181,7 +2473,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2194,7 +2486,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "1997-06-20",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2202,7 +2494,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2217,7 +2509,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2225,7 +2517,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2238,7 +2530,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2246,7 +2538,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2261,7 +2553,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2269,7 +2561,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2282,7 +2574,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q61080189",
-     "retrieved_at": "2026-10-05T05:41:41Z",
+     "retrieved_at": "2026-10-10T13:26:49Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2290,11 +2582,36 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:05Z",
-   "last_seen": "2026-10-05T05:41:41Z",
+   "last_seen": "2026-10-10T13:26:49Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "wikipedia.no.summary",
+   "value": {
+    "title": "Stiftelsen Fairtrade Norge",
+    "extract": "Fairtrade Norge er en ideell organisasjon som jobber med å bygge kunnskap, spre informasjon og tilrettelegge for rettferdig handel i Norge.",
+    "last_edited": "2022-04-27"
+   },
+   "evidence": [
+    {
+     "source": "wikipedia",
+     "url": "https://no.wikipedia.org/wiki/Stiftelsen_Fairtrade_Norge",
+     "retrieved_at": "2026-10-10T13:26:49Z",
+     "source_date": "2022-04-27",
+     "match": "wikidata_p2333",
+     "confidence": "medium",
+     "note": "article is linked from the Wikidata item carrying this organisation number; encyclopaedic text, not a registry fact"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:49Z",
+   "last_seen": "2026-10-10T13:26:49Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2303,9 +2620,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:41Z",
-   "facts": 21,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2314,16 +2631,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/979303475/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:41Z",
-   "facts": 6,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2332,16 +2651,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=979303475&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:41Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2350,16 +2671,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/979303475",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:41Z",
-   "facts": 48,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2378,20 +2701,23 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=979303475&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:41Z",
+   "retrieved_at": "2026-10-10T13:26:49Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no LEI record lists this organisation number"
+    "no LEI record lists this organisation number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2399,9 +2725,9 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22979303475%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:41Z",
-   "facts": 8,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "wikidata_p2333",
@@ -2410,16 +2736,73 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=FAIRTRADE+NORGE+STI&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Storgata+13&postnummer=0155&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Storgata 13' 0155 -> matched 'Storgata 13' 0155"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "wikipedia",
+   "url": "https://no.wikipedia.org/api/rest_v1/page/summary/Stiftelsen_Fairtrade_Norge",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:49Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "linked_via_wikidata",
+     "passed": true,
+     "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "website",
    "url": "https://www.fairtrade.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:41Z",
-   "facts": 0,
-   "requests": 2,
+   "retrieved_at": "2026-10-10T14:02:05Z",
+   "facts": 11,
+   "requests": 5,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2428,8 +2811,8 @@
     },
     {
      "check": "orgnr_on_page",
-     "passed": false,
-     "detail": "org number 979303475 printed on https://www.fairtrade.net/no-no.html"
+     "passed": true,
+     "detail": "org number 979303475 printed on https://www.fairtrade.net/no-no/kontaktskjema.html"
     },
     {
      "check": "name_on_page",
@@ -2447,38 +2830,89 @@
      "detail": "page has real content (not parked/for sale)"
     }
    ],
-   "rejected": [
-    {
-     "key": "web.url",
-     "reason": "page could not be tied to 979303475 (no org number or company name on page); confidence=low"
-    },
-    {
-     "key": "web.orgnr_on_page",
-     "reason": "page could not be tied to 979303475 (no org number or company name on page); confidence=low"
-    },
-    {
-     "key": "web.title",
-     "reason": "page could not be tied to 979303475 (no org number or company name on page); confidence=low"
-    },
-    {
-     "key": "web.description",
-     "reason": "page could not be tied to 979303475 (no org number or company name on page); confidence=low"
-    },
-    {
-     "key": "web.language",
-     "reason": "page could not be tied to 979303475 (no org number or company name on page); confidence=low"
-    },
-    {
-     "key": "web.social",
-     "reason": "page could not be tied to 979303475 (no org number or company name on page); confidence=low"
-    }
-   ],
-   "notes": [
-    "website-derived facts withheld: page does not identify the company"
-   ]
+   "rejected": [],
+   "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.fairtrade.net/no-no.html"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Fairtrade Norge"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "Fairtrade jobber for rettferdig handel, og er en av verdens største merkeordninger for bærekraft."
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Fairtrade endrer internasjonal handel. Vi jobber for et mer bærekraftig jordbruk, tryggere arbeidsforhold og bedre liv for bønder og arbeidere. Vår visjon er å skape en verden der bønder og arbeidere har et trygt og bærekraftig levebrød, flere muligheter og kontroll over sin egen fremtid. Sammen med bedrifter, organisasjoner og forbrukere verden over, jobber vi for en mer likestilt fremtid. 01.09.26 Nyheter Møt Fairtrades nye medarbeidere Fairtrade vokser og har gleden av å presentere fem nye medarbeidere. Les mer 06.08.26 Nyheter Fairtrade oppdaterer standardene Fairtrade videreutvikler standardene for å styrke arbeidet med menneskerettigheter, miljø og ansvarlig handel. Les mer Fairtrade v"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Bærekraftig utvikling i praksis"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Fairtrade Norge arbeider for å gjøre det enkelt for forbrukere og virksomheter å ta bærekraftige valg. Vår visjon er en verden hvor handel og næringsliv fremmer rettferdighet og bærekraftig utvikling for alle. Fairtrade Norge ble stiftet i 1997 av 12 norske organisasjoner: Det Kgl. Selskap for Norges Vel, Framtiden i våre hender, Kirkens Nødhjelp, Handel og Kontor, Norges Bondelag, Redd Barna, Kirkerådet, WWF, Norsk Folkehjelp, Frikirkens Globale Informasjon, Alternativ Handel og Norsk Næring- og Nytelsesarbeiderforbund (NNN). Fairtrade Norge er en del av den globale Fairtrade paraplyorganisasjonen Fairtrade International. Vi arbeider for økt markedstilgang for produsentene som gir større utviklingseffekter i form av økte inntekter, flere jobber og økt matsikkerhet. Sekretariatet holder sentralt til i Oslo. Fairtrade Norge har et aktivt styre med bred kompetanse. Vi er stolte over å kunne samarbeide med en rekke private og offentlige aktører for å bidra til oppnåelse av bærekraftsmålene. 22 norske bedrifter har lisens til å anvende Fairtrade-merket på sine produkter. Disse tilbyr rundt 400 Fairtrade-merkede produkter til sine kunder i Norge og i andre markeder. Bare råvarer og prod"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.fairtrade.net/no-no/kontaktskjema.html"
+   }
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/fairtradenorge",
+    "instagram": "https://www.instagram.com/fairtradenorge",
+    "linkedin": "https://www.linkedin.com/company/fairtrade-norge",
+    "youtube": "https://www.youtube.com/user/fairtradenorge"
+   }
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.fairtrade.net/no-no.html",
+    "contact": "https://www.fairtrade.net/no-no/kontaktskjema.html",
+    "about": "https://www.fairtrade.net/no-no/om-oss/om-fairtrade-norge.html"
+   }
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": true
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:13:05Z",
@@ -3378,17 +3812,173 @@
    "key": "wikidata.employees",
    "type": "added",
    "new": 8
+  },
+  {
+   "at": "2026-10-10T13:26:49Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.9134528998995,
+    "lon": 10.749352215520497,
+    "crs": "EPSG:4326",
+    "matched_address": "Storgata 13",
+    "postal_code": "0155",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 208,
+     "bnr": 632
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.9134528998995&lon=10.749352215520497&markerLat=59.9134528998995&markerLon=10.749352215520497"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:49Z",
+   "key": "wikipedia.no.summary",
+   "type": "added",
+   "new": {
+    "title": "Stiftelsen Fairtrade Norge",
+    "extract": "Fairtrade Norge er en ideell organisasjon som jobber med å bygge kunnskap, spre informasjon og tilrettelegge for rettferdig handel i Norge.",
+    "last_edited": "2022-04-27"
+   }
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.fairtrade.net/no-no.html"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Fairtrade Norge"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "Fairtrade jobber for rettferdig handel, og er en av verdens største merkeordninger for bærekraft."
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Fairtrade endrer internasjonal handel. Vi jobber for et mer bærekraftig jordbruk, tryggere arbeidsforhold og bedre liv for bønder og arbeidere. Vår visjon er å skape en verden der bønder og arbeidere har et trygt og bærekraftig levebrød, flere muligheter og kontroll over sin egen fremtid. Sammen med bedrifter, organisasjoner og forbrukere verden over, jobber vi for en mer likestilt fremtid. 01.09.26 Nyheter Møt Fairtrades nye medarbeidere Fairtrade vokser og har gleden av å presentere fem nye medarbeidere. Les mer 06.08.26 Nyheter Fairtrade oppdaterer standardene Fairtrade videreutvikler standardene for å styrke arbeidet med menneskerettigheter, miljø og ansvarlig handel. Les mer Fairtrade v"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Bærekraftig utvikling i praksis"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Fairtrade Norge arbeider for å gjøre det enkelt for forbrukere og virksomheter å ta bærekraftige valg. Vår visjon er en verden hvor handel og næringsliv fremmer rettferdighet og bærekraftig utvikling for alle. Fairtrade Norge ble stiftet i 1997 av 12 norske organisasjoner: Det Kgl. Selskap for Norges Vel, Framtiden i våre hender, Kirkens Nødhjelp, Handel og Kontor, Norges Bondelag, Redd Barna, Kirkerådet, WWF, Norsk Folkehjelp, Frikirkens Globale Informasjon, Alternativ Handel og Norsk Næring- og Nytelsesarbeiderforbund (NNN). Fairtrade Norge er en del av den globale Fairtrade paraplyorganisasjonen Fairtrade International. Vi arbeider for økt markedstilgang for produsentene som gir større utviklingseffekter i form av økte inntekter, flere jobber og økt matsikkerhet. Sekretariatet holder sentralt til i Oslo. Fairtrade Norge har et aktivt styre med bred kompetanse. Vi er stolte over å kunne samarbeide med en rekke private og offentlige aktører for å bidra til oppnåelse av bærekraftsmålene. 22 norske bedrifter har lisens til å anvende Fairtrade-merket på sine produkter. Disse tilbyr rundt 400 Fairtrade-merkede produkter til sine kunder i Norge og i andre markeder. Bare råvarer og prod"
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.fairtrade.net/no-no/kontaktskjema.html"
+   }
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/fairtradenorge",
+    "instagram": "https://www.instagram.com/fairtradenorge",
+    "linkedin": "https://www.linkedin.com/company/fairtrade-norge",
+    "youtube": "https://www.youtube.com/user/fairtradenorge"
+   }
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.fairtrade.net/no-no.html",
+    "contact": "https://www.fairtrade.net/no-no/kontaktskjema.html",
+    "about": "https://www.fairtrade.net/no-no/om-oss/om-fairtrade-norge.html"
+   }
+  },
+  {
+   "at": "2026-10-10T14:02:05Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": true
   }
  ],
  "stats": {
-  "active_facts": 86,
+  "active_facts": 99,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 9,
-  "seconds": 9.55
+  "requests": 5,
+  "seconds": 15.68
  },
  "explanation": {
   "mode": "template",
-  "text": "FAIRTRADE NORGE STI (org.nr 979 303 475) is registered as Stiftelse (STI), founded 1997-06-20, registered 1997-10-28. Business address: Storgata 13, 0155 OSLO. Main industry (NACE): 77.400 Leasing av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker. Registered employees: 11 (as of 2026-08-10). Latest filed annual accounts (2025, company statement): revenue NOK 14,124,066; operating result NOK 45,476; net result NOK 70,310; total assets NOK 7,344,858; equity NOK 295,434. Leadership: general manager (daglig leder) Tone Cecilie Faugli; board chair Anne Katrine Gangstad; 7 other board members. Sub-units registered: 1. Website: www.fairtrade.no. Wikipedia: https://no.wikipedia.org/wiki/Stiftelsen_Fairtrade_Norge.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: item carries P2333 = org number\n- website: URL declared by the company in the registry; page match = unverified (low)\n- 6 fact(s) withheld because their page/record could not be tied to the company (see sources[].rejected).\n\nNo changes since the previous run.\nNot available: gleif."
+  "text": "FAIRTRADE NORGE STI (org.nr 979 303 475) is registered as Stiftelse (STI), founded 1997-06-20, registered 1997-10-28. [brreg_enheter] Main industry (NACE 77.400): Leasing av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker. [brreg_enheter] Registered activity: \"Forvaltning og fremming av Fairtrade-merkeordningen i Norge gjennom informasjons- og påvirkningsarbeid overfor næringsliv, offentlige aktører og forbrukere. Driver informasjons- og opplysningsarbeid overfor forbrukere, næringsliv og myndigheter om rettferdig handel og effekten av Fairtrade-ordningen\" [brreg_enheter] The company's website describes it as: \"Fairtrade jobber for rettferdig handel, og er en av verdens største merkeordninger for bærekraft.\" [website] Wikipedia: \"Fairtrade Norge er en ideell organisasjon som jobber med å bygge kunnskap, spre informasjon og tilrettelegge for rettferdig handel i Norge.\" [wikipedia] Business address: Storgata 13, 0155 OSLO. [brreg_enheter] Leadership: general manager (daglig leder) Tone Cecilie Faugli; board chair Anne Katrine Gangstad; 7 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 11 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 14,124,066 (+25% vs 2024); operating result NOK 45,476 (+375% vs 2024); net result NOK 70,310 (+169% vs 2024); total assets NOK 7,344,858 (+21% vs 2024); equity NOK 295,434 (+31% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 100,000. [brreg_enheter]\n\nChanges in this run (11):\n- web.url: added (https://www.fairtrade.net/no-no.html)\n- web.title: added (Fairtrade Norge)\n- web.description: added (Fairtrade jobber for rettferdig handel, og er en av verde...)\n- web.language: added (no)\n- web.home_text: added (Fairtrade endrer internasjonal handel. Vi jobber for et m...)\n- web.headline: added (Bærekraftig utvikling i praksis)\n- web.about_text: added (Fairtrade Norge arbeider for å gjøre det enkelt for forbr...)\n- web.contact_page: added ({'url': 'https://www.fairtrade.net/no-no/kontaktskjema.ht...)\n- web.social: added ({'facebook': 'https://www.facebook.com/fairtradenorge', '...)\n- web.pages_checked: added ({'home': 'https://www.fairtrade.net/no-no.html', 'contact...)\n- web.orgnr_on_page: added (True)\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: item carries P2333 = org number\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- wikipedia: article linked from the Wikidata item whose P2333 equals the org number\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "FAIRTRADE NORGE STI (org.nr 979 303 475) is registered as Stiftelse (STI), founded 1997-06-20, registered 1997-10-28. [brreg_enheter]",
+    "Main industry (NACE 77.400): Leasing av immateriell eiendom og lignende produkter, unntatt opphavsrettsbeskyttede verker. [brreg_enheter]",
+    "Registered activity: \"Forvaltning og fremming av Fairtrade-merkeordningen i Norge gjennom informasjons- og påvirkningsarbeid overfor næringsliv, offentlige aktører og forbrukere. Driver informasjons- og opplysningsarbeid overfor forbrukere, næringsliv og myndigheter om rettferdig handel og effekten av Fairtrade-ordningen\" [brreg_enheter]",
+    "The company's website describes it as: \"Fairtrade jobber for rettferdig handel, og er en av verdens største merkeordninger for bærekraft.\" [website]",
+    "Wikipedia: \"Fairtrade Norge er en ideell organisasjon som jobber med å bygge kunnskap, spre informasjon og tilrettelegge for rettferdig handel i Norge.\" [wikipedia]",
+    "Business address: Storgata 13, 0155 OSLO. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Tone Cecilie Faugli; board chair Anne Katrine Gangstad; 7 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 11 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 14,124,066 (+25% vs 2024); operating result NOK 45,476 (+375% vs 2024); net result NOK 70,310 (+169% vs 2024); total assets NOK 7,344,858 (+21% vs 2024); equity NOK 295,434 (+31% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 100,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (11):",
+    "- web.url: added (https://www.fairtrade.net/no-no.html)",
+    "- web.title: added (Fairtrade Norge)",
+    "- web.description: added (Fairtrade jobber for rettferdig handel, og er en av verde...)",
+    "- web.language: added (no)",
+    "- web.home_text: added (Fairtrade endrer internasjonal handel. Vi jobber for et m...)",
+    "- web.headline: added (Bærekraftig utvikling i praksis)",
+    "- web.about_text: added (Fairtrade Norge arbeider for å gjøre det enkelt for forbr...)",
+    "- web.contact_page: added ({'url': 'https://www.fairtrade.net/no-no/kontaktskjema.ht...)",
+    "- web.social: added ({'facebook': 'https://www.facebook.com/fairtradenorge', '...)",
+    "- web.pages_checked: added ({'home': 'https://www.fairtrade.net/no-no.html', 'contact...)",
+    "- web.orgnr_on_page: added (True)"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: item carries P2333 = org number",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
+    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }

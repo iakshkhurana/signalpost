@@ -8,6 +8,7 @@
   signalpost validate                            check every stored profile for integrity
   signalpost stats                               coverage overview of the store
   signalpost export --out profiles.jsonl         single-file export
+  signalpost serve                               web viewer at http://127.0.0.1:8765/
 """
 from __future__ import annotations
 
@@ -19,6 +20,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 
 from . import __version__
+from .facttypes import LABELS, TYPE_ORDER, fact_type
 from .orgnr import is_valid, normalize, parse_many, spaced
 from .store import Store, write_run_report
 
@@ -42,8 +44,12 @@ def _common(p: argparse.ArgumentParser) -> None:
     p.add_argument("--llm", action="store_true", help="use Claude for the explanation (needs ANTHROPIC_API_KEY)")
     p.add_argument("--model", default=None, help="Claude model id for --llm (default claude-opus-5-5)")
     p.add_argument("--no-website", action="store_true", help="do not fetch company websites")
-    p.add_argument("--website-pages", type=int, default=2, help="max pages per website (1 = home only)")
-    p.add_argument("--website-timeout", type=float, default=60.0, help="cap in seconds on all website fetching for one company")
+    p.add_argument("--website-pages", type=int, default=5, help="max pages per website incl. home (contact, about, careers, news/RSS, products)")
+    p.add_argument("--website-timeout", type=float, default=90.0, help="cap in seconds on all website fetching for one company")
+    p.add_argument("--no-guess-website", action="store_true", help="do not try <name>.no when no website is declared")
+    p.add_argument("--no-jobs", action="store_true", help="do not query the NAV job board")
+    p.add_argument("--sources", default=None, help="comma-separated sources to re-fetch (others are kept from the stored profile), "
+                                                   "e.g. nav_jobs,website")
     p.add_argument("--min-confidence", choices=["low", "medium", "high"], default="medium",
                    help="lowest confidence at which website-derived facts are published")
     p.add_argument("--cache-dir", default=os.environ.get("SIGNALPOST_CACHE_DIR"), help="on-disk HTTP cache (dev only)")
@@ -56,6 +62,8 @@ def _options(a: argparse.Namespace) -> dict:
         "max_cost": a.max_cost, "per_company_requests": a.per_company_requests, "timeout": a.timeout, "llm": a.llm,
         "model": a.model, "website": not a.no_website, "website_pages": a.website_pages, "website_timeout": a.website_timeout,
         "min_confidence": a.min_confidence, "cache_dir": a.cache_dir, "quiet": a.quiet,
+        "guess_website": not a.no_guess_website, "jobs": not a.no_jobs,
+        "sources": [x.strip() for x in a.sources.split(",") if x.strip()] if a.sources else None,
     }
 
 
@@ -228,7 +236,8 @@ def cmd_stats(a: argparse.Namespace) -> int:
     store = Store(a.out)
     n = 0
     src: dict[str, int] = {}
-    keys: dict[str, int] = {}
+    type_facts: dict[str, int] = {}
+    type_companies: dict[str, int] = {}
     match: dict[str, int] = {}
     facts_total = 0
     for p in store.iter_profiles():
@@ -236,11 +245,15 @@ def cmd_stats(a: argparse.Namespace) -> int:
         for s in p.get("sources", []):
             if s["status"] == "ok":
                 src[s["source"]] = src.get(s["source"], 0) + 1
+        seen_types = set()
         for f in p.get("facts", []):
             if f["status"] == "active":
                 facts_total += 1
-                k = f["key"].split(".")[0]
-                keys[k] = keys.get(k, 0) + 1
+                t = fact_type(f["key"])
+                type_facts[t] = type_facts.get(t, 0) + 1
+                seen_types.add(t)
+        for t in seen_types:
+            type_companies[t] = type_companies.get(t, 0) + 1
         m = (p.get("matching") or {}).get("overall", "?")
         match[m] = match.get(m, 0) + 1
     if not n:
@@ -251,7 +264,31 @@ def cmd_stats(a: argparse.Namespace) -> int:
     for s, c in sorted(src.items(), key=lambda x: -x[1]):
         print(f"  {s:20} {c:5}  {100 * c / n:5.1f}%")
     print("matching overall: " + ", ".join(f"{k}={v}" for k, v in sorted(match.items())))
-    print("fact groups: " + ", ".join(f"{k}={v}" for k, v in sorted(keys.items(), key=lambda x: -x[1])))
+    print("information types (companies with at least one fact / total facts):")
+    for t in TYPE_ORDER:
+        if t in type_companies:
+            print(f"  {LABELS[t]:34} {type_companies[t]:5} ({100 * type_companies[t] / n:5.1f}%)  {type_facts[t]:6} facts")
+    return 0
+
+
+def cmd_index(a: argparse.Namespace) -> int:
+    idx = Store(a.out).rebuild_index()
+    print(f"rebuilt {a.out}/index.json ({idx['count']} profiles)")
+    return 0
+
+
+def cmd_serve(a: argparse.Namespace) -> int:
+    """Serve the repository root so index.html can load profiles/*.json."""
+    import functools
+    from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+    root = os.path.abspath(a.root)
+    handler = functools.partial(SimpleHTTPRequestHandler, directory=root)
+    srv = ThreadingHTTPServer((a.host, a.port), handler)
+    print(f"serving {root} at http://{a.host}:{a.port}/  (profiles from {a.out}/) — Ctrl-C to stop")
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        pass
     return 0
 
 
@@ -300,6 +337,17 @@ def build_parser() -> argparse.ArgumentParser:
     st = sub.add_parser("stats", help="coverage statistics")
     st.add_argument("--out", default="profiles")
     st.set_defaults(fn=cmd_stats)
+
+    ix = sub.add_parser("index", help="rebuild profiles/index.json")
+    ix.add_argument("--out", default="profiles")
+    ix.set_defaults(fn=cmd_index)
+
+    sv = sub.add_parser("serve", help="serve the web viewer (index.html) and the profiles locally")
+    sv.add_argument("--root", default=".", help="directory containing index.html and profiles/")
+    sv.add_argument("--out", default="profiles")
+    sv.add_argument("--host", default="127.0.0.1")
+    sv.add_argument("--port", type=int, default=8765)
+    sv.set_defaults(fn=cmd_serve)
 
     e = sub.add_parser("export", help="write all profiles to one JSONL file")
     e.add_argument("--out", default="profiles")

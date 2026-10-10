@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:15:41Z",
- "last_run": "2026-10-05T05:15:41Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:57:57Z",
+ "run_count": 3,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -63,6 +63,18 @@
     "detail": "Q25425861 has P2333 (Norwegian organisation number) = 915419062"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Kongens gate 8' 7011 -> matched 'Kongens gate 8' 7011"
+   },
+   {
+    "source": "wikipedia",
+    "check": "linked_via_wikidata",
+    "passed": true,
+    "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -95,15 +107,17 @@
    {
     "check": "name_consistency.gleif_vs_brreg",
     "passed": true,
-    "detail": "GLEIF legal name 'OKEA ASA' vs registry name 'OKEA ASA'"
+    "detail": "GLEIF legal name None vs registry name 'OKEA ASA'"
    },
    {
     "check": "name_consistency.wikidata_vs_brreg",
-    "passed": true,
-    "detail": "Wikidata label 'OKEA' vs registry name 'OKEA ASA'"
+    "passed": false,
+    "detail": "Wikidata label None vs registry name 'OKEA ASA'"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "name_consistency.wikidata_vs_brreg"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -111,6 +125,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
    "wikidata: item carries P2333 = org number",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
   ]
  },
@@ -122,7 +139,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +147,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -153,7 +170,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -161,7 +178,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -174,7 +191,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-05-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -182,7 +199,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -200,7 +217,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2022-10-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -208,7 +225,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -221,7 +238,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-08-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -229,7 +246,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -242,7 +259,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -250,7 +267,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +285,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +293,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -294,7 +311,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -302,7 +319,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +337,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +345,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -346,7 +363,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -354,7 +371,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -372,7 +389,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -380,7 +397,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -406,7 +423,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -414,7 +431,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -432,7 +449,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -440,7 +457,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -458,7 +475,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -466,7 +483,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -484,7 +501,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -492,7 +509,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +527,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +535,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +553,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +561,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +579,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +587,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -588,7 +605,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -596,7 +613,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -614,7 +631,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -622,7 +639,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -640,7 +657,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -648,7 +665,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -666,7 +683,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -674,7 +691,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +709,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +717,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -718,7 +735,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -726,7 +743,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +761,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +769,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -770,7 +787,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -778,7 +795,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -796,7 +813,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -804,7 +821,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -822,7 +839,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -830,7 +847,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -856,7 +873,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -864,7 +881,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -882,7 +899,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -890,7 +907,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -908,7 +925,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -916,7 +933,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -934,7 +951,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -942,7 +959,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -960,7 +977,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -968,7 +985,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -986,7 +1003,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -994,7 +1011,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1012,7 +1029,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1020,7 +1037,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1038,7 +1055,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1046,7 +1063,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1064,7 +1081,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1072,7 +1089,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1107,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1115,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1116,7 +1133,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1124,7 +1141,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1142,7 +1159,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1150,7 +1167,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1168,7 +1185,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1176,7 +1193,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1194,7 +1211,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1202,7 +1219,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1220,7 +1237,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1228,7 +1245,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1246,7 +1263,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1254,7 +1271,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1272,7 +1289,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1280,7 +1297,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1306,7 +1323,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1314,7 +1331,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1332,7 +1349,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1340,7 +1357,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1358,7 +1375,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1366,7 +1383,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1384,7 +1401,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1392,7 +1409,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1410,7 +1427,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1418,7 +1435,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1436,7 +1453,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1444,7 +1461,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1462,7 +1479,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1470,7 +1487,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1488,7 +1505,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1496,7 +1513,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1514,7 +1531,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1522,7 +1539,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1540,7 +1557,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1548,7 +1565,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1566,7 +1583,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1574,7 +1591,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1592,7 +1609,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1600,7 +1617,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1616,7 +1633,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1624,7 +1641,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1637,7 +1654,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2015-04-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1645,7 +1662,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1658,7 +1675,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1666,7 +1683,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1682,7 +1699,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1690,7 +1707,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1706,7 +1723,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1714,7 +1731,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1727,7 +1744,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1735,7 +1752,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1748,7 +1765,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1756,7 +1773,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1769,15 +1786,15 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
-     "note": "GLEIF golden copy published 2026-10-04T16:00:00Z"
+     "note": "GLEIF golden copy published 2026-10-10T00:00:00Z"
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1790,7 +1807,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2015-04-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1798,7 +1815,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1811,7 +1828,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1819,7 +1836,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1840,7 +1857,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1848,7 +1865,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1869,7 +1886,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1877,7 +1894,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1890,7 +1907,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1898,7 +1915,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1911,7 +1928,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1919,7 +1936,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1941,7 +1958,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1949,7 +1966,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1967,7 +1984,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1975,7 +1992,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1995,7 +2012,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300H385IGBB58CN91",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-06T11:19:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2003,7 +2020,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2016,7 +2033,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2024,11 +2041,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 63.430629516610495,
+    "lon": 10.398520822819872,
+    "crs": "EPSG:4326",
+    "matched_address": "Kongens gate 8",
+    "postal_code": "7011",
+    "city": "TRONDHEIM",
+    "municipality": "TRONDHEIM",
+    "municipality_number": "5001",
+    "cadastral": {
+     "gnr": 401,
+     "bnr": 287
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=63.430629516610495&lon=10.398520822819872&markerLat=63.430629516610495&markerLon=10.398520822819872"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Kongens+gate+8&postnummer=7011&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:31:52Z",
+     "source_date": "2025-04-07",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:31:52Z",
+   "last_seen": "2026-10-10T13:31:52Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -2037,7 +2089,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2045,7 +2097,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2069,7 +2121,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2077,7 +2129,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2093,7 +2145,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2101,7 +2153,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2114,7 +2166,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2122,7 +2174,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2135,7 +2187,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2023-05-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2143,7 +2195,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2156,7 +2208,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2015-05-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2164,7 +2216,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2177,7 +2229,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2015-05-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2185,7 +2237,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2205,7 +2257,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2213,7 +2265,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2229,7 +2281,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062/roller",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-11-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2237,7 +2289,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2253,7 +2305,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062/roller",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2015-09-25",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2261,7 +2313,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2276,7 +2328,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062/roller",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-08-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2284,7 +2336,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2307,7 +2359,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062/roller",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-08-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2315,7 +2367,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2359,7 +2411,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062/roller",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2025-08-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2367,7 +2419,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2382,7 +2434,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062/roller",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2021-06-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2390,7 +2442,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2406,7 +2458,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2414,7 +2466,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2431,7 +2483,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2439,7 +2491,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2452,7 +2504,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915419062&size=100",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2460,7 +2512,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2473,7 +2525,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915419062&size=100",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2481,7 +2533,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2777,7 +2829,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915419062&size=100",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2785,7 +2837,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2793,20 +2845,111 @@
   },
   {
    "key": "web.about_text",
-   "value": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity in wh",
+   "value": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. Open We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity ",
    "evidence": [
     {
      "source": "website",
      "url": "https://okea.no/about/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": "first paragraphs of the company's about page"
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
+   "status": "active",
+   "history": [
+    {
+     "value": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity in wh",
+     "until": "2026-10-05T05:15:41Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.careers.listings",
+   "value": [
+    {
+     "title": "Plattformsjef Kristiansund 100% Ledelse",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5169182779?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Senior/Principal Reservoir Engineer Trondheim 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5191541757?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Explorationist Stavanger 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5191439261?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Petrophysicist Trondheim 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5190793444?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Principal Reservoir Engineer Bergen 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5192030959?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://okea.no/career/",
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "links on the careers page that look like individual vacancies; titles as printed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:57Z",
+   "last_seen": "2026-10-10T13:57:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://okea.no/career/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://okea.no/career/",
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:57Z",
+   "last_seen": "2026-10-10T13:57:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://okea.no/contact/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://okea.no/contact/",
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:57Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2819,15 +2962,15 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2842,15 +2985,57 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.headline",
+   "value": "The end is also a good start",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://okea.no/",
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "first_seen": "2026-10-10T13:57:57Z",
+   "last_seen": "2026-10-10T13:57:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "21.09.2026 OKEA ASA – OKEA strengthens its management team, including appointing Nikolai Lyngø as SVP Strategy & Business Development Read more 10.08.2026 OKEA ASA – Mandatory notification of trade by primary insider Read more Investor information OKEA has an ambitious growth strategy built on accretive M&A activities, value creation and capital discipline. OKEA has an ambitious growth strategy built on accretive M&A activities, value creation and capital discipline. OKEA is a full-scale operator on the Norwegian continental shelf, specialising in maximising value from mid- and late-life assets. We have a diversified portfolio with core focus on assets in the North Sea and Norwegian Sea. At ",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://okea.no/",
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:57Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2863,15 +3048,15 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2884,15 +3069,15 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2905,15 +3090,42 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://okea.no/",
+    "contact": "https://okea.no/contact/",
+    "about": "https://okea.no/about/",
+    "careers": "https://okea.no/career/",
+    "news": "https://okea.no/news-and-media/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://okea.no/",
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:57Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2922,23 +3134,32 @@
   {
    "key": "web.phones",
    "value": [
-    "+4773525222"
+    "+4773525222",
+    "+4795829785",
+    "+4799241109"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
-     "note": null
+     "note": "tel: links on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
-   "history": [],
+   "history": [
+    {
+     "value": [
+      "+4773525222"
+     ],
+     "until": "2026-10-05T05:15:41Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2949,15 +3170,15 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2970,15 +3191,15 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2991,15 +3212,15 @@
     {
      "source": "website",
      "url": "https://okea.no/",
-     "retrieved_at": "2026-10-05T05:15:41Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:57Z",
+     "source_date": "2026-10-10",
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": "resolved from the registry-declared website"
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:57:57Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3012,7 +3233,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -3020,7 +3241,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3033,7 +3254,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -3041,7 +3262,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3056,7 +3277,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -3064,7 +3285,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3077,7 +3298,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -3085,7 +3306,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3098,7 +3319,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2015-04-29",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -3106,7 +3327,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3119,7 +3340,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -3127,7 +3348,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3140,7 +3361,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -3148,7 +3369,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3163,7 +3384,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -3171,7 +3392,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -3184,7 +3405,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q25425861",
-     "retrieved_at": "2026-10-05T05:15:41Z",
+     "retrieved_at": "2026-10-10T13:31:52Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -3192,11 +3413,38 @@
     }
    ],
    "first_seen": "2026-10-05T05:15:41Z",
-   "last_seen": "2026-10-05T05:15:41Z",
+   "last_seen": "2026-10-10T13:31:52Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "wikipedia.no.summary",
+   "value": {
+    "title": "OKEA",
+    "description": "norsk oljeselskap",
+    "extract": "OKEA ASA er et norsk oljeselskap grunnlagt i 2015 med fokus på utbygginger og produksjon på norsk kontinentalsokkel. Selskapets største eiere er det thailandske petroleum- og energikonglomeratet Bangchak Corporation, samt det bermudiske holdingselskapet Okea Holdings Ltd. Hovedkontoret ligger i Trondheim. Selskapet har også kontorer i Kristiansund, Stavanger, Oslo og Bergen. Daglig leder er Svein J. Liknes. Styreformann er Chaiwat Kovavisarach.",
+    "thumbnail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/2017190140354_2017-07-09_Seetag_-_Sven_-_1D_X_MK_II_-_22_-_B70I3916.jpg/330px-2017190140354_2017-07-09_Seetag_-_Sven_-_1D_X_MK_II_-_22_-_B70I3916.jpg?utm_source=no.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "last_edited": "2025-12-22"
+   },
+   "evidence": [
+    {
+     "source": "wikipedia",
+     "url": "https://no.wikipedia.org/wiki/OKEA",
+     "retrieved_at": "2026-10-10T13:31:52Z",
+     "source_date": "2025-12-22",
+     "match": "wikidata_p2333",
+     "confidence": "medium",
+     "note": "article is linked from the Wikidata item carrying this organisation number; encyclopaedic text, not a registry fact"
+    }
+   ],
+   "first_seen": "2026-10-10T13:31:52Z",
+   "last_seen": "2026-10-10T13:31:52Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -3205,9 +3453,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:15:41Z",
-   "facts": 23,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -3216,16 +3464,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915419062/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:15:41Z",
-   "facts": 6,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -3234,16 +3484,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915419062&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:15:41Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -3252,16 +3504,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915419062",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:15:41Z",
-   "facts": 52,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -3280,16 +3534,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=915+419+062&page%5Bsize%5D=10",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:15:41Z",
-   "facts": 10,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "lei_registered_as",
@@ -3298,16 +3554,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "wikidata",
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22915419062%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:15:41Z",
-   "facts": 9,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "wikidata_p2333",
@@ -3316,16 +3574,73 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=OKEA&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Kongens+gate+8&postnummer=7011&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Kongens gate 8' 7011 -> matched 'Kongens gate 8' 7011"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "wikipedia",
+   "url": "https://no.wikipedia.org/api/rest_v1/page/summary/OKEA",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:31:52Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "linked_via_wikidata",
+     "passed": true,
+     "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "website",
    "url": "https://www.okea.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:15:41Z",
-   "facts": 10,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:57:57Z",
+   "facts": 16,
+   "requests": 7,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -3359,1392 +3674,89 @@
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "name",
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.home_text",
    "type": "added",
-   "new": "OKEA ASA"
+   "new": "21.09.2026 OKEA ASA – OKEA strengthens its management team, including appointing Nikolai Lyngø as SVP Strategy & Business Development Read more 10.08.2026 OKEA ASA – Mandatory notification of trade by primary insider Read more Investor information OKEA has an ambitious growth strategy built on accretive M&A activities, value creation and capital discipline. OKEA has an ambitious growth strategy built on accretive M&A activities, value creation and capital discipline. OKEA is a full-scale operator on the Norwegian continental shelf, specialising in maximising value from mid- and late-life assets. We have a diversified portfolio with core focus on assets in the North Sea and Norwegian Sea. At "
   },
   {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "entity_type",
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.headline",
    "type": "added",
-   "new": "enhet"
+   "new": "The end is also a good start"
   },
   {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "KK START 3 AS",
-     "from": "2015-05-20 13:03:31",
-     "to": "2015-06-03 12:41:42"
-    },
-    {
-     "name": "OKEA AS",
-     "from": "2015-06-03 12:41:42",
-     "to": "2019-05-16 17:36:33"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "org_form",
-   "type": "added",
-   "new": {
-    "code": "ASA",
-    "description": "Allmennaksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2015-04-29"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2015-05-20"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2015-05-20"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Kongens gate 8"
-    ],
-    "postal_code": "7011",
-    "city": "TRONDHEIM",
-    "municipality": "TRONDHEIM",
-    "municipality_number": "5001",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "industry.nace1",
-   "type": "added",
-   "new": {
-    "code": "06.200",
-    "description": "Utvinning av naturgass"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "industry.nace2",
-   "type": "added",
-   "new": {
-    "code": "06.100",
-    "description": "Utvinning av råolje"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "employees",
-   "type": "added",
-   "new": 542
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "phone",
-   "type": "added",
-   "new": "+4773525222"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Petroleums-virksomhet på norsk sokkel, inkludert utbygging og utvinning av olje og gass, og hva dermed står i forbindelse, samt ved aksjetegning eller på annen måte å delta i slik eller annen virksomhet alene eller i samarbeid med andre foretagender og interesser."
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Petroleumsvirksomhet på norsk sokkel, inkludert utbygging og utvinning av olje og gass, og hva dermed står i forbindelse, samt ved aksjetegning eller på annen måte å delta i slik eller annen virksomhet alene eller i samarbeid med andre foretagender og interesser."
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 10391035.0,
-    "currency": "NOK",
-    "shares": 103910350,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2023-05-11"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/915419062"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Svein Jakob Liknes"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Chaiwat Kovavisarach"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Michael William Fischer"
-    },
-    {
-     "name": "Rune Olav Pedersen"
-    },
-    {
-     "name": "Nichola Carol Gordon"
-    },
-    {
-     "name": "Jon Arnt Jacobsen"
-    },
-    {
-     "name": "Phatpuree Chinkulkitnivat"
-    },
-    {
-     "name": "Elizabeth Anne Williamson-Holland"
-    },
-    {
-     "name": "Pairoj Kaweeyanun"
-    },
-    {
-     "name": "Sverre Nes"
-    },
-    {
-     "name": "Ragnhild Aas"
-    },
-    {
-     "name": "Per Magne Bjellvåg"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "roles.board_deputies",
-   "type": "added",
-   "new": [
-    {
-     "name": "Olav Bjarne Roksvaag"
-    },
-    {
-     "name": "Eivind Sæterdal Bøyum"
-    },
-    {
-     "name": "Suzana Jensen"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "PRICEWATERHOUSECOOPERS AS",
-    "orgnr": "987009713"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "TMF NORWAY AS",
-    "orgnr": "989987429"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 53
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "912724859",
-     "name": "OKEA ASA 093 C",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "929858786",
-     "name": "OKEA ASA AVD BERGEN",
-     "city": "BLOMSTERDALEN",
-     "municipality": "BERGEN",
-     "employees": 86,
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "921789017",
-     "name": "OKEA ASA AVD KRISTIANSUND",
-     "city": "KRISTIANSUND N",
-     "municipality": "KRISTIANSUND",
-     "employees": 90,
-     "nace": "06.200"
-    },
-    {
-     "orgnr": "921789076",
-     "name": "OKEA ASA AVD OSLO",
-     "city": "OSLO",
-     "municipality": "OSLO",
-     "employees": 17,
-     "nace": "06.200"
-    },
-    {
-     "orgnr": "921789114",
-     "name": "OKEA ASA AVD STAVANGER",
-     "city": "STAVANGER",
-     "municipality": "SOLA",
-     "employees": 43,
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "915508847",
-     "name": "OKEA ASA AVD TRONDHEIM",
-     "city": "TRONDHEIM",
-     "municipality": "TRONDHEIM",
-     "employees": 78,
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "933193705",
-     "name": "OKEA ASA BESTLA",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "993245437",
-     "name": "OKEA ASA BRAGE",
-     "employees": 126,
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "973623974",
-     "name": "OKEA ASA DRAUGEN",
-     "employees": 102,
-     "nace": "06.200"
-    },
-    {
-     "orgnr": "936571921",
-     "name": "OKEA ASA DRAUGEN-NJORD KRAFTANLEGG",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912725006",
-     "name": "OKEA ASA KONS NR 158",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926753932",
-     "name": "OKEA ASA PL 1116 BELUGA",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926753983",
-     "name": "OKEA ASA PL 1117 FAGN",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926754068",
-     "name": "OKEA ASA PL 1125 FALK",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "822385702",
-     "name": "OKEA ASA PL 972",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912734005",
-     "name": "OKEA ASA PL053B",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912731642",
-     "name": "OKEA ASA PL055",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "834794802",
-     "name": "OKEA ASA PL055 FS",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "812734032",
-     "name": "OKEA ASA PL055B",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912733106",
-     "name": "OKEA ASA PL055D",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "924766565",
-     "name": "OKEA ASA PL055E",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "921788932",
-     "name": "OKEA ASA PL093",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "813473992",
-     "name": "OKEA ASA PL093 D",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "924765615",
-     "name": "OKEA ASA PL093 F",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912724980",
-     "name": "OKEA ASA PL093B",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "822360882",
-     "name": "OKEA ASA PL1003",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "924765666",
-     "name": "OKEA ASA PL1003 B",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926860356",
-     "name": "OKEA ASA PL1102",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926860240",
-     "name": "OKEA ASA PL1113",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926860178",
-     "name": "OKEA ASA PL1116",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926860186",
-     "name": "OKEA ASA PL1117",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926860194",
-     "name": "OKEA ASA PL1119",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "926860208",
-     "name": "OKEA ASA PL1125",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "928936031",
-     "name": "OKEA ASA PL1150 S",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "828935992",
-     "name": "OKEA ASA PL1156",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "928936015",
-     "name": "OKEA ASA PL1159",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "928936007",
-     "name": "OKEA ASA PL1161",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "931054171",
-     "name": "OKEA ASA PL1178",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "931054309",
-     "name": "OKEA ASA PL1187",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "933193624",
-     "name": "OKEA ASA PL1223",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "935270243",
-     "name": "OKEA ASA PL1252",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "935270065",
-     "name": "OKEA ASA PL1255",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "935270251",
-     "name": "OKEA ASA PL1266",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "937341032",
-     "name": "OKEA ASA PL1305",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912734110",
-     "name": "OKEA ASA PL185",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912734021",
-     "name": "OKEA ASA PL195",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912732746",
-     "name": "OKEA ASA PL195B",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "913477030",
-     "name": "OKEA ASA PL740 BRASSE",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "922575940",
-     "name": "OKEA ASA PL958",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "921052839",
-     "name": "OKEA ASA PL958",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "922385912",
-     "name": "OKEA ASA PL974",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "921788118",
-     "name": "OKEA ASA PLO38D",
-     "nace": "06.100"
-    },
-    {
-     "orgnr": "912724972",
-     "name": "OKEA ASA UTV 176 BL 6407/11-6407/3",
-     "nace": "06.100"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 542
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 8884534000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 8738903000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 7568352000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 1316182000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -217205000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 1098977000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 2034335000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -935358000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 18499622000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 14040174000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 4459448000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 2301181000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 725641000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 17773981000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 5440157000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 12333824000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "IFRS",
-    "liquidation_accounts": false,
-    "journalnr": "2024659878",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 11246097000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 10989862000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 6283256000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 4962841000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -400831000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 4562010000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 4178724000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 383286000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 19787019000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 13203625000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 6583394000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 3278939000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1111022000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 18675997000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 5019054000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 13656943000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "IFRS",
-    "liquidation_accounts": false,
-    "journalnr": "2025596337",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 808101000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 783684000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 842638000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -34537000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 1661000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -32876000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 21793000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -54669000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 1815617000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1255294000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 560323000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 251509000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 57199000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 1758420000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 377275000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1381145000.0,
-    "currency": "USD",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "USD",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "IFRS",
-    "liquidation_accounts": false,
-    "journalnr": "2026557938",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei",
-   "type": "added",
-   "new": "549300H385IGBB58CN91"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.legal_name",
-   "type": "added",
-   "new": "OKEA ASA"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.other_names",
-   "type": "added",
-   "new": [
-    {
-     "name": "KK START 3 AS",
-     "type": "PREVIOUS_LEGAL_NAME"
-    },
-    {
-     "name": "OKEA AS",
-     "type": "PREVIOUS_LEGAL_NAME"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.entity_status",
-   "type": "added",
-   "new": "ACTIVE"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.legal_address",
-   "type": "added",
-   "new": {
-    "street": [
-     "Kongens gate 8"
-    ],
-    "postal_code": "7011",
-    "city": "Trondheim",
-    "region": "NO-50",
-    "country": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.headquarters_address",
-   "type": "added",
-   "new": {
-    "street": [
-     "Kongens gate 8"
-    ],
-    "postal_code": "7011",
-    "city": "Trondheim",
-    "region": "NO-50",
-    "country": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.legal_form_elf",
-   "type": "added",
-   "new": "IQGE"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.entity_creation_date",
-   "type": "added",
-   "new": "2015-04-29"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.registration",
-   "type": "added",
-   "new": {
-    "status": "ISSUED",
-    "initial": "2017-11-02",
-    "last_update": "2025-11-06",
-    "next_renewal": "2026-12-17",
-    "managing_lou": "549300O897ZC5H7CY412",
-    "validation_sources": "915 419 062"
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "lei.parent_reporting",
-   "type": "added",
-   "new": {
-    "direct_parent_reported": false,
-    "direct_parent_exception": true,
-    "ultimate_parent_reported": false,
-    "ultimate_parent_exception": true
-   }
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.id",
-   "type": "added",
-   "new": "Q25425861"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.label",
-   "type": "added",
-   "new": "OKEA"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.description",
-   "type": "added",
-   "new": "Norwegian oil exploration firm OKEA"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikipedia.no",
-   "type": "added",
-   "new": "https://no.wikipedia.org/wiki/OKEA"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.websites",
-   "type": "added",
-   "new": [
-    "https://www.okea.no/"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.inception",
-   "type": "added",
-   "new": "2015-04-29"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.headquarters",
-   "type": "added",
-   "new": [
-    "Trondheim"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.employees",
-   "type": "added",
-   "new": 543
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "wikidata.logo",
-   "type": "added",
-   "new": "http://commons.wikimedia.org/wiki/Special:FilePath/OKEA-logo.svg"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.url",
-   "type": "added",
-   "new": "https://okea.no/"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.orgnr_on_page",
-   "type": "added",
-   "new": true
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.title",
-   "type": "added",
-   "new": "OKEA"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.description",
-   "type": "added",
-   "new": "We’re OKEA – a leading operator of mid- and late-life assets on the Norwegian continental shelf. We extend field life, explore for new resources, and unlock value from existing infrastructure."
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.site_name",
-   "type": "added",
-   "new": "OKEA"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.language",
-   "type": "added",
-   "new": "en-US"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.og_image",
-   "type": "added",
-   "new": "https://okea.no/wp-content/uploads/2025/01/OKEA-Intro.jpg"
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.emails",
-   "type": "added",
-   "new": [
-    "okea@okea.no"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
-   "key": "web.phones",
-   "type": "added",
-   "new": [
-    "+4773525222"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:15:41Z",
+   "at": "2026-10-10T13:57:57Z",
    "key": "web.about_text",
+   "type": "changed",
+   "old": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity in wh",
+   "new": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. Open We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity "
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.careers_url",
    "type": "added",
-   "new": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity in wh"
+   "new": "https://okea.no/career/"
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Plattformsjef Kristiansund 100% Ledelse",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5169182779?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Senior/Principal Reservoir Engineer Trondheim 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5191541757?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Explorationist Stavanger 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5191439261?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Petrophysicist Trondheim 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5190793444?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Principal Reservoir Engineer Bergen 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5192030959?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://okea.no/contact/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "+4773525222"
+   ],
+   "new": [
+    "+4773525222",
+    "+4795829785",
+    "+4799241109"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://okea.no/",
+    "contact": "https://okea.no/contact/",
+    "about": "https://okea.no/about/",
+    "careers": "https://okea.no/career/",
+    "news": "https://okea.no/news-and-media/"
+   }
   }
  ],
  "changes": [
@@ -6135,17 +5147,180 @@
    "key": "web.about_text",
    "type": "added",
    "new": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity in wh"
+  },
+  {
+   "at": "2026-10-10T13:31:52Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 63.430629516610495,
+    "lon": 10.398520822819872,
+    "crs": "EPSG:4326",
+    "matched_address": "Kongens gate 8",
+    "postal_code": "7011",
+    "city": "TRONDHEIM",
+    "municipality": "TRONDHEIM",
+    "municipality_number": "5001",
+    "cadastral": {
+     "gnr": 401,
+     "bnr": 287
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=63.430629516610495&lon=10.398520822819872&markerLat=63.430629516610495&markerLon=10.398520822819872"
+   }
+  },
+  {
+   "at": "2026-10-10T13:31:52Z",
+   "key": "wikipedia.no.summary",
+   "type": "added",
+   "new": {
+    "title": "OKEA",
+    "description": "norsk oljeselskap",
+    "extract": "OKEA ASA er et norsk oljeselskap grunnlagt i 2015 med fokus på utbygginger og produksjon på norsk kontinentalsokkel. Selskapets største eiere er det thailandske petroleum- og energikonglomeratet Bangchak Corporation, samt det bermudiske holdingselskapet Okea Holdings Ltd. Hovedkontoret ligger i Trondheim. Selskapet har også kontorer i Kristiansund, Stavanger, Oslo og Bergen. Daglig leder er Svein J. Liknes. Styreformann er Chaiwat Kovavisarach.",
+    "thumbnail": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/2017190140354_2017-07-09_Seetag_-_Sven_-_1D_X_MK_II_-_22_-_B70I3916.jpg/330px-2017190140354_2017-07-09_Seetag_-_Sven_-_1D_X_MK_II_-_22_-_B70I3916.jpg?utm_source=no.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "last_edited": "2025-12-22"
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "21.09.2026 OKEA ASA – OKEA strengthens its management team, including appointing Nikolai Lyngø as SVP Strategy & Business Development Read more 10.08.2026 OKEA ASA – Mandatory notification of trade by primary insider Read more Investor information OKEA has an ambitious growth strategy built on accretive M&A activities, value creation and capital discipline. OKEA has an ambitious growth strategy built on accretive M&A activities, value creation and capital discipline. OKEA is a full-scale operator on the Norwegian continental shelf, specialising in maximising value from mid- and late-life assets. We have a diversified portfolio with core focus on assets in the North Sea and Norwegian Sea. At "
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "The end is also a good start"
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity in wh",
+   "new": "We have never been afraid of challenging the established. The established way of thinking, of doing things. We spot opportunities when they arise, and we have the people, experience, and tools to make the most of them. In OKEA, we have a flat structure that enables efficient processes. Leaders and management are open and available to our colleagues. That means, if we want something done, our streamlined organisation will enable us to reach our goals. This also goes for our partners and suppliers. Our One Team philosophy, embedded across our organisation, ensures we collaborate effectively to manage our projects successfully. Our strategy is to further develop mid- and late-life assets. By tying new resources to existing infrastructure, utilising new technologies and increasing efficiency, we reduce cost and our operational footprint while extending the life-time of our assets. We may strive to make things more efficient and straightforward, but we never, ever compromise on HSEQ as safety is fundamental to our licence to operate. Open We dare to share info openly. We meet each other with understanding and positivity. We are always being honest. We dare to be proud. We drive clarity "
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://okea.no/career/"
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Plattformsjef Kristiansund 100% Ledelse",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5169182779?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Senior/Principal Reservoir Engineer Trondheim 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5191541757?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Explorationist Stavanger 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5191439261?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Petrophysicist Trondheim 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5190793444?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    },
+    {
+     "title": "Principal Reservoir Engineer Bergen 100% Utvikling",
+     "url": "https://55632.webcruiter.no/Main/recruit/public/5192030959?&language=en&use_position_site_header=0&culture_id=EN&url_org=55632"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://okea.no/contact/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "+4773525222"
+   ],
+   "new": [
+    "+4773525222",
+    "+4795829785",
+    "+4799241109"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:57Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://okea.no/",
+    "contact": "https://okea.no/contact/",
+    "about": "https://okea.no/about/",
+    "careers": "https://okea.no/career/",
+    "news": "https://okea.no/news-and-media/"
+   }
   }
  ],
  "stats": {
-  "active_facts": 113,
+  "active_facts": 121,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 10,
-  "seconds": 51.55
+  "requests": 7,
+  "seconds": 5.97
  },
  "explanation": {
   "mode": "template",
-  "text": "OKEA ASA (org.nr 915 419 062) is registered as Allmennaksjeselskap (ASA), founded 2015-04-29, registered 2015-05-20. Business address: Kongens gate 8, 7011 TRONDHEIM. Main industry (NACE): 06.200 Utvinning av naturgass. Registered employees: 542 (as of 2026-08-10). Latest filed annual accounts (2025, company statement): revenue USD 808,101,000; operating result USD -34,537,000; net result USD -54,669,000; total assets USD 1,815,617,000; equity USD 57,199,000. Leadership: general manager (daglig leder) Svein Jakob Liknes; board chair Chaiwat Kovavisarach; 10 other board members. Sub-units registered: 53. The website describes the company as: \"We’re OKEA – a leading operator of mid- and late-life assets on the Norwegian continental shelf. We extend field life, explore for new resources, and unlock value from existing infrastructure.\" LEI: 549300H385IGBB58CN91 (ACTIVE). Wikipedia: https://no.wikipedia.org/wiki/OKEA.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: item carries P2333 = org number\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)\n\nFirst run: 113 facts recorded."
+  "text": "OKEA ASA (org.nr 915 419 062) is registered as Allmennaksjeselskap (ASA), founded 2015-04-29, registered 2015-05-20. [brreg_enheter] Main industry (NACE 06.200): Utvinning av naturgass; also Utvinning av råolje. [brreg_enheter] Registered purpose: \"Petroleums-virksomhet på norsk sokkel, inkludert utbygging og utvinning av olje og gass, og hva dermed står i forbindelse, samt ved aksjetegning eller på annen måte å delta i slik eller annen virksomhet alene eller i samarbeid med andre foretagender og interesser.\" [brreg_enheter] The company's website describes it as: \"We’re OKEA – a leading operator of mid- and late-life assets on the Norwegian continental shelf. We extend field life, explore for new resources, and unlock value from existing infrastructure.\" [website] Wikipedia: \"OKEA ASA er et norsk oljeselskap grunnlagt i 2015 med fokus på utbygginger og produksjon på norsk kontinentalsokkel. Selskapets største eiere er det thailandske petroleum- og energikonglomeratet Bangchak Corporation, samt det bermudiske holdingselskapet Okea Holdings Ltd. Hovedkontoret ligger i Tron\" [wikipedia] Business address: Kongens gate 8, 7011 TRONDHEIM. [brreg_enheter] Leadership: general manager (daglig leder) Svein Jakob Liknes; board chair Chaiwat Kovavisarach; 10 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 542 (as of 2026-08-10); 53 registered sub-units. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue USD 808,101,000 (-93% vs 2024); operating result USD -34,537,000 (-101% vs 2024); net result USD -54,669,000 (-114% vs 2024); total assets USD 1,815,617,000 (-91% vs 2024); equity USD 57,199,000 (-95% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 10,391,035. [brreg_enheter]\n- LEI: 549300H385IGBB58CN91 (ACTIVE). [gleif]\n\nChanges in this run (8):\n- web.home_text: added (21.09.2026 OKEA ASA – OKEA strengthens its management tea...)\n- web.headline: added (The end is also a good start)\n- web.about_text: We have never been afraid of challenging the established.... -> We have never been afraid of challenging the established....\n- web.careers_url: added (https://okea.no/career/)\n- web.careers.listings: added ([{'title': 'Plattformsjef Kristiansund 100% Ledelse', 'ur...)\n- web.contact_page: added ({'url': 'https://okea.no/contact/'})\n- web.phones: ['+4773525222'] -> ['+4773525222', '+4795829785', '+4799241109']\n- web.pages_checked: added ({'home': 'https://okea.no/', 'contact': 'https://okea.no/...)\n\nWhat remains unknown:\n- No social media profiles: website reached, but it carries no such information.\n- No news items: website reached, but it carries no such information.\n- No products and services: website reached, but it carries no such information.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: item carries P2333 = org number\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- wikipedia: article linked from the Wikidata item whose P2333 equals the org number\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "OKEA ASA (org.nr 915 419 062) is registered as Allmennaksjeselskap (ASA), founded 2015-04-29, registered 2015-05-20. [brreg_enheter]",
+    "Main industry (NACE 06.200): Utvinning av naturgass; also Utvinning av råolje. [brreg_enheter]",
+    "Registered purpose: \"Petroleums-virksomhet på norsk sokkel, inkludert utbygging og utvinning av olje og gass, og hva dermed står i forbindelse, samt ved aksjetegning eller på annen måte å delta i slik eller annen virksomhet alene eller i samarbeid med andre foretagender og interesser.\" [brreg_enheter]",
+    "The company's website describes it as: \"We’re OKEA – a leading operator of mid- and late-life assets on the Norwegian continental shelf. We extend field life, explore for new resources, and unlock value from existing infrastructure.\" [website]",
+    "Wikipedia: \"OKEA ASA er et norsk oljeselskap grunnlagt i 2015 med fokus på utbygginger og produksjon på norsk kontinentalsokkel. Selskapets største eiere er det thailandske petroleum- og energikonglomeratet Bangchak Corporation, samt det bermudiske holdingselskapet Okea Holdings Ltd. Hovedkontoret ligger i Tron\" [wikipedia]",
+    "Business address: Kongens gate 8, 7011 TRONDHEIM. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Svein Jakob Liknes; board chair Chaiwat Kovavisarach; 10 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 542 (as of 2026-08-10); 53 registered sub-units. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue USD 808,101,000 (-93% vs 2024); operating result USD -34,537,000 (-101% vs 2024); net result USD -54,669,000 (-114% vs 2024); total assets USD 1,815,617,000 (-91% vs 2024); equity USD 57,199,000 (-95% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 10,391,035. [brreg_enheter]",
+    "LEI: 549300H385IGBB58CN91 (ACTIVE). [gleif]"
+   ],
+   "changes": [
+    "Changes in this run (8):",
+    "- web.home_text: added (21.09.2026 OKEA ASA – OKEA strengthens its management tea...)",
+    "- web.headline: added (The end is also a good start)",
+    "- web.about_text: We have never been afraid of challenging the established.... -> We have never been afraid of challenging the established....",
+    "- web.careers_url: added (https://okea.no/career/)",
+    "- web.careers.listings: added ([{'title': 'Plattformsjef Kristiansund 100% Ledelse', 'ur...)",
+    "- web.contact_page: added ({'url': 'https://okea.no/contact/'})",
+    "- web.phones: ['+4773525222'] -> ['+4773525222', '+4795829785', '+4799241109']",
+    "- web.pages_checked: added ({'home': 'https://okea.no/', 'contact': 'https://okea.no/...)"
+   ],
+   "unknown": [
+    "No social media profiles: website reached, but it carries no such information.",
+    "No news items: website reached, but it carries no such information.",
+    "No products and services: website reached, but it carries no such information."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
+    "wikidata: item carries P2333 = org number",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
+    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }

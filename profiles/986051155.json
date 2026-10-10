@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:12:56Z",
- "last_run": "2026-10-05T05:12:56Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:26:16Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,29 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026517338 virksomhet.organisasjonsnummer=986051155 (2025, selskap)"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://chronos.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 986051155 not printed on https://chronos.no; guessed site discarded"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'CHRONOS AS' matches the domain name"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +79,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: not_found (address '2. etasje Munkedamsveien 67', 0270 not found in the national address register)",
+   "website: not_found (guessed site https://chronos.no does not identify the company; nothing taken from it)"
   ]
  },
  "facts": [
@@ -70,7 +92,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +100,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -102,7 +124,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -110,7 +132,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -133,7 +155,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -141,7 +163,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -154,7 +176,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2015-03-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -162,7 +184,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -180,7 +202,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2015-05-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -188,7 +210,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -201,7 +223,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -209,7 +231,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -222,7 +244,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2026-08-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -230,7 +252,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -243,7 +265,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -251,7 +273,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -269,7 +291,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -277,7 +299,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -295,7 +317,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -303,7 +325,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -321,7 +343,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -329,7 +351,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -347,7 +369,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -355,7 +377,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -373,7 +395,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -381,7 +403,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -407,7 +429,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -415,7 +437,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -433,7 +455,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -441,7 +463,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -459,7 +481,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -467,7 +489,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -485,7 +507,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -493,7 +515,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -511,7 +533,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -519,7 +541,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -537,7 +559,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -545,7 +567,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -563,7 +585,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -571,7 +593,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -589,7 +611,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -597,7 +619,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -615,7 +637,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -623,7 +645,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -641,7 +663,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -649,7 +671,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -667,7 +689,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -675,7 +697,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -693,7 +715,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -701,7 +723,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -719,7 +741,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -727,7 +749,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -745,7 +767,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -753,7 +775,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -771,7 +793,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -779,7 +801,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -797,7 +819,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -805,7 +827,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -823,7 +845,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -831,7 +853,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -857,7 +879,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -865,7 +887,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -883,7 +905,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -891,7 +913,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -909,7 +931,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -917,7 +939,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -935,7 +957,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -943,7 +965,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -961,7 +983,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -969,7 +991,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -987,7 +1009,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -995,7 +1017,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1013,7 +1035,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1021,7 +1043,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1039,7 +1061,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1047,7 +1069,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1065,7 +1087,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1073,7 +1095,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1091,7 +1113,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1099,7 +1121,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1117,7 +1139,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1125,7 +1147,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1143,7 +1165,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1151,7 +1173,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1169,7 +1191,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1177,7 +1199,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1195,7 +1217,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1203,7 +1225,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1221,7 +1243,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1229,7 +1251,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1247,7 +1269,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1255,7 +1277,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1281,7 +1303,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1289,7 +1311,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1307,7 +1329,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1315,7 +1337,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1333,7 +1355,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1341,7 +1363,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1359,7 +1381,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1367,7 +1389,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1385,7 +1407,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1393,7 +1415,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1411,7 +1433,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1419,7 +1441,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1437,7 +1459,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1445,7 +1467,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1463,7 +1485,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1471,7 +1493,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1489,7 +1511,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1497,7 +1519,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1515,7 +1537,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1523,7 +1545,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1541,7 +1563,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1549,7 +1571,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1567,7 +1589,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1575,7 +1597,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1591,7 +1613,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1599,7 +1621,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1612,7 +1634,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2003-09-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1620,7 +1642,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1633,7 +1655,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1641,7 +1663,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1657,7 +1679,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1665,7 +1687,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1678,7 +1700,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1686,7 +1708,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1699,7 +1721,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1707,7 +1729,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1720,7 +1742,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1728,7 +1750,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1741,7 +1763,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1749,7 +1771,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1762,7 +1784,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1770,7 +1792,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1789,7 +1811,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1797,7 +1819,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1813,7 +1835,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1821,7 +1843,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1834,7 +1856,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2015-03-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1842,7 +1864,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1855,7 +1877,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2003-09-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1863,7 +1885,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1876,7 +1898,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2003-09-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1884,7 +1906,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1904,7 +1926,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1912,7 +1934,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1928,7 +1950,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155/roller",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2026-09-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1936,7 +1958,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1951,7 +1973,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155/roller",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2015-04-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1959,7 +1981,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1976,7 +1998,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155/roller",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2015-04-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1984,7 +2006,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2004,7 +2026,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155/roller",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2015-04-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2012,7 +2034,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2027,7 +2049,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155/roller",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": "2003-09-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2035,7 +2057,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2051,7 +2073,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2059,7 +2081,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2076,7 +2098,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2084,7 +2106,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2097,7 +2119,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=986051155&size=100",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2105,7 +2127,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2118,7 +2140,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=986051155&size=100",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2126,7 +2148,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2148,7 +2170,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=986051155&size=100",
-     "retrieved_at": "2026-10-05T05:12:56Z",
+     "retrieved_at": "2026-10-10T13:26:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2156,7 +2178,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:56Z",
-   "last_seen": "2026-10-05T05:12:56Z",
+   "last_seen": "2026-10-10T13:26:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2169,7 +2191,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:56Z",
+   "retrieved_at": "2026-10-10T13:26:16Z",
    "facts": 24,
    "requests": 1,
    "checks": [
@@ -2187,7 +2209,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/986051155/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:56Z",
+   "retrieved_at": "2026-10-10T13:26:16Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -2205,7 +2227,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=986051155&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:56Z",
+   "retrieved_at": "2026-10-10T13:26:16Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2223,7 +2245,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/986051155",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:56Z",
+   "retrieved_at": "2026-10-10T13:26:16Z",
    "facts": 51,
    "requests": 1,
    "checks": [
@@ -2251,7 +2273,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=986051155&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:56Z",
+   "retrieved_at": "2026-10-10T13:26:16Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2265,7 +2287,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22986051155%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:56Z",
+   "retrieved_at": "2026-10-10T13:26:16Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2275,876 +2297,65 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:12:56Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=CHRONOS&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:26:16Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
-   ]
-  }
- ],
- "last_run_changes": [
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "name",
-   "type": "added",
-   "new": "CHRONOS AS"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "KEN INVEST AS",
-     "from": "2003-09-27 14:33:38",
-     "to": "2013-04-06 14:33:26"
-    }
+    "HTTP 429"
    ]
   },
   {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "org_form",
-   "type": "added",
-   "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=2.+etasje+Munkedamsveien+67&postnummer=0270&treffPerSide=1&fuzzy=true",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:16Z",
+   "facts": 0,
+   "requests": 1,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "address '2. etasje Munkedamsveien 67', 0270 not found in the national address register"
+   ]
   },
   {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2003-09-12"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2003-09-27"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2003-09-27"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "2. etasje",
-     "Munkedamsveien 67"
-    ],
-    "postal_code": "0270",
-    "city": "OSLO",
-    "municipality": "OSLO",
-    "municipality_number": "0301",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "address.postal",
-   "type": "added",
-   "new": {
-    "street": [
-     "Postboks 209  Skøyen"
-    ],
-    "postal_code": "0213",
-    "city": "OSLO",
-    "municipality": "OSLO",
-    "municipality_number": "0301",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "industry.nace1",
-   "type": "added",
-   "new": {
-    "code": "62.100",
-    "description": "Dataprogrammeringstjenester"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "employees",
-   "type": "added",
-   "new": 6
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "mobile",
-   "type": "added",
-   "new": "975 57 002"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "email",
-   "type": "added",
-   "new": "kjbkar@gmail.com"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Konsulentvirksomhet og salg av programvare innen data og det som står i forbindelse med denne virksomhet."
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Konsulentvirksomhet og salg av programvare innen data og det som står i forbindelse med denne virksomhet."
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 300000.0,
-    "currency": "NOK",
-    "shares": 300000,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2015-03-26"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/986051155"
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Kjetil Bjerke Karlsen"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Espen Remman"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
+   "source": "website",
+   "url": "https://chronos.no",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:16Z",
+   "facts": 0,
+   "requests": 2,
+   "checks": [
     {
-     "name": "Kjetil Bjerke Karlsen"
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://chronos.no was derived from the registered name and must identify the company itself"
     },
     {
-     "name": "Bernt Arild Bremdal"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "roles.board_deputies",
-   "type": "added",
-   "new": [
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 986051155 not printed on https://chronos.no; guessed site discarded"
+    },
     {
-     "name": "Stian Nicolai Frenger"
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'CHRONOS AS' matches the domain name"
     }
+   ],
+   "rejected": [],
+   "notes": [
+    "guessed site https://chronos.no does not identify the company; nothing taken from it"
    ]
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "PKF REVISJON AS",
-    "orgnr": "837084962"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "912560554",
-     "name": "CHRONOS AS",
-     "city": "OSLO",
-     "municipality": "OSLO",
-     "employees": 6,
-     "nace": "62.100"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 6
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 10758242.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 10758242.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 10066259.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 691983.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -5990.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 685993.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 153859.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 532134.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 4539719.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1545227.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 2994491.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 1231949.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1806804.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 2732914.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 2729601.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 3313.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024451893",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 18946989.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 19074463.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 16904055.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 2042934.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -8014.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 2034920.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 449213.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 1585707.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 6904571.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1821023.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 5083548.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 2215084.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 2042461.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 4862110.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 4832112.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 29999.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025321453",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 14270440.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 14270440.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 14741042.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -470602.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -18724.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -489326.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": -106335.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -382992.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 6416050.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 3246231.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 3169819.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 484036.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1719410.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 4696640.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 4696640.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026517338",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:56Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
   }
  ],
+ "last_run_changes": [],
  "changes": [
   {
    "at": "2026-10-05T05:12:56Z",
@@ -4005,11 +3216,50 @@
   "active_facts": 83,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.34
+  "requests": 13,
+  "seconds": 12.29
  },
  "explanation": {
   "mode": "template",
-  "text": "CHRONOS AS (org.nr 986 051 155) is registered as Aksjeselskap (AS), founded 2003-09-12, registered 2003-09-27. Business address: 2. etasje, Munkedamsveien 67, 0270 OSLO. Main industry (NACE): 62.100 Dataprogrammeringstjenester. Registered employees: 6 (as of 2026-08-10). Latest filed annual accounts (2025, company statement): revenue NOK 14,270,440; operating result NOK -470,602; net result NOK -382,992; total assets NOK 6,416,050; equity NOK 1,719,410. Leadership: general manager (daglig leder) Kjetil Bjerke Karlsen; board chair Espen Remman; 2 other board members. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 83 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "CHRONOS AS (org.nr 986 051 155) is registered as Aksjeselskap (AS), founded 2003-09-12, registered 2003-09-27. [brreg_enheter] Main industry (NACE 62.100): Dataprogrammeringstjenester. [brreg_enheter] Registered purpose: \"Konsulentvirksomhet og salg av programvare innen data og det som står i forbindelse med denne virksomhet.\" [brreg_enheter] Business address: 2. etasje, Munkedamsveien 67, 0270 OSLO. [brreg_enheter] Leadership: general manager (daglig leder) Kjetil Bjerke Karlsen; board chair Espen Remman; 2 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 6 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 14,270,440 (-25% vs 2024); operating result NOK -470,602 (-123% vs 2024); net result NOK -382,992 (-124% vs 2024); total assets NOK 6,416,050 (-7% vs 2024); equity NOK 1,719,410 (-16% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 300,000. [brreg_enheter]\n\nNo changes since the previous run.\n\nWhat remains unknown:\n- No website content (description, about text): checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).\n- No social media profiles: checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).\n- No news items: checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).\n- No map coordinates of the business address: checked geonorge: nothing registered (address '2. etasje Munkedamsveien 67', 0270 not found in the national address register).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: not_found (address '2. etasje Munkedamsveien 67', 0270 not found in the national address register)\n- website: not_found (guessed site https://chronos.no does not identify the company; nothing taken from it)",
+  "sections": {
+   "what_it_does": [
+    "CHRONOS AS (org.nr 986 051 155) is registered as Aksjeselskap (AS), founded 2003-09-12, registered 2003-09-27. [brreg_enheter]",
+    "Main industry (NACE 62.100): Dataprogrammeringstjenester. [brreg_enheter]",
+    "Registered purpose: \"Konsulentvirksomhet og salg av programvare innen data og det som står i forbindelse med denne virksomhet.\" [brreg_enheter]",
+    "Business address: 2. etasje, Munkedamsveien 67, 0270 OSLO. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Kjetil Bjerke Karlsen; board chair Espen Remman; 2 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 6 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 14,270,440 (-25% vs 2024); operating result NOK -470,602 (-123% vs 2024); net result NOK -382,992 (-124% vs 2024); total assets NOK 6,416,050 (-7% vs 2024); equity NOK 1,719,410 (-16% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 300,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "No changes since the previous run."
+   ],
+   "unknown": [
+    "No website content (description, about text): checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).",
+    "No social media profiles: checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).",
+    "No news items: checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: checked website: nothing registered (guessed site https://chronos.no does not identify the company; nothing taken from it).",
+    "No map coordinates of the business address: checked geonorge: nothing registered (address '2. etasje Munkedamsveien 67', 0270 not found in the national address register).",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: not_found (address '2. etasje Munkedamsveien 67', 0270 not found in the national address register)",
+    "website: not_found (guessed site https://chronos.no does not identify the company; nothing taken from it)"
+   ]
+  }
  }
 }

@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:20:06Z",
- "last_run": "2026-10-05T05:20:06Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:59:02Z",
+ "run_count": 3,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,47 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026511572 virksomhet.organisasjonsnummer=927889897 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Alvimveien 58' 1722 -> matched 'Alvimveien 58' 1722"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://3tech.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 927889897 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name '3TECH AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "3tech.no -> 3tech.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +97,10 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: not_found (no central approval registered)",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +111,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +119,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +142,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +150,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +163,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +171,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +189,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +197,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +210,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +218,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +231,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +239,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -216,7 +257,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -224,7 +265,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -242,7 +283,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -250,7 +291,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +309,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +317,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -294,7 +335,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -302,7 +343,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +361,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +369,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -354,7 +395,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -362,7 +403,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -380,7 +421,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -388,7 +429,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -406,7 +447,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -414,7 +455,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -432,7 +473,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -440,7 +481,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -458,7 +499,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -466,7 +507,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -484,7 +525,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -492,7 +533,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +551,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +559,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +577,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +585,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +603,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +611,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -588,7 +629,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -596,7 +637,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -614,7 +655,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -622,7 +663,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -640,7 +681,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -648,7 +689,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -666,7 +707,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -674,7 +715,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +733,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +741,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -718,7 +759,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -726,7 +767,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +785,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +793,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -770,7 +811,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -778,7 +819,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -804,7 +845,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -812,7 +853,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -830,7 +871,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -838,7 +879,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -856,7 +897,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -864,7 +905,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -882,7 +923,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -890,7 +931,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -908,7 +949,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -916,7 +957,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -934,7 +975,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -942,7 +983,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -960,7 +1001,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -968,7 +1009,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -986,7 +1027,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -994,7 +1035,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1012,7 +1053,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1020,7 +1061,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1038,7 +1079,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1046,7 +1087,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1064,7 +1105,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1072,7 +1113,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1131,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1139,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1116,7 +1157,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1124,7 +1165,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1142,7 +1183,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1150,7 +1191,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1168,7 +1209,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1176,7 +1217,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1194,7 +1235,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1202,7 +1243,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1228,7 +1269,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1236,7 +1277,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1254,7 +1295,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1262,7 +1303,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1280,7 +1321,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1288,7 +1329,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1306,7 +1347,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1314,7 +1355,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1332,7 +1373,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1340,7 +1381,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1358,7 +1399,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1366,7 +1407,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1384,7 +1425,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1392,7 +1433,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1410,7 +1451,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1418,7 +1459,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1436,7 +1477,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1444,7 +1485,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1462,7 +1503,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1470,7 +1511,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1488,7 +1529,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1496,7 +1537,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1514,7 +1555,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1522,7 +1563,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1538,7 +1579,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1546,7 +1587,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1559,7 +1600,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1567,7 +1608,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1580,7 +1621,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1588,7 +1629,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1604,7 +1645,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1612,7 +1653,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1625,7 +1666,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1633,7 +1674,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1646,7 +1687,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1654,7 +1695,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1667,7 +1708,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1675,11 +1716,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.26881700466521,
+    "lon": 11.079076984293248,
+    "crs": "EPSG:4326",
+    "matched_address": "Alvimveien 58",
+    "postal_code": "1722",
+    "city": "SARPSBORG",
+    "municipality": "SARPSBORG",
+    "municipality_number": "3105",
+    "cadastral": {
+     "gnr": 1,
+     "bnr": 2273
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.26881700466521&lon=11.079076984293248&markerLat=59.26881700466521&markerLon=11.079076984293248"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Alvimveien+58&postnummer=1722&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:42:10Z",
+     "source_date": "2025-06-27",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:42:10Z",
+   "last_seen": "2026-10-10T13:42:10Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1688,7 +1764,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1696,7 +1772,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1712,7 +1788,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1720,7 +1796,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1733,7 +1809,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1741,7 +1817,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1754,7 +1830,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1762,7 +1838,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1775,7 +1851,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1783,7 +1859,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1803,7 +1879,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1811,7 +1887,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1827,7 +1903,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897/roller",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-11-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1835,7 +1911,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1851,7 +1927,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897/roller",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1859,7 +1935,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1874,7 +1950,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897/roller",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1882,7 +1958,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1902,7 +1978,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897/roller",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2021-10-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1910,7 +1986,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1925,7 +2001,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897/roller",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": "2024-12-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1933,7 +2009,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1949,7 +2025,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1957,7 +2033,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1974,7 +2050,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1982,7 +2058,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1995,7 +2071,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=927889897&size=100",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2003,7 +2079,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2016,7 +2092,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=927889897&size=100",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2024,7 +2100,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2046,7 +2122,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=927889897&size=100",
-     "retrieved_at": "2026-10-05T05:20:06Z",
+     "retrieved_at": "2026-10-10T13:42:10Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2054,11 +2130,390 @@
     }
    ],
    "first_seen": "2026-10-05T05:20:06Z",
-   "last_seen": "2026-10-05T05:20:06Z",
+   "last_seen": "2026-10-10T13:42:10Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "Etter mange år i bransjen i større selskap, hadde vi et ønske om å arbeide enklere og mer presist. Vi var overbevist om at ting kunne gjøres mer effektivt og til høyere kvalitet. Resultatet ble 3Tech AS som ble etablert 1. mai 2016. Vi består i dag av 9 medarbeidere med lang erfaring innen telekommunikasjon. 3Tech representerer kvalitet og trygghet. Alle montørene i 3Tech har fagbrev innen telekommunikasjon. Tre av medarbeiderne har også ingeniørutdanning innen samme fagfelt. Vi har erfaring med montørarbeid, plan, prosjektering og dokumentasjon av både små og store telekommunikasjonsanlegg. Vi holder til i store lokaler i Sarpsborg. Vi har et godt innelager og et stort inngjerdet utelager. I kontordelen har vi alt teknisk utstyr for å kunne gjøre planlegging og dokumentasjon mest mulig presis. 3Tech er også distributør for Jetting blåsemaskiner. Dette er svenskproduserte blåsemaskiner, laget for nordiske forhold. Ta en titt på www.jetting.no Grunnet økt arbeidsmengde søker vi dyktige medarbeidere til vårt team. Er DU den vi leter etter? Send søknad til stian.mathisen@3tech.no. For mer informasjon, se våre stillingsannonser.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/om-oss",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers.listings",
+   "value": [
+    {
+     "title": "Se detaljer",
+     "url": "https://www.3tech.no/ledige-stillinger/telekommunikasjonsmontor"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/ledige-stillinger",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "links on the careers page that look like individual vacancies; titles as printed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://www.3tech.no/ledige-stillinger",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/ledige-stillinger",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.3tech.no/kontakt-oss"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/kontakt-oss",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.description",
+   "value": "3Tech AS er en ENA-autorisert entreprenør som utfører alt innen fiberarbeid. I tillegg distribuerer vi Jetting fiber blåsemaskiner.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "atle.bosseng@3tech.no",
+    "post@3tech.no",
+    "stian.mathisen@3tech.no",
+    "stian.svendsen@3tech.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "3Tech AS",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Vi planlegger og utfører hele jobben for deg. Fra tidlig kartlegging til ferdig dokumentert. Fra små enkeltoppdrag til store FTTH-felt. ‍ - Plan-/prosjektledelse og dokumentasjon - Fiberblåsing - Linjearbeid (oppheng av luftkabler) - Fiberskjøting ‍ Med lang erfaring med fiber som montører, prosjektledere og avdelingsledere i større selskap, ble 3Tech AS etablert våren 2016. Med et mål om å jobbe smartere og mer effektivt, har vi siden oppstarten tilegnet oss mye kompetanse og erfaring. På veien har vi vokst fra 3 til 10 medarbeidere. Vi er meget stolte av våre ansatte og de tilført 3Tech mye kompetanse og erfaring. Sunn vekst har og forblir et viktig moment for oss. Det koster ingenting å f",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.og_image",
+   "value": "https://cdn.prod.website-files.com/5fc8b89242bdac87b08a8986/5fd88f126cae3d21c14e6188_CEO%20pic.jpg",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.3tech.no/",
+    "contact": "https://www.3tech.no/kontakt-oss",
+    "about": "https://www.3tech.no/om-oss",
+    "careers": "https://www.3tech.no/ledige-stillinger",
+    "products": "https://www.3tech.no/tjenester"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4795911368"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://www.3tech.no/tjenester",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/tjenester",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "https://www.facebook.com/3techas"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "3 TECH - En fiber entreprenør du kan stole på",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://www.3tech.no/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3tech.no/",
+     "retrieved_at": "2026-10-10T13:59:02Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:59:02Z",
+   "last_seen": "2026-10-10T13:59:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2067,9 +2522,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:20:06Z",
-   "facts": 20,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:42:10Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2078,16 +2533,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927889897/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:20:06Z",
-   "facts": 5,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:42:10Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2096,16 +2553,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=927889897&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:20:06Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:42:10Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2114,16 +2573,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/927889897",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:20:06Z",
-   "facts": 51,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:42:10Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2142,20 +2603,23 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=927889897&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:20:06Z",
+   "retrieved_at": "2026-10-10T13:42:10Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no LEI record lists this organisation number"
+    "no LEI record lists this organisation number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2163,842 +2627,229 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22927889897%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:20:06Z",
-   "facts": 0,
-   "requests": 1,
-   "checks": [],
-   "rejected": [],
-   "notes": [
-    "no Wikidata item has P2333 = this org number"
-   ]
-  },
-  {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:20:06Z",
+   "retrieved_at": "2026-10-10T13:42:10Z",
    "facts": 0,
    "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "no Wikidata item has P2333 = this org number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=3TECH&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:42:10Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Alvimveien+58&postnummer=1722&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:42:10Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Alvimveien 58' 1722 -> matched 'Alvimveien 58' 1722"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/927889897",
+   "status": "not_found",
+   "http_status": 404,
+   "retrieved_at": "2026-10-10T13:42:10Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "no central approval registered",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "website",
+   "url": "https://3tech.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:59:02Z",
+   "facts": 17,
+   "requests": 7,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://3tech.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 927889897 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name '3TECH AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "3tech.no -> 3tech.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "name",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.url",
    "type": "added",
-   "new": "3TECH AS"
+   "new": "https://www.3tech.no/"
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "entity_type",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.title",
    "type": "added",
-   "new": "enhet"
+   "new": "3 TECH - En fiber entreprenør du kan stole på"
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.description",
    "type": "added",
-   "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
+   "new": "3Tech AS er en ENA-autorisert entreprenør som utfører alt innen fiberarbeid. I tillegg distribuerer vi Jetting fiber blåsemaskiner."
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "founded",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.language",
    "type": "added",
-   "new": "2021-09-06"
+   "new": "no"
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "registered.enhetsregisteret",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.og_image",
    "type": "added",
-   "new": "2021-10-11"
+   "new": "https://cdn.prod.website-files.com/5fc8b89242bdac87b08a8986/5fd88f126cae3d21c14e6188_CEO%20pic.jpg"
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "registered.foretaksregisteret",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.home_text",
    "type": "added",
-   "new": "2021-10-11"
+   "new": "Vi planlegger og utfører hele jobben for deg. Fra tidlig kartlegging til ferdig dokumentert. Fra små enkeltoppdrag til store FTTH-felt. ‍ - Plan-/prosjektledelse og dokumentasjon - Fiberblåsing - Linjearbeid (oppheng av luftkabler) - Fiberskjøting ‍ Med lang erfaring med fiber som montører, prosjektledere og avdelingsledere i større selskap, ble 3Tech AS etablert våren 2016. Med et mål om å jobbe smartere og mer effektivt, har vi siden oppstarten tilegnet oss mye kompetanse og erfaring. På veien har vi vokst fra 3 til 10 medarbeidere. Vi er meget stolte av våre ansatte og de tilført 3Tech mye kompetanse og erfaring. Sunn vekst har og forblir et viktig moment for oss. Det koster ingenting å f"
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "address.business",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.headline",
    "type": "added",
-   "new": {
-    "street": [
-     "Alvimveien 58"
-    ],
-    "postal_code": "1722",
-    "city": "SARPSBORG",
-    "municipality": "SARPSBORG",
-    "municipality_number": "3105",
-    "country": "Norge",
-    "country_code": "NO"
-   }
+   "new": "3Tech AS"
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.about_text",
    "type": "added",
-   "new": {
-    "code": "71.129",
-    "description": "Annen teknisk konsulentvirksomhet"
-   }
+   "new": "Etter mange år i bransjen i større selskap, hadde vi et ønske om å arbeide enklere og mer presist. Vi var overbevist om at ting kunne gjøres mer effektivt og til høyere kvalitet. Resultatet ble 3Tech AS som ble etablert 1. mai 2016. Vi består i dag av 9 medarbeidere med lang erfaring innen telekommunikasjon. 3Tech representerer kvalitet og trygghet. Alle montørene i 3Tech har fagbrev innen telekommunikasjon. Tre av medarbeiderne har også ingeniørutdanning innen samme fagfelt. Vi har erfaring med montørarbeid, plan, prosjektering og dokumentasjon av både små og store telekommunikasjonsanlegg. Vi holder til i store lokaler i Sarpsborg. Vi har et godt innelager og et stort inngjerdet utelager. I kontordelen har vi alt teknisk utstyr for å kunne gjøre planlegging og dokumentasjon mest mulig presis. 3Tech er også distributør for Jetting blåsemaskiner. Dette er svenskproduserte blåsemaskiner, laget for nordiske forhold. Ta en titt på www.jetting.no Grunnet økt arbeidsmengde søker vi dyktige medarbeidere til vårt team. Er DU den vi leter etter? Send søknad til stian.mathisen@3tech.no. For mer informasjon, se våre stillingsannonser."
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.careers_url",
    "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
+   "new": "https://www.3tech.no/ledige-stillinger"
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "employees",
-   "type": "added",
-   "new": 15
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Prosjektering, installasjon, drift og dokumentasjon av telekommunikasjonsanlegg."
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Prosjektering, installasjon, drift og dokumentasjon av telekommunikasjonsanlegg."
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 30000.0,
-    "currency": "NOK",
-    "shares": 3000,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": true
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2021-09-06"
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/927889897"
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Jonas Gudmestad"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Atle Bosseng"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "roles.board_members",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.careers.listings",
    "type": "added",
    "new": [
     {
-     "name": "Stian Aamodt-Mathisen"
-    },
-    {
-     "name": "Stian Bosseng Svendsen"
+     "title": "Se detaljer",
+     "url": "https://www.3tech.no/ledige-stillinger/telekommunikasjonsmontor"
     }
    ]
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "roles.auditor",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.3tech.no/tjenester"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "name": "LEO REVISJON DA",
-    "orgnr": "983846459"
+    "url": "https://www.3tech.no/kontakt-oss"
    }
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "roles.accountant",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.social",
    "type": "added",
    "new": {
-    "name": "TRIO REGNSKAP AS",
-    "orgnr": "951228400"
+    "facebook": "https://www.facebook.com/3techas"
    }
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "subunits.list",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.emails",
    "type": "added",
    "new": [
-    {
-     "orgnr": "816780152",
-     "name": "3TECH AS",
-     "city": "SARPSBORG",
-     "municipality": "SARPSBORG",
-     "employees": 15,
-     "nace": "71.129"
-    }
+    "atle.bosseng@3tech.no",
+    "post@3tech.no",
+    "stian.mathisen@3tech.no",
+    "stian.svendsen@3tech.no"
    ]
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "subunits.employees_total",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.phones",
    "type": "added",
-   "new": 15
+   "new": [
+    "+4795911368"
+   ]
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.revenue",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "amount": 16732620.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "home": "https://www.3tech.no/",
+    "contact": "https://www.3tech.no/kontakt-oss",
+    "about": "https://www.3tech.no/om-oss",
+    "careers": "https://www.3tech.no/ledige-stillinger",
+    "products": "https://www.3tech.no/tjenester"
    }
   },
   {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.sales_revenue",
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
-   "new": {
-    "amount": 16732620.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 13287490.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 3445130.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 65771.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 3510900.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 774162.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 2736738.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 8411557.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 513290.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 7898268.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 4970766.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1003404.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 7408153.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 5771659.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1636494.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024522820",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 23662731.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 23659731.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 18868076.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 4794655.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 136420.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 4931075.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1088978.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 3842097.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 11285713.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 283915.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 11001798.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 5788326.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1845501.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 9440212.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 8273547.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1166664.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025702219",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 32803448.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 32701604.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 24481661.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 8321787.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 112320.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 8434106.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1856896.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 6577210.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 18225828.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 287196.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 17938632.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 9018352.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 2422711.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 15803117.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 14634841.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026511572",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:20:06Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
+   "new": false
   }
  ],
  "changes": [
@@ -3813,17 +3664,214 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:42:10Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.26881700466521,
+    "lon": 11.079076984293248,
+    "crs": "EPSG:4326",
+    "matched_address": "Alvimveien 58",
+    "postal_code": "1722",
+    "city": "SARPSBORG",
+    "municipality": "SARPSBORG",
+    "municipality_number": "3105",
+    "cadastral": {
+     "gnr": 1,
+     "bnr": 2273
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.26881700466521&lon=11.079076984293248&markerLat=59.26881700466521&markerLon=11.079076984293248"
+   }
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.3tech.no/"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "3 TECH - En fiber entreprenør du kan stole på"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "3Tech AS er en ENA-autorisert entreprenør som utfører alt innen fiberarbeid. I tillegg distribuerer vi Jetting fiber blåsemaskiner."
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://cdn.prod.website-files.com/5fc8b89242bdac87b08a8986/5fd88f126cae3d21c14e6188_CEO%20pic.jpg"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Vi planlegger og utfører hele jobben for deg. Fra tidlig kartlegging til ferdig dokumentert. Fra små enkeltoppdrag til store FTTH-felt. ‍ - Plan-/prosjektledelse og dokumentasjon - Fiberblåsing - Linjearbeid (oppheng av luftkabler) - Fiberskjøting ‍ Med lang erfaring med fiber som montører, prosjektledere og avdelingsledere i større selskap, ble 3Tech AS etablert våren 2016. Med et mål om å jobbe smartere og mer effektivt, har vi siden oppstarten tilegnet oss mye kompetanse og erfaring. På veien har vi vokst fra 3 til 10 medarbeidere. Vi er meget stolte av våre ansatte og de tilført 3Tech mye kompetanse og erfaring. Sunn vekst har og forblir et viktig moment for oss. Det koster ingenting å f"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "3Tech AS"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Etter mange år i bransjen i større selskap, hadde vi et ønske om å arbeide enklere og mer presist. Vi var overbevist om at ting kunne gjøres mer effektivt og til høyere kvalitet. Resultatet ble 3Tech AS som ble etablert 1. mai 2016. Vi består i dag av 9 medarbeidere med lang erfaring innen telekommunikasjon. 3Tech representerer kvalitet og trygghet. Alle montørene i 3Tech har fagbrev innen telekommunikasjon. Tre av medarbeiderne har også ingeniørutdanning innen samme fagfelt. Vi har erfaring med montørarbeid, plan, prosjektering og dokumentasjon av både små og store telekommunikasjonsanlegg. Vi holder til i store lokaler i Sarpsborg. Vi har et godt innelager og et stort inngjerdet utelager. I kontordelen har vi alt teknisk utstyr for å kunne gjøre planlegging og dokumentasjon mest mulig presis. 3Tech er også distributør for Jetting blåsemaskiner. Dette er svenskproduserte blåsemaskiner, laget for nordiske forhold. Ta en titt på www.jetting.no Grunnet økt arbeidsmengde søker vi dyktige medarbeidere til vårt team. Er DU den vi leter etter? Send søknad til stian.mathisen@3tech.no. For mer informasjon, se våre stillingsannonser."
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://www.3tech.no/ledige-stillinger"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Se detaljer",
+     "url": "https://www.3tech.no/ledige-stillinger/telekommunikasjonsmontor"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.3tech.no/tjenester"
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.3tech.no/kontakt-oss"
+   }
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/3techas"
+   }
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "atle.bosseng@3tech.no",
+    "post@3tech.no",
+    "stian.mathisen@3tech.no",
+    "stian.svendsen@3tech.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4795911368"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.3tech.no/",
+    "contact": "https://www.3tech.no/kontakt-oss",
+    "about": "https://www.3tech.no/om-oss",
+    "careers": "https://www.3tech.no/ledige-stillinger",
+    "products": "https://www.3tech.no/tjenester"
+   }
+  },
+  {
+   "at": "2026-10-10T13:59:02Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 79,
+  "active_facts": 97,
   "retracted_facts": 0,
   "stale_facts": 0,
   "requests": 7,
-  "seconds": 1.05
+  "seconds": 9.51
  },
  "explanation": {
   "mode": "template",
-  "text": "3TECH AS (org.nr 927 889 897) is registered as Aksjeselskap (AS), founded 2021-09-06, registered 2021-10-11. Business address: Alvimveien 58, 1722 SARPSBORG. Main industry (NACE): 71.129 Annen teknisk konsulentvirksomhet. Registered employees: 15 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 32,803,448; operating result NOK 8,321,787; net result NOK 6,577,210; total assets NOK 18,225,828; equity NOK 2,422,711. Leadership: general manager (daglig leder) Jonas Gudmestad; board chair Atle Bosseng; 2 other board members. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 79 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "3TECH AS (org.nr 927 889 897) is registered as Aksjeselskap (AS), founded 2021-09-06, registered 2021-10-11. [brreg_enheter] Main industry (NACE 71.129): Annen teknisk konsulentvirksomhet. [brreg_enheter] Registered purpose: \"Prosjektering, installasjon, drift og dokumentasjon av telekommunikasjonsanlegg.\" [brreg_enheter] The company's website describes it as: \"3Tech AS er en ENA-autorisert entreprenør som utfører alt innen fiberarbeid. I tillegg distribuerer vi Jetting fiber blåsemaskiner.\" [website] Business address: Alvimveien 58, 1722 SARPSBORG. [brreg_enheter] Leadership: general manager (daglig leder) Jonas Gudmestad; board chair Atle Bosseng; 2 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 15 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 32,803,448 (+39% vs 2024); operating result NOK 8,321,787 (+74% vs 2024); net result NOK 6,577,210 (+71% vs 2024); total assets NOK 18,225,828 (+61% vs 2024); equity NOK 2,422,711 (+31% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 30,000. [brreg_enheter]\n\nChanges in this run (17):\n- web.url: added (https://www.3tech.no/)\n- web.title: added (3 TECH - En fiber entreprenør du kan stole på)\n- web.description: added (3Tech AS er en ENA-autorisert entreprenør som utfører alt...)\n- web.language: added (no)\n- web.og_image: added (https://cdn.prod.website-files.com/5fc8b89242bdac87b08a89...)\n- web.home_text: added (Vi planlegger og utfører hele jobben for deg. Fra tidlig ...)\n- web.headline: added (3Tech AS)\n- web.about_text: added (Etter mange år i bransjen i større selskap, hadde vi et ø...)\n- web.careers_url: added (https://www.3tech.no/ledige-stillinger)\n- web.careers.listings: added ([{'title': 'Se detaljer', 'url': 'https://www.3tech.no/le...)\n- web.products_url: added (https://www.3tech.no/tjenester)\n- web.contact_page: added ({'url': 'https://www.3tech.no/kontakt-oss'})\n- web.social: added ({'facebook': 'https://www.facebook.com/3techas'})\n- web.emails: added (['atle.bosseng@3tech.no', 'post@3tech.no', 'stian.mathise...)\n- web.phones: added (['+4795911368'])\n- ... and 2 more\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n- No central approval for building work (DiBK): checked dibk: nothing registered (no central approval registered).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: not_found (no central approval registered)\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "3TECH AS (org.nr 927 889 897) is registered as Aksjeselskap (AS), founded 2021-09-06, registered 2021-10-11. [brreg_enheter]",
+    "Main industry (NACE 71.129): Annen teknisk konsulentvirksomhet. [brreg_enheter]",
+    "Registered purpose: \"Prosjektering, installasjon, drift og dokumentasjon av telekommunikasjonsanlegg.\" [brreg_enheter]",
+    "The company's website describes it as: \"3Tech AS er en ENA-autorisert entreprenør som utfører alt innen fiberarbeid. I tillegg distribuerer vi Jetting fiber blåsemaskiner.\" [website]",
+    "Business address: Alvimveien 58, 1722 SARPSBORG. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Jonas Gudmestad; board chair Atle Bosseng; 2 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 15 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 32,803,448 (+39% vs 2024); operating result NOK 8,321,787 (+74% vs 2024); net result NOK 6,577,210 (+71% vs 2024); total assets NOK 18,225,828 (+61% vs 2024); equity NOK 2,422,711 (+31% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 30,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (17):",
+    "- web.url: added (https://www.3tech.no/)",
+    "- web.title: added (3 TECH - En fiber entreprenør du kan stole på)",
+    "- web.description: added (3Tech AS er en ENA-autorisert entreprenør som utfører alt...)",
+    "- web.language: added (no)",
+    "- web.og_image: added (https://cdn.prod.website-files.com/5fc8b89242bdac87b08a89...)",
+    "- web.home_text: added (Vi planlegger og utfører hele jobben for deg. Fra tidlig ...)",
+    "- web.headline: added (3Tech AS)",
+    "- web.about_text: added (Etter mange år i bransjen i større selskap, hadde vi et ø...)",
+    "- web.careers_url: added (https://www.3tech.no/ledige-stillinger)",
+    "- web.careers.listings: added ([{'title': 'Se detaljer', 'url': 'https://www.3tech.no/le...)",
+    "- web.products_url: added (https://www.3tech.no/tjenester)",
+    "- web.contact_page: added ({'url': 'https://www.3tech.no/kontakt-oss'})",
+    "- web.social: added ({'facebook': 'https://www.facebook.com/3techas'})",
+    "- web.emails: added (['atle.bosseng@3tech.no', 'post@3tech.no', 'stian.mathise...)",
+    "- web.phones: added (['+4795911368'])",
+    "- ... and 2 more"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).",
+    "No central approval for building work (DiBK): checked dibk: nothing registered (no central approval registered)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: not_found (no central approval registered)",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

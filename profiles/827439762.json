@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:11:51Z",
- "last_run": "2026-10-05T05:11:51Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:24:08Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,53 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026542456 virksomhet.organisasjonsnummer=827439762 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Industrivegen 2' 4484 -> matched 'Industrivegen 2' 4484"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=827439762; looked up 827439762"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://kvinamaskin.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 827439762 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'KVINA MASKIN AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "kvinamaskin.no -> kvinamaskin.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +103,10 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +117,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +148,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +156,91 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2028-01-10",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/827439762/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Veg, utearealer og landskapsutforming",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Innmåling og utstikking av tiltak",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Landskapsutforming",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Riving og miljøsanering",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Ansvarlig søker",
+      "subject_area": "(for alle typer tiltak)",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/827439762",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": "2028-01-10",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +253,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2021-12-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +261,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +279,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2022-01-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +287,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +300,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +308,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +321,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +329,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -216,7 +347,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -224,7 +355,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -242,7 +373,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -250,7 +381,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +399,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +407,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -294,7 +425,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -302,7 +433,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +451,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +459,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -354,7 +485,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -362,7 +493,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -380,7 +511,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -388,7 +519,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -406,7 +537,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -414,7 +545,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -432,7 +563,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -440,7 +571,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -458,7 +589,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -466,7 +597,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -484,7 +615,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -492,7 +623,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +641,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +649,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +667,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +675,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +693,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +701,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -588,7 +719,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -596,7 +727,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -614,7 +745,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -622,7 +753,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -640,7 +771,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -648,7 +779,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -666,7 +797,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -674,7 +805,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +823,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +831,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -718,7 +849,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -726,7 +857,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +875,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +883,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -770,7 +901,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -778,7 +909,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -804,7 +935,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -812,7 +943,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -830,7 +961,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -838,7 +969,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -856,7 +987,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -864,7 +995,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -882,7 +1013,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -890,7 +1021,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -908,7 +1039,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -916,7 +1047,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -934,7 +1065,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -942,7 +1073,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -960,7 +1091,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -968,7 +1099,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -986,7 +1117,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -994,7 +1125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1012,7 +1143,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1020,7 +1151,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1038,7 +1169,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1046,7 +1177,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1064,7 +1195,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1072,7 +1203,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1221,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1229,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1116,7 +1247,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1124,7 +1255,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1142,7 +1273,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1150,7 +1281,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1168,7 +1299,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1176,7 +1307,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1194,7 +1325,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1202,7 +1333,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1220,7 +1351,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1228,7 +1359,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1254,7 +1385,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1262,7 +1393,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1280,7 +1411,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1288,7 +1419,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1306,7 +1437,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1314,7 +1445,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1332,7 +1463,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1340,7 +1471,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1358,7 +1489,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1366,7 +1497,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1384,7 +1515,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1392,7 +1523,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1410,7 +1541,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1418,7 +1549,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1436,7 +1567,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1444,7 +1575,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1462,7 +1593,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1470,7 +1601,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1488,7 +1619,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1496,7 +1627,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1514,7 +1645,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1522,7 +1653,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1540,7 +1671,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1548,7 +1679,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1564,7 +1695,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1572,7 +1703,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1585,7 +1716,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2021-05-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1593,7 +1724,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1606,7 +1737,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1614,7 +1745,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1630,7 +1761,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1638,7 +1769,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1651,7 +1782,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1659,7 +1790,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1672,7 +1803,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1680,7 +1811,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1693,7 +1824,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1701,11 +1832,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 58.281009574680645,
+    "lon": 6.895083738519946,
+    "crs": "EPSG:4326",
+    "matched_address": "Industrivegen 2",
+    "postal_code": "4484",
+    "city": "ØYESTRANDA",
+    "municipality": "KVINESDAL",
+    "municipality_number": "4227",
+    "cadastral": {
+     "gnr": 113,
+     "bnr": 286
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.281009574680645&lon=6.895083738519946&markerLat=58.281009574680645&markerLon=6.895083738519946"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Industrivegen+2&postnummer=4484&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": "2026-02-03",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1714,7 +1880,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1722,7 +1888,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1741,7 +1907,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1749,7 +1915,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1765,7 +1931,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1773,7 +1939,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1786,7 +1952,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2021-12-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1794,7 +1960,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1807,7 +1973,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2021-07-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1815,7 +1981,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1828,7 +1994,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2021-07-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1836,7 +2002,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1856,7 +2022,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1864,7 +2030,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1886,7 +2052,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762/roller",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-01-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1894,7 +2060,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1910,7 +2076,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762/roller",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-01-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1918,7 +2084,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1933,7 +2099,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762/roller",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-01-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1941,7 +2107,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1961,7 +2127,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762/roller",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-01-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1969,7 +2135,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1986,7 +2152,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762/roller",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2025-01-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1994,7 +2160,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2009,7 +2175,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762/roller",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": "2021-07-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2017,7 +2183,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2033,7 +2199,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2041,7 +2207,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2058,7 +2224,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2066,7 +2232,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2079,7 +2245,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=827439762&size=100",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2087,7 +2253,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2100,7 +2266,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=827439762&size=100",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2108,7 +2274,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2130,7 +2296,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=827439762&size=100",
-     "retrieved_at": "2026-10-05T05:11:51Z",
+     "retrieved_at": "2026-10-10T13:24:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2138,11 +2304,370 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:51Z",
-   "last_seen": "2026-10-05T05:11:51Z",
+   "last_seen": "2026-10-10T13:24:08Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "Kvina Maskin AS er en anerkjent entreprenørbedrift med base på Øyestranda i Kvinesdal, etablert i 2018 gjennom sammenslåing av flere mindre aktører. Selskapet har spesialisert seg på tjenester innen vann- og avløpsanlegg (VA), grunnarbeid, natursteinsmuring, boring og sprenging, transport og salg av masser fra egne pukkverk. Med over 40 ansatte, inkludert flere lærlinger, legger Kvina Maskin stor vekt på fagkompetanse og kvalitetssikring. Mange av de ansatte har ADK-sertifikater og er sertifiserte for plastrørsveising, og selskapet er godkjent for sanering av utvendige asbestrør. Kvina Maskin AS opererer hovedsakelig i Listerregionen, men tar også på seg prosjekter utenfor dette området. Selskapet er en del av Kvina Maskin Holding AS og hadde i 2023 en omsetning på over 112 millioner kroner.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/om-oss",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.kvinamaskin.no/kontakt-oss"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/kontakt-oss",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "bruker@domene.no",
+    "email@example.com",
+    "erik@kvinamaskin.no",
+    "henriette@kvinamaskin.no",
+    "kim@kvinamaskin.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "INNEN ANLEGG",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Transport Vi er din pålitelige transportpartner som sikrer enkel og effektiv levering av masser fra våre pukkverk og transport av maskiner og utstyr. Vårt dedikerte team sørger for at alt det nødvendige blir transportert på en pålitelig og smidig måte, slik at du kan fokusere på det som er viktigst for deg. Vi er din pålitelige transportpartner som sikrer enkel og effektiv levering av masser fra våre pukkverk og transport av maskiner og utstyr. Vårt dedikerte team sørger for at alt det nødvendige blir transportert på en pålitelig og smidig måte, slik at du kan fokusere på det som er viktigst for deg. Graving Vi tar på oss alt av oppdrag innen graving og grunnarbeid. Våre erfarne medarbeidere",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.jsonld_organization",
+   "value": {},
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "no-NO",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.og_image",
+   "value": "http://static1.squarespace.com/static/6405cd7a672c4a19e9bf6012/t/681c8e02998f7812db2ab99c/1746701826621/Logo+svart+bakgrunn.PNG?format=1500w",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.kvinamaskin.no/",
+    "contact": "https://www.kvinamaskin.no/kontakt-oss",
+    "about": "https://www.kvinamaskin.no/om-oss",
+    "products": "https://www.kvinamaskin.no/tjenester"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Graving",
+    "Transport",
+    "Muring",
+    "VA - Anlegg",
+    "Salg av Masser",
+    "Boring / Sprenging",
+    "Sveising"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/tjenester",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://www.kvinamaskin.no/tjenester",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/tjenester",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.site_name",
+   "value": "Kvinamaskin.no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "http://www.facebook.com/2008"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "Kvinamaskin.no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://www.kvinamaskin.no/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.kvinamaskin.no/",
+     "retrieved_at": "2026-10-10T13:24:08Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:08Z",
+   "last_seen": "2026-10-10T13:24:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2151,7 +2676,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:51Z",
+   "retrieved_at": "2026-10-10T13:24:08Z",
    "facts": 21,
    "requests": 1,
    "checks": [
@@ -2169,7 +2694,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/827439762/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:51Z",
+   "retrieved_at": "2026-10-10T13:24:08Z",
    "facts": 6,
    "requests": 1,
    "checks": [
@@ -2187,7 +2712,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=827439762&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:51Z",
+   "retrieved_at": "2026-10-10T13:24:08Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2205,7 +2730,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/827439762",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:51Z",
+   "retrieved_at": "2026-10-10T13:24:08Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2233,7 +2758,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=827439762&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:51Z",
+   "retrieved_at": "2026-10-10T13:24:08Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2247,7 +2772,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22827439762%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:51Z",
+   "retrieved_at": "2026-10-10T13:24:08Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2257,871 +2782,302 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:11:51Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=KVINA+MASKIN&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:24:08Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Industrivegen+2&postnummer=4484&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:24:08Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Industrivegen 2' 4484 -> matched 'Industrivegen 2' 4484"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/827439762",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:24:08Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=827439762; looked up 827439762"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://kvinamaskin.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:24:08Z",
+   "facts": 16,
+   "requests": 6,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://kvinamaskin.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 827439762 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'KVINA MASKIN AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "kvinamaskin.no -> kvinamaskin.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "name",
-   "type": "added",
-   "new": "KVINA MASKIN AS"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "KVINA MASKIN 2 AS",
-     "from": "2021-07-20 14:40:29",
-     "to": "2021-12-07 21:11:53"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:24:08Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2021-05-12"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2021-07-20"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2021-07-20"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Industrivegen 2"
-    ],
+    "lat": 58.281009574680645,
+    "lon": 6.895083738519946,
+    "crs": "EPSG:4326",
+    "matched_address": "Industrivegen 2",
     "postal_code": "4484",
     "city": "ØYESTRANDA",
     "municipality": "KVINESDAL",
     "municipality_number": "4227",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 113,
+     "bnr": 286
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.281009574680645&lon=6.895083738519946&markerLat=58.281009574680645&markerLon=6.895083738519946"
    }
   },
   {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:24:08Z",
+   "key": "approvals.dibk_central_approval",
    "type": "added",
    "new": {
-    "code": "43.120",
-    "description": "Grunnarbeid"
+    "approved": true,
+    "valid_to": "2028-01-10",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/827439762/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Veg, utearealer og landskapsutforming",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Innmåling og utstikking av tiltak",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Landskapsutforming",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Riving og miljøsanering",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Ansvarlig søker",
+      "subject_area": "(for alle typer tiltak)",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
    }
   },
   {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.kvinamaskin.no/"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Kvinamaskin.no"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "Kvinamaskin.no"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no-NO"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "http://static1.squarespace.com/static/6405cd7a672c4a19e9bf6012/t/681c8e02998f7812db2ab99c/1746701826621/Logo+svart+bakgrunn.PNG?format=1500w"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Transport Vi er din pålitelige transportpartner som sikrer enkel og effektiv levering av masser fra våre pukkverk og transport av maskiner og utstyr. Vårt dedikerte team sørger for at alt det nødvendige blir transportert på en pålitelig og smidig måte, slik at du kan fokusere på det som er viktigst for deg. Vi er din pålitelige transportpartner som sikrer enkel og effektiv levering av masser fra våre pukkverk og transport av maskiner og utstyr. Vårt dedikerte team sørger for at alt det nødvendige blir transportert på en pålitelig og smidig måte, slik at du kan fokusere på det som er viktigst for deg. Graving Vi tar på oss alt av oppdrag innen graving og grunnarbeid. Våre erfarne medarbeidere"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "INNEN ANLEGG"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {}
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Kvina Maskin AS er en anerkjent entreprenørbedrift med base på Øyestranda i Kvinesdal, etablert i 2018 gjennom sammenslåing av flere mindre aktører. Selskapet har spesialisert seg på tjenester innen vann- og avløpsanlegg (VA), grunnarbeid, natursteinsmuring, boring og sprenging, transport og salg av masser fra egne pukkverk. Med over 40 ansatte, inkludert flere lærlinger, legger Kvina Maskin stor vekt på fagkompetanse og kvalitetssikring. Mange av de ansatte har ADK-sertifikater og er sertifiserte for plastrørsveising, og selskapet er godkjent for sanering av utvendige asbestrør. Kvina Maskin AS opererer hovedsakelig i Listerregionen, men tar også på seg prosjekter utenfor dette området. Selskapet er en del av Kvina Maskin Holding AS og hadde i 2023 en omsetning på over 112 millioner kroner."
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.kvinamaskin.no/tjenester"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Graving",
+    "Transport",
+    "Muring",
+    "VA - Anlegg",
+    "Salg av Masser",
+    "Boring / Sprenging",
+    "Sveising"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
+    "url": "https://www.kvinamaskin.no/kontakt-oss"
    }
   },
   {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "employees",
-   "type": "added",
-   "new": 59
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Entreprenørvirksomhet samt alt hva her hører til."
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Entreprenørvirksomhet samt alt hva her hører til."
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.social",
    "type": "added",
    "new": {
-    "amount": 1000000.0,
-    "currency": "NOK",
-    "shares": 1000,
-    "type": "Aksjekapital"
+    "facebook": "http://www.facebook.com/2008"
    }
   },
   {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "status",
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "bruker@domene.no",
+    "email@example.com",
+    "erik@kvinamaskin.no",
+    "henriette@kvinamaskin.no",
+    "kim@kvinamaskin.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
+    "home": "https://www.kvinamaskin.no/",
+    "contact": "https://www.kvinamaskin.no/kontakt-oss",
+    "about": "https://www.kvinamaskin.no/om-oss",
+    "products": "https://www.kvinamaskin.no/tjenester"
    }
   },
   {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "group.is_parent",
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
    "new": false
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2021-12-16"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/827439762"
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Nils Bernt Williamsen"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Gaute Holm"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Øystein Røynestad"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "roles.board_deputies",
-   "type": "added",
-   "new": [
-    {
-     "name": "Runar Knutsen"
-    },
-    {
-     "name": "Hans Birkeland"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "BDO AS",
-    "orgnr": "993606650"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": [
-    {
-     "name": "KRAFT RÅDGIVNING OG ØKONOMI AS",
-     "orgnr": "919886684"
-    },
-    {
-     "name": "REGNSKAP-SERVICE FLEKKEFJORD AS",
-     "orgnr": "986299467"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "820422902",
-     "name": "KVINA MASKIN AS",
-     "city": "ØYESTRANDA",
-     "municipality": "KVINESDAL",
-     "employees": 59,
-     "nace": "43.120"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 59
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 112584636.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 111450673.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 107660010.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 4924626.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -19857.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 4904769.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1082992.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 3821777.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 37345819.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 5424207.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 31921612.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 3546391.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 10565649.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 26780170.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 23576078.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 3204092.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024338607",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 120695506.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 116734392.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 115987228.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 4708278.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -67783.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 4640496.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1026093.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 3614403.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 39449766.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 6104919.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 33344848.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 8898928.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 11850191.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 27599575.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 21489931.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 6109644.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025568781",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 154385970.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 153284701.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 145703690.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 8682280.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 154509.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 8836789.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1949032.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 6887757.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 56555325.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 6396986.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 50158338.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 9130958.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 12497948.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 44057377.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 36816373.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 7241004.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026542456",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:51Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
   }
  ],
  "changes": [
@@ -3975,17 +3931,280 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 58.281009574680645,
+    "lon": 6.895083738519946,
+    "crs": "EPSG:4326",
+    "matched_address": "Industrivegen 2",
+    "postal_code": "4484",
+    "city": "ØYESTRANDA",
+    "municipality": "KVINESDAL",
+    "municipality_number": "4227",
+    "cadastral": {
+     "gnr": 113,
+     "bnr": 286
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.281009574680645&lon=6.895083738519946&markerLat=58.281009574680645&markerLon=6.895083738519946"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2028-01-10",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/827439762/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Veg, utearealer og landskapsutforming",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Innmåling og utstikking av tiltak",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Landskapsutforming",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Riving og miljøsanering",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Vannforsynings- og avløpsanlegg",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Ansvarlig søker",
+      "subject_area": "(for alle typer tiltak)",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.kvinamaskin.no/"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Kvinamaskin.no"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "Kvinamaskin.no"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no-NO"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "http://static1.squarespace.com/static/6405cd7a672c4a19e9bf6012/t/681c8e02998f7812db2ab99c/1746701826621/Logo+svart+bakgrunn.PNG?format=1500w"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Transport Vi er din pålitelige transportpartner som sikrer enkel og effektiv levering av masser fra våre pukkverk og transport av maskiner og utstyr. Vårt dedikerte team sørger for at alt det nødvendige blir transportert på en pålitelig og smidig måte, slik at du kan fokusere på det som er viktigst for deg. Vi er din pålitelige transportpartner som sikrer enkel og effektiv levering av masser fra våre pukkverk og transport av maskiner og utstyr. Vårt dedikerte team sørger for at alt det nødvendige blir transportert på en pålitelig og smidig måte, slik at du kan fokusere på det som er viktigst for deg. Graving Vi tar på oss alt av oppdrag innen graving og grunnarbeid. Våre erfarne medarbeidere"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "INNEN ANLEGG"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {}
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Kvina Maskin AS er en anerkjent entreprenørbedrift med base på Øyestranda i Kvinesdal, etablert i 2018 gjennom sammenslåing av flere mindre aktører. Selskapet har spesialisert seg på tjenester innen vann- og avløpsanlegg (VA), grunnarbeid, natursteinsmuring, boring og sprenging, transport og salg av masser fra egne pukkverk. Med over 40 ansatte, inkludert flere lærlinger, legger Kvina Maskin stor vekt på fagkompetanse og kvalitetssikring. Mange av de ansatte har ADK-sertifikater og er sertifiserte for plastrørsveising, og selskapet er godkjent for sanering av utvendige asbestrør. Kvina Maskin AS opererer hovedsakelig i Listerregionen, men tar også på seg prosjekter utenfor dette området. Selskapet er en del av Kvina Maskin Holding AS og hadde i 2023 en omsetning på over 112 millioner kroner."
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.kvinamaskin.no/tjenester"
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Graving",
+    "Transport",
+    "Muring",
+    "VA - Anlegg",
+    "Salg av Masser",
+    "Boring / Sprenging",
+    "Sveising"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.kvinamaskin.no/kontakt-oss"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "http://www.facebook.com/2008"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "bruker@domene.no",
+    "email@example.com",
+    "erik@kvinamaskin.no",
+    "henriette@kvinamaskin.no",
+    "kim@kvinamaskin.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.kvinamaskin.no/",
+    "contact": "https://www.kvinamaskin.no/kontakt-oss",
+    "about": "https://www.kvinamaskin.no/om-oss",
+    "products": "https://www.kvinamaskin.no/tjenester"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:08Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 82,
+  "active_facts": 100,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.0
+  "requests": 18,
+  "seconds": 47.29
  },
  "explanation": {
   "mode": "template",
-  "text": "KVINA MASKIN AS (org.nr 827 439 762) is registered as Aksjeselskap (AS), founded 2021-05-12, registered 2021-07-20. Business address: Industrivegen 2, 4484 ØYESTRANDA. Main industry (NACE): 43.120 Grunnarbeid. Registered employees: 59 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 154,385,970; operating result NOK 8,682,280; net result NOK 6,887,757; total assets NOK 56,555,325; equity NOK 12,497,948. Leadership: general manager (daglig leder) Nils Bernt Williamsen; board chair Gaute Holm; 1 other board member. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 82 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "KVINA MASKIN AS (org.nr 827 439 762) is registered as Aksjeselskap (AS), founded 2021-05-12, registered 2021-07-20. [brreg_enheter] Main industry (NACE 43.120): Grunnarbeid. [brreg_enheter] Registered purpose: \"Entreprenørvirksomhet samt alt hva her hører til.\" [brreg_enheter] The company's website describes it as: \"Kvina Maskin AS er en anerkjent entreprenørbedrift med base på Øyestranda i Kvinesdal, etablert i 2018 gjennom sammenslåing av flere mindre aktører. Selskapet har spesialisert seg på tjenester innen vann- og avløpsanlegg (VA), grunnarbeid, natursteinsmuring, boring og sprenging, transport og salg av\" [website] Business address: Industrivegen 2, 4484 ØYESTRANDA. [brreg_enheter] Products / services named on its website: Graving; Transport; Muring; VA - Anlegg; Salg av Masser; Boring / Sprenging; Sveising. [website] Leadership: general manager (daglig leder) Nils Bernt Williamsen; board chair Gaute Holm; 1 other board member. [brreg_roller]\n\nKey numbers:\n- Registered employees: 59 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 154,385,970 (+28% vs 2024); operating result NOK 8,682,280 (+84% vs 2024); net result NOK 6,887,757 (+91% vs 2024); total assets NOK 56,555,325 (+43% vs 2024); equity NOK 12,497,948 (+5% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 1,000,000. [brreg_enheter]\n- DiBK central approval: valid until 2028-01-10, 9 approval area(s). [dibk]\n\nChanges in this run (18):\n- location.business.geo: added ({'lat': 58.281009574680645, 'lon': 6.895083738519946, 'cr...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-01-10', 'certificate...)\n- web.url: added (https://www.kvinamaskin.no/)\n- web.title: added (Kvinamaskin.no)\n- web.site_name: added (Kvinamaskin.no)\n- web.language: added (no-NO)\n- web.og_image: added (http://static1.squarespace.com/static/6405cd7a672c4a19e9b...)\n- web.home_text: added (Transport Vi er din pålitelige transportpartner som sikre...)\n- web.headline: added (INNEN ANLEGG)\n- web.jsonld_organization: added ({})\n- web.about_text: added (Kvina Maskin AS er en anerkjent entreprenørbedrift med ba...)\n- web.products_url: added (https://www.kvinamaskin.no/tjenester)\n- web.products: added (['Graving', 'Transport', 'Muring', 'VA - Anlegg', 'Salg a...)\n- web.contact_page: added ({'url': 'https://www.kvinamaskin.no/kontakt-oss'})\n- web.social: added ({'facebook': 'http://www.facebook.com/2008'})\n- ... and 3 more\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "KVINA MASKIN AS (org.nr 827 439 762) is registered as Aksjeselskap (AS), founded 2021-05-12, registered 2021-07-20. [brreg_enheter]",
+    "Main industry (NACE 43.120): Grunnarbeid. [brreg_enheter]",
+    "Registered purpose: \"Entreprenørvirksomhet samt alt hva her hører til.\" [brreg_enheter]",
+    "The company's website describes it as: \"Kvina Maskin AS er en anerkjent entreprenørbedrift med base på Øyestranda i Kvinesdal, etablert i 2018 gjennom sammenslåing av flere mindre aktører. Selskapet har spesialisert seg på tjenester innen vann- og avløpsanlegg (VA), grunnarbeid, natursteinsmuring, boring og sprenging, transport og salg av\" [website]",
+    "Business address: Industrivegen 2, 4484 ØYESTRANDA. [brreg_enheter]",
+    "Products / services named on its website: Graving; Transport; Muring; VA - Anlegg; Salg av Masser; Boring / Sprenging; Sveising. [website]",
+    "Leadership: general manager (daglig leder) Nils Bernt Williamsen; board chair Gaute Holm; 1 other board member. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 59 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 154,385,970 (+28% vs 2024); operating result NOK 8,682,280 (+84% vs 2024); net result NOK 6,887,757 (+91% vs 2024); total assets NOK 56,555,325 (+43% vs 2024); equity NOK 12,497,948 (+5% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 1,000,000. [brreg_enheter]",
+    "DiBK central approval: valid until 2028-01-10, 9 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (18):",
+    "- location.business.geo: added ({'lat': 58.281009574680645, 'lon': 6.895083738519946, 'cr...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-01-10', 'certificate...)",
+    "- web.url: added (https://www.kvinamaskin.no/)",
+    "- web.title: added (Kvinamaskin.no)",
+    "- web.site_name: added (Kvinamaskin.no)",
+    "- web.language: added (no-NO)",
+    "- web.og_image: added (http://static1.squarespace.com/static/6405cd7a672c4a19e9b...)",
+    "- web.home_text: added (Transport Vi er din pålitelige transportpartner som sikre...)",
+    "- web.headline: added (INNEN ANLEGG)",
+    "- web.jsonld_organization: added ({})",
+    "- web.about_text: added (Kvina Maskin AS er en anerkjent entreprenørbedrift med ba...)",
+    "- web.products_url: added (https://www.kvinamaskin.no/tjenester)",
+    "- web.products: added (['Graving', 'Transport', 'Muring', 'VA - Anlegg', 'Salg a...)",
+    "- web.contact_page: added ({'url': 'https://www.kvinamaskin.no/kontakt-oss'})",
+    "- web.social: added ({'facebook': 'http://www.facebook.com/2008'})",
+    "- ... and 3 more"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

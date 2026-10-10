@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:04Z",
- "last_run": "2026-10-05T05:17:04Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:34:01Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -37,9 +37,53 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026455225 virksomhet.organisasjonsnummer=935362784 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Kåsvegen 13' 7340 -> matched 'Kåsvegen 13' 7340"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=935362784; looked up 935362784"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://bedrock.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 935362784 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'BEDROCK AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "bedrock.no -> bedrock.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -47,7 +91,10 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -58,7 +105,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -66,7 +113,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -89,7 +136,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -97,7 +144,49 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2028-05-27",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/935362784/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Murarbeid",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/935362784",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": "2028-05-27",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -110,7 +199,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-03-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -118,7 +207,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -136,7 +225,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-04-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -144,7 +233,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -157,7 +246,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2026-06-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -165,7 +254,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -178,7 +267,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -186,7 +275,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -204,7 +293,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -212,7 +301,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -230,7 +319,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -238,7 +327,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -256,7 +345,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -264,7 +353,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -282,7 +371,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -290,7 +379,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -316,7 +405,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -324,7 +413,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -342,7 +431,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -350,7 +439,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -368,7 +457,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -376,7 +465,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -394,7 +483,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -402,7 +491,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -420,7 +509,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -428,7 +517,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -446,7 +535,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -454,7 +543,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -472,7 +561,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -480,7 +569,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -498,7 +587,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -506,7 +595,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -524,7 +613,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -532,7 +621,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -550,7 +639,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -558,7 +647,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -576,7 +665,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -584,7 +673,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -602,7 +691,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -610,7 +699,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -626,7 +715,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -634,7 +723,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -647,7 +736,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-03-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -655,7 +744,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -668,7 +757,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -676,7 +765,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +781,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +789,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -713,7 +802,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -721,7 +810,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -734,7 +823,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -742,7 +831,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -755,7 +844,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -763,11 +852,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 62.58723228683135,
+    "lon": 9.690994471662151,
+    "crs": "EPSG:4326",
+    "matched_address": "Kåsvegen 13",
+    "postal_code": "7340",
+    "city": "OPPDAL",
+    "municipality": "OPPDAL",
+    "municipality_number": "5021",
+    "cadastral": {
+     "gnr": 107,
+     "bnr": 24
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.58723228683135&lon=9.690994471662151&markerLat=62.58723228683135&markerLon=9.690994471662151"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=K%C3%A5svegen+13&postnummer=7340&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -776,7 +900,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -784,7 +908,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -800,7 +924,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -808,7 +932,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -821,7 +945,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-03-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -829,7 +953,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -842,7 +966,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-04-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -850,7 +974,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -863,7 +987,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-04-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -871,7 +995,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -891,7 +1015,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -899,7 +1023,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -915,7 +1039,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784/roller",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-04-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -923,7 +1047,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -939,7 +1063,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784/roller",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2026-07-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -947,7 +1071,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -962,7 +1086,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784/roller",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-04-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -970,7 +1094,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -999,7 +1123,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784/roller",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-04-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1007,7 +1131,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1022,7 +1146,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784/roller",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": "2025-04-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1030,7 +1154,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1046,7 +1170,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1054,7 +1178,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1071,7 +1195,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1079,7 +1203,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1092,7 +1216,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=935362784&size=100",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1100,7 +1224,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1113,7 +1237,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=935362784&size=100",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1121,7 +1245,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1143,7 +1267,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=935362784&size=100",
-     "retrieved_at": "2026-10-05T05:17:04Z",
+     "retrieved_at": "2026-10-10T13:34:01Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1151,11 +1275,295 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:04Z",
-   "last_seen": "2026-10-05T05:17:04Z",
+   "last_seen": "2026-10-10T13:34:01Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.bedrock.no/kontakt"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/kontakt",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "asmund@bedrock.no",
+    "bruker@domene.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Håndverks- bedrift basert i Oppdal",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Bedrock AS er en liten bedrift som ble etablert i Oppdal, Sør-Trøndelag for over 25 år siden. Vi startet som en murerbedrift, men driver i dag med både tømring og muring. Vi har utført jobber i mange deler av Norge, og gjennom årenes løp hatt mange, spennende oppdrag fra store offentlige prosjekter til private hus og hytter. Bedriften vår har mange samarbeidspartnere, så vi kan koordinere og samkjøre alle fag fra tilbudsfasen til ferdigstilt prosjekt. Vi er opptatt av å levere arbeid av beste fagmessige kvalitet, og gjør vårt ytterste for at kundene skal bli fornøyd. Arkitekttegnede hytter og boliger med høye krav til både materialer og arbeid, har blitt vår spesialitet. Ta en kikk i galleri",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.jsonld_organization",
+   "value": {},
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "no-NO",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.og_image",
+   "value": "http://static1.squarespace.com/static/5edb8f72b747333c42f2971a/t/5edb90369ae1433b3a9035f4/1591447608436/bedrock-logo-old.png?format=1500w",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.bedrock.no/",
+    "contact": "https://www.bedrock.no/kontakt"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.site_name",
+   "value": "bedrock",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "http://www.facebook.com/2008",
+    "instagram": "https://www.instagram.com/bedrockas"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "bedrock",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://www.bedrock.no/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.bedrock.no/",
+     "retrieved_at": "2026-10-10T13:34:01Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:34:01Z",
+   "last_seen": "2026-10-10T13:34:01Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -1164,7 +1572,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:04Z",
+   "retrieved_at": "2026-10-10T13:34:01Z",
    "facts": 20,
    "requests": 1,
    "checks": [
@@ -1182,7 +1590,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/935362784/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:04Z",
+   "retrieved_at": "2026-10-10T13:34:01Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -1200,7 +1608,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=935362784&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:04Z",
+   "retrieved_at": "2026-10-10T13:34:01Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -1218,7 +1626,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/935362784",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:04Z",
+   "retrieved_at": "2026-10-10T13:34:01Z",
    "facts": 17,
    "requests": 1,
    "checks": [
@@ -1236,7 +1644,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=935362784&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:04Z",
+   "retrieved_at": "2026-10-10T13:34:01Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -1250,7 +1658,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22935362784%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:04Z",
+   "retrieved_at": "2026-10-10T13:34:01Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -1260,451 +1668,230 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:17:04Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=BEDROCK&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:34:01Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=K%C3%A5svegen+13&postnummer=7340&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:34:01Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Kåsvegen 13' 7340 -> matched 'Kåsvegen 13' 7340"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/935362784",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:34:01Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=935362784; looked up 935362784"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://bedrock.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:34:01Z",
+   "facts": 13,
+   "requests": 4,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://bedrock.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 935362784 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'BEDROCK AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "bedrock.no -> bedrock.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "name",
-   "type": "added",
-   "new": "BEDROCK AS"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:34:01Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2025-03-17"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2025-04-11"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2025-04-11"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Kåsvegen 13"
-    ],
+    "lat": 62.58723228683135,
+    "lon": 9.690994471662151,
+    "crs": "EPSG:4326",
+    "matched_address": "Kåsvegen 13",
     "postal_code": "7340",
     "city": "OPPDAL",
     "municipality": "OPPDAL",
     "municipality_number": "5021",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 107,
+     "bnr": 24
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.58723228683135&lon=9.690994471662151&markerLat=62.58723228683135&markerLon=9.690994471662151"
    }
   },
   {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:34:01Z",
+   "key": "approvals.dibk_central_approval",
    "type": "added",
    "new": {
-    "code": "41.000",
-    "description": "Oppføring av bygninger"
+    "approved": true,
+    "valid_to": "2028-05-27",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/935362784/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Murarbeid",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
    }
   },
   {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.bedrock.no/"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "bedrock"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "bedrock"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no-NO"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "http://static1.squarespace.com/static/5edb8f72b747333c42f2971a/t/5edb90369ae1433b3a9035f4/1591447608436/bedrock-logo-old.png?format=1500w"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Bedrock AS er en liten bedrift som ble etablert i Oppdal, Sør-Trøndelag for over 25 år siden. Vi startet som en murerbedrift, men driver i dag med både tømring og muring. Vi har utført jobber i mange deler av Norge, og gjennom årenes løp hatt mange, spennende oppdrag fra store offentlige prosjekter til private hus og hytter. Bedriften vår har mange samarbeidspartnere, så vi kan koordinere og samkjøre alle fag fra tilbudsfasen til ferdigstilt prosjekt. Vi er opptatt av å levere arbeid av beste fagmessige kvalitet, og gjør vårt ytterste for at kundene skal bli fornøyd. Arkitekttegnede hytter og boliger med høye krav til både materialer og arbeid, har blitt vår spesialitet. Ta en kikk i galleri"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Håndverks- bedrift basert i Oppdal"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {}
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
+    "url": "https://www.bedrock.no/kontakt"
    }
   },
   {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "employees",
-   "type": "added",
-   "new": 9
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Bygg- og anleggsvirksomhet, med alt som naturlig hører inn under dette."
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Bygging av boliger og fritidsboliger, ofte arkitekttegnede. Vi utfører både tømrer- og murarbeid i egne prosjekter, og arbeidet omfatter ofte hele byggeprosessen - fra grunnarbeid til ferdig bygg."
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.social",
    "type": "added",
    "new": {
-    "amount": 30000.0,
-    "currency": "NOK",
-    "shares": 100,
-    "type": "Aksjekapital"
+    "facebook": "http://www.facebook.com/2008",
+    "instagram": "https://www.instagram.com/bedrockas"
    }
   },
   {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "status",
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "asmund@bedrock.no",
+    "bruker@domene.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
+    "home": "https://www.bedrock.no/",
+    "contact": "https://www.bedrock.no/kontakt"
    }
   },
   {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "group.is_parent",
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
    "new": false
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2025-03-17"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/935362784"
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Åsmund Ervik"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Bjørn Ove Ansnes"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Åsmund Ervik"
-    },
-    {
-     "name": "Erik Lien Fossum"
-    },
-    {
-     "name": "Frank Vognild"
-    },
-    {
-     "name": "Gaute Bjørndalseter"
-    },
-    {
-     "name": "Tore Ishoel"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "E.K. REVISJON AS",
-    "orgnr": "990455376"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "SPAREBANK 1 REGNSKAPSHUSET SMN AS",
-    "orgnr": "936285066"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "935415802",
-     "name": "BEDROCK AS",
-     "city": "OPPDAL",
-     "municipality": "OPPDAL",
-     "employees": 9,
-     "nace": "41.000"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 9
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 15972985.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 15888485.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 13747917.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 2225069.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -9280.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 2215789.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 485214.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 1730575.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 5189191.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 376603.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 4812588.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 2762089.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1691251.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 3497940.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 2627940.0,
-    "currency": "NOK",
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-03-17",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": true,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026455225",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:04Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
   }
  ],
  "changes": [
@@ -2138,17 +2325,206 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 62.58723228683135,
+    "lon": 9.690994471662151,
+    "crs": "EPSG:4326",
+    "matched_address": "Kåsvegen 13",
+    "postal_code": "7340",
+    "city": "OPPDAL",
+    "municipality": "OPPDAL",
+    "municipality_number": "5021",
+    "cadastral": {
+     "gnr": 107,
+     "bnr": 24
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.58723228683135&lon=9.690994471662151&markerLat=62.58723228683135&markerLon=9.690994471662151"
+   }
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2028-05-27",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/935362784/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Murarbeid",
+      "grade": "1",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.bedrock.no/"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "bedrock"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "bedrock"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no-NO"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "http://static1.squarespace.com/static/5edb8f72b747333c42f2971a/t/5edb90369ae1433b3a9035f4/1591447608436/bedrock-logo-old.png?format=1500w"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Bedrock AS er en liten bedrift som ble etablert i Oppdal, Sør-Trøndelag for over 25 år siden. Vi startet som en murerbedrift, men driver i dag med både tømring og muring. Vi har utført jobber i mange deler av Norge, og gjennom årenes løp hatt mange, spennende oppdrag fra store offentlige prosjekter til private hus og hytter. Bedriften vår har mange samarbeidspartnere, så vi kan koordinere og samkjøre alle fag fra tilbudsfasen til ferdigstilt prosjekt. Vi er opptatt av å levere arbeid av beste fagmessige kvalitet, og gjør vårt ytterste for at kundene skal bli fornøyd. Arkitekttegnede hytter og boliger med høye krav til både materialer og arbeid, har blitt vår spesialitet. Ta en kikk i galleri"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Håndverks- bedrift basert i Oppdal"
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {}
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.bedrock.no/kontakt"
+   }
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "http://www.facebook.com/2008",
+    "instagram": "https://www.instagram.com/bedrockas"
+   }
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "asmund@bedrock.no",
+    "bruker@domene.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.bedrock.no/",
+    "contact": "https://www.bedrock.no/kontakt"
+   }
+  },
+  {
+   "at": "2026-10-10T13:34:01Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 45,
+  "active_facts": 60,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.5
+  "requests": 16,
+  "seconds": 37.27
  },
  "explanation": {
   "mode": "template",
-  "text": "BEDROCK AS (org.nr 935 362 784) is registered as Aksjeselskap (AS), founded 2025-03-17, registered 2025-04-11. Business address: Kåsvegen 13, 7340 OPPDAL. Main industry (NACE): 41.000 Oppføring av bygninger. Registered employees: 9 (as of 2026-06-10). Latest filed annual accounts (2025, company statement): revenue NOK 15,972,985; operating result NOK 2,225,069; net result NOK 1,730,575; total assets NOK 5,189,191; equity NOK 1,691,251. Leadership: general manager (daglig leder) Åsmund Ervik; board chair Bjørn Ove Ansnes; 5 other board members. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 45 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "BEDROCK AS (org.nr 935 362 784) is registered as Aksjeselskap (AS), founded 2025-03-17, registered 2025-04-11. [brreg_enheter] Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter] Registered purpose: \"Bygg- og anleggsvirksomhet, med alt som naturlig hører inn under dette.\" [brreg_enheter] The company's website describes it as: \"Bedrock AS er en liten bedrift som ble etablert i Oppdal, Sør-Trøndelag for over 25 år siden. Vi startet som en murerbedrift, men driver i dag med både tømring og muring. Vi har utført jobber i mange deler av Norge, og gjennom årenes løp hatt mange, spennende oppdrag fra store offentlige prosjekter \" [website] Business address: Kåsvegen 13, 7340 OPPDAL. [brreg_enheter] Leadership: general manager (daglig leder) Åsmund Ervik; board chair Bjørn Ove Ansnes; 5 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 9 (as of 2026-06-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 15,972,985; operating result NOK 2,225,069; net result NOK 1,730,575; total assets NOK 5,189,191; equity NOK 1,691,251. [brreg_regnskap]\n- Share capital: NOK 30,000. [brreg_enheter]\n- DiBK central approval: valid until 2028-05-27, 2 approval area(s). [dibk]\n\nChanges in this run (15):\n- location.business.geo: added ({'lat': 62.58723228683135, 'lon': 9.690994471662151, 'crs...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-05-27', 'certificate...)\n- web.url: added (https://www.bedrock.no/)\n- web.title: added (bedrock)\n- web.site_name: added (bedrock)\n- web.language: added (no-NO)\n- web.og_image: added (http://static1.squarespace.com/static/5edb8f72b747333c42f...)\n- web.home_text: added (Bedrock AS er en liten bedrift som ble etablert i Oppdal,...)\n- web.headline: added (Håndverks- bedrift basert i Oppdal)\n- web.jsonld_organization: added ({})\n- web.contact_page: added ({'url': 'https://www.bedrock.no/kontakt'})\n- web.social: added ({'facebook': 'http://www.facebook.com/2008', 'instagram':...)\n- web.emails: added (['asmund@bedrock.no', 'bruker@domene.no'])\n- web.pages_checked: added ({'home': 'https://www.bedrock.no/', 'contact': 'https://w...)\n- web.orgnr_on_page: added (False)\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "BEDROCK AS (org.nr 935 362 784) is registered as Aksjeselskap (AS), founded 2025-03-17, registered 2025-04-11. [brreg_enheter]",
+    "Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter]",
+    "Registered purpose: \"Bygg- og anleggsvirksomhet, med alt som naturlig hører inn under dette.\" [brreg_enheter]",
+    "The company's website describes it as: \"Bedrock AS er en liten bedrift som ble etablert i Oppdal, Sør-Trøndelag for over 25 år siden. Vi startet som en murerbedrift, men driver i dag med både tømring og muring. Vi har utført jobber i mange deler av Norge, og gjennom årenes løp hatt mange, spennende oppdrag fra store offentlige prosjekter \" [website]",
+    "Business address: Kåsvegen 13, 7340 OPPDAL. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Åsmund Ervik; board chair Bjørn Ove Ansnes; 5 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 9 (as of 2026-06-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 15,972,985; operating result NOK 2,225,069; net result NOK 1,730,575; total assets NOK 5,189,191; equity NOK 1,691,251. [brreg_regnskap]",
+    "Share capital: NOK 30,000. [brreg_enheter]",
+    "DiBK central approval: valid until 2028-05-27, 2 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (15):",
+    "- location.business.geo: added ({'lat': 62.58723228683135, 'lon': 9.690994471662151, 'crs...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-05-27', 'certificate...)",
+    "- web.url: added (https://www.bedrock.no/)",
+    "- web.title: added (bedrock)",
+    "- web.site_name: added (bedrock)",
+    "- web.language: added (no-NO)",
+    "- web.og_image: added (http://static1.squarespace.com/static/5edb8f72b747333c42f...)",
+    "- web.home_text: added (Bedrock AS er en liten bedrift som ble etablert i Oppdal,...)",
+    "- web.headline: added (Håndverks- bedrift basert i Oppdal)",
+    "- web.jsonld_organization: added ({})",
+    "- web.contact_page: added ({'url': 'https://www.bedrock.no/kontakt'})",
+    "- web.social: added ({'facebook': 'http://www.facebook.com/2008', 'instagram':...)",
+    "- web.emails: added (['asmund@bedrock.no', 'bruker@domene.no'])",
+    "- web.pages_checked: added ({'home': 'https://www.bedrock.no/', 'contact': 'https://w...)",
+    "- web.orgnr_on_page: added (False)"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

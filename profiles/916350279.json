@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:12:26Z",
- "last_run": "2026-10-05T05:12:26Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:25:11Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -51,6 +51,18 @@
     "detail": "filing journalnr=2026369229 virksomhet.organisasjonsnummer=916350279 (2025, selskap)"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Overhallsvegen 2146' 7863 -> matched 'Overhallsvegen 2146' 7863"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=916350279; looked up 916350279"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -89,6 +101,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
   ]
  },
@@ -100,7 +115,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -108,7 +123,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -131,7 +146,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -139,11 +154,86 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2028-07-07",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/916350279/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Riving og miljøsanering",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/916350279",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2028-07-07",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_declared_website",
+   "value": "www.gl-bygg.no",
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/916350279",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": null,
+     "match": "orgnr_exact",
+     "confidence": "medium",
+     "note": "website as given to DiBK"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "bylaws_date",
@@ -152,7 +242,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2018-04-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -160,7 +250,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -178,7 +268,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2016-04-25",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -186,7 +276,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -199,7 +289,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -207,7 +297,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -220,7 +310,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -228,7 +318,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -241,7 +331,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -249,7 +339,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -267,7 +357,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -275,7 +365,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -293,7 +383,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -301,7 +391,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -319,7 +409,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -327,7 +417,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -345,7 +435,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -353,7 +443,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -371,7 +461,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -379,7 +469,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -405,7 +495,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -413,7 +503,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -431,7 +521,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -439,7 +529,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -457,7 +547,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -465,7 +555,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -483,7 +573,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -491,7 +581,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -509,7 +599,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -517,7 +607,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -535,7 +625,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -543,7 +633,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -561,7 +651,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -569,7 +659,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -587,7 +677,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -595,7 +685,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -613,7 +703,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -621,7 +711,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -639,7 +729,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -647,7 +737,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -665,7 +755,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -673,7 +763,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -691,7 +781,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -699,7 +789,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -717,7 +807,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -725,7 +815,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -743,7 +833,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -751,7 +841,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -769,7 +859,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -777,7 +867,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -795,7 +885,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -803,7 +893,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -821,7 +911,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -829,7 +919,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -855,7 +945,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -863,7 +953,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -881,7 +971,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -889,7 +979,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -907,7 +997,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -915,7 +1005,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -933,7 +1023,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -941,7 +1031,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -959,7 +1049,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -967,7 +1057,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -985,7 +1075,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -993,7 +1083,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1011,7 +1101,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1019,7 +1109,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1037,7 +1127,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1045,7 +1135,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1063,7 +1153,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1071,7 +1161,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1089,7 +1179,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1097,7 +1187,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1115,7 +1205,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1123,7 +1213,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1141,7 +1231,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1149,7 +1239,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1167,7 +1257,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1175,7 +1265,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1193,7 +1283,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1201,7 +1291,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1219,7 +1309,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1227,7 +1317,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1245,7 +1335,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1253,7 +1343,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1271,7 +1361,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1279,7 +1369,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1305,7 +1395,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1313,7 +1403,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1331,7 +1421,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1339,7 +1429,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1357,7 +1447,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1365,7 +1455,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1383,7 +1473,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1391,7 +1481,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1409,7 +1499,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1417,7 +1507,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1435,7 +1525,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1443,7 +1533,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1461,7 +1551,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1469,7 +1559,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1487,7 +1577,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1495,7 +1585,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1513,7 +1603,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1521,7 +1611,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1539,7 +1629,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1547,7 +1637,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1565,7 +1655,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1573,7 +1663,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1591,7 +1681,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1599,7 +1689,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1615,7 +1705,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1623,7 +1713,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1636,7 +1726,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2015-11-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1644,7 +1734,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1657,7 +1747,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1665,7 +1755,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1681,7 +1771,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1689,7 +1779,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1702,7 +1792,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1710,7 +1800,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1723,7 +1813,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1731,7 +1821,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1744,7 +1834,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1752,11 +1842,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 64.50925521931498,
+    "lon": 12.014633119133697,
+    "crs": "EPSG:4326",
+    "matched_address": "Overhallsvegen 2146",
+    "postal_code": "7863",
+    "city": "OVERHALLA",
+    "municipality": "OVERHALLA",
+    "municipality_number": "5047",
+    "cadastral": {
+     "gnr": 63,
+     "bnr": 33
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=64.50925521931498&lon=12.014633119133697&markerLat=64.50925521931498&markerLon=12.014633119133697"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Overhallsvegen+2146&postnummer=7863&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1765,7 +1890,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1773,7 +1898,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1792,7 +1917,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1800,7 +1925,267 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.024ea792aa51",
+   "value": {
+    "title": "Nye Trixie Trofors",
+    "url": "https://gl-bygg.no/2026/03/06/nye-trixie-trofors/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Nye Trixie Trofors Byggeår: 2025 Byggherre: Nye Delal eiendom as Entreprise: Totalentreprise Type bygg: Ny restaurant"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/03/06/nye-trixie-trofors/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-03-06",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.59a9751ed62a",
+   "value": {
+    "title": "Brannstasjon og renseanlegg Høylandet",
+    "url": "https://gl-bygg.no/2026/03/06/brannstasjon-og-renseanlegg-hoylandet/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Høylandet brannstasjon og renseanlegg Byggeår: 2025-2026 Byggherre: Høylandet kommune Entreprise: Totalentreprise Type bygg: Nytt anlegg for brann og redning, samt nytt renseanlegg"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/03/06/brannstasjon-og-renseanlegg-hoylandet/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-03-06",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.7ace17e82681",
+   "value": {
+    "title": "Helikopterplattform Namsos",
+    "url": "https://gl-bygg.no/2026/03/06/helikopterplattform-namsos/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Helikopterplattformen Namsos Byggeår:2024-2026 Byggherre: Helse Nord-Trøndelag HF Entreprise: Totalentreprise Type bygg: Helikopterplattform"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/03/06/helikopterplattform-namsos/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-03-06",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.85ec45569ad5",
+   "value": {
+    "title": "Styrker beredskapen i Namdalen",
+    "url": "https://gl-bygg.no/2026/04/30/styrker-beredskapen-i-namdalen/",
+    "date": "2026-04-30",
+    "summary": "Vi i er stolte over å ha vært totalentreprenør for byggingen av ny helikopterlandingsplass i Namsos – et viktig infrastrukturprosjekt som styrker beredskapen og tilgjengeligheten i regionen. Den nye helikopterlandingsplassen i Namsos er utviklet for å møte dagens og fremtidens behov innen lufttransp"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/04/30/styrker-beredskapen-i-namdalen/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-04-30",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.a940203109bd",
+   "value": {
+    "title": "Namsskogan skole",
+    "url": "https://gl-bygg.no/2026/03/06/namsskogan-skole/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Skole Namsskogan Byggeår: 2023-2025 Byggherre: Namsskogan skole Entrepriseform: Totalentreprise Type bygg: Nybygg og ombygging"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/03/06/namsskogan-skole/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-03-06",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.ca50507adc22",
+   "value": {
+    "title": "GL-bygg vil bygge fremtidens fagfolk",
+    "url": "https://gl-bygg.no/2026/10/08/gl-bygg-vil-bygge-fremtidens-fagfolk/",
+    "date": "2026-10-08",
+    "summary": "Hva skal til for å få flere unge til å velge byggfag? GL-bygg tror svaret blant annet ligger i å slippe dem tett på hverdagen i faget."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/10/08/gl-bygg-vil-bygge-fremtidens-fagfolk/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-10-08",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.ed41275ba78a",
+   "value": {
+    "title": "Gimlehallen",
+    "url": "https://gl-bygg.no/2026/03/06/gimlehallen/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Gimlehallen Byggeår: 2024-2025 Byggherre: Overhalla kommune Entreprise: Totalentreprise Type bygg: Totalrenovering og tilbygg idrettshall"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/03/06/gimlehallen/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-03-06",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.f0a1f334dfa2",
+   "value": {
+    "title": "GL-bygg lander stor totalentreprise for Mowi på Salsbruket",
+    "url": "https://gl-bygg.no/2026/09/14/gl-bygg-lander-stor-totalentreprise-for-mowi-pa-salsbruket/",
+    "date": "2026-09-14",
+    "summary": "GL-bygg er valgt som totalentreprenør når Mowi Norge nå gjennomfører en omfattende utbygging av settefiskanlegget på Salsbruket i Nærøysund."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/09/14/gl-bygg-lander-stor-totalentreprise-for-mowi-pa-salsbruket/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-09-14",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.f3e641c8475f",
+   "value": {
+    "title": "GL-bygg søker tømrere og betongarbeidere",
+    "url": "https://gl-bygg.no/2026/07/08/gl-bygg-soker-tomrere-og-betongarbeidere/",
+    "date": "2026-07-08",
+    "summary": "I GL-bygg har vi flere spennende prosjekter foran oss, og nå er vi på utkikk etter flere dyktige fagfolk som vil være med å bygge for framtiden."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/07/08/gl-bygg-soker-tomrere-og-betongarbeidere/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-07-08",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.fab69d3893a6",
+   "value": {
+    "title": "Sterling Reipholmen",
+    "url": "https://gl-bygg.no/2026/03/06/sterling-reipholmen/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Sterling Reipholmen Byggeår: 2021-2022 Byggherre: Sterling Holding Entrepriseform: Totalentreprise Type bygg: Nytt yngelanlegg på Reipholen utenfor Rørvik"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/2026/03/06/sterling-reipholmen/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": "2026-03-06",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1816,7 +2201,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1824,7 +2209,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1837,7 +2222,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2018-04-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1845,7 +2230,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1858,7 +2243,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2015-12-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1866,7 +2251,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1879,7 +2264,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2015-12-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1887,7 +2272,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1907,7 +2292,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1915,7 +2300,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1931,7 +2316,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279/roller",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2015-12-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1939,7 +2324,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1954,7 +2339,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279/roller",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2026-02-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1962,7 +2347,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1988,7 +2373,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279/roller",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2026-02-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1996,7 +2381,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2011,7 +2396,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279/roller",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": "2025-01-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2019,7 +2404,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2035,7 +2420,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2043,7 +2428,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2060,7 +2445,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2068,7 +2453,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2081,7 +2466,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=916350279&size=100",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2089,7 +2474,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2102,7 +2487,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=916350279&size=100",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2110,7 +2495,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2132,7 +2517,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=916350279&size=100",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2140,7 +2525,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2153,7 +2538,7 @@
     {
      "source": "website",
      "url": "https://gl-bygg.no/om-oss/",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2161,7 +2546,30 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://gl-bygg.no/kontakt-oss/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/kontakt-oss/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2170,21 +2578,74 @@
   {
    "key": "web.emails",
    "value": [
-    "firmapost@gl-bygg.no"
+    "anders@gl-bygg.no",
+    "andreas@gl-bygg.no",
+    "even@gl-bygg.no",
+    "firmapost@gl-bygg.no",
+    "hege@gl-bygg.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://gl-bygg.no/",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "firmapost@gl-bygg.no"
+     ],
+     "until": "2026-10-05T05:12:26Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.headline",
+   "value": "GL-bygg vil bygge fremtidens fagfolk",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "GL-bygg er en allsidig problemløser for små og store byggherrer. Vi prosjekterer og bygger skoler, administrasjonsbygg, institusjoner, næringsbygg, bygg for landbruket, kraftanlegg, lakseslakteri og settefiskanlegg. Helt siden starten i 1988 har GL-bygg markert seg som en solid og kompetent samarbeidspartner for sine oppdragsgivere, noe vi har ambisjoner om å fortsette som med uforminsket kraft. Vi i er stolte over å ha vært totalentreprenør for byggingen av ny helikopterlandingsplass i Namsos – et viktig infrastrukturprosjekt som styrker beredskapen og tilgjengeligheten i regionen. Den nye helikopterlandingsplassen i Namsos er utviklet for I høst sender vi en god gjeng ansatte nordover og t",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2197,7 +2658,7 @@
     {
      "source": "website",
      "url": "https://gl-bygg.no/",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2205,7 +2666,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2218,7 +2679,7 @@
     {
      "source": "website",
      "url": "https://gl-bygg.no/",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2226,7 +2687,33 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://gl-bygg.no/",
+    "contact": "https://gl-bygg.no/kontakt-oss/",
+    "about": "https://gl-bygg.no/om-oss/",
+    "feed": "https://gl-bygg.no/feed/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://gl-bygg.no/",
+     "retrieved_at": "2026-10-10T13:25:11Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:25:11Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2241,15 +2728,15 @@
     {
      "source": "website",
      "url": "https://gl-bygg.no/",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
-     "note": null
+     "note": "tel: links on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2262,7 +2749,7 @@
     {
      "source": "website",
      "url": "https://gl-bygg.no/",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2270,7 +2757,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2283,7 +2770,7 @@
     {
      "source": "website",
      "url": "https://gl-bygg.no/",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2291,7 +2778,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2304,7 +2791,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
-     "retrieved_at": "2026-10-05T05:12:26Z",
+     "retrieved_at": "2026-10-10T13:25:11Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2312,7 +2799,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:26Z",
-   "last_seen": "2026-10-05T05:12:26Z",
+   "last_seen": "2026-10-10T13:25:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2325,7 +2812,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:26Z",
+   "retrieved_at": "2026-10-10T13:25:11Z",
    "facts": 23,
    "requests": 1,
    "checks": [
@@ -2343,7 +2830,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/916350279/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:26Z",
+   "retrieved_at": "2026-10-10T13:25:11Z",
    "facts": 4,
    "requests": 1,
    "checks": [
@@ -2361,7 +2848,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=916350279&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:26Z",
+   "retrieved_at": "2026-10-10T13:25:11Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2379,7 +2866,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/916350279",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:26Z",
+   "retrieved_at": "2026-10-10T13:25:11Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2407,7 +2894,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=916350279&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:26Z",
+   "retrieved_at": "2026-10-10T13:25:11Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2421,7 +2908,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22916350279%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:26Z",
+   "retrieved_at": "2026-10-10T13:25:11Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2431,13 +2918,63 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=GL-BYGG&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:25:11Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Overhallsvegen+2146&postnummer=7863&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:25:11Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Overhallsvegen 2146' 7863 -> matched 'Overhallsvegen 2146' 7863"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/916350279",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:25:11Z",
+   "facts": 2,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=916350279; looked up 916350279"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://www.gl-bygg.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:12:26Z",
-   "facts": 7,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:25:11Z",
+   "facts": 21,
+   "requests": 6,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2471,894 +3008,225 @@
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "name",
-   "type": "added",
-   "new": "GL-BYGG AS"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "GL-BYGG ENTREPRENØR AS",
-     "from": "2015-12-07 14:51:32",
-     "to": "2016-04-18 10:59:53"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2015-11-27"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2015-12-07"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2015-12-07"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Overhallsvegen 2146"
-    ],
+    "lat": 64.50925521931498,
+    "lon": 12.014633119133697,
+    "crs": "EPSG:4326",
+    "matched_address": "Overhallsvegen 2146",
     "postal_code": "7863",
     "city": "OVERHALLA",
     "municipality": "OVERHALLA",
     "municipality_number": "5047",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 63,
+     "bnr": 33
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=64.50925521931498&lon=12.014633119133697&markerLat=64.50925521931498&markerLon=12.014633119133697"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "approvals.dibk_central_approval",
    "type": "added",
    "new": {
-    "code": "41.000",
-    "description": "Oppføring av bygninger"
+    "approved": true,
+    "valid_to": "2028-07-07",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/916350279/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Riving og miljøsanering",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "employees",
-   "type": "added",
-   "new": 65
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "website",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "approvals.dibk_declared_website",
    "type": "added",
    "new": "www.gl-bygg.no"
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "email",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.home_text",
    "type": "added",
-   "new": "firmapost@gl-bygg.no"
+   "new": "GL-bygg er en allsidig problemløser for små og store byggherrer. Vi prosjekterer og bygger skoler, administrasjonsbygg, institusjoner, næringsbygg, bygg for landbruket, kraftanlegg, lakseslakteri og settefiskanlegg. Helt siden starten i 1988 har GL-bygg markert seg som en solid og kompetent samarbeidspartner for sine oppdragsgivere, noe vi har ambisjoner om å fortsette som med uforminsket kraft. Vi i er stolte over å ha vært totalentreprenør for byggingen av ny helikopterlandingsplass i Namsos – et viktig infrastrukturprosjekt som styrker beredskapen og tilgjengeligheten i regionen. Den nye helikopterlandingsplassen i Namsos er utviklet for I høst sender vi en god gjeng ansatte nordover og t"
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "purpose",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.headline",
    "type": "added",
-   "new": "Bygge- og anleggsvirksomhet."
+   "new": "GL-bygg vil bygge fremtidens fagfolk"
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Bygge- og anleggsvirksomhet."
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.ca50507adc22",
    "type": "added",
    "new": {
-    "amount": 3000000.0,
-    "currency": "NOK",
-    "shares": 30000,
-    "type": "Aksjekapital"
+    "title": "GL-bygg vil bygge fremtidens fagfolk",
+    "url": "https://gl-bygg.no/2026/10/08/gl-bygg-vil-bygge-fremtidens-fagfolk/",
+    "date": "2026-10-08",
+    "summary": "Hva skal til for å få flere unge til å velge byggfag? GL-bygg tror svaret blant annet ligger i å slippe dem tett på hverdagen i faget."
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "status",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.f0a1f334dfa2",
    "type": "added",
    "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
+    "title": "GL-bygg lander stor totalentreprise for Mowi på Salsbruket",
+    "url": "https://gl-bygg.no/2026/09/14/gl-bygg-lander-stor-totalentreprise-for-mowi-pa-salsbruket/",
+    "date": "2026-09-14",
+    "summary": "GL-bygg er valgt som totalentreprenør når Mowi Norge nå gjennomfører en omfattende utbygging av settefiskanlegget på Salsbruket i Nærøysund."
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "registers",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.f3e641c8475f",
    "type": "added",
    "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
+    "title": "GL-bygg søker tømrere og betongarbeidere",
+    "url": "https://gl-bygg.no/2026/07/08/gl-bygg-soker-tomrere-og-betongarbeidere/",
+    "date": "2026-07-08",
+    "summary": "I GL-bygg har vi flere spennende prosjekter foran oss, og nå er vi på utkikk etter flere dyktige fagfolk som vil være med å bygge for framtiden."
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2018-04-04"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/916350279"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "roles.ceo",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.85ec45569ad5",
    "type": "added",
    "new": {
-    "name": "Stig Olav Barlien"
+    "title": "Styrker beredskapen i Namdalen",
+    "url": "https://gl-bygg.no/2026/04/30/styrker-beredskapen-i-namdalen/",
+    "date": "2026-04-30",
+    "summary": "Vi i er stolte over å ha vært totalentreprenør for byggingen av ny helikopterlandingsplass i Namsos – et viktig infrastrukturprosjekt som styrker beredskapen og tilgjengeligheten i regionen. Den nye helikopterlandingsplassen i Namsos er utviklet for å møte dagens og fremtidens behov innen lufttransp"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "roles.board_chair",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.ed41275ba78a",
    "type": "added",
    "new": {
-    "name": "Arnt Skillingstad Rørvik"
+    "title": "Gimlehallen",
+    "url": "https://gl-bygg.no/2026/03/06/gimlehallen/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Gimlehallen Byggeår: 2024-2025 Byggherre: Overhalla kommune Entreprise: Totalentreprise Type bygg: Totalrenovering og tilbygg idrettshall"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Mette Barstad"
-    },
-    {
-     "name": "Ida Andrea Nogva-Johansen"
-    },
-    {
-     "name": "Andreas Brennhaug Fristad"
-    },
-    {
-     "name": "Per Kristian Skaret"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "roles.auditor",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.024ea792aa51",
    "type": "added",
    "new": {
-    "name": "BDO AS",
-    "orgnr": "993606650"
+    "title": "Nye Trixie Trofors",
+    "url": "https://gl-bygg.no/2026/03/06/nye-trixie-trofors/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Nye Trixie Trofors Byggeår: 2025 Byggherre: Nye Delal eiendom as Entreprise: Totalentreprise Type bygg: Ny restaurant"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "816379202",
-     "name": "GL-BYGG AS",
-     "city": "OVERHALLA",
-     "municipality": "OVERHALLA",
-     "employees": 65,
-     "nace": "41.000"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 65
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.revenue",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.59a9751ed62a",
    "type": "added",
    "new": {
-    "amount": 276303225.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "title": "Brannstasjon og renseanlegg Høylandet",
+    "url": "https://gl-bygg.no/2026/03/06/brannstasjon-og-renseanlegg-hoylandet/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Høylandet brannstasjon og renseanlegg Byggeår: 2025-2026 Byggherre: Høylandet kommune Entreprise: Totalentreprise Type bygg: Nytt anlegg for brann og redning, samt nytt renseanlegg"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.sales_revenue",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.7ace17e82681",
    "type": "added",
    "new": {
-    "amount": 275583225.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "title": "Helikopterplattform Namsos",
+    "url": "https://gl-bygg.no/2026/03/06/helikopterplattform-namsos/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Helikopterplattformen Namsos Byggeår:2024-2026 Byggherre: Helse Nord-Trøndelag HF Entreprise: Totalentreprise Type bygg: Helikopterplattform"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.operating_costs",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.fab69d3893a6",
    "type": "added",
    "new": {
-    "amount": 269394924.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "title": "Sterling Reipholmen",
+    "url": "https://gl-bygg.no/2026/03/06/sterling-reipholmen/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Sterling Reipholmen Byggeår: 2021-2022 Byggherre: Sterling Holding Entrepriseform: Totalentreprise Type bygg: Nytt yngelanlegg på Reipholen utenfor Rørvik"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.operating_result",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.a940203109bd",
    "type": "added",
    "new": {
-    "amount": 6908301.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "title": "Namsskogan skole",
+    "url": "https://gl-bygg.no/2026/03/06/namsskogan-skole/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Skole Namsskogan Byggeår: 2023-2025 Byggherre: Namsskogan skole Entrepriseform: Totalentreprise Type bygg: Nybygg og ombygging"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.net_financial_items",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "amount": 1148542.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "url": "https://gl-bygg.no/kontakt-oss/"
    }
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 8056843.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1805085.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 6251758.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 68798514.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 11381458.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 57417056.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 12792767.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 26265595.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 42532918.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 34154870.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 8378048.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024635071",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 208286045.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 207522463.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 219795062.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -11509017.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 280905.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -11228113.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": -2479054.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -8749059.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 74967228.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 13500909.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 61466319.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 13925339.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 18603276.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 56363953.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 53205281.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 3158672.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025709096",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 275431622.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 274752443.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 269859267.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 5572354.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 423119.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 5995473.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 1283216.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 4712257.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 68458951.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 6807548.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 61651403.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 25731758.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 23315533.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 45143419.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 41393375.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 3750044.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026369229",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "web.url",
-   "type": "added",
-   "new": "https://gl-bygg.no/"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "web.orgnr_on_page",
-   "type": "added",
-   "new": true
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "web.title",
-   "type": "added",
-   "new": "GL Bygg AS – En allsidig entreprenør"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "web.language",
-   "type": "added",
-   "new": "nb-NO"
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
+   "at": "2026-10-10T13:25:11Z",
    "key": "web.emails",
-   "type": "added",
-   "new": [
+   "type": "changed",
+   "old": [
     "firmapost@gl-bygg.no"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "web.phones",
-   "type": "added",
+   ],
    "new": [
-    "+4774280880"
+    "anders@gl-bygg.no",
+    "andreas@gl-bygg.no",
+    "even@gl-bygg.no",
+    "firmapost@gl-bygg.no",
+    "hege@gl-bygg.no"
    ]
   },
   {
-   "at": "2026-10-05T05:12:26Z",
-   "key": "web.about_text",
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.pages_checked",
    "type": "added",
-   "new": "Gjennom snart 40 år har GL-bygg jobbet seg opp til å bli en solid næringslivsaktør som har satt Namdalen på kartet regionalt. GL-bygg så først dagens lys tilbake i 1988 da Bjørn Galguften og Kåre Lien startet for seg selv etter å ha jobbet i Overhalla Industrier gjennom en årrekke. Overhalla Industrier hadde bestemt seg for å legge ned entreprenørvirksomheten i bedriften, og det nyoppstartede GL-bygg overtok både mannskap og utstyret knyttet til entreprenørvirksomheten til Overhalla Industrier. Påsken 1988 satt de seg ned og laget det første budsjettet. Da var det rundt 10 mann på lønningslisten og budsjettet var på 10 millioner kroner. GL-bygg hadde med seg et oppdrag eller to som de overtok fra Overhalla Industrier. Det første prosjektet – nybygget til Namsentrykk. Fra starten i 1988 frem til årsskiftet økte GL-bygg med et par ansatte. Siden starten i 88 har det vært mange milepæler – både med tanke på omsetning, størrelse på prosjekter og antall ansatte. I årene etter oppstarten gikk det jevnt og trutt. Bedriften vokste seg sakte, men sikkert, og en solid arbeidsstokk ble stadig større og sterkere. I 1994 ble det gjennomført et skifte i ledelsen. Pål Arne Ryan ble ansatt som dag"
+   "new": {
+    "home": "https://gl-bygg.no/",
+    "contact": "https://gl-bygg.no/kontakt-oss/",
+    "about": "https://gl-bygg.no/om-oss/",
+    "feed": "https://gl-bygg.no/feed/"
+   }
   }
  ],
  "changes": [
@@ -4251,17 +4119,294 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Gjennom snart 40 år har GL-bygg jobbet seg opp til å bli en solid næringslivsaktør som har satt Namdalen på kartet regionalt. GL-bygg så først dagens lys tilbake i 1988 da Bjørn Galguften og Kåre Lien startet for seg selv etter å ha jobbet i Overhalla Industrier gjennom en årrekke. Overhalla Industrier hadde bestemt seg for å legge ned entreprenørvirksomheten i bedriften, og det nyoppstartede GL-bygg overtok både mannskap og utstyret knyttet til entreprenørvirksomheten til Overhalla Industrier. Påsken 1988 satt de seg ned og laget det første budsjettet. Da var det rundt 10 mann på lønningslisten og budsjettet var på 10 millioner kroner. GL-bygg hadde med seg et oppdrag eller to som de overtok fra Overhalla Industrier. Det første prosjektet – nybygget til Namsentrykk. Fra starten i 1988 frem til årsskiftet økte GL-bygg med et par ansatte. Siden starten i 88 har det vært mange milepæler – både med tanke på omsetning, størrelse på prosjekter og antall ansatte. I årene etter oppstarten gikk det jevnt og trutt. Bedriften vokste seg sakte, men sikkert, og en solid arbeidsstokk ble stadig større og sterkere. I 1994 ble det gjennomført et skifte i ledelsen. Pål Arne Ryan ble ansatt som dag"
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 64.50925521931498,
+    "lon": 12.014633119133697,
+    "crs": "EPSG:4326",
+    "matched_address": "Overhallsvegen 2146",
+    "postal_code": "7863",
+    "city": "OVERHALLA",
+    "municipality": "OVERHALLA",
+    "municipality_number": "5047",
+    "cadastral": {
+     "gnr": 63,
+     "bnr": 33
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=64.50925521931498&lon=12.014633119133697&markerLat=64.50925521931498&markerLon=12.014633119133697"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2028-07-07",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/916350279/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Riving og miljøsanering",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "www.gl-bygg.no"
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "GL-bygg er en allsidig problemløser for små og store byggherrer. Vi prosjekterer og bygger skoler, administrasjonsbygg, institusjoner, næringsbygg, bygg for landbruket, kraftanlegg, lakseslakteri og settefiskanlegg. Helt siden starten i 1988 har GL-bygg markert seg som en solid og kompetent samarbeidspartner for sine oppdragsgivere, noe vi har ambisjoner om å fortsette som med uforminsket kraft. Vi i er stolte over å ha vært totalentreprenør for byggingen av ny helikopterlandingsplass i Namsos – et viktig infrastrukturprosjekt som styrker beredskapen og tilgjengeligheten i regionen. Den nye helikopterlandingsplassen i Namsos er utviklet for I høst sender vi en god gjeng ansatte nordover og t"
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "GL-bygg vil bygge fremtidens fagfolk"
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.ca50507adc22",
+   "type": "added",
+   "new": {
+    "title": "GL-bygg vil bygge fremtidens fagfolk",
+    "url": "https://gl-bygg.no/2026/10/08/gl-bygg-vil-bygge-fremtidens-fagfolk/",
+    "date": "2026-10-08",
+    "summary": "Hva skal til for å få flere unge til å velge byggfag? GL-bygg tror svaret blant annet ligger i å slippe dem tett på hverdagen i faget."
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.f0a1f334dfa2",
+   "type": "added",
+   "new": {
+    "title": "GL-bygg lander stor totalentreprise for Mowi på Salsbruket",
+    "url": "https://gl-bygg.no/2026/09/14/gl-bygg-lander-stor-totalentreprise-for-mowi-pa-salsbruket/",
+    "date": "2026-09-14",
+    "summary": "GL-bygg er valgt som totalentreprenør når Mowi Norge nå gjennomfører en omfattende utbygging av settefiskanlegget på Salsbruket i Nærøysund."
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.f3e641c8475f",
+   "type": "added",
+   "new": {
+    "title": "GL-bygg søker tømrere og betongarbeidere",
+    "url": "https://gl-bygg.no/2026/07/08/gl-bygg-soker-tomrere-og-betongarbeidere/",
+    "date": "2026-07-08",
+    "summary": "I GL-bygg har vi flere spennende prosjekter foran oss, og nå er vi på utkikk etter flere dyktige fagfolk som vil være med å bygge for framtiden."
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.85ec45569ad5",
+   "type": "added",
+   "new": {
+    "title": "Styrker beredskapen i Namdalen",
+    "url": "https://gl-bygg.no/2026/04/30/styrker-beredskapen-i-namdalen/",
+    "date": "2026-04-30",
+    "summary": "Vi i er stolte over å ha vært totalentreprenør for byggingen av ny helikopterlandingsplass i Namsos – et viktig infrastrukturprosjekt som styrker beredskapen og tilgjengeligheten i regionen. Den nye helikopterlandingsplassen i Namsos er utviklet for å møte dagens og fremtidens behov innen lufttransp"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.ed41275ba78a",
+   "type": "added",
+   "new": {
+    "title": "Gimlehallen",
+    "url": "https://gl-bygg.no/2026/03/06/gimlehallen/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Gimlehallen Byggeår: 2024-2025 Byggherre: Overhalla kommune Entreprise: Totalentreprise Type bygg: Totalrenovering og tilbygg idrettshall"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.024ea792aa51",
+   "type": "added",
+   "new": {
+    "title": "Nye Trixie Trofors",
+    "url": "https://gl-bygg.no/2026/03/06/nye-trixie-trofors/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Nye Trixie Trofors Byggeår: 2025 Byggherre: Nye Delal eiendom as Entreprise: Totalentreprise Type bygg: Ny restaurant"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.59a9751ed62a",
+   "type": "added",
+   "new": {
+    "title": "Brannstasjon og renseanlegg Høylandet",
+    "url": "https://gl-bygg.no/2026/03/06/brannstasjon-og-renseanlegg-hoylandet/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Høylandet brannstasjon og renseanlegg Byggeår: 2025-2026 Byggherre: Høylandet kommune Entreprise: Totalentreprise Type bygg: Nytt anlegg for brann og redning, samt nytt renseanlegg"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.7ace17e82681",
+   "type": "added",
+   "new": {
+    "title": "Helikopterplattform Namsos",
+    "url": "https://gl-bygg.no/2026/03/06/helikopterplattform-namsos/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Helikopterplattformen Namsos Byggeår:2024-2026 Byggherre: Helse Nord-Trøndelag HF Entreprise: Totalentreprise Type bygg: Helikopterplattform"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.fab69d3893a6",
+   "type": "added",
+   "new": {
+    "title": "Sterling Reipholmen",
+    "url": "https://gl-bygg.no/2026/03/06/sterling-reipholmen/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Sterling Reipholmen Byggeår: 2021-2022 Byggherre: Sterling Holding Entrepriseform: Totalentreprise Type bygg: Nytt yngelanlegg på Reipholen utenfor Rørvik"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "news.item.a940203109bd",
+   "type": "added",
+   "new": {
+    "title": "Namsskogan skole",
+    "url": "https://gl-bygg.no/2026/03/06/namsskogan-skole/",
+    "date": "2026-03-06",
+    "summary": "Prosjekt: Skole Namsskogan Byggeår: 2023-2025 Byggherre: Namsskogan skole Entrepriseform: Totalentreprise Type bygg: Nybygg og ombygging"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://gl-bygg.no/kontakt-oss/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "firmapost@gl-bygg.no"
+   ],
+   "new": [
+    "anders@gl-bygg.no",
+    "andreas@gl-bygg.no",
+    "even@gl-bygg.no",
+    "firmapost@gl-bygg.no",
+    "hege@gl-bygg.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:25:11Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://gl-bygg.no/",
+    "contact": "https://gl-bygg.no/kontakt-oss/",
+    "about": "https://gl-bygg.no/om-oss/",
+    "feed": "https://gl-bygg.no/feed/"
+   }
   }
  ],
  "stats": {
-  "active_facts": 89,
+  "active_facts": 106,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 21.11
+  "requests": 18,
+  "seconds": 48.11
  },
  "explanation": {
   "mode": "template",
-  "text": "GL-BYGG AS (org.nr 916 350 279) is registered as Aksjeselskap (AS), founded 2015-11-27, registered 2015-12-07. Business address: Overhallsvegen 2146, 7863 OVERHALLA. Main industry (NACE): 41.000 Oppføring av bygninger. Registered employees: 65 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 275,431,622; operating result NOK 5,572,354; net result NOK 4,712,257; total assets NOK 68,458,951; equity NOK 23,315,533. Leadership: general manager (daglig leder) Stig Olav Barlien; board chair Arnt Skillingstad Rørvik; 4 other board members. Sub-units registered: 1. Website: www.gl-bygg.no.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)\n\nFirst run: 89 facts recorded.\nNot available: gleif, wikidata."
+  "text": "GL-BYGG AS (org.nr 916 350 279) is registered as Aksjeselskap (AS), founded 2015-11-27, registered 2015-12-07. [brreg_enheter] Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter] Registered purpose: \"Bygge- og anleggsvirksomhet.\" [brreg_enheter] The company's website describes it as: \"Gjennom snart 40 år har GL-bygg jobbet seg opp til å bli en solid næringslivsaktør som har satt Namdalen på kartet regionalt. GL-bygg så først dagens lys tilbake i 1988 da Bjørn Galguften og Kåre Lien startet for seg selv etter å ha jobbet i Overhalla Industrier gjennom en årrekke. Overhalla Industr\" [website] Business address: Overhallsvegen 2146, 7863 OVERHALLA. [brreg_enheter] Leadership: general manager (daglig leder) Stig Olav Barlien; board chair Arnt Skillingstad Rørvik; 4 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 65 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 275,431,622 (+32% vs 2024); operating result NOK 5,572,354 (+148% vs 2024); net result NOK 4,712,257 (+154% vs 2024); total assets NOK 68,458,951 (-9% vs 2024); equity NOK 23,315,533 (+25% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 3,000,000. [brreg_enheter]\n- 10 news items from the company's own site, latest 2026-10-08. [website]\n- DiBK central approval: valid until 2028-07-07, 4 approval area(s). [dibk]\n\nChanges in this run (18):\n- location.business.geo: added ({'lat': 64.50925521931498, 'lon': 12.014633119133697, 'cr...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-07-07', 'certificate...)\n- approvals.dibk_declared_website: added (www.gl-bygg.no)\n- web.home_text: added (GL-bygg er en allsidig problemløser for små og store bygg...)\n- web.headline: added (GL-bygg vil bygge fremtidens fagfolk)\n- news.item.ca50507adc22: added ({'title': 'GL-bygg vil bygge fremtidens fagfolk', 'url': ...)\n- news.item.f0a1f334dfa2: added ({'title': 'GL-bygg lander stor totalentreprise for Mowi p...)\n- news.item.f3e641c8475f: added ({'title': 'GL-bygg søker tømrere og betongarbeidere', 'ur...)\n- news.item.85ec45569ad5: added ({'title': 'Styrker beredskapen i Namdalen', 'url': 'https...)\n- news.item.ed41275ba78a: added ({'title': 'Gimlehallen', 'url': 'https://gl-bygg.no/2026/...)\n- news.item.024ea792aa51: added ({'title': 'Nye Trixie Trofors', 'url': 'https://gl-bygg.n...)\n- news.item.59a9751ed62a: added ({'title': 'Brannstasjon og renseanlegg Høylandet', 'url':...)\n- news.item.7ace17e82681: added ({'title': 'Helikopterplattform Namsos', 'url': 'https://g...)\n- news.item.fab69d3893a6: added ({'title': 'Sterling Reipholmen', 'url': 'https://gl-bygg....)\n- news.item.a940203109bd: added ({'title': 'Namsskogan skole', 'url': 'https://gl-bygg.no/...)\n- ... and 3 more\n\nWhat remains unknown:\n- No social media profiles: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "GL-BYGG AS (org.nr 916 350 279) is registered as Aksjeselskap (AS), founded 2015-11-27, registered 2015-12-07. [brreg_enheter]",
+    "Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter]",
+    "Registered purpose: \"Bygge- og anleggsvirksomhet.\" [brreg_enheter]",
+    "The company's website describes it as: \"Gjennom snart 40 år har GL-bygg jobbet seg opp til å bli en solid næringslivsaktør som har satt Namdalen på kartet regionalt. GL-bygg så først dagens lys tilbake i 1988 da Bjørn Galguften og Kåre Lien startet for seg selv etter å ha jobbet i Overhalla Industrier gjennom en årrekke. Overhalla Industr\" [website]",
+    "Business address: Overhallsvegen 2146, 7863 OVERHALLA. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Stig Olav Barlien; board chair Arnt Skillingstad Rørvik; 4 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 65 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 275,431,622 (+32% vs 2024); operating result NOK 5,572,354 (+148% vs 2024); net result NOK 4,712,257 (+154% vs 2024); total assets NOK 68,458,951 (-9% vs 2024); equity NOK 23,315,533 (+25% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 3,000,000. [brreg_enheter]",
+    "10 news items from the company's own site, latest 2026-10-08. [website]",
+    "DiBK central approval: valid until 2028-07-07, 4 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (18):",
+    "- location.business.geo: added ({'lat': 64.50925521931498, 'lon': 12.014633119133697, 'cr...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-07-07', 'certificate...)",
+    "- approvals.dibk_declared_website: added (www.gl-bygg.no)",
+    "- web.home_text: added (GL-bygg er en allsidig problemløser for små og store bygg...)",
+    "- web.headline: added (GL-bygg vil bygge fremtidens fagfolk)",
+    "- news.item.ca50507adc22: added ({'title': 'GL-bygg vil bygge fremtidens fagfolk', 'url': ...)",
+    "- news.item.f0a1f334dfa2: added ({'title': 'GL-bygg lander stor totalentreprise for Mowi p...)",
+    "- news.item.f3e641c8475f: added ({'title': 'GL-bygg søker tømrere og betongarbeidere', 'ur...)",
+    "- news.item.85ec45569ad5: added ({'title': 'Styrker beredskapen i Namdalen', 'url': 'https...)",
+    "- news.item.ed41275ba78a: added ({'title': 'Gimlehallen', 'url': 'https://gl-bygg.no/2026/...)",
+    "- news.item.024ea792aa51: added ({'title': 'Nye Trixie Trofors', 'url': 'https://gl-bygg.n...)",
+    "- news.item.59a9751ed62a: added ({'title': 'Brannstasjon og renseanlegg Høylandet', 'url':...)",
+    "- news.item.7ace17e82681: added ({'title': 'Helikopterplattform Namsos', 'url': 'https://g...)",
+    "- news.item.fab69d3893a6: added ({'title': 'Sterling Reipholmen', 'url': 'https://gl-bygg....)",
+    "- news.item.a940203109bd: added ({'title': 'Namsskogan skole', 'url': 'https://gl-bygg.no/...)",
+    "- ... and 3 more"
+   ],
+   "unknown": [
+    "No social media profiles: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }

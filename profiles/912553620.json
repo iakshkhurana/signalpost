@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:23:21Z",
- "last_run": "2026-10-05T05:39:25Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:57:48Z",
+ "run_count": 6,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -51,6 +51,12 @@
     "detail": "filing journalnr=2026359645 virksomhet.organisasjonsnummer=912553620 (2025, selskap)"
    },
    {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=912553620; looked up 912553620"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -60,7 +66,7 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 912553620 printed on https://alento.no/"
+    "detail": "org number 912553620 not found on the pages checked"
    },
    {
     "source": "website",
@@ -91,6 +97,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: not_found (address 'inngang B Sankt Hallvards vei 3', 3414 not found in the national address register)",
+   "dibk: approval record addressed by org number; record echoes the number",
    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
@@ -102,7 +111,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -110,7 +119,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -134,7 +143,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -142,11 +151,86 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2028-06-17",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912553620/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Bygningsfysikk",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/912553620",
+     "retrieved_at": "2026-10-10T13:48:29Z",
+     "source_date": "2028-06-17",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:48:29Z",
+   "last_seen": "2026-10-10T13:48:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_declared_website",
+   "value": "www.alento.no",
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/912553620",
+     "retrieved_at": "2026-10-10T13:48:29Z",
+     "source_date": null,
+     "match": "orgnr_exact",
+     "confidence": "medium",
+     "note": "website as given to DiBK"
+    }
+   ],
+   "first_seen": "2026-10-10T13:48:29Z",
+   "last_seen": "2026-10-10T13:48:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "bylaws_date",
@@ -155,7 +239,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-10-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -163,7 +247,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -181,7 +265,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2013-10-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -189,7 +273,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -202,7 +286,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -210,7 +294,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -223,7 +307,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2026-07-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -231,7 +315,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -244,7 +328,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -252,7 +336,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -270,7 +354,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -278,7 +362,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -296,7 +380,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -304,7 +388,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -322,7 +406,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -330,7 +414,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -348,7 +432,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -356,7 +440,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -374,7 +458,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -382,7 +466,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -408,7 +492,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -416,7 +500,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -434,7 +518,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -442,7 +526,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -460,7 +544,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -468,7 +552,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -486,7 +570,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -494,7 +578,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -512,7 +596,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -520,7 +604,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -538,7 +622,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -546,7 +630,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -564,7 +648,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -572,7 +656,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -590,7 +674,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -598,7 +682,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -616,7 +700,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -624,7 +708,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -642,7 +726,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -650,7 +734,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -668,7 +752,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -676,7 +760,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -694,7 +778,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -702,7 +786,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -720,7 +804,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -728,7 +812,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -746,7 +830,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -754,7 +838,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -772,7 +856,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -780,7 +864,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -798,7 +882,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -806,7 +890,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -824,7 +908,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -832,7 +916,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -858,7 +942,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -866,7 +950,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -884,7 +968,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -892,7 +976,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -910,7 +994,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -918,7 +1002,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -936,7 +1020,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -944,7 +1028,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -962,7 +1046,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -970,7 +1054,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -988,7 +1072,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -996,7 +1080,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1014,7 +1098,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1022,7 +1106,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1040,7 +1124,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1048,7 +1132,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1066,7 +1150,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1074,7 +1158,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1092,7 +1176,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1100,7 +1184,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1118,7 +1202,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1126,7 +1210,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1144,7 +1228,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1152,7 +1236,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1170,7 +1254,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1178,7 +1262,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1196,7 +1280,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1204,7 +1288,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1222,7 +1306,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1230,7 +1314,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1248,7 +1332,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1256,7 +1340,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1282,7 +1366,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1290,7 +1374,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1308,7 +1392,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1316,7 +1400,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1334,7 +1418,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1342,7 +1426,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1360,7 +1444,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1368,7 +1452,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1386,7 +1470,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1394,7 +1478,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1412,7 +1496,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1420,7 +1504,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1438,7 +1522,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1446,7 +1530,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1464,7 +1548,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1472,7 +1556,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1490,7 +1574,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1498,7 +1582,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1516,7 +1600,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1524,7 +1608,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1542,7 +1626,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1550,7 +1634,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1568,7 +1652,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1576,7 +1660,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1592,7 +1676,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1600,7 +1684,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1613,7 +1697,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2013-10-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1621,7 +1705,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1634,7 +1718,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1642,7 +1726,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1658,7 +1742,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1666,7 +1750,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1679,7 +1763,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1687,7 +1771,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1700,7 +1784,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1708,7 +1792,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1721,7 +1805,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1729,7 +1813,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1742,7 +1826,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1750,11 +1834,271 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "news.item.0a04d06229c9",
+   "value": {
+    "title": "Fryselager",
+    "url": "https://alento.no/fryselager/",
+    "date": "2026-06-03",
+    "summary": "Byggherre | Logistikkdrift 2Entrepriseform: TotalentrepriseType | NæringBRAs | 11000 kvmFerdigstilles | Januar 2027 The post Fryselager appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/fryselager/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-06-03",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.0eda21ec662e",
+   "value": {
+    "title": "Vesthellingen, Slemmestad",
+    "url": "https://alento.no/vesthellingen-slemmestad/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | Slemmestad Boligutvikling ASEntrepriseform: TotalentrepriseType | Leiligheter og eneboligerBRAs | 2927 kvmFerdigstilles | 2026 The post Vesthellingen, Slemmestad appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/vesthellingen-slemmestad/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2025-10-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.0f456083d11b",
+   "value": {
+    "title": "Fryd, Stabekk",
+    "url": "https://alento.no/fryd-stabekk/",
+    "date": "2025-10-30",
+    "summary": "Byggherre | Stor-Oslo EiendomEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 19000 kvmFerdigstilles | 2028 The post Fryd, Stabekk appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/fryd-stabekk/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2025-10-30",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.35de08c16902",
+   "value": {
+    "title": "Møller, Drammen havn",
+    "url": "https://alento.no/moller-drammen-havn/",
+    "date": "2025-10-29",
+    "summary": "Byggherre | Møller EiendomEntrepriseform: TotalentrepriseType | Næring – BillogistikkanleggAreal | 41500 kvmFerdigstilles | Desember 2024 Play Play The post Møller, Drammen havn appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/moller-drammen-havn/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2025-10-29",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.512aa51fcade",
+   "value": {
+    "title": "Nabofryd",
+    "url": "https://alento.no/nabofryd/",
+    "date": "2026-06-03",
+    "summary": "Byggherre | usblEntrepriseform: TotalentrepriseType | RekkehusBRAs | kvmFerdigstilles | The post Nabofryd appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/nabofryd/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-06-03",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.7094853e2ee7",
+   "value": {
+    "title": "Deciliteren, Drammen",
+    "url": "https://alento.no/deciliteren-drammen/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | NBBOEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 7360 kvmFerdigstilles | 2027 The post Deciliteren, Drammen appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/deciliteren-drammen/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2025-10-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.72d92cb6c9cf",
+   "value": {
+    "title": "Flerbrukshus, Dikemark",
+    "url": "https://alento.no/flerbrukshus-dikemark/",
+    "date": "2026-01-26",
+    "summary": "Byggherre | Dikemark IdrettsforeningEntrepriseform: TotalentrepriseType | FlerbrukshusBRAs | 555 m2 klubbhus og 112 m2 garasje/verksted Ferdigstilles | Juni 2025 The post Flerbrukshus, Dikemark appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/flerbrukshus-dikemark/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-01-26",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.980848104544",
+   "value": {
+    "title": "Bama, Tranby",
+    "url": "https://alento.no/bama-tranby-2/",
+    "date": "2025-10-29",
+    "summary": "Byggherre | Kværnertomta ASEntrepriseform: TotalentrepriseType | Næring – Kontor og lagerAreal | 22500 kvmFerdigstilles | 2021 The post Bama, Tranby appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/bama-tranby-2/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2025-10-29",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.a17a1225b7a7",
+   "value": {
+    "title": "Landåstoppen, Asker",
+    "url": "https://alento.no/landastoppen-asker/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | Selvaag BoligEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 10317 kvmFerdigstilles | 2026 The post Landåstoppen, Asker appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/landastoppen-asker/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2025-10-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.f3e38e658337",
+   "value": {
+    "title": "Lier Hageby",
+    "url": "https://alento.no/lier-hageby/",
+    "date": "2025-11-24",
+    "summary": "Byggherre | Bekkestua Utvikling ASEntrepriseform: TotalentrepriseType | Rekkehus /TownhouseBRAs | 4300Ferdigstilles | Mars 2026 The post Lier Hageby appeared first on ALENTO ."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/lier-hageby/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2025-11-24",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "org_form",
@@ -1766,7 +2110,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1774,7 +2118,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1787,7 +2131,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1795,7 +2139,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1808,7 +2152,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2024-10-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1816,7 +2160,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1829,7 +2173,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2013-10-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1837,7 +2181,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1850,7 +2194,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2013-10-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1858,7 +2202,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1878,7 +2222,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1886,7 +2230,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1902,7 +2246,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620/roller",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2018-11-13",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1910,7 +2254,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1925,7 +2269,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620/roller",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2026-04-14",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1933,7 +2277,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1950,7 +2294,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620/roller",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2026-04-14",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1958,7 +2302,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1973,7 +2317,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620/roller",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": "2025-11-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1981,7 +2325,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1997,7 +2341,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2005,7 +2349,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2022,7 +2366,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2030,7 +2374,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2043,7 +2387,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912553620&size=100",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2051,7 +2395,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2064,7 +2408,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912553620&size=100",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2072,7 +2416,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2094,7 +2438,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912553620&size=100",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2102,7 +2446,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2115,15 +2459,38 @@
     {
      "source": "website",
      "url": "https://alento.no/om-oss/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "first paragraphs of the company's about page"
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://alento.no/kontakt/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/kontakt/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2136,15 +2503,15 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2153,22 +2520,54 @@
   {
    "key": "web.emails",
    "value": [
-    "contact@mysite.com",
-    "post@alento.no"
+    "541simen.thrygg@alento.no",
+    "747anders.wahl@alento.no",
+    "892bjorn.ove.lysaker@alento.no",
+    "anders.wahl@alento.no",
+    "bjorn.ove.lysaker@alento.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
-     "note": null
+     "note": "e-mail addresses printed on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "contact@mysite.com",
+      "post@alento.no"
+     ],
+     "until": "2026-10-05T05:39:25Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Velkommen! Alento er en handlekraftig bygg- og anleggsentreprenør, hvor kundefokus, entreprenørskap og tillit står sentralt. Kunnskap og kompetanse er vårt viktigste verktøy. Vi ønsker å gjøre hverandre gode gjennom tett samarbeid med kunder og leverandører. Det skal være gøy å samarbeide med Alento!",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2184,15 +2583,15 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2205,15 +2604,15 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2226,15 +2625,15 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2247,15 +2646,42 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://alento.no/",
+    "contact": "https://alento.no/kontakt/",
+    "about": "https://alento.no/om-oss/",
+    "feed": "https://alento.no/feed/",
+    "products": "https://alento.no/tjenester/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2270,15 +2696,59 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:23:21Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Informasjon"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/tjenester/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://alento.no/tjenester/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://alento.no/tjenester/",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "first_seen": "2026-10-10T13:57:48Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2291,15 +2761,15 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2312,15 +2782,15 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2333,15 +2803,15 @@
     {
      "source": "website",
      "url": "https://alento.no/",
-     "retrieved_at": "2026-10-05T05:39:25Z",
-     "source_date": "Mon, 05 Oct 2026 05:24:02 GMT",
+     "retrieved_at": "2026-10-10T13:57:48Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "resolved from the registry-declared website"
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:57:48Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2354,7 +2824,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
-     "retrieved_at": "2026-10-05T05:39:25Z",
+     "retrieved_at": "2026-10-10T13:48:29Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2362,7 +2832,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:23:21Z",
-   "last_seen": "2026-10-05T05:39:25Z",
+   "last_seen": "2026-10-10T13:48:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2375,9 +2845,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:25Z",
-   "facts": 23,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:48:29Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2386,16 +2856,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912553620/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:25Z",
-   "facts": 4,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:48:29Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2404,16 +2876,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912553620&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:25Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:48:29Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2422,16 +2896,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912553620",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:25Z",
-   "facts": 51,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:48:29Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2450,20 +2926,23 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=912553620&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:25Z",
+   "retrieved_at": "2026-10-10T13:48:29Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no LEI record lists this organisation number"
+    "no LEI record lists this organisation number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2471,13 +2950,64 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22912553620%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:25Z",
+   "retrieved_at": "2026-10-10T13:48:29Z",
    "facts": 0,
-   "requests": 1,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no Wikidata item has P2333 = this org number"
+    "no Wikidata item has P2333 = this org number",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=ALENTO&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:48:29Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=inngang+B+Sankt+Hallvards+vei+3&postnummer=3414&treffPerSide=1&fuzzy=true",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:48:29Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "address 'inngang B Sankt Hallvards vei 3', 3414 not found in the national address register",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/912553620",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:48:29Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=912553620; looked up 912553620"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2485,9 +3015,9 @@
    "url": "https://www.alento.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:25Z",
-   "facts": 11,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:57:48Z",
+   "facts": 26,
+   "requests": 7,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2497,7 +3027,7 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 912553620 printed on https://alento.no/"
+     "detail": "org number 912553620 not found on the pages checked"
     },
     {
      "check": "name_on_page",
@@ -2519,7 +3049,174 @@
    "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Velkommen! Alento er en handlekraftig bygg- og anleggsentreprenør, hvor kundefokus, entreprenørskap og tillit står sentralt. Kunnskap og kompetanse er vårt viktigste verktøy. Vi ønsker å gjøre hverandre gode gjennom tett samarbeid med kunder og leverandører. Det skal være gøy å samarbeide med Alento!"
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://alento.no/tjenester/"
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Informasjon"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.512aa51fcade",
+   "type": "added",
+   "new": {
+    "title": "Nabofryd",
+    "url": "https://alento.no/nabofryd/",
+    "date": "2026-06-03",
+    "summary": "Byggherre | usblEntrepriseform: TotalentrepriseType | RekkehusBRAs | kvmFerdigstilles | The post Nabofryd appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.0a04d06229c9",
+   "type": "added",
+   "new": {
+    "title": "Fryselager",
+    "url": "https://alento.no/fryselager/",
+    "date": "2026-06-03",
+    "summary": "Byggherre | Logistikkdrift 2Entrepriseform: TotalentrepriseType | NæringBRAs | 11000 kvmFerdigstilles | Januar 2027 The post Fryselager appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.72d92cb6c9cf",
+   "type": "added",
+   "new": {
+    "title": "Flerbrukshus, Dikemark",
+    "url": "https://alento.no/flerbrukshus-dikemark/",
+    "date": "2026-01-26",
+    "summary": "Byggherre | Dikemark IdrettsforeningEntrepriseform: TotalentrepriseType | FlerbrukshusBRAs | 555 m2 klubbhus og 112 m2 garasje/verksted Ferdigstilles | Juni 2025 The post Flerbrukshus, Dikemark appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.f3e38e658337",
+   "type": "added",
+   "new": {
+    "title": "Lier Hageby",
+    "url": "https://alento.no/lier-hageby/",
+    "date": "2025-11-24",
+    "summary": "Byggherre | Bekkestua Utvikling ASEntrepriseform: TotalentrepriseType | Rekkehus /TownhouseBRAs | 4300Ferdigstilles | Mars 2026 The post Lier Hageby appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.0f456083d11b",
+   "type": "added",
+   "new": {
+    "title": "Fryd, Stabekk",
+    "url": "https://alento.no/fryd-stabekk/",
+    "date": "2025-10-30",
+    "summary": "Byggherre | Stor-Oslo EiendomEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 19000 kvmFerdigstilles | 2028 The post Fryd, Stabekk appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.980848104544",
+   "type": "added",
+   "new": {
+    "title": "Bama, Tranby",
+    "url": "https://alento.no/bama-tranby-2/",
+    "date": "2025-10-29",
+    "summary": "Byggherre | Kværnertomta ASEntrepriseform: TotalentrepriseType | Næring – Kontor og lagerAreal | 22500 kvmFerdigstilles | 2021 The post Bama, Tranby appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.35de08c16902",
+   "type": "added",
+   "new": {
+    "title": "Møller, Drammen havn",
+    "url": "https://alento.no/moller-drammen-havn/",
+    "date": "2025-10-29",
+    "summary": "Byggherre | Møller EiendomEntrepriseform: TotalentrepriseType | Næring – BillogistikkanleggAreal | 41500 kvmFerdigstilles | Desember 2024 Play Play The post Møller, Drammen havn appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.7094853e2ee7",
+   "type": "added",
+   "new": {
+    "title": "Deciliteren, Drammen",
+    "url": "https://alento.no/deciliteren-drammen/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | NBBOEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 7360 kvmFerdigstilles | 2027 The post Deciliteren, Drammen appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.0eda21ec662e",
+   "type": "added",
+   "new": {
+    "title": "Vesthellingen, Slemmestad",
+    "url": "https://alento.no/vesthellingen-slemmestad/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | Slemmestad Boligutvikling ASEntrepriseform: TotalentrepriseType | Leiligheter og eneboligerBRAs | 2927 kvmFerdigstilles | 2026 The post Vesthellingen, Slemmestad appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.a17a1225b7a7",
+   "type": "added",
+   "new": {
+    "title": "Landåstoppen, Asker",
+    "url": "https://alento.no/landastoppen-asker/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | Selvaag BoligEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 10317 kvmFerdigstilles | 2026 The post Landåstoppen, Asker appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://alento.no/kontakt/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "contact@mysite.com",
+    "post@alento.no"
+   ],
+   "new": [
+    "541simen.thrygg@alento.no",
+    "747anders.wahl@alento.no",
+    "892bjorn.ove.lysaker@alento.no",
+    "anders.wahl@alento.no",
+    "bjorn.ove.lysaker@alento.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://alento.no/",
+    "contact": "https://alento.no/kontakt/",
+    "about": "https://alento.no/om-oss/",
+    "feed": "https://alento.no/feed/",
+    "products": "https://alento.no/tjenester/"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:23:21Z",
@@ -3413,17 +4110,285 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Alento er en handlekraftig bygg- og anleggsentreprenør, hvor kundefokus, entreprenørskap og tillit står sentralt. Kunnskap og kompetanse er våre viktigste verktøy. Vi ønsker å gjøre hverandre gode gjennom tett samarbeid med kunder og leverandører. Våre medarbeidere er vår viktigste ressurs. Faglig kompetanse kan læres, men en positiv kultur og et inkluderende arbeidsmiljø må skapes og dyrkes. I Alento er dette en viktig verdi. Vi vet at trygge, glade og målbevisste mennesker skaper sterke resultater sammen. Det skal rett og slett være gøy å jobbe i og med Alento. Siden etableringen i Drammen i 2013 har Alento opplevd sterk vekst og positiv utvikling på alle områder."
+  },
+  {
+   "at": "2026-10-10T13:48:29Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2028-06-17",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912553620/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Veg- og grunnarbeider",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Bygningsfysikk",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:48:29Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "www.alento.no"
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Velkommen! Alento er en handlekraftig bygg- og anleggsentreprenør, hvor kundefokus, entreprenørskap og tillit står sentralt. Kunnskap og kompetanse er vårt viktigste verktøy. Vi ønsker å gjøre hverandre gode gjennom tett samarbeid med kunder og leverandører. Det skal være gøy å samarbeide med Alento!"
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://alento.no/tjenester/"
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Informasjon"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.512aa51fcade",
+   "type": "added",
+   "new": {
+    "title": "Nabofryd",
+    "url": "https://alento.no/nabofryd/",
+    "date": "2026-06-03",
+    "summary": "Byggherre | usblEntrepriseform: TotalentrepriseType | RekkehusBRAs | kvmFerdigstilles | The post Nabofryd appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.0a04d06229c9",
+   "type": "added",
+   "new": {
+    "title": "Fryselager",
+    "url": "https://alento.no/fryselager/",
+    "date": "2026-06-03",
+    "summary": "Byggherre | Logistikkdrift 2Entrepriseform: TotalentrepriseType | NæringBRAs | 11000 kvmFerdigstilles | Januar 2027 The post Fryselager appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.72d92cb6c9cf",
+   "type": "added",
+   "new": {
+    "title": "Flerbrukshus, Dikemark",
+    "url": "https://alento.no/flerbrukshus-dikemark/",
+    "date": "2026-01-26",
+    "summary": "Byggherre | Dikemark IdrettsforeningEntrepriseform: TotalentrepriseType | FlerbrukshusBRAs | 555 m2 klubbhus og 112 m2 garasje/verksted Ferdigstilles | Juni 2025 The post Flerbrukshus, Dikemark appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.f3e38e658337",
+   "type": "added",
+   "new": {
+    "title": "Lier Hageby",
+    "url": "https://alento.no/lier-hageby/",
+    "date": "2025-11-24",
+    "summary": "Byggherre | Bekkestua Utvikling ASEntrepriseform: TotalentrepriseType | Rekkehus /TownhouseBRAs | 4300Ferdigstilles | Mars 2026 The post Lier Hageby appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.0f456083d11b",
+   "type": "added",
+   "new": {
+    "title": "Fryd, Stabekk",
+    "url": "https://alento.no/fryd-stabekk/",
+    "date": "2025-10-30",
+    "summary": "Byggherre | Stor-Oslo EiendomEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 19000 kvmFerdigstilles | 2028 The post Fryd, Stabekk appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.980848104544",
+   "type": "added",
+   "new": {
+    "title": "Bama, Tranby",
+    "url": "https://alento.no/bama-tranby-2/",
+    "date": "2025-10-29",
+    "summary": "Byggherre | Kværnertomta ASEntrepriseform: TotalentrepriseType | Næring – Kontor og lagerAreal | 22500 kvmFerdigstilles | 2021 The post Bama, Tranby appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.35de08c16902",
+   "type": "added",
+   "new": {
+    "title": "Møller, Drammen havn",
+    "url": "https://alento.no/moller-drammen-havn/",
+    "date": "2025-10-29",
+    "summary": "Byggherre | Møller EiendomEntrepriseform: TotalentrepriseType | Næring – BillogistikkanleggAreal | 41500 kvmFerdigstilles | Desember 2024 Play Play The post Møller, Drammen havn appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.7094853e2ee7",
+   "type": "added",
+   "new": {
+    "title": "Deciliteren, Drammen",
+    "url": "https://alento.no/deciliteren-drammen/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | NBBOEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 7360 kvmFerdigstilles | 2027 The post Deciliteren, Drammen appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.0eda21ec662e",
+   "type": "added",
+   "new": {
+    "title": "Vesthellingen, Slemmestad",
+    "url": "https://alento.no/vesthellingen-slemmestad/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | Slemmestad Boligutvikling ASEntrepriseform: TotalentrepriseType | Leiligheter og eneboligerBRAs | 2927 kvmFerdigstilles | 2026 The post Vesthellingen, Slemmestad appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "news.item.a17a1225b7a7",
+   "type": "added",
+   "new": {
+    "title": "Landåstoppen, Asker",
+    "url": "https://alento.no/landastoppen-asker/",
+    "date": "2025-10-17",
+    "summary": "Byggherre | Selvaag BoligEntrepriseform: TotalentrepriseType | LeiligheterBRAs | 10317 kvmFerdigstilles | 2026 The post Landåstoppen, Asker appeared first on ALENTO ."
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://alento.no/kontakt/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "contact@mysite.com",
+    "post@alento.no"
+   ],
+   "new": [
+    "541simen.thrygg@alento.no",
+    "747anders.wahl@alento.no",
+    "892bjorn.ove.lysaker@alento.no",
+    "anders.wahl@alento.no",
+    "bjorn.ove.lysaker@alento.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:57:48Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://alento.no/",
+    "contact": "https://alento.no/kontakt/",
+    "about": "https://alento.no/om-oss/",
+    "feed": "https://alento.no/feed/",
+    "products": "https://alento.no/tjenester/"
+   }
   }
  ],
  "stats": {
-  "active_facts": 92,
+  "active_facts": 109,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 9.34
+  "requests": 7,
+  "seconds": 8.87
  },
  "explanation": {
   "mode": "template",
-  "text": "ALENTO AS (org.nr 912 553 620) is registered as Aksjeselskap (AS), founded 2013-10-01, registered 2013-10-08. Business address: inngang B, Sankt Hallvards vei 3, 3414 LIERSTRANDA. Main industry (NACE): 41.000 Oppføring av bygninger. Registered employees: 55 (as of 2026-07-10). Latest filed annual accounts (2025, company statement): revenue NOK 751,568,080; operating result NOK 34,816,868; net result NOK 31,863,210; total assets NOK 330,756,836; equity NOK 88,221,626. Leadership: general manager (daglig leder) Simen Thrygg; board chair Otto Rosendahl; 1 other board member. Sub-units registered: 1. Website: www.alento.no. The website describes the company as: \"Vi bygger med tillit - Alento er en handlekraftig bygg- og anleggsentreprenør, hvor kundefokus, entreprenørskap og tillit står sentralt.\"\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run.\nNot available: gleif, wikidata."
+  "text": "ALENTO AS (org.nr 912 553 620) is registered as Aksjeselskap (AS), founded 2013-10-01, registered 2013-10-08. [brreg_enheter] Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter] Registered purpose: \"Entreprenørvirksomhet innen bygg og anlegg. Det skal være anledning til å eie aksjer eller andeler i andre selskaper, samt herved hva står i naturlig sammenheng.\" [brreg_enheter] The company's website describes it as: \"Vi bygger med tillit - Alento er en handlekraftig bygg- og anleggsentreprenør, hvor kundefokus, entreprenørskap og tillit står sentralt.\" [website] Business address: inngang B, Sankt Hallvards vei 3, 3414 LIERSTRANDA. [brreg_enheter] Products / services named on its website: Informasjon. [website] Leadership: general manager (daglig leder) Simen Thrygg; board chair Otto Rosendahl; 1 other board member. [brreg_roller]\n\nKey numbers:\n- Registered employees: 55 (as of 2026-07-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 751,568,080 (+3% vs 2024); operating result NOK 34,816,868 (-13% vs 2024); net result NOK 31,863,210 (-9% vs 2024); total assets NOK 330,756,836 (+48% vs 2024); equity NOK 88,221,626 (+29% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 600,000. [brreg_enheter]\n- 10 news items from the company's own site, latest 2026-06-03. [website]\n- DiBK central approval: valid until 2028-06-17, 4 approval area(s). [dibk]\n\nChanges in this run (16):\n- web.home_text: added (Velkommen! Alento er en handlekraftig bygg- og anleggsent...)\n- web.products_url: added (https://alento.no/tjenester/)\n- web.products: added (['Informasjon'])\n- news.item.512aa51fcade: added ({'title': 'Nabofryd', 'url': 'https://alento.no/nabofryd/...)\n- news.item.0a04d06229c9: added ({'title': 'Fryselager', 'url': 'https://alento.no/frysela...)\n- news.item.72d92cb6c9cf: added ({'title': 'Flerbrukshus, Dikemark', 'url': 'https://alent...)\n- news.item.f3e38e658337: added ({'title': 'Lier Hageby', 'url': 'https://alento.no/lier-h...)\n- news.item.0f456083d11b: added ({'title': 'Fryd, Stabekk', 'url': 'https://alento.no/fryd...)\n- news.item.980848104544: added ({'title': 'Bama, Tranby', 'url': 'https://alento.no/bama-...)\n- news.item.35de08c16902: added ({'title': 'Møller, Drammen havn', 'url': 'https://alento....)\n- news.item.7094853e2ee7: added ({'title': 'Deciliteren, Drammen', 'url': 'https://alento....)\n- news.item.0eda21ec662e: added ({'title': 'Vesthellingen, Slemmestad', 'url': 'https://al...)\n- news.item.a17a1225b7a7: added ({'title': 'Landåstoppen, Asker', 'url': 'https://alento.n...)\n- web.contact_page: added ({'url': 'https://alento.no/kontakt/'})\n- web.emails: ['contact@mysite.com', 'post@alento.no'] -> ['541simen.thrygg@alento.no', '747anders.wahl@alento.no',...\n- ... and 1 more\n\nWhat remains unknown:\n- No social media profiles: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No map coordinates of the business address: checked geonorge: nothing registered (address 'inngang B Sankt Hallvards vei 3', 3414 not found in the national address register).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: not_found (address 'inngang B Sankt Hallvards vei 3', 3414 not found in the national address register)\n- dibk: approval record addressed by org number; record echoes the number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "ALENTO AS (org.nr 912 553 620) is registered as Aksjeselskap (AS), founded 2013-10-01, registered 2013-10-08. [brreg_enheter]",
+    "Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter]",
+    "Registered purpose: \"Entreprenørvirksomhet innen bygg og anlegg. Det skal være anledning til å eie aksjer eller andeler i andre selskaper, samt herved hva står i naturlig sammenheng.\" [brreg_enheter]",
+    "The company's website describes it as: \"Vi bygger med tillit - Alento er en handlekraftig bygg- og anleggsentreprenør, hvor kundefokus, entreprenørskap og tillit står sentralt.\" [website]",
+    "Business address: inngang B, Sankt Hallvards vei 3, 3414 LIERSTRANDA. [brreg_enheter]",
+    "Products / services named on its website: Informasjon. [website]",
+    "Leadership: general manager (daglig leder) Simen Thrygg; board chair Otto Rosendahl; 1 other board member. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 55 (as of 2026-07-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 751,568,080 (+3% vs 2024); operating result NOK 34,816,868 (-13% vs 2024); net result NOK 31,863,210 (-9% vs 2024); total assets NOK 330,756,836 (+48% vs 2024); equity NOK 88,221,626 (+29% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 600,000. [brreg_enheter]",
+    "10 news items from the company's own site, latest 2026-06-03. [website]",
+    "DiBK central approval: valid until 2028-06-17, 4 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (16):",
+    "- web.home_text: added (Velkommen! Alento er en handlekraftig bygg- og anleggsent...)",
+    "- web.products_url: added (https://alento.no/tjenester/)",
+    "- web.products: added (['Informasjon'])",
+    "- news.item.512aa51fcade: added ({'title': 'Nabofryd', 'url': 'https://alento.no/nabofryd/...)",
+    "- news.item.0a04d06229c9: added ({'title': 'Fryselager', 'url': 'https://alento.no/frysela...)",
+    "- news.item.72d92cb6c9cf: added ({'title': 'Flerbrukshus, Dikemark', 'url': 'https://alent...)",
+    "- news.item.f3e38e658337: added ({'title': 'Lier Hageby', 'url': 'https://alento.no/lier-h...)",
+    "- news.item.0f456083d11b: added ({'title': 'Fryd, Stabekk', 'url': 'https://alento.no/fryd...)",
+    "- news.item.980848104544: added ({'title': 'Bama, Tranby', 'url': 'https://alento.no/bama-...)",
+    "- news.item.35de08c16902: added ({'title': 'Møller, Drammen havn', 'url': 'https://alento....)",
+    "- news.item.7094853e2ee7: added ({'title': 'Deciliteren, Drammen', 'url': 'https://alento....)",
+    "- news.item.0eda21ec662e: added ({'title': 'Vesthellingen, Slemmestad', 'url': 'https://al...)",
+    "- news.item.a17a1225b7a7: added ({'title': 'Landåstoppen, Asker', 'url': 'https://alento.n...)",
+    "- web.contact_page: added ({'url': 'https://alento.no/kontakt/'})",
+    "- web.emails: ['contact@mysite.com', 'post@alento.no'] -> ['541simen.thrygg@alento.no', '747anders.wahl@alento.no',...",
+    "- ... and 1 more"
+   ],
+   "unknown": [
+    "No social media profiles: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No map coordinates of the business address: checked geonorge: nothing registered (address 'inngang B Sankt Hallvards vei 3', 3414 not found in the national address register).",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: not_found (address 'inngang B Sankt Hallvards vei 3', 3414 not found in the national address register)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

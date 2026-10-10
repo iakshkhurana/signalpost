@@ -49,6 +49,9 @@ def assess(orgnr: str, results: Iterable[SourceResult]) -> dict:
     elif all(c["check"] in ("orgnr_on_page", "name_on_page", "same_host_after_redirect", "not_placeholder",
                              "name_consistency.wikidata_vs_brreg") for c in failed):
         overall = "high" if web_conf in (None, "high", "medium") else "medium"
+    elif all(c["check"] in ("orgnr_on_page", "name_on_page", "same_host_after_redirect", "not_placeholder",
+                             "name_consistency.wikidata_vs_brreg", "postal_code_match") for c in failed):
+        overall = "high" if web_conf in (None, "high", "medium") else "medium"
     else:
         overall = "medium"
 
@@ -62,7 +65,12 @@ def assess(orgnr: str, results: Iterable[SourceResult]) -> dict:
                 "brreg_regnskap": "each filing's virksomhet.organisasjonsnummer verified",
                 "gleif": "LEI record's registeredAs equals the org number (Norwegian registration authority)",
                 "wikidata": "item carries P2333 = org number",
-                "website": f"URL declared by the company in the registry; page match = {(web.data or {}).get('match')} ({web_conf})" if web else "",
+                "website": (f"{'home page guessed from the registered name' if any(c.get('check') == 'guessed_from_name' for c in web.checks) else 'URL declared by the company in the registry'}; "
+                            f"page match = {(web.data or {}).get('match')} ({web_conf})") if web else "",
+                "nav_jobs": "ads kept only when the employer name equals the registry name of the entity or one of its sub-units",
+                "geonorge": "registered business address looked up in Kartverket's address register (postal code must match)",
+                "dibk": "approval record addressed by org number; record echoes the number",
+                "wikipedia": "article linked from the Wikidata item whose P2333 equals the org number",
             }.get(r.source, "")
             lines.append(f"{r.source}: {how}")
         elif r.status in ("not_found", "deleted", "blocked", "skipped"):

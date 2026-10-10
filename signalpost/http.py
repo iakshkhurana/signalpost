@@ -110,7 +110,8 @@ class Response:
 
 
 _RETRY_STATUSES = {408, 425, 429, 500, 502, 503, 504}
-_HOST_LIMITS = {"query.wikidata.org": 2, "api.gleif.org": 3, "data.brreg.no": 6}
+_HOST_LIMITS = {"query.wikidata.org": 2, "api.gleif.org": 3, "data.brreg.no": 6, "arbeidsplassen.nav.no": 1}
+_HOST_INTERVAL = {"arbeidsplassen.nav.no": 3.0}     # minimum seconds between requests to a host (polite pacing)
 
 
 class Http:
@@ -123,8 +124,10 @@ class Http:
         self.user_agent = user_agent
         self._global = asyncio.Semaphore(concurrency)
         self._per_host: dict[str, asyncio.Semaphore] = {}
+        self._last_request: dict[str, float] = {}
         self._per_host_limit = per_host
         self._robots: dict[str, Optional[RobotFileParser]] = {}
+        self._robots_error: dict[str, Optional[str]] = {}   # base -> connection error seen while fetching robots.txt
         self._robots_lock = asyncio.Lock()
         self._client: Optional[httpx.AsyncClient] = None
         if cache_dir:
@@ -201,6 +204,13 @@ class Http:
             attempt += 1
             try:
                 async with self._global, self._host_sem(url):
+                    host = urlsplit(url).netloc.lower()
+                    interval = _HOST_INTERVAL.get(host)
+                    if interval:
+                        wait = self._last_request.get(host, 0.0) + interval - time.monotonic()
+                        if wait > 0:
+                            await asyncio.sleep(wait)
+                        self._last_request[host] = time.monotonic()
                     async with self._client.stream("GET", url, headers=headers) as r:
                         status = r.status_code
                         chunks: list[bytes] = []
@@ -219,12 +229,12 @@ class Http:
                         keep = ("content-type", "last-modified", "date", "retry-after")
                         resp = Response(url=url, status=status, text=text, final_url=str(r.url),
                                         headers={k.lower(): v for k, v in r.headers.items() if k.lower() in keep})
-                if status in _RETRY_STATUSES and attempt <= retries:
+                if status in _RETRY_STATUSES and attempt <= (1 if status == 429 else retries):
                     try:
                         retry_after = float(resp.headers.get("retry-after") or 0)
                     except ValueError:
                         retry_after = 0.0
-                    await asyncio.sleep(min(10.0, retry_after or 1.5 * attempt))
+                    await asyncio.sleep(min(30.0, retry_after or (15.0 if status == 429 else 1.5 * attempt)))
                     continue
                 self._cache_put(cpath, resp)
                 return resp
@@ -244,7 +254,8 @@ class Http:
         base = f"{parts.scheme}://{parts.netloc}"
         async with self._robots_lock:
             if base not in self._robots:
-                resp = await self.get(base + "/robots.txt", tally=tally, max_bytes=200_000)
+                resp = await self.get(base + "/robots.txt", tally=tally, max_bytes=200_000, retries=0)
+                self._robots_error[base] = resp.error
                 rp: Optional[RobotFileParser] = None
                 if resp.ok and resp.text and "<html" not in resp.text[:500].lower():
                     rp = RobotFileParser()
@@ -254,3 +265,8 @@ class Http:
         if rp is None:
             return True  # no robots.txt (or unreadable) -> allowed
         return rp.can_fetch(self.user_agent, url)
+
+    def unreachable(self, url: str) -> bool:
+        """True when the last robots.txt fetch for this host failed at the connection level (DNS, refused, timeout)."""
+        parts = urlsplit(url)
+        return bool(self._robots_error.get(f"{parts.scheme}://{parts.netloc}"))

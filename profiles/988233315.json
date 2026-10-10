@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:13:41Z",
- "last_run": "2026-10-05T05:42:38Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:28:46Z",
+ "run_count": 5,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -57,12 +57,50 @@
     "detail": "LEI 2549004KHR65SGJOLO04: registeredAs='988 233 315' registeredAt=RA000472 country=NO"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Ystenesgata 32' 6007 -> matched 'Ystenesgata 32' 6007"
+   },
+   {
+    "source": "website",
+    "check": "declared_in_registry",
+    "passed": true,
+    "detail": "URL declared by the entity in brreg_enheter: www.acel.no"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 988233315 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'ACEL AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "acel.no -> acel.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
+   },
+   {
     "check": "name_consistency.gleif_vs_brreg",
     "passed": true,
     "detail": "GLEIF legal name 'ACEL AS' vs registry name 'ACEL AS'"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -70,7 +108,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: error (website fetch exceeded 60s cap)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -81,7 +121,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -89,7 +129,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -112,7 +152,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -120,7 +160,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -143,7 +183,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -151,7 +191,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -164,7 +204,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2020-12-09",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -172,7 +212,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +230,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2005-05-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +238,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -211,7 +251,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -219,7 +259,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -232,7 +272,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -240,7 +280,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -258,7 +298,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -266,7 +306,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -284,7 +324,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -292,7 +332,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -310,7 +350,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -318,7 +358,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -336,7 +376,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -344,7 +384,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -362,7 +402,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -370,7 +410,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -396,7 +436,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -404,7 +444,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -422,7 +462,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -430,7 +470,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -448,7 +488,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -456,7 +496,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -474,7 +514,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -482,7 +522,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -500,7 +540,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -508,7 +548,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -526,7 +566,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -534,7 +574,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -552,7 +592,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -560,7 +600,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -578,7 +618,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -586,7 +626,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -604,7 +644,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -612,7 +652,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -630,7 +670,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -638,7 +678,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -656,7 +696,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -664,7 +704,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -682,7 +722,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -690,7 +730,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -708,7 +748,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -716,7 +756,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -734,7 +774,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -742,7 +782,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -760,7 +800,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -768,7 +808,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -786,7 +826,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -794,7 +834,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -812,7 +852,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -820,7 +860,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -846,7 +886,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -854,7 +894,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -872,7 +912,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -880,7 +920,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -898,7 +938,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -906,7 +946,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -924,7 +964,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -932,7 +972,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -950,7 +990,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -958,7 +998,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -976,7 +1016,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -984,7 +1024,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1002,7 +1042,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1010,7 +1050,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1028,7 +1068,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1036,7 +1076,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1054,7 +1094,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1062,7 +1102,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1080,7 +1120,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1088,7 +1128,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1106,7 +1146,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1114,7 +1154,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1132,7 +1172,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1140,7 +1180,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1158,7 +1198,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1166,7 +1206,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1184,7 +1224,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1192,7 +1232,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1210,7 +1250,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1218,7 +1258,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1236,7 +1276,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1244,7 +1284,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1262,7 +1302,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1270,7 +1310,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1296,7 +1336,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1304,7 +1344,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1322,7 +1362,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1330,7 +1370,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1348,7 +1388,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1356,7 +1396,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1374,7 +1414,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1382,7 +1422,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1400,7 +1440,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1408,7 +1448,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1426,7 +1466,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1434,7 +1474,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1452,7 +1492,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1460,7 +1500,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1478,7 +1518,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1486,7 +1526,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1504,7 +1544,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1512,7 +1552,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1530,7 +1570,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1538,7 +1578,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1556,7 +1596,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1564,7 +1604,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1582,7 +1622,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1590,7 +1630,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1606,7 +1646,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1614,7 +1654,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1627,7 +1667,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2005-05-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1635,7 +1675,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1648,7 +1688,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1656,7 +1696,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1672,7 +1712,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1680,7 +1720,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1693,7 +1733,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1701,7 +1741,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1714,7 +1754,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1722,7 +1762,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1735,15 +1775,15 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
-     "note": "GLEIF golden copy published 2026-10-04T16:00:00Z"
+     "note": "GLEIF golden copy published 2026-10-10T00:00:00Z"
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1756,7 +1796,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2005-05-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1764,7 +1804,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1777,7 +1817,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1785,7 +1825,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1805,7 +1845,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1813,7 +1853,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1833,7 +1873,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1841,7 +1881,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1854,7 +1894,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1862,7 +1902,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1875,7 +1915,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1883,7 +1923,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1901,7 +1941,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1909,7 +1949,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1929,7 +1969,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/2549004KHR65SGJOLO04",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-19T06:07:37Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1937,7 +1977,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1950,7 +1990,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1958,11 +1998,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 62.47082346378486,
+    "lon": 6.178884801631777,
+    "crs": "EPSG:4326",
+    "matched_address": "Ystenesgata 32",
+    "postal_code": "6007",
+    "city": "ÅLESUND",
+    "municipality": "ÅLESUND",
+    "municipality_number": "1508",
+    "cadastral": {
+     "gnr": 133,
+     "bnr": 16
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.47082346378486&lon=6.178884801631777&markerLat=62.47082346378486&markerLon=6.178884801631777"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Ystenesgata+32&postnummer=6007&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:28:46Z",
+   "last_seen": "2026-10-10T13:28:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1971,7 +2046,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1979,7 +2054,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1995,7 +2070,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2003,7 +2078,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2016,7 +2091,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2020-12-09",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2024,7 +2099,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2037,7 +2112,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2005-05-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2045,7 +2120,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2058,7 +2133,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2005-05-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2066,7 +2141,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2086,7 +2161,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2094,7 +2169,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2110,7 +2185,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315/roller",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-12-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2118,7 +2193,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2133,7 +2208,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315/roller",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-10-25",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2141,7 +2216,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2170,7 +2245,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315/roller",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2025-10-25",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2178,7 +2253,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2193,7 +2268,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315/roller",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": "2023-02-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2201,7 +2276,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2217,7 +2292,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2225,7 +2300,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2242,7 +2317,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2250,7 +2325,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2263,7 +2338,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988233315&size=100",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2271,7 +2346,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2284,7 +2359,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988233315&size=100",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2292,7 +2367,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2314,7 +2389,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988233315&size=100",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2322,7 +2397,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2330,23 +2405,110 @@
   },
   {
    "key": "web.about_text",
-   "value": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new kno",
+   "value": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard systems, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard systems, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new knowledge",
    "evidence": [
     {
      "source": "website",
      "url": "https://www.acel.no/about-us",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "first paragraphs of the company's about page"
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
+   "status": "active",
+   "history": [
+    {
+     "value": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new kno",
+     "until": "2026-10-05T05:37:34Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers.listings",
+   "value": [
+    {
+     "title": "Markedsleder Switchboard Systems Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/477559565"
+    },
+    {
+     "title": "Serviceelektriker / Prosjektelektriker / Bas / Kontrollør NEK 405 Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/437828115"
+    },
+    {
+     "title": "Montør Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/465694507"
+    },
+    {
+     "title": "Senioringeniør Elkraft Ålesund, Norway Apply",
+     "url": "mailto: lmkd@acel.no"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.acel.no/career",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "links on the careers page that look like individual vacancies; titles as printed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:28:46Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://www.acel.no/career",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.acel.no/career",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:28:46Z",
+   "last_seen": "2026-10-10T13:28:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.acel.no/contact-us"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.acel.no/contact-us",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:28:46Z",
+   "last_seen": "2026-10-10T13:28:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2356,43 +2518,96 @@
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
    "key": "web.emails",
    "value": [
-    " lmkd@acel.no",
-    "lmkd@acel.no",
-    "post@acel.no"
+    "adam.szczesniak@acel.no",
+    "age.jensen@acel.no",
+    "aina.morsund@acel.no",
+    "ake@kvale.no",
+    "alexander.danielsen@acel.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:13:41Z",
+   "last_seen": "2026-10-10T13:28:46Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      " lmkd@acel.no",
+      "lmkd@acel.no",
+      "post@acel.no"
+     ],
+     "until": "2026-10-05T05:37:34Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Wired for Progress. Powered by Trust.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.acel.no/",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "first_seen": "2026-10-10T13:28:46Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Company Update ACEL Strengthens Its Competitive Position with a New Market Area: Switchboard Systems Buildings and Industry ACEL Group og EL 24 inngår avtale om overdragelse – legger til rette for videreføring av sterke fagmiljøer og tydeligere strategisk fokus Company Update Nok et rekordår for ACEL Group - passerer 500 millioner kroner i omsetning Company Update ACEL Group Enters the Icelandic Market, Establishes subsidiary and secures long-term strategic partnership with Samherji Company Update ACEL Group forsterker kompetansen innen industri og landbasert oppdrett - kjøper Kvalsund Ingeniører AS Switchboard Systems ACEL Group enters the offshore wind market with switchboard system contra",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.acel.no/",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:28:46Z",
+   "last_seen": "2026-10-10T13:28:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2402,18 +2617,18 @@
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2423,18 +2638,18 @@
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2444,41 +2659,79 @@
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.acel.no/",
+    "contact": "https://www.acel.no/contact-us",
+    "about": "https://www.acel.no/about-us",
+    "careers": "https://www.acel.no/career",
+    "news": "https://www.acel.no/news"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.acel.no/",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:28:46Z",
+   "last_seen": "2026-10-10T13:28:46Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
    "confidence": "medium"
   },
   {
    "key": "web.phones",
    "value": [
-    "+4770111700"
+    "+4740304492",
+    "+4740328267",
+    "+4740487266",
+    "+4740635673",
+    "+4741648753"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
-     "note": null
+     "note": "tel: links on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
-   "history": [],
-   "stale": true,
+   "history": [
+    {
+     "value": [
+      "+4770111700"
+     ],
+     "until": "2026-10-05T05:37:34Z"
+    }
+   ],
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2491,18 +2744,18 @@
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2512,18 +2765,18 @@
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2533,18 +2786,18 @@
     {
      "source": "website",
      "url": "https://www.acel.no/",
-     "retrieved_at": "2026-10-05T05:37:34Z",
-     "source_date": "Thu, 01 Oct 2026 15:53:16 GMT",
+     "retrieved_at": "2026-10-10T13:28:46Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "resolved from the registry-declared website"
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:37:34Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2554,7 +2807,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
-     "retrieved_at": "2026-10-05T05:42:38Z",
+     "retrieved_at": "2026-10-10T13:28:46Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2562,7 +2815,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:13:41Z",
-   "last_seen": "2026-10-05T05:42:38Z",
+   "last_seen": "2026-10-10T13:28:46Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2575,7 +2828,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:38Z",
+   "retrieved_at": "2026-10-10T13:28:46Z",
    "facts": 22,
    "requests": 1,
    "checks": [
@@ -2593,7 +2846,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988233315/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:38Z",
+   "retrieved_at": "2026-10-10T13:28:46Z",
    "facts": 4,
    "requests": 1,
    "checks": [
@@ -2611,7 +2864,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988233315&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:38Z",
+   "retrieved_at": "2026-10-10T13:28:46Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2629,7 +2882,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988233315",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:38Z",
+   "retrieved_at": "2026-10-10T13:28:46Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2657,7 +2910,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=988+233+315&page%5Bsize%5D=10",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:38Z",
+   "retrieved_at": "2026-10-10T13:28:46Z",
    "facts": 9,
    "requests": 1,
    "checks": [
@@ -2675,7 +2928,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22988233315%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:38Z",
+   "retrieved_at": "2026-10-10T13:28:46Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2685,21 +2938,198 @@
    ]
   },
   {
-   "source": "website",
-   "url": "www.acel.no",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=ACEL&size=100&v=5",
    "status": "error",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:42:38Z",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:28:46Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "website fetch exceeded 60s cap"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Ystenesgata+32&postnummer=6007&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:28:46Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Ystenesgata 32' 6007 -> matched 'Ystenesgata 32' 6007"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://www.acel.no/",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:28:46Z",
+   "facts": 16,
+   "requests": 6,
+   "checks": [
+    {
+     "check": "declared_in_registry",
+     "passed": true,
+     "detail": "URL declared by the entity in brreg_enheter: www.acel.no"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 988233315 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'ACEL AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "acel.no -> acel.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 62.47082346378486,
+    "lon": 6.178884801631777,
+    "crs": "EPSG:4326",
+    "matched_address": "Ystenesgata 32",
+    "postal_code": "6007",
+    "city": "ÅLESUND",
+    "municipality": "ÅLESUND",
+    "municipality_number": "1508",
+    "cadastral": {
+     "gnr": 133,
+     "bnr": 16
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.47082346378486&lon=6.178884801631777&markerLat=62.47082346378486&markerLon=6.178884801631777"
+   }
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Company Update ACEL Strengthens Its Competitive Position with a New Market Area: Switchboard Systems Buildings and Industry ACEL Group og EL 24 inngår avtale om overdragelse – legger til rette for videreføring av sterke fagmiljøer og tydeligere strategisk fokus Company Update Nok et rekordår for ACEL Group - passerer 500 millioner kroner i omsetning Company Update ACEL Group Enters the Icelandic Market, Establishes subsidiary and secures long-term strategic partnership with Samherji Company Update ACEL Group forsterker kompetansen innen industri og landbasert oppdrett - kjøper Kvalsund Ingeniører AS Switchboard Systems ACEL Group enters the offshore wind market with switchboard system contra"
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Wired for Progress. Powered by Trust."
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new kno",
+   "new": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard systems, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard systems, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new knowledge"
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://www.acel.no/career"
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Markedsleder Switchboard Systems Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/477559565"
+    },
+    {
+     "title": "Serviceelektriker / Prosjektelektriker / Bas / Kontrollør NEK 405 Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/437828115"
+    },
+    {
+     "title": "Montør Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/465694507"
+    },
+    {
+     "title": "Senioringeniør Elkraft Ålesund, Norway Apply",
+     "url": "mailto: lmkd@acel.no"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.acel.no/contact-us"
+   }
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    " lmkd@acel.no",
+    "lmkd@acel.no",
+    "post@acel.no"
+   ],
+   "new": [
+    "adam.szczesniak@acel.no",
+    "age.jensen@acel.no",
+    "aina.morsund@acel.no",
+    "ake@kvale.no",
+    "alexander.danielsen@acel.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "+4770111700"
+   ],
+   "new": [
+    "+4740304492",
+    "+4740328267",
+    "+4740487266",
+    "+4740635673",
+    "+4741648753"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.acel.no/",
+    "contact": "https://www.acel.no/contact-us",
+    "about": "https://www.acel.no/about-us",
+    "careers": "https://www.acel.no/career",
+    "news": "https://www.acel.no/news"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:13:41Z",
@@ -3694,17 +4124,183 @@
    "key": "web.about_text",
    "type": "added",
    "new": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new kno"
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 62.47082346378486,
+    "lon": 6.178884801631777,
+    "crs": "EPSG:4326",
+    "matched_address": "Ystenesgata 32",
+    "postal_code": "6007",
+    "city": "ÅLESUND",
+    "municipality": "ÅLESUND",
+    "municipality_number": "1508",
+    "cadastral": {
+     "gnr": 133,
+     "bnr": 16
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.47082346378486&lon=6.178884801631777&markerLat=62.47082346378486&markerLon=6.178884801631777"
+   }
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Company Update ACEL Strengthens Its Competitive Position with a New Market Area: Switchboard Systems Buildings and Industry ACEL Group og EL 24 inngår avtale om overdragelse – legger til rette for videreføring av sterke fagmiljøer og tydeligere strategisk fokus Company Update Nok et rekordår for ACEL Group - passerer 500 millioner kroner i omsetning Company Update ACEL Group Enters the Icelandic Market, Establishes subsidiary and secures long-term strategic partnership with Samherji Company Update ACEL Group forsterker kompetansen innen industri og landbasert oppdrett - kjøper Kvalsund Ingeniører AS Switchboard Systems ACEL Group enters the offshore wind market with switchboard system contra"
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Wired for Progress. Powered by Trust."
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard production, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new kno",
+   "new": "ACEL AS is a total supplier of electrical systems within the maritime market, land-based aquaculture and commercial buildings. We deliver advanced solutions within automation, electric propulsion and other electrical services. We are an environmentally conscious, cost-effective and reliable partner for our customers worldwide. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard systems, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. ACEL Group consists of ACEL AS, Haf Power Solutions AS, Kvalsund Ingeniører AS, ACEL Baltic UAB and ACEL Iceland ehf. We have departments within engineering, switchboard systems, installations and service worldwide, power systems, automation, electrical installation & service for the commercial market. We are constantly seeking new knowledge. We are open and approachable, but also courageous. We aim to have a strong position as a builder of expertise in the industry and strive to be top of mind for students and graduates. We are constantly seeking new knowledge"
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://www.acel.no/career"
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Markedsleder Switchboard Systems Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/477559565"
+    },
+    {
+     "title": "Serviceelektriker / Prosjektelektriker / Bas / Kontrollør NEK 405 Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/437828115"
+    },
+    {
+     "title": "Montør Ålesund, Norway Apply",
+     "url": "https://www.finn.no/job/ad/465694507"
+    },
+    {
+     "title": "Senioringeniør Elkraft Ålesund, Norway Apply",
+     "url": "mailto: lmkd@acel.no"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.acel.no/contact-us"
+   }
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    " lmkd@acel.no",
+    "lmkd@acel.no",
+    "post@acel.no"
+   ],
+   "new": [
+    "adam.szczesniak@acel.no",
+    "age.jensen@acel.no",
+    "aina.morsund@acel.no",
+    "ake@kvale.no",
+    "alexander.danielsen@acel.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "+4770111700"
+   ],
+   "new": [
+    "+4740304492",
+    "+4740328267",
+    "+4740487266",
+    "+4740635673",
+    "+4741648753"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:28:46Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.acel.no/",
+    "contact": "https://www.acel.no/contact-us",
+    "about": "https://www.acel.no/about-us",
+    "careers": "https://www.acel.no/career",
+    "news": "https://www.acel.no/news"
+   }
   }
  ],
  "stats": {
-  "active_facts": 100,
+  "active_facts": 107,
   "retracted_facts": 0,
-  "stale_facts": 10,
-  "requests": 8,
-  "seconds": 68.98
+  "stale_facts": 0,
+  "requests": 16,
+  "seconds": 49.61
  },
  "explanation": {
   "mode": "template",
-  "text": "ACEL AS (org.nr 988 233 315) is registered as Aksjeselskap (AS), founded 2005-05-18, registered 2005-05-23. Business address: Ystenesgata 32, 6007 ÅLESUND. Main industry (NACE): 30.110 Bygging av sivile skip og flytende materiell. Registered employees: 168 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 406,641,688; operating result NOK 31,686,077; net result NOK 25,613,725; total assets NOK 209,098,378; equity NOK 84,226,523. Leadership: general manager (daglig leder) Anders Vedlog; board chair Nils Harald Thommessen; 5 other board members. Sub-units registered: 1. Website: www.acel.no. The website describes the company as: \"We deliver tailored electric solutions for maritime, land-based aquaculture and commercial real estate.\" LEI: 2549004KHR65SGJOLO04 (ACTIVE).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: error (website fetch exceeded 60s cap)\n\nNo changes since the previous run.\nNot available: wikidata.\nCould not be checked this run (previous values kept and marked stale): website."
+  "text": "ACEL AS (org.nr 988 233 315) is registered as Aksjeselskap (AS), founded 2005-05-18, registered 2005-05-23. [brreg_enheter] Main industry (NACE 30.110): Bygging av sivile skip og flytende materiell. [brreg_enheter] Registered purpose: \"Produksjon, handel og tjenesteyting innenfor elektronikk og automasjon og andre relevante markeder for selskapets teknologi og kompetanse, samt hva hermed står i forbindelse, herunder delta i andre selskap med lignende virksomhet.\" [brreg_enheter] The company's website describes it as: \"We deliver tailored electric solutions for maritime, land-based aquaculture and commercial real estate.\" [website] Business address: Ystenesgata 32, 6007 ÅLESUND. [brreg_enheter] Leadership: general manager (daglig leder) Anders Vedlog; board chair Nils Harald Thommessen; 5 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 168 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 406,641,688 (+31% vs 2024); operating result NOK 31,686,077 (-5% vs 2024); net result NOK 25,613,725 (-4% vs 2024); total assets NOK 209,098,378 (+32% vs 2024); equity NOK 84,226,523 (+44% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 1,000,000. [brreg_enheter]\n- LEI: 2549004KHR65SGJOLO04 (ACTIVE). [gleif]\n\nChanges in this run (10):\n- location.business.geo: added ({'lat': 62.47082346378486, 'lon': 6.178884801631777, 'crs...)\n- web.home_text: added (Company Update ACEL Strengthens Its Competitive Position ...)\n- web.headline: added (Wired for Progress. Powered by Trust.)\n- web.about_text: ACEL AS is a total supplier of electrical systems within ... -> ACEL AS is a total supplier of electrical systems within ...\n- web.careers_url: added (https://www.acel.no/career)\n- web.careers.listings: added ([{'title': 'Markedsleder Switchboard Systems Ålesund, Nor...)\n- web.contact_page: added ({'url': 'https://www.acel.no/contact-us'})\n- web.emails: [' lmkd@acel.no', 'lmkd@acel.no', 'post@acel.no'] -> ['adam.szczesniak@acel.no', 'age.jensen@acel.no', 'aina.m...\n- web.phones: ['+4770111700'] -> ['+4740304492', '+4740328267', '+4740487266', '+474063567...\n- web.pages_checked: added ({'home': 'https://www.acel.no/', 'contact': 'https://www....)\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No products and services: website reached, but it carries no such information.\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "ACEL AS (org.nr 988 233 315) is registered as Aksjeselskap (AS), founded 2005-05-18, registered 2005-05-23. [brreg_enheter]",
+    "Main industry (NACE 30.110): Bygging av sivile skip og flytende materiell. [brreg_enheter]",
+    "Registered purpose: \"Produksjon, handel og tjenesteyting innenfor elektronikk og automasjon og andre relevante markeder for selskapets teknologi og kompetanse, samt hva hermed står i forbindelse, herunder delta i andre selskap med lignende virksomhet.\" [brreg_enheter]",
+    "The company's website describes it as: \"We deliver tailored electric solutions for maritime, land-based aquaculture and commercial real estate.\" [website]",
+    "Business address: Ystenesgata 32, 6007 ÅLESUND. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Anders Vedlog; board chair Nils Harald Thommessen; 5 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 168 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 406,641,688 (+31% vs 2024); operating result NOK 31,686,077 (-5% vs 2024); net result NOK 25,613,725 (-4% vs 2024); total assets NOK 209,098,378 (+32% vs 2024); equity NOK 84,226,523 (+44% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 1,000,000. [brreg_enheter]",
+    "LEI: 2549004KHR65SGJOLO04 (ACTIVE). [gleif]"
+   ],
+   "changes": [
+    "Changes in this run (10):",
+    "- location.business.geo: added ({'lat': 62.47082346378486, 'lon': 6.178884801631777, 'crs...)",
+    "- web.home_text: added (Company Update ACEL Strengthens Its Competitive Position ...)",
+    "- web.headline: added (Wired for Progress. Powered by Trust.)",
+    "- web.about_text: ACEL AS is a total supplier of electrical systems within ... -> ACEL AS is a total supplier of electrical systems within ...",
+    "- web.careers_url: added (https://www.acel.no/career)",
+    "- web.careers.listings: added ([{'title': 'Markedsleder Switchboard Systems Ålesund, Nor...)",
+    "- web.contact_page: added ({'url': 'https://www.acel.no/contact-us'})",
+    "- web.emails: [' lmkd@acel.no', 'lmkd@acel.no', 'post@acel.no'] -> ['adam.szczesniak@acel.no', 'age.jensen@acel.no', 'aina.m...",
+    "- web.phones: ['+4770111700'] -> ['+4740304492', '+4740328267', '+4740487266', '+474063567...",
+    "- web.pages_checked: added ({'home': 'https://www.acel.no/', 'contact': 'https://www....)"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No products and services: website reached, but it carries no such information.",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

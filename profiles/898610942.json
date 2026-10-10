@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:10:13Z",
- "last_run": "2026-10-05T05:10:13Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:20:21Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,53 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026517788 virksomhet.organisasjonsnummer=898610942 (2025, selskap)"
+   },
+   {
+    "source": "nav_jobs",
+    "check": "employer_is_registry_unit",
+    "passed": true,
+    "detail": "0 ad(s) whose employer name equals the registry name of 898610942 or one of its 1 registered sub-units; 0 other search hit(s) ignored"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Røsslyngvegen 21' 4344 -> matched 'Røsslyngvegen 21' 4344"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://3bygg.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 898610942 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name '3BYGG AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "3bygg.no -> 3bygg.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +103,10 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: not_found (no active ads on arbeidsplassen.nav.no for employer '3BYGG AS' (search term '3BYGG'))",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: not_found (no central approval registered)",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +117,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +148,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +156,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +169,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2017-09-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +177,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +195,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2012-07-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +203,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +216,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +224,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +237,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +245,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -216,7 +263,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -224,7 +271,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -242,7 +289,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -250,7 +297,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +315,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +323,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -294,7 +341,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -302,7 +349,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +367,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +375,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -354,7 +401,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -362,7 +409,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -380,7 +427,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -388,7 +435,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -406,7 +453,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -414,7 +461,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -432,7 +479,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -440,7 +487,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -458,7 +505,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -466,7 +513,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -484,7 +531,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -492,7 +539,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +557,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +565,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +583,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +591,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +609,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +617,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -588,7 +635,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -596,7 +643,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -614,7 +661,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -622,7 +669,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -640,7 +687,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -648,7 +695,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -666,7 +713,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -674,7 +721,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +739,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +747,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -718,7 +765,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -726,7 +773,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +791,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +799,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -770,7 +817,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -778,7 +825,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -804,7 +851,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -812,7 +859,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -830,7 +877,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -838,7 +885,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -856,7 +903,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -864,7 +911,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -882,7 +929,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -890,7 +937,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -908,7 +955,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -916,7 +963,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -934,7 +981,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -942,7 +989,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -960,7 +1007,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -968,7 +1015,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -986,7 +1033,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -994,7 +1041,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1012,7 +1059,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1020,7 +1067,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1038,7 +1085,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1046,7 +1093,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1064,7 +1111,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1072,7 +1119,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1137,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1145,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1116,7 +1163,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1124,7 +1171,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1142,7 +1189,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1150,7 +1197,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1168,7 +1215,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1176,7 +1223,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1194,7 +1241,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1202,7 +1249,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1220,7 +1267,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1228,7 +1275,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1254,7 +1301,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1262,7 +1309,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1280,7 +1327,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1288,7 +1335,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1306,7 +1353,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1314,7 +1361,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1332,7 +1379,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1340,7 +1387,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1358,7 +1405,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1366,7 +1413,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1384,7 +1431,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1392,7 +1439,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1410,7 +1457,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1418,7 +1465,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1436,7 +1483,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1444,7 +1491,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1462,7 +1509,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1470,7 +1517,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1488,7 +1535,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1496,7 +1543,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1514,7 +1561,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1522,7 +1569,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1540,7 +1587,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1548,7 +1595,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1564,7 +1611,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1572,7 +1619,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1585,7 +1632,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2012-06-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1593,7 +1640,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1606,7 +1653,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1614,7 +1661,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1630,7 +1677,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1638,7 +1685,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1651,7 +1698,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1659,7 +1706,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1672,7 +1719,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1680,7 +1727,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1693,7 +1740,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1701,11 +1748,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 58.72752754798431,
+    "lon": 5.648818344793573,
+    "crs": "EPSG:4326",
+    "matched_address": "Røsslyngvegen 21",
+    "postal_code": "4344",
+    "city": "BRYNE",
+    "municipality": "TIME",
+    "municipality_number": "1121",
+    "cadastral": {
+     "gnr": 2,
+     "bnr": 204
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.72752754798431&lon=5.648818344793573&markerLat=58.72752754798431&markerLon=5.648818344793573"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=R%C3%B8sslyngvegen+21&postnummer=4344&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "mobile",
@@ -1714,7 +1796,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1722,7 +1804,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1735,7 +1817,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1743,7 +1825,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1762,7 +1844,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1770,7 +1852,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1786,7 +1868,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1794,7 +1876,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1807,7 +1889,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2017-09-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1815,7 +1897,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1828,7 +1910,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2012-07-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1836,7 +1918,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1849,7 +1931,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2012-07-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1857,7 +1939,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1877,7 +1959,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1885,7 +1967,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1901,7 +1983,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942/roller",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2022-11-21",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1909,7 +1991,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1925,7 +2007,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942/roller",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2019-08-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1933,7 +2015,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1948,7 +2030,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942/roller",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2024-01-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1956,7 +2038,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1971,7 +2053,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942/roller",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": "2016-11-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1979,7 +2061,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1995,7 +2077,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2003,7 +2085,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2020,7 +2102,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2028,7 +2110,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2041,7 +2123,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=898610942&size=100",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2049,7 +2131,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2070,7 +2152,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=898610942&size=100",
-     "retrieved_at": "2026-10-05T05:10:13Z",
+     "retrieved_at": "2026-10-10T13:20:21Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2078,11 +2160,388 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:13Z",
-   "last_seen": "2026-10-05T05:10:13Z",
+   "last_seen": "2026-10-10T13:20:21Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "3BYGG er en lokal snekkerbedrift i Trondheim, drevet av Jan Erik Guttormsen. Vi har 29 års erfaring i faget og en fast kundekrets som ringer oss tilbake år etter år. Jan Erik Guttormsen startet som enkeltmannsforetak i 1997, og drev videre som aksjeselskap fra 2008. Underveis har vi gått fra de første snekkerjobbene til et bredt tjenestespekter med fast fagansvar. Spesialiteten vår er garasjeporter — både nye porter og service på det som allerede står — men vi tar like gjerne etterisolering, gulvlegging, bad, rehabilitering og mindre snekkeroppdrag. Vi holder oss lokale i Trondheim og Trøndelag, og er stolte av at så mange kunder kommer tilbake. For oss handler godt håndverk like mye om å være til å stole på som om selve jobben. Når vi har avtalt et tidspunkt, stiller vi. Du skal slippe å lure på om håndverkeren kommer. Du får en fast pris og en spesifisert leveranse. Det er det du betaler for — ikke noe mer. Anmeldelser hentet fra Fixa. Vurderingsscore: pris 5/5, kvalitet 5/5, service 5/5. Trondheim er hjemmebanen vår, men vi kjører gjerne ut i hele Trøndelag. Vi tar oppdrag i Melhus, Levanger, Steinkjer og Frosta — og i nærområdene Heimdal, Tiller, Klæbu, Malvik. Usikker på om vi",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no/om-oss/",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://3bygg.no/kontakt/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no/kontakt/",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.description",
+   "value": "Erfaren snekker i Trondheim siden 1997. Garasjeport og portåpner, etterisolering, gulvlegging, bad og mindre snekkeroppdrag. Gratis befaring – 922 98 900.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "janerik@3bygg.no",
+    "ola@example.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Snekker i Trondheim — spesialist på garasjeporter og garasjeportåpnere",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "3BYGG er en lokal snekkerbedrift i Trondheim. Vi er spesialister på garasjeporter og portåpnere, og tar i tillegg etterisolering, gulvlegging, bad, rehabilitering og mindre snekkeroppdrag. Gratis befaring og fast pris. Bredt snekkerservice med garasjeporter som spesialfag. Velg en tjeneste for å se hva vi konkret gjør. Salg og montering av nye garasjeporter — leddport fra Hörmann, med portåpner om du vil. Vaier- eller fjærbrudd, kjørt inn i porten, eller åpner som har sluttet å virke? Vi fikser det. Mindre snekkeroppdrag: dørmontering, listverk, råteskifte, terrasse og småjobber. Etterisolering av loft, kneloft og vegger — lavere fyringskostnad og varmere bolig. Baderom, råteskader, kledning",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "nb",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.og_image",
+   "value": "https://3bygg.no/og-image.jpg",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://3bygg.no",
+    "contact": "https://3bygg.no/kontakt/",
+    "about": "https://3bygg.no/om-oss/",
+    "products": "https://3bygg.no/snekkeroppdrag/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4792298900"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Oppgavene vi tar oftest",
+    "Spørsmål om snekkeroppdrag",
+    "Har du en jobb som må gjøres?",
+    "Tjenester",
+    "Kontakt"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no/snekkeroppdrag/",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://3bygg.no/snekkeroppdrag/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no/snekkeroppdrag/",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.site_name",
+   "value": "3BYGG",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "https://www.facebook.com/3Bygg"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "Snekker i Trondheim | Garasjeport og portåpner | 3BYGG",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://3bygg.no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://3bygg.no",
+     "retrieved_at": "2026-10-10T13:20:21Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:20:21Z",
+   "last_seen": "2026-10-10T13:20:21Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2091,7 +2550,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:13Z",
+   "retrieved_at": "2026-10-10T13:20:21Z",
    "facts": 22,
    "requests": 1,
    "checks": [
@@ -2109,7 +2568,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/898610942/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:13Z",
+   "retrieved_at": "2026-10-10T13:20:21Z",
    "facts": 4,
    "requests": 1,
    "checks": [
@@ -2127,7 +2586,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=898610942&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:13Z",
+   "retrieved_at": "2026-10-10T13:20:21Z",
    "facts": 2,
    "requests": 1,
    "checks": [
@@ -2145,7 +2604,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/898610942",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:13Z",
+   "retrieved_at": "2026-10-10T13:20:21Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2173,7 +2632,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=898610942&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:13Z",
+   "retrieved_at": "2026-10-10T13:20:21Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2187,7 +2646,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22898610942%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:13Z",
+   "retrieved_at": "2026-10-10T13:20:21Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2197,841 +2656,238 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:10:13Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=3BYGG&size=100&v=5",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:20:21Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
+   "checks": [
+    {
+     "check": "employer_is_registry_unit",
+     "passed": true,
+     "detail": "0 ad(s) whose employer name equals the registry name of 898610942 or one of its 1 registered sub-units; 0 other search hit(s) ignored"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "no active ads on arbeidsplassen.nav.no for employer '3BYGG AS' (search term '3BYGG')"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=R%C3%B8sslyngvegen+21&postnummer=4344&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:20:21Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Røsslyngvegen 21' 4344 -> matched 'Røsslyngvegen 21' 4344"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/898610942",
+   "status": "not_found",
+   "http_status": 404,
+   "retrieved_at": "2026-10-10T13:20:21Z",
+   "facts": 0,
+   "requests": 1,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "no central approval registered"
    ]
+  },
+  {
+   "source": "website",
+   "url": "https://3bygg.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:20:21Z",
+   "facts": 17,
+   "requests": 5,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://3bygg.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 898610942 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name '3BYGG AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "3bygg.no -> 3bygg.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "name",
-   "type": "added",
-   "new": "3BYGG AS"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "BYGGEFIRMA SØR-REIME&LAIHINEN AS",
-     "from": "2012-07-12 20:28:47",
-     "to": "2017-09-13 12:42:10"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2012-06-27"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2012-07-12"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2012-07-12"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Røsslyngvegen 21"
-    ],
+    "lat": 58.72752754798431,
+    "lon": 5.648818344793573,
+    "crs": "EPSG:4326",
+    "matched_address": "Røsslyngvegen 21",
     "postal_code": "4344",
     "city": "BRYNE",
     "municipality": "TIME",
     "municipality_number": "1121",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 2,
+     "bnr": 204
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.72752754798431&lon=5.648818344793573&markerLat=58.72752754798431&markerLon=5.648818344793573"
    }
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.url",
    "type": "added",
-   "new": {
-    "code": "41.000",
-    "description": "Oppføring av bygninger"
-   }
+   "new": "https://3bygg.no"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.title",
    "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
+   "new": "Snekker i Trondheim | Garasjeport og portåpner | 3BYGG"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "mobile",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.description",
    "type": "added",
-   "new": "948 68 872"
+   "new": "Erfaren snekker i Trondheim siden 1997. Garasjeport og portåpner, etterisolering, gulvlegging, bad og mindre snekkeroppdrag. Gratis befaring – 922 98 900."
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "email",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.site_name",
    "type": "added",
-   "new": "post@srlas.no"
+   "new": "3BYGG"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "purpose",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.language",
    "type": "added",
-   "new": "Oppføring og vedlikehold av bygg og andre produkter/tjenester som narturlig hører sammen med dette. Herunder å delta i andre selskap med lignende virksomhet, og kjøp og salg av aksjer eller på annen måte gjøre seg interessert i andre foretak."
+   "new": "nb"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "activity",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.og_image",
    "type": "added",
-   "new": "Oppføring og vedlikehold av bygg."
+   "new": "https://3bygg.no/og-image.jpg"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.home_text",
    "type": "added",
-   "new": {
-    "amount": 30000.0,
-    "currency": "NOK",
-    "shares": 30,
-    "type": "Aksjekapital"
-   }
+   "new": "3BYGG er en lokal snekkerbedrift i Trondheim. Vi er spesialister på garasjeporter og portåpnere, og tar i tillegg etterisolering, gulvlegging, bad, rehabilitering og mindre snekkeroppdrag. Gratis befaring og fast pris. Bredt snekkerservice med garasjeporter som spesialfag. Velg en tjeneste for å se hva vi konkret gjør. Salg og montering av nye garasjeporter — leddport fra Hörmann, med portåpner om du vil. Vaier- eller fjærbrudd, kjørt inn i porten, eller åpner som har sluttet å virke? Vi fikser det. Mindre snekkeroppdrag: dørmontering, listverk, råteskifte, terrasse og småjobber. Etterisolering av loft, kneloft og vegger — lavere fyringskostnad og varmere bolig. Baderom, råteskader, kledning"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "status",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.headline",
    "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
+   "new": "Snekker i Trondheim — spesialist på garasjeporter og garasjeportåpnere"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "registers",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.about_text",
    "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
+   "new": "3BYGG er en lokal snekkerbedrift i Trondheim, drevet av Jan Erik Guttormsen. Vi har 29 års erfaring i faget og en fast kundekrets som ringer oss tilbake år etter år. Jan Erik Guttormsen startet som enkeltmannsforetak i 1997, og drev videre som aksjeselskap fra 2008. Underveis har vi gått fra de første snekkerjobbene til et bredt tjenestespekter med fast fagansvar. Spesialiteten vår er garasjeporter — både nye porter og service på det som allerede står — men vi tar like gjerne etterisolering, gulvlegging, bad, rehabilitering og mindre snekkeroppdrag. Vi holder oss lokale i Trondheim og Trøndelag, og er stolte av at så mange kunder kommer tilbake. For oss handler godt håndverk like mye om å være til å stole på som om selve jobben. Når vi har avtalt et tidspunkt, stiller vi. Du skal slippe å lure på om håndverkeren kommer. Du får en fast pris og en spesifisert leveranse. Det er det du betaler for — ikke noe mer. Anmeldelser hentet fra Fixa. Vurderingsscore: pris 5/5, kvalitet 5/5, service 5/5. Trondheim er hjemmebanen vår, men vi kjører gjerne ut i hele Trøndelag. Vi tar oppdrag i Melhus, Levanger, Steinkjer og Frosta — og i nærområdene Heimdal, Tiller, Klæbu, Malvik. Usikker på om vi"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "group.is_parent",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.products_url",
    "type": "added",
-   "new": false
+   "new": "https://3bygg.no/snekkeroppdrag/"
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2017-09-04"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/898610942"
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Stian Laihinen"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Stian Laihinen"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "BRYNE REVISJON AS",
-    "orgnr": "884880432"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "SECANT AS",
-    "orgnr": "948114194"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "subunits.list",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.products",
    "type": "added",
    "new": [
-    {
-     "orgnr": "998617057",
-     "name": "3BYGG AS",
-     "city": "BRYNE",
-     "municipality": "TIME",
-     "nace": "41.000"
-    }
+    "Oppgavene vi tar oftest",
+    "Spørsmål om snekkeroppdrag",
+    "Har du en jobb som må gjøres?",
+    "Tjenester",
+    "Kontakt"
    ]
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.revenue",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "amount": 28894086.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "url": "https://3bygg.no/kontakt/"
    }
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.sales_revenue",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.social",
    "type": "added",
    "new": {
-    "amount": 28768186.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "facebook": "https://www.facebook.com/3Bygg"
    }
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.operating_costs",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "janerik@3bygg.no",
+    "ola@example.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4792298900"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "amount": 31228912.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
+    "home": "https://3bygg.no",
+    "contact": "https://3bygg.no/kontakt/",
+    "about": "https://3bygg.no/om-oss/",
+    "products": "https://3bygg.no/snekkeroppdrag/"
    }
   },
   {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.operating_result",
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
-   "new": {
-    "amount": -2334826.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -361101.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -2695928.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": -788695.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -1907233.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 8610273.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1111995.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 7498278.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 1954492.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": -1034517.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 9644790.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 6490766.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 3154023.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024753029",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 19096083.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 18941288.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 18523291.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 572791.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -185710.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 387081.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 74516.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 312565.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 4953647.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 901329.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 4052318.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 1800728.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": -721951.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 5675598.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 4880979.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 794620.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025688750",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 14113401.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 14113401.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 13191062.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 922340.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -71664.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 850675.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 190766.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 659909.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 2727492.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 988613.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 1738879.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 787825.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": -62042.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 2789534.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1842242.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 947292.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026517788",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:13Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
+   "new": false
   }
  ],
  "changes": [
@@ -3855,17 +3711,214 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 58.72752754798431,
+    "lon": 5.648818344793573,
+    "crs": "EPSG:4326",
+    "matched_address": "Røsslyngvegen 21",
+    "postal_code": "4344",
+    "city": "BRYNE",
+    "municipality": "TIME",
+    "municipality_number": "1121",
+    "cadastral": {
+     "gnr": 2,
+     "bnr": 204
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.72752754798431&lon=5.648818344793573&markerLat=58.72752754798431&markerLon=5.648818344793573"
+   }
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://3bygg.no"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Snekker i Trondheim | Garasjeport og portåpner | 3BYGG"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "Erfaren snekker i Trondheim siden 1997. Garasjeport og portåpner, etterisolering, gulvlegging, bad og mindre snekkeroppdrag. Gratis befaring – 922 98 900."
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "3BYGG"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "nb"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://3bygg.no/og-image.jpg"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "3BYGG er en lokal snekkerbedrift i Trondheim. Vi er spesialister på garasjeporter og portåpnere, og tar i tillegg etterisolering, gulvlegging, bad, rehabilitering og mindre snekkeroppdrag. Gratis befaring og fast pris. Bredt snekkerservice med garasjeporter som spesialfag. Velg en tjeneste for å se hva vi konkret gjør. Salg og montering av nye garasjeporter — leddport fra Hörmann, med portåpner om du vil. Vaier- eller fjærbrudd, kjørt inn i porten, eller åpner som har sluttet å virke? Vi fikser det. Mindre snekkeroppdrag: dørmontering, listverk, råteskifte, terrasse og småjobber. Etterisolering av loft, kneloft og vegger — lavere fyringskostnad og varmere bolig. Baderom, råteskader, kledning"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Snekker i Trondheim — spesialist på garasjeporter og garasjeportåpnere"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "3BYGG er en lokal snekkerbedrift i Trondheim, drevet av Jan Erik Guttormsen. Vi har 29 års erfaring i faget og en fast kundekrets som ringer oss tilbake år etter år. Jan Erik Guttormsen startet som enkeltmannsforetak i 1997, og drev videre som aksjeselskap fra 2008. Underveis har vi gått fra de første snekkerjobbene til et bredt tjenestespekter med fast fagansvar. Spesialiteten vår er garasjeporter — både nye porter og service på det som allerede står — men vi tar like gjerne etterisolering, gulvlegging, bad, rehabilitering og mindre snekkeroppdrag. Vi holder oss lokale i Trondheim og Trøndelag, og er stolte av at så mange kunder kommer tilbake. For oss handler godt håndverk like mye om å være til å stole på som om selve jobben. Når vi har avtalt et tidspunkt, stiller vi. Du skal slippe å lure på om håndverkeren kommer. Du får en fast pris og en spesifisert leveranse. Det er det du betaler for — ikke noe mer. Anmeldelser hentet fra Fixa. Vurderingsscore: pris 5/5, kvalitet 5/5, service 5/5. Trondheim er hjemmebanen vår, men vi kjører gjerne ut i hele Trøndelag. Vi tar oppdrag i Melhus, Levanger, Steinkjer og Frosta — og i nærområdene Heimdal, Tiller, Klæbu, Malvik. Usikker på om vi"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://3bygg.no/snekkeroppdrag/"
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Oppgavene vi tar oftest",
+    "Spørsmål om snekkeroppdrag",
+    "Har du en jobb som må gjøres?",
+    "Tjenester",
+    "Kontakt"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://3bygg.no/kontakt/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/3Bygg"
+   }
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "janerik@3bygg.no",
+    "ola@example.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4792298900"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://3bygg.no",
+    "contact": "https://3bygg.no/kontakt/",
+    "about": "https://3bygg.no/om-oss/",
+    "products": "https://3bygg.no/snekkeroppdrag/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:20:21Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 80,
+  "active_facts": 98,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.45
+  "requests": 17,
+  "seconds": 30.21
  },
  "explanation": {
   "mode": "template",
-  "text": "3BYGG AS (org.nr 898 610 942) is registered as Aksjeselskap (AS), founded 2012-06-27, registered 2012-07-12. Business address: Røsslyngvegen 21, 4344 BRYNE. Main industry (NACE): 41.000 Oppføring av bygninger. Latest filed annual accounts (2025, company statement): revenue NOK 14,113,401; operating result NOK 922,340; net result NOK 659,909; total assets NOK 2,727,492; equity NOK -62,042. Leadership: general manager (daglig leder) Stian Laihinen; board chair Stian Laihinen. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 80 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "3BYGG AS (org.nr 898 610 942) is registered as Aksjeselskap (AS), founded 2012-06-27, registered 2012-07-12. [brreg_enheter] Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter] Registered purpose: \"Oppføring og vedlikehold av bygg og andre produkter/tjenester som narturlig hører sammen med dette. Herunder å delta i andre selskap med lignende virksomhet, og kjøp og salg av aksjer eller på annen måte gjøre seg interessert i andre foretak.\" [brreg_enheter] The company's website describes it as: \"Erfaren snekker i Trondheim siden 1997. Garasjeport og portåpner, etterisolering, gulvlegging, bad og mindre snekkeroppdrag. Gratis befaring – 922 98 900.\" [website] Business address: Røsslyngvegen 21, 4344 BRYNE. [brreg_enheter] Products / services named on its website: Oppgavene vi tar oftest; Spørsmål om snekkeroppdrag; Har du en jobb som må gjøres?; Tjenester; Kontakt. [website] Leadership: general manager (daglig leder) Stian Laihinen; board chair Stian Laihinen. [brreg_roller]\n\nKey numbers:\n- Latest filed annual accounts (2025, company statement): revenue NOK 14,113,401 (-26% vs 2024); operating result NOK 922,340 (+61% vs 2024); net result NOK 659,909 (+111% vs 2024); total assets NOK 2,727,492 (-45% vs 2024); equity NOK -62,042 (+91% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 30,000. [brreg_enheter]\n\nChanges in this run (18):\n- location.business.geo: added ({'lat': 58.72752754798431, 'lon': 5.648818344793573, 'crs...)\n- web.url: added (https://3bygg.no)\n- web.title: added (Snekker i Trondheim | Garasjeport og portåpner | 3BYGG)\n- web.description: added (Erfaren snekker i Trondheim siden 1997. Garasjeport og po...)\n- web.site_name: added (3BYGG)\n- web.language: added (nb)\n- web.og_image: added (https://3bygg.no/og-image.jpg)\n- web.home_text: added (3BYGG er en lokal snekkerbedrift i Trondheim. Vi er spesi...)\n- web.headline: added (Snekker i Trondheim — spesialist på garasjeporter og gara...)\n- web.about_text: added (3BYGG er en lokal snekkerbedrift i Trondheim, drevet av J...)\n- web.products_url: added (https://3bygg.no/snekkeroppdrag/)\n- web.products: added (['Oppgavene vi tar oftest', 'Spørsmål om snekkeroppdrag',...)\n- web.contact_page: added ({'url': 'https://3bygg.no/kontakt/'})\n- web.social: added ({'facebook': 'https://www.facebook.com/3Bygg'})\n- web.emails: added (['janerik@3bygg.no', 'ola@example.no'])\n- ... and 3 more\n\nWhat remains unknown:\n- No registered employee count: the registry holds no employee count for this entity.\n- No news items: website reached, but it carries no such information.\n- No job postings: checked nav_jobs: nothing registered (no active ads on arbeidsplassen.nav.no for employer '3BYGG AS' (search term '3BYGG')).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n- No central approval for building work (DiBK): checked dibk: nothing registered (no central approval registered).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: not_found (no active ads on arbeidsplassen.nav.no for employer '3BYGG AS' (search term '3BYGG'))\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: not_found (no central approval registered)\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "3BYGG AS (org.nr 898 610 942) is registered as Aksjeselskap (AS), founded 2012-06-27, registered 2012-07-12. [brreg_enheter]",
+    "Main industry (NACE 41.000): Oppføring av bygninger. [brreg_enheter]",
+    "Registered purpose: \"Oppføring og vedlikehold av bygg og andre produkter/tjenester som narturlig hører sammen med dette. Herunder å delta i andre selskap med lignende virksomhet, og kjøp og salg av aksjer eller på annen måte gjøre seg interessert i andre foretak.\" [brreg_enheter]",
+    "The company's website describes it as: \"Erfaren snekker i Trondheim siden 1997. Garasjeport og portåpner, etterisolering, gulvlegging, bad og mindre snekkeroppdrag. Gratis befaring – 922 98 900.\" [website]",
+    "Business address: Røsslyngvegen 21, 4344 BRYNE. [brreg_enheter]",
+    "Products / services named on its website: Oppgavene vi tar oftest; Spørsmål om snekkeroppdrag; Har du en jobb som må gjøres?; Tjenester; Kontakt. [website]",
+    "Leadership: general manager (daglig leder) Stian Laihinen; board chair Stian Laihinen. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Latest filed annual accounts (2025, company statement): revenue NOK 14,113,401 (-26% vs 2024); operating result NOK 922,340 (+61% vs 2024); net result NOK 659,909 (+111% vs 2024); total assets NOK 2,727,492 (-45% vs 2024); equity NOK -62,042 (+91% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 30,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (18):",
+    "- location.business.geo: added ({'lat': 58.72752754798431, 'lon': 5.648818344793573, 'crs...)",
+    "- web.url: added (https://3bygg.no)",
+    "- web.title: added (Snekker i Trondheim | Garasjeport og portåpner | 3BYGG)",
+    "- web.description: added (Erfaren snekker i Trondheim siden 1997. Garasjeport og po...)",
+    "- web.site_name: added (3BYGG)",
+    "- web.language: added (nb)",
+    "- web.og_image: added (https://3bygg.no/og-image.jpg)",
+    "- web.home_text: added (3BYGG er en lokal snekkerbedrift i Trondheim. Vi er spesi...)",
+    "- web.headline: added (Snekker i Trondheim — spesialist på garasjeporter og gara...)",
+    "- web.about_text: added (3BYGG er en lokal snekkerbedrift i Trondheim, drevet av J...)",
+    "- web.products_url: added (https://3bygg.no/snekkeroppdrag/)",
+    "- web.products: added (['Oppgavene vi tar oftest', 'Spørsmål om snekkeroppdrag',...)",
+    "- web.contact_page: added ({'url': 'https://3bygg.no/kontakt/'})",
+    "- web.social: added ({'facebook': 'https://www.facebook.com/3Bygg'})",
+    "- web.emails: added (['janerik@3bygg.no', 'ola@example.no'])",
+    "- ... and 3 more"
+   ],
+   "unknown": [
+    "No registered employee count: the registry holds no employee count for this entity.",
+    "No news items: website reached, but it carries no such information.",
+    "No job postings: checked nav_jobs: nothing registered (no active ads on arbeidsplassen.nav.no for employer '3BYGG AS' (search term '3BYGG')).",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).",
+    "No central approval for building work (DiBK): checked dibk: nothing registered (no central approval registered)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: not_found (no active ads on arbeidsplassen.nav.no for employer '3BYGG AS' (search term '3BYGG'))",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: not_found (no central approval registered)",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:12:09Z",
- "last_run": "2026-10-05T05:42:39Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:24:29Z",
+ "run_count": 5,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,47 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026523240 virksomhet.organisasjonsnummer=988389846 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Bjørklysvingen 3' 9152 -> matched 'Bjørklysvingen 3' 9152"
+   },
+   {
+    "source": "website",
+    "check": "declared_in_registry",
+    "passed": true,
+    "detail": "URL declared by the entity in brreg_enheter: www.3net.no"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 988389846 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name '3NET AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "3net.no -> 3net.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +97,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: error (website fetch exceeded 60s cap)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +110,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +118,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +141,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +149,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +162,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2005-04-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +170,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +188,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2005-07-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +196,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +209,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +217,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +230,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2026-08-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +238,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -211,7 +251,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -219,7 +259,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -237,7 +277,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -245,7 +285,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -263,7 +303,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -271,7 +311,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -289,7 +329,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -297,7 +337,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -315,7 +355,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -323,7 +363,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -341,7 +381,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -349,7 +389,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -375,7 +415,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -383,7 +423,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -401,7 +441,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -409,7 +449,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -427,7 +467,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -435,7 +475,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -453,7 +493,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -461,7 +501,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -479,7 +519,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -487,7 +527,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -505,7 +545,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -513,7 +553,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -531,7 +571,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -539,7 +579,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -557,7 +597,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -565,7 +605,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -583,7 +623,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -591,7 +631,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -609,7 +649,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -617,7 +657,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -635,7 +675,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -643,7 +683,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -661,7 +701,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -669,7 +709,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -687,7 +727,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -695,7 +735,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -713,7 +753,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -721,7 +761,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -739,7 +779,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -747,7 +787,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -765,7 +805,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -773,7 +813,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -791,7 +831,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -799,7 +839,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -825,7 +865,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -833,7 +873,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -851,7 +891,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -859,7 +899,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -877,7 +917,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -885,7 +925,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -903,7 +943,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -911,7 +951,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -929,7 +969,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -937,7 +977,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -955,7 +995,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -963,7 +1003,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -981,7 +1021,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -989,7 +1029,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1007,7 +1047,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1015,7 +1055,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1033,7 +1073,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1041,7 +1081,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1059,7 +1099,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1067,7 +1107,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1085,7 +1125,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1093,7 +1133,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1111,7 +1151,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1119,7 +1159,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1137,7 +1177,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1145,7 +1185,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1163,7 +1203,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1171,7 +1211,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1189,7 +1229,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1197,7 +1237,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1215,7 +1255,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1223,7 +1263,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1241,7 +1281,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1249,7 +1289,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1275,7 +1315,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1283,7 +1323,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1301,7 +1341,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1309,7 +1349,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1327,7 +1367,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1335,7 +1375,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1353,7 +1393,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1361,7 +1401,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1379,7 +1419,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1387,7 +1427,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1405,7 +1445,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1413,7 +1453,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1431,7 +1471,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1439,7 +1479,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1457,7 +1497,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1465,7 +1505,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1483,7 +1523,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1491,7 +1531,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1509,7 +1549,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1517,7 +1557,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1535,7 +1575,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1543,7 +1583,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1561,7 +1601,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1569,7 +1609,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1585,7 +1625,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1593,7 +1633,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1606,7 +1646,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2005-04-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1614,7 +1654,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1627,7 +1667,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1635,7 +1675,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1651,7 +1691,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1659,7 +1699,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1675,7 +1715,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1683,7 +1723,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1696,7 +1736,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1704,7 +1744,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1717,7 +1757,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1725,7 +1765,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1738,7 +1778,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1746,11 +1786,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 69.78379748349641,
+    "lon": 20.952628490257002,
+    "crs": "EPSG:4326",
+    "matched_address": "Bjørklysvingen 3",
+    "postal_code": "9152",
+    "city": "SØRKJOSEN",
+    "municipality": "NORDREISA",
+    "municipality_number": "5544",
+    "cadastral": {
+     "gnr": 47,
+     "bnr": 235
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=69.78379748349641&lon=20.952628490257002&markerLat=69.78379748349641&markerLon=20.952628490257002"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Bj%C3%B8rklysvingen+3&postnummer=9152&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2025-04-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1759,7 +1834,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1767,11 +1842,271 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "news.item.060d21464b88",
+   "value": {
+    "title": "Bli kjent med Ronny",
+    "url": "https://www.3net.no/bli-kjent-med-ronny/",
+    "date": "2026-09-21",
+    "summary": "I dag skal blir vi kjent med Ronny – en erfaren og allsidig fagperson som er en viktig ressurs for oss og leveringsområdene våre. Men hvem er egentlig Ronny? Ronny Olsen er 47 år og kommer fra Skjervøy, men er i dag bosatt i Nordreisa. Han har lang og variert erfaring fra elektro-, energi- og […]"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/bli-kjent-med-ronny/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-09-21",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.07415c59f8c6",
+   "value": {
+    "title": "Slik beskytter du oppkoblet utstyr hjemme",
+    "url": "https://www.3net.no/slik-beskytter-du-oppkoblet-utstyr-hjemme/",
+    "date": "2026-07-14",
+    "summary": "Flere og flere av oss har smarte enheter koblet til internett – alt fra TV-er og overvåkningskameraer til smartlåser, høyttalere og robotstøvsugere. Selv om disse produktene gjør hverdagen enklere, er det viktig å tenke på sikkerheten. Med noen enkle tiltak kan du gjøre hjemmenettverket ditt trygger"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/slik-beskytter-du-oppkoblet-utstyr-hjemme/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-07-14",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.31c137c1d86b",
+   "value": {
+    "title": "Oppdatering: Ny informasjon om tidligere datainnbrudd hos Telia",
+    "url": "https://www.3net.no/telia-norge-varsler-om-datainnbrudd/",
+    "date": "2026-05-06",
+    "summary": "Telia Norge, som er leverandør av TV‑tjenester til 3net, informerte i mars 2026 om et alvorlig datainnbrudd som fant sted i 2025. Telia har nå bekreftet at personopplysninger knyttet til våre TV‑kunder er blant dataene som er lekket. 3net og Telia tar hendelsen svært alvorlig. Telia har gjennomført "
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/telia-norge-varsler-om-datainnbrudd/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-05-06",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.99c54d0799d8",
+   "value": {
+    "title": "Bli kjent med Jarle",
+    "url": "https://www.3net.no/bli-kjent-med-jarle/",
+    "date": "2026-08-24",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Jarle er en del av bredbåndspatruljen vår og fungerer som vår lokale hjelpemann i Kåfjord. Han er ofte på oppdrag ut til kundene våre for feilretting, Feilsøking, skrift av fibersentraler, ruter eller TV de"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/bli-kjent-med-jarle/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-08-24",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.9bac08cdbf7f",
+   "value": {
+    "title": "Dag Gunnar og Ronny i 3net: – Nå oppgraderer vi nettet på Skjervøy",
+    "url": "https://www.3net.no/dag-gunnar-og-ronny-i-3net-elementor/",
+    "date": "2026-09-11",
+    "summary": "Denne høsten starter 3net en stor oppgradering av fibernettet på Skjervøy. Med ny teknologi kan den lokale internettleverandøren tilby enda høyere kapasitet, bedre stabilitet og utstyr som er klart for framtidas behov. For de fleste av oss skal internett bare fungere. Hjemmekontoret skal gå knirkefr"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/dag-gunnar-og-ronny-i-3net-elementor/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-09-11",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.b4be9d71ed2c",
+   "value": {
+    "title": "Reserveløsning TV Bingo",
+    "url": "https://www.3net.no/reservelosning-tv-bingo/",
+    "date": "2026-06-16",
+    "summary": "Som følge av tekniske problemer er TV Nord for øyeblikket utilgjengelig. Som en midlertidig løsning vil sendingen være tilgjengelig via nett her: TV Nord og Radio Alta – Bingo"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/reservelosning-tv-bingo/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-06-16",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.c57638dc679c",
+   "value": {
+    "title": "Bli kjent med Dag Øyvind og Eivind",
+    "url": "https://www.3net.no/bli-kjent-med-dag-oyvind-og-eivind/",
+    "date": "2026-09-28",
+    "summary": "I Sørreisa finner vi et allsidig verksted, hvor dere møter Dag Øyvind og Eivind med lang erfaring innen data, elektronikk og fiber. Hver dag hjelper de både privatpersoner og bedrifter med alt fra dataproblemer og antennemontering til fiber og spesialutstyr for kystfiskere. Gjennom samarbeidet med 3"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/bli-kjent-med-dag-oyvind-og-eivind/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-09-28",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.cb4f2b9b2ab8",
+   "value": {
+    "title": "Bli kjent med Rolf",
+    "url": "https://www.3net.no/bli-kjent-med-rolf/",
+    "date": "2026-08-31",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Med sin praktiske sans, brede erfaring og kjennskap til både folket og teknologi er Rolf en nyttig ressurs for oss og lokalsamfunnet på Arnøya! Men hvem er egentlig Rolf Egil? Rolf Egil Larsen er 69 år, […]"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/bli-kjent-med-rolf/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-08-31",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.cde51b7d6dd3",
+   "value": {
+    "title": "Bli kjent med Leif Åge",
+    "url": "https://www.3net.no/bli-kjent-med-leif-age/",
+    "date": "2026-09-07",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Leif Åge har vært tilknyttet 3net helt siden oppstarten i Kautokeino i 2009. Her bidrar han blant annet med oppsyn av nodekiosker, utlevering og driftsetting av utstyr hos kunder, i tillegg til andre oppgav"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/bli-kjent-med-leif-age/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-09-07",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.dea7b32c77aa",
+   "value": {
+    "title": "Bli kjent med Svendrik",
+    "url": "https://www.3net.no/bli-kjent-med-svendrik/",
+    "date": "2026-09-14",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Svendrik er en del av bredbåndspatruljen vår og er innleid som lokal hjelpemann i Balsfjord, Storfjord og Lyngen. Her har han vært en viktig del av laget de siste 2,5 årene. Han er ofte på oppdrag […]"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/bli-kjent-med-svendrik/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": "2026-09-14",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "org_form",
@@ -1783,7 +2118,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1791,7 +2126,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1804,7 +2139,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1812,7 +2147,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1825,7 +2160,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2005-04-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1833,7 +2168,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1846,7 +2181,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2005-07-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1854,7 +2189,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1867,7 +2202,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2005-07-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1875,7 +2210,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1895,7 +2230,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1903,7 +2238,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1919,7 +2254,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846/roller",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2026-05-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1927,7 +2262,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1942,7 +2277,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846/roller",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2024-11-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1950,7 +2285,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1965,7 +2300,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846/roller",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": "2020-12-22",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1973,7 +2308,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1989,7 +2324,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1997,7 +2332,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2014,7 +2349,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2022,7 +2357,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2035,7 +2370,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988389846&size=100",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2043,7 +2378,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2056,7 +2391,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988389846&size=100",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2064,7 +2399,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2093,7 +2428,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988389846&size=100",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2101,7 +2436,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2114,7 +2449,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/om-oss/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2122,10 +2457,31 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://www.3net.no/om-oss/karriere/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/om-oss/karriere/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2135,7 +2491,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2143,10 +2499,10 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2155,24 +2511,77 @@
     "%20kunde@3net.no",
     "20kunde@3net.no",
     "glenn@magy.no",
+    "knut@3net.no",
     "kunde@3net.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:12:09Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "%20kunde@3net.no",
+      "20kunde@3net.no",
+      "glenn@magy.no",
+      "kunde@3net.no"
+     ],
+     "until": "2026-10-05T05:37:36Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Din fremtid, vår hverdag.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Vi leverer lynraskt internett til både private boliger og bedrifter via fiber til våre kunder i Nordreisa, Kautokeino, Skjervøy, Kåfjord, Storfjord, Lyngen, Balsfjord, Sørreisa og Dyrøy. Uansett om du trenger liten, høy eller sånn passe hastighet – har vi pakken som passer deg. I en jungel av vanskelige uttrykk og tall som er vanskelig å forstå seg på, hjelper vi deg å finne ut av hva du egentlig trenger til ditt hjem Vi leverer fiber og bredbånd over hele Nord-Norge! Sjekk hva vi kan levere på din adresse. Som Telia-kunde hos 3net får du fast tilgang til de mest populære kanalene, og i tillegg har vi anbefalt og valgt ytterligere kanaler for deg. Du kan når som helst, og uten omkostninger, ",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2189,7 +2598,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2197,10 +2606,10 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2210,7 +2619,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2218,10 +2627,10 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2231,7 +2640,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2239,10 +2648,10 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2252,7 +2661,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2260,10 +2669,36 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.3net.no/",
+    "about": "https://www.3net.no/om-oss/",
+    "careers": "https://www.3net.no/om-oss/karriere/",
+    "feed": "https://www.3net.no/feed/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.3net.no/",
+     "retrieved_at": "2026-10-10T13:24:29Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:24:29Z",
+   "last_seen": "2026-10-10T13:24:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2275,18 +2710,18 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
-     "note": null
+     "note": "tel: links on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2298,7 +2733,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2306,10 +2741,10 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2319,7 +2754,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2327,10 +2762,10 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2340,7 +2775,7 @@
     {
      "source": "website",
      "url": "https://www.3net.no/",
-     "retrieved_at": "2026-10-05T05:37:36Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2348,10 +2783,10 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:37:36Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
-   "stale": true,
+   "stale": false,
    "confidence": "medium"
   },
   {
@@ -2361,7 +2796,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
-     "retrieved_at": "2026-10-05T05:42:39Z",
+     "retrieved_at": "2026-10-10T13:24:29Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2369,7 +2804,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:09Z",
-   "last_seen": "2026-10-05T05:42:39Z",
+   "last_seen": "2026-10-10T13:24:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2382,7 +2817,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:39Z",
+   "retrieved_at": "2026-10-10T13:24:29Z",
    "facts": 24,
    "requests": 1,
    "checks": [
@@ -2400,7 +2835,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/988389846/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:39Z",
+   "retrieved_at": "2026-10-10T13:24:29Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2418,7 +2853,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=988389846&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:39Z",
+   "retrieved_at": "2026-10-10T13:24:29Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2436,7 +2871,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/988389846",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:39Z",
+   "retrieved_at": "2026-10-10T13:24:29Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2464,7 +2899,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=988389846&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:39Z",
+   "retrieved_at": "2026-10-10T13:24:29Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2478,7 +2913,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22988389846%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:39Z",
+   "retrieved_at": "2026-10-10T13:24:29Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2488,21 +2923,255 @@
    ]
   },
   {
-   "source": "website",
-   "url": "www.3net.no",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=3NET&size=100&v=5",
    "status": "error",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:42:39Z",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:24:29Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "website fetch exceeded 60s cap"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Bj%C3%B8rklysvingen+3&postnummer=9152&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:24:29Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Bjørklysvingen 3' 9152 -> matched 'Bjørklysvingen 3' 9152"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://www.3net.no/",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:24:29Z",
+   "facts": 25,
+   "requests": 5,
+   "checks": [
+    {
+     "check": "declared_in_registry",
+     "passed": true,
+     "detail": "URL declared by the entity in brreg_enheter: www.3net.no"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 988389846 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name '3NET AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "3net.no -> 3net.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 69.78379748349641,
+    "lon": 20.952628490257002,
+    "crs": "EPSG:4326",
+    "matched_address": "Bjørklysvingen 3",
+    "postal_code": "9152",
+    "city": "SØRKJOSEN",
+    "municipality": "NORDREISA",
+    "municipality_number": "5544",
+    "cadastral": {
+     "gnr": 47,
+     "bnr": 235
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=69.78379748349641&lon=20.952628490257002&markerLat=69.78379748349641&markerLon=20.952628490257002"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Vi leverer lynraskt internett til både private boliger og bedrifter via fiber til våre kunder i Nordreisa, Kautokeino, Skjervøy, Kåfjord, Storfjord, Lyngen, Balsfjord, Sørreisa og Dyrøy. Uansett om du trenger liten, høy eller sånn passe hastighet – har vi pakken som passer deg. I en jungel av vanskelige uttrykk og tall som er vanskelig å forstå seg på, hjelper vi deg å finne ut av hva du egentlig trenger til ditt hjem Vi leverer fiber og bredbånd over hele Nord-Norge! Sjekk hva vi kan levere på din adresse. Som Telia-kunde hos 3net får du fast tilgang til de mest populære kanalene, og i tillegg har vi anbefalt og valgt ytterligere kanaler for deg. Du kan når som helst, og uten omkostninger, "
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Din fremtid, vår hverdag."
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://www.3net.no/om-oss/karriere/"
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.c57638dc679c",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Dag Øyvind og Eivind",
+    "url": "https://www.3net.no/bli-kjent-med-dag-oyvind-og-eivind/",
+    "date": "2026-09-28",
+    "summary": "I Sørreisa finner vi et allsidig verksted, hvor dere møter Dag Øyvind og Eivind med lang erfaring innen data, elektronikk og fiber. Hver dag hjelper de både privatpersoner og bedrifter med alt fra dataproblemer og antennemontering til fiber og spesialutstyr for kystfiskere. Gjennom samarbeidet med 3"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.060d21464b88",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Ronny",
+    "url": "https://www.3net.no/bli-kjent-med-ronny/",
+    "date": "2026-09-21",
+    "summary": "I dag skal blir vi kjent med Ronny – en erfaren og allsidig fagperson som er en viktig ressurs for oss og leveringsområdene våre. Men hvem er egentlig Ronny? Ronny Olsen er 47 år og kommer fra Skjervøy, men er i dag bosatt i Nordreisa. Han har lang og variert erfaring fra elektro-, energi- og […]"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.dea7b32c77aa",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Svendrik",
+    "url": "https://www.3net.no/bli-kjent-med-svendrik/",
+    "date": "2026-09-14",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Svendrik er en del av bredbåndspatruljen vår og er innleid som lokal hjelpemann i Balsfjord, Storfjord og Lyngen. Her har han vært en viktig del av laget de siste 2,5 årene. Han er ofte på oppdrag […]"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.9bac08cdbf7f",
+   "type": "added",
+   "new": {
+    "title": "Dag Gunnar og Ronny i 3net: – Nå oppgraderer vi nettet på Skjervøy",
+    "url": "https://www.3net.no/dag-gunnar-og-ronny-i-3net-elementor/",
+    "date": "2026-09-11",
+    "summary": "Denne høsten starter 3net en stor oppgradering av fibernettet på Skjervøy. Med ny teknologi kan den lokale internettleverandøren tilby enda høyere kapasitet, bedre stabilitet og utstyr som er klart for framtidas behov. For de fleste av oss skal internett bare fungere. Hjemmekontoret skal gå knirkefr"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.cde51b7d6dd3",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Leif Åge",
+    "url": "https://www.3net.no/bli-kjent-med-leif-age/",
+    "date": "2026-09-07",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Leif Åge har vært tilknyttet 3net helt siden oppstarten i Kautokeino i 2009. Her bidrar han blant annet med oppsyn av nodekiosker, utlevering og driftsetting av utstyr hos kunder, i tillegg til andre oppgav"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.cb4f2b9b2ab8",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Rolf",
+    "url": "https://www.3net.no/bli-kjent-med-rolf/",
+    "date": "2026-08-31",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Med sin praktiske sans, brede erfaring og kjennskap til både folket og teknologi er Rolf en nyttig ressurs for oss og lokalsamfunnet på Arnøya! Men hvem er egentlig Rolf Egil? Rolf Egil Larsen er 69 år, […]"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.99c54d0799d8",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Jarle",
+    "url": "https://www.3net.no/bli-kjent-med-jarle/",
+    "date": "2026-08-24",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Jarle er en del av bredbåndspatruljen vår og fungerer som vår lokale hjelpemann i Kåfjord. Han er ofte på oppdrag ut til kundene våre for feilretting, Feilsøking, skrift av fibersentraler, ruter eller TV de"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.07415c59f8c6",
+   "type": "added",
+   "new": {
+    "title": "Slik beskytter du oppkoblet utstyr hjemme",
+    "url": "https://www.3net.no/slik-beskytter-du-oppkoblet-utstyr-hjemme/",
+    "date": "2026-07-14",
+    "summary": "Flere og flere av oss har smarte enheter koblet til internett – alt fra TV-er og overvåkningskameraer til smartlåser, høyttalere og robotstøvsugere. Selv om disse produktene gjør hverdagen enklere, er det viktig å tenke på sikkerheten. Med noen enkle tiltak kan du gjøre hjemmenettverket ditt trygger"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.b4be9d71ed2c",
+   "type": "added",
+   "new": {
+    "title": "Reserveløsning TV Bingo",
+    "url": "https://www.3net.no/reservelosning-tv-bingo/",
+    "date": "2026-06-16",
+    "summary": "Som følge av tekniske problemer er TV Nord for øyeblikket utilgjengelig. Som en midlertidig løsning vil sendingen være tilgjengelig via nett her: TV Nord og Radio Alta – Bingo"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.31c137c1d86b",
+   "type": "added",
+   "new": {
+    "title": "Oppdatering: Ny informasjon om tidligere datainnbrudd hos Telia",
+    "url": "https://www.3net.no/telia-norge-varsler-om-datainnbrudd/",
+    "date": "2026-05-06",
+    "summary": "Telia Norge, som er leverandør av TV‑tjenester til 3net, informerte i mars 2026 om et alvorlig datainnbrudd som fant sted i 2025. Telia har nå bekreftet at personopplysninger knyttet til våre TV‑kunder er blant dataene som er lekket. 3net og Telia tar hendelsen svært alvorlig. Telia har gjennomført "
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "%20kunde@3net.no",
+    "20kunde@3net.no",
+    "glenn@magy.no",
+    "kunde@3net.no"
+   ],
+   "new": [
+    "%20kunde@3net.no",
+    "20kunde@3net.no",
+    "glenn@magy.no",
+    "knut@3net.no",
+    "kunde@3net.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.3net.no/",
+    "about": "https://www.3net.no/om-oss/",
+    "careers": "https://www.3net.no/om-oss/karriere/",
+    "feed": "https://www.3net.no/feed/"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:12:09Z",
@@ -3420,17 +4089,246 @@
    "key": "web.about_text",
    "type": "added",
    "new": "3net er et heleid datterselskap av Ymber og vi samarbeider tett med andre funksjoner konsernet."
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 69.78379748349641,
+    "lon": 20.952628490257002,
+    "crs": "EPSG:4326",
+    "matched_address": "Bjørklysvingen 3",
+    "postal_code": "9152",
+    "city": "SØRKJOSEN",
+    "municipality": "NORDREISA",
+    "municipality_number": "5544",
+    "cadastral": {
+     "gnr": 47,
+     "bnr": 235
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=69.78379748349641&lon=20.952628490257002&markerLat=69.78379748349641&markerLon=20.952628490257002"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Vi leverer lynraskt internett til både private boliger og bedrifter via fiber til våre kunder i Nordreisa, Kautokeino, Skjervøy, Kåfjord, Storfjord, Lyngen, Balsfjord, Sørreisa og Dyrøy. Uansett om du trenger liten, høy eller sånn passe hastighet – har vi pakken som passer deg. I en jungel av vanskelige uttrykk og tall som er vanskelig å forstå seg på, hjelper vi deg å finne ut av hva du egentlig trenger til ditt hjem Vi leverer fiber og bredbånd over hele Nord-Norge! Sjekk hva vi kan levere på din adresse. Som Telia-kunde hos 3net får du fast tilgang til de mest populære kanalene, og i tillegg har vi anbefalt og valgt ytterligere kanaler for deg. Du kan når som helst, og uten omkostninger, "
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Din fremtid, vår hverdag."
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://www.3net.no/om-oss/karriere/"
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.c57638dc679c",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Dag Øyvind og Eivind",
+    "url": "https://www.3net.no/bli-kjent-med-dag-oyvind-og-eivind/",
+    "date": "2026-09-28",
+    "summary": "I Sørreisa finner vi et allsidig verksted, hvor dere møter Dag Øyvind og Eivind med lang erfaring innen data, elektronikk og fiber. Hver dag hjelper de både privatpersoner og bedrifter med alt fra dataproblemer og antennemontering til fiber og spesialutstyr for kystfiskere. Gjennom samarbeidet med 3"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.060d21464b88",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Ronny",
+    "url": "https://www.3net.no/bli-kjent-med-ronny/",
+    "date": "2026-09-21",
+    "summary": "I dag skal blir vi kjent med Ronny – en erfaren og allsidig fagperson som er en viktig ressurs for oss og leveringsområdene våre. Men hvem er egentlig Ronny? Ronny Olsen er 47 år og kommer fra Skjervøy, men er i dag bosatt i Nordreisa. Han har lang og variert erfaring fra elektro-, energi- og […]"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.dea7b32c77aa",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Svendrik",
+    "url": "https://www.3net.no/bli-kjent-med-svendrik/",
+    "date": "2026-09-14",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Svendrik er en del av bredbåndspatruljen vår og er innleid som lokal hjelpemann i Balsfjord, Storfjord og Lyngen. Her har han vært en viktig del av laget de siste 2,5 årene. Han er ofte på oppdrag […]"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.9bac08cdbf7f",
+   "type": "added",
+   "new": {
+    "title": "Dag Gunnar og Ronny i 3net: – Nå oppgraderer vi nettet på Skjervøy",
+    "url": "https://www.3net.no/dag-gunnar-og-ronny-i-3net-elementor/",
+    "date": "2026-09-11",
+    "summary": "Denne høsten starter 3net en stor oppgradering av fibernettet på Skjervøy. Med ny teknologi kan den lokale internettleverandøren tilby enda høyere kapasitet, bedre stabilitet og utstyr som er klart for framtidas behov. For de fleste av oss skal internett bare fungere. Hjemmekontoret skal gå knirkefr"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.cde51b7d6dd3",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Leif Åge",
+    "url": "https://www.3net.no/bli-kjent-med-leif-age/",
+    "date": "2026-09-07",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Leif Åge har vært tilknyttet 3net helt siden oppstarten i Kautokeino i 2009. Her bidrar han blant annet med oppsyn av nodekiosker, utlevering og driftsetting av utstyr hos kunder, i tillegg til andre oppgav"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.cb4f2b9b2ab8",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Rolf",
+    "url": "https://www.3net.no/bli-kjent-med-rolf/",
+    "date": "2026-08-31",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Med sin praktiske sans, brede erfaring og kjennskap til både folket og teknologi er Rolf en nyttig ressurs for oss og lokalsamfunnet på Arnøya! Men hvem er egentlig Rolf Egil? Rolf Egil Larsen er 69 år, […]"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.99c54d0799d8",
+   "type": "added",
+   "new": {
+    "title": "Bli kjent med Jarle",
+    "url": "https://www.3net.no/bli-kjent-med-jarle/",
+    "date": "2026-08-24",
+    "summary": "Vi ønsker og introdusere dere for en av de flinke folkene som er en viktig del av laget vårt! Jarle er en del av bredbåndspatruljen vår og fungerer som vår lokale hjelpemann i Kåfjord. Han er ofte på oppdrag ut til kundene våre for feilretting, Feilsøking, skrift av fibersentraler, ruter eller TV de"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.07415c59f8c6",
+   "type": "added",
+   "new": {
+    "title": "Slik beskytter du oppkoblet utstyr hjemme",
+    "url": "https://www.3net.no/slik-beskytter-du-oppkoblet-utstyr-hjemme/",
+    "date": "2026-07-14",
+    "summary": "Flere og flere av oss har smarte enheter koblet til internett – alt fra TV-er og overvåkningskameraer til smartlåser, høyttalere og robotstøvsugere. Selv om disse produktene gjør hverdagen enklere, er det viktig å tenke på sikkerheten. Med noen enkle tiltak kan du gjøre hjemmenettverket ditt trygger"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.b4be9d71ed2c",
+   "type": "added",
+   "new": {
+    "title": "Reserveløsning TV Bingo",
+    "url": "https://www.3net.no/reservelosning-tv-bingo/",
+    "date": "2026-06-16",
+    "summary": "Som følge av tekniske problemer er TV Nord for øyeblikket utilgjengelig. Som en midlertidig løsning vil sendingen være tilgjengelig via nett her: TV Nord og Radio Alta – Bingo"
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "news.item.31c137c1d86b",
+   "type": "added",
+   "new": {
+    "title": "Oppdatering: Ny informasjon om tidligere datainnbrudd hos Telia",
+    "url": "https://www.3net.no/telia-norge-varsler-om-datainnbrudd/",
+    "date": "2026-05-06",
+    "summary": "Telia Norge, som er leverandør av TV‑tjenester til 3net, informerte i mars 2026 om et alvorlig datainnbrudd som fant sted i 2025. Telia har nå bekreftet at personopplysninger knyttet til våre TV‑kunder er blant dataene som er lekket. 3net og Telia tar hendelsen svært alvorlig. Telia har gjennomført "
+   }
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "%20kunde@3net.no",
+    "20kunde@3net.no",
+    "glenn@magy.no",
+    "kunde@3net.no"
+   ],
+   "new": [
+    "%20kunde@3net.no",
+    "20kunde@3net.no",
+    "glenn@magy.no",
+    "knut@3net.no",
+    "kunde@3net.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:24:29Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.3net.no/",
+    "about": "https://www.3net.no/om-oss/",
+    "careers": "https://www.3net.no/om-oss/karriere/",
+    "feed": "https://www.3net.no/feed/"
+   }
   }
  ],
  "stats": {
-  "active_facts": 93,
+  "active_facts": 108,
   "retracted_facts": 0,
-  "stale_facts": 11,
-  "requests": 7,
-  "seconds": 67.79
+  "stale_facts": 0,
+  "requests": 16,
+  "seconds": 46.79
  },
  "explanation": {
   "mode": "template",
-  "text": "3NET AS (org.nr 988 389 846) is registered as Aksjeselskap (AS), founded 2005-04-18, registered 2005-07-05. Business address: Bjørklysvingen 3, 9152 SØRKJOSEN. Main industry (NACE): 61.100 Kabelbasert, satellittbasert og trådløs telekommunikasjon. Registered employees: 12 (as of 2026-08-10). Latest filed annual accounts (2025, company statement): revenue NOK 65,448,294; operating result NOK 7,670,364; net result NOK 5,733,388; total assets NOK 25,291,586; equity NOK 5,244,887. Leadership: general manager (daglig leder) Knut Jørgen Larsen; board chair Erling Stene Martinsen. Sub-units registered: 2. Website: www.3net.no. The website describes the company as: \"Lokal leverandør av internett og TV til privat og bedrift via fiber i Nordreisa, Kautokeino, Skjervøy, Kåfjord, Storfjord, Lyngen, Balsfjord, og Sørreisa.\"\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: error (website fetch exceeded 60s cap)\n\nNo changes since the previous run.\nNot available: gleif, wikidata.\nCould not be checked this run (previous values kept and marked stale): website."
+  "text": "3NET AS (org.nr 988 389 846) is registered as Aksjeselskap (AS), founded 2005-04-18, registered 2005-07-05. [brreg_enheter] Main industry (NACE 61.100): Kabelbasert, satellittbasert og trådløs telekommunikasjon; also Telekommunikasjon ellers. [brreg_enheter] Registered purpose: \"Salg av bredbandstjenester og andre produkter som hører til. Selskapet kan ved aksjetegning eller på annen måte delta i andre selskap.\" [brreg_enheter] The company's website describes it as: \"Lokal leverandør av internett og TV til privat og bedrift via fiber i Nordreisa, Kautokeino, Skjervøy, Kåfjord, Storfjord, Lyngen, Balsfjord, og Sørreisa.\" [website] Business address: Bjørklysvingen 3, 9152 SØRKJOSEN. [brreg_enheter] Leadership: general manager (daglig leder) Knut Jørgen Larsen; board chair Erling Stene Martinsen. [brreg_roller]\n\nKey numbers:\n- Registered employees: 12 (as of 2026-08-10); 2 registered sub-units. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 65,448,294 (+7% vs 2024); operating result NOK 7,670,364 (+0% vs 2024); net result NOK 5,733,388 (+2% vs 2024); total assets NOK 25,291,586 (-12% vs 2024); equity NOK 5,244,887 (-0% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 500,000. [brreg_enheter]\n- 10 news items from the company's own site, latest 2026-09-28. [website]\n\nChanges in this run (16):\n- location.business.geo: added ({'lat': 69.78379748349641, 'lon': 20.952628490257002, 'cr...)\n- web.home_text: added (Vi leverer lynraskt internett til både private boliger og...)\n- web.headline: added (Din fremtid, vår hverdag.)\n- web.careers_url: added (https://www.3net.no/om-oss/karriere/)\n- news.item.c57638dc679c: added ({'title': 'Bli kjent med Dag Øyvind og Eivind', 'url': 'h...)\n- news.item.060d21464b88: added ({'title': 'Bli kjent med Ronny', 'url': 'https://www.3net...)\n- news.item.dea7b32c77aa: added ({'title': 'Bli kjent med Svendrik', 'url': 'https://www.3...)\n- news.item.9bac08cdbf7f: added ({'title': 'Dag Gunnar og Ronny i 3net: – Nå oppgraderer v...)\n- news.item.cde51b7d6dd3: added ({'title': 'Bli kjent med Leif Åge', 'url': 'https://www.3...)\n- news.item.cb4f2b9b2ab8: added ({'title': 'Bli kjent med Rolf', 'url': 'https://www.3net....)\n- news.item.99c54d0799d8: added ({'title': 'Bli kjent med Jarle', 'url': 'https://www.3net...)\n- news.item.07415c59f8c6: added ({'title': 'Slik beskytter du oppkoblet utstyr hjemme', 'u...)\n- news.item.b4be9d71ed2c: added ({'title': 'Reserveløsning TV Bingo', 'url': 'https://www....)\n- news.item.31c137c1d86b: added ({'title': 'Oppdatering: Ny informasjon om tidligere datai...)\n- web.emails: ['%20kunde@3net.no', '20kunde@3net.no', 'glenn@magy.no', ... -> ['%20kunde@3net.no', '20kunde@3net.no', 'glenn@magy.no', ...\n- ... and 1 more\n\nWhat remains unknown:\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "3NET AS (org.nr 988 389 846) is registered as Aksjeselskap (AS), founded 2005-04-18, registered 2005-07-05. [brreg_enheter]",
+    "Main industry (NACE 61.100): Kabelbasert, satellittbasert og trådløs telekommunikasjon; also Telekommunikasjon ellers. [brreg_enheter]",
+    "Registered purpose: \"Salg av bredbandstjenester og andre produkter som hører til. Selskapet kan ved aksjetegning eller på annen måte delta i andre selskap.\" [brreg_enheter]",
+    "The company's website describes it as: \"Lokal leverandør av internett og TV til privat og bedrift via fiber i Nordreisa, Kautokeino, Skjervøy, Kåfjord, Storfjord, Lyngen, Balsfjord, og Sørreisa.\" [website]",
+    "Business address: Bjørklysvingen 3, 9152 SØRKJOSEN. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Knut Jørgen Larsen; board chair Erling Stene Martinsen. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 12 (as of 2026-08-10); 2 registered sub-units. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 65,448,294 (+7% vs 2024); operating result NOK 7,670,364 (+0% vs 2024); net result NOK 5,733,388 (+2% vs 2024); total assets NOK 25,291,586 (-12% vs 2024); equity NOK 5,244,887 (-0% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 500,000. [brreg_enheter]",
+    "10 news items from the company's own site, latest 2026-09-28. [website]"
+   ],
+   "changes": [
+    "Changes in this run (16):",
+    "- location.business.geo: added ({'lat': 69.78379748349641, 'lon': 20.952628490257002, 'cr...)",
+    "- web.home_text: added (Vi leverer lynraskt internett til både private boliger og...)",
+    "- web.headline: added (Din fremtid, vår hverdag.)",
+    "- web.careers_url: added (https://www.3net.no/om-oss/karriere/)",
+    "- news.item.c57638dc679c: added ({'title': 'Bli kjent med Dag Øyvind og Eivind', 'url': 'h...)",
+    "- news.item.060d21464b88: added ({'title': 'Bli kjent med Ronny', 'url': 'https://www.3net...)",
+    "- news.item.dea7b32c77aa: added ({'title': 'Bli kjent med Svendrik', 'url': 'https://www.3...)",
+    "- news.item.9bac08cdbf7f: added ({'title': 'Dag Gunnar og Ronny i 3net: – Nå oppgraderer v...)",
+    "- news.item.cde51b7d6dd3: added ({'title': 'Bli kjent med Leif Åge', 'url': 'https://www.3...)",
+    "- news.item.cb4f2b9b2ab8: added ({'title': 'Bli kjent med Rolf', 'url': 'https://www.3net....)",
+    "- news.item.99c54d0799d8: added ({'title': 'Bli kjent med Jarle', 'url': 'https://www.3net...)",
+    "- news.item.07415c59f8c6: added ({'title': 'Slik beskytter du oppkoblet utstyr hjemme', 'u...)",
+    "- news.item.b4be9d71ed2c: added ({'title': 'Reserveløsning TV Bingo', 'url': 'https://www....)",
+    "- news.item.31c137c1d86b: added ({'title': 'Oppdatering: Ny informasjon om tidligere datai...)",
+    "- web.emails: ['%20kunde@3net.no', '20kunde@3net.no', 'glenn@magy.no', ... -> ['%20kunde@3net.no', '20kunde@3net.no', 'glenn@magy.no', ...",
+    "- ... and 1 more"
+   ],
+   "unknown": [
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

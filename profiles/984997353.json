@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:27Z",
- "last_run": "2026-10-05T05:42:24Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:35:11Z",
+ "run_count": 5,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -51,6 +51,12 @@
     "detail": "filing journalnr=2026434827 virksomhet.organisasjonsnummer=984997353 (2025, selskap)"
    },
    {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=984997353; looked up 984997353"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -60,7 +66,7 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 984997353 printed on https://www.balco.se/"
+    "detail": "org number 984997353 not found on the pages checked"
    },
    {
     "source": "website",
@@ -91,6 +97,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: not_found (address 'c/o Balco AS Sandstuveien 60A', 1184 not found in the national address register)",
+   "dibk: approval record addressed by org number; record echoes the number",
    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
@@ -102,7 +111,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -110,7 +119,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -134,7 +143,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -142,11 +151,92 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2029-05-09",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/984997353/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av glasskonstruksjoner og fasadekledning",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Ansvarlig søker",
+      "subject_area": "(for alle typer tiltak)",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Konstruksjonssikkerhet",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/984997353",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2029-05-09",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_declared_website",
+   "value": "www.balco.se",
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/984997353",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": null,
+     "match": "orgnr_exact",
+     "confidence": "medium",
+     "note": "website as given to DiBK"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "email",
@@ -155,7 +245,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -163,7 +253,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -176,7 +266,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2026-08-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -184,7 +274,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -197,7 +287,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -205,7 +295,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -223,7 +313,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -231,7 +321,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -249,7 +339,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -257,7 +347,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -275,7 +365,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -283,7 +373,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -301,7 +391,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -309,7 +399,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -327,7 +417,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -335,7 +425,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -361,7 +451,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -369,7 +459,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -387,7 +477,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -395,7 +485,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -413,7 +503,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -421,7 +511,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -439,7 +529,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -447,7 +537,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -465,7 +555,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -473,7 +563,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -491,7 +581,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -499,7 +589,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -517,7 +607,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -525,7 +615,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -543,7 +633,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -551,7 +641,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -569,7 +659,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -577,7 +667,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -595,7 +685,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -603,7 +693,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -621,7 +711,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -629,7 +719,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -647,7 +737,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -655,7 +745,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -673,7 +763,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -681,7 +771,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -699,7 +789,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -707,7 +797,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -725,7 +815,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -733,7 +823,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -751,7 +841,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -759,7 +849,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -777,7 +867,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -785,7 +875,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -811,7 +901,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -819,7 +909,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -837,7 +927,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -845,7 +935,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -863,7 +953,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -871,7 +961,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -889,7 +979,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -897,7 +987,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -915,7 +1005,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -923,7 +1013,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -941,7 +1031,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -949,7 +1039,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -967,7 +1057,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -975,7 +1065,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -993,7 +1083,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1001,7 +1091,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1019,7 +1109,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1027,7 +1117,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1045,7 +1135,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1053,7 +1143,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1071,7 +1161,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1079,7 +1169,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1097,7 +1187,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1105,7 +1195,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1123,7 +1213,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1131,7 +1221,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1149,7 +1239,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1157,7 +1247,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1175,7 +1265,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1183,7 +1273,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1201,7 +1291,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1209,7 +1299,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1227,7 +1317,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1235,7 +1325,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1261,7 +1351,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1269,7 +1359,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1287,7 +1377,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1295,7 +1385,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1313,7 +1403,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1321,7 +1411,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1339,7 +1429,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1347,7 +1437,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1365,7 +1455,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1373,7 +1463,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1391,7 +1481,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1399,7 +1489,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1417,7 +1507,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1425,7 +1515,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1443,7 +1533,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1451,7 +1541,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1469,7 +1559,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1477,7 +1567,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1495,7 +1585,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1503,7 +1593,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1521,7 +1611,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1529,7 +1619,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1547,7 +1637,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1555,7 +1645,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1571,7 +1661,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1579,7 +1669,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1592,7 +1682,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1600,7 +1690,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1616,7 +1706,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1624,7 +1714,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1637,7 +1727,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1645,7 +1735,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1658,7 +1748,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1666,7 +1756,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1679,7 +1769,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1687,7 +1777,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1700,7 +1790,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1708,7 +1798,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1724,7 +1814,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1732,7 +1822,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1745,7 +1835,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1753,7 +1843,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1766,7 +1856,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2002-11-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1774,7 +1864,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1794,7 +1884,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1802,7 +1892,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1818,7 +1908,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353/roller",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2021-03-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1826,7 +1916,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1842,7 +1932,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353/roller",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2009-11-02",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1850,7 +1940,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1865,7 +1955,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353/roller",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2017-03-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1873,7 +1963,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1889,7 +1979,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353/roller",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": "2002-11-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1897,7 +1987,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1916,7 +2006,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353/roller",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1924,7 +2014,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1941,7 +2031,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1949,7 +2039,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1962,7 +2052,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=984997353&size=100",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1970,7 +2060,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1983,7 +2073,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=984997353&size=100",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1991,7 +2081,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2013,7 +2103,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=984997353&size=100",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2021,7 +2111,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2034,15 +2124,38 @@
     {
      "source": "website",
      "url": "https://www.balco.se/om-balco/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "first paragraphs of the company's about page"
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.balco.se/kontakta-oss/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.balco.se/kontakta-oss/",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2055,15 +2168,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2072,6 +2185,7 @@
   {
    "key": "web.emails",
    "value": [
+    "balco@balco.se",
     "info@balco.se",
     "slick-carousel@1.8.1"
    ],
@@ -2079,15 +2193,65 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:17:27Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "info@balco.se",
+      "slick-carousel@1.8.1"
+     ],
+     "until": "2026-10-05T05:42:24Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Öppna och inglasade balkonger för brf och fastighetsägare",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.balco.se/",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Balcos unika balkonglösningar är en investering som förstärker husets karaktär och gör boendemiljön mer attraktiv. Balco har ett brett utbud av öppna balkonger anpassade för både nybyggnation och renovering. Den unika Balco-metoden innebär att gamla balkonger plockas ner helt eller delvis – och ersätts med nya, oftast större, balkonger. Balco är en ledande balkongleverantör med egen utveckling och tillverkning av öppna och inglasade balkonger. Vi hjälper bostadsrättsföreningar, fastighetsägare och byggherrar med balkongrenovering, vid nyproduktion och komplettering av balkonger i hela Sverige. Huvudkontoret med egen produktionsenhet ligger i småländska Växjö och vi har dotterbolag i N",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.balco.se/",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2109,15 +2273,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2130,15 +2294,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2151,15 +2315,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2172,15 +2336,100 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.balco.se/",
+    "contact": "https://www.balco.se/kontakta-oss/",
+    "about": "https://www.balco.se/om-balco/",
+    "news": "https://www.balco.se/category/nyheter/",
+    "products": "https://www.balco.se/oppna-balkonger/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.balco.se/",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Inglasade balkonger",
+    "Öppna balkonger",
+    "Loftgångar",
+    "Fasadrenovering",
+    "Energieffektivisering",
+    "Balco Maritime",
+    "Om Balco",
+    "Inspiration",
+    "FAQ",
+    "Balkonger med svensk kvalitet som ger trygghet",
+    "Vi hjälper er med öppna balkonger",
+    "Våra balkonger med räcken",
+    "Se våra referenser med öppna balkonger från Balco",
+    "Öppna balkonger i detalj",
+    "Balkongplatta"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.balco.se/oppna-balkonger/",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://www.balco.se/oppna-balkonger/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.balco.se/oppna-balkonger/",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:11Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2193,15 +2442,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2219,15 +2468,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2240,15 +2489,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2261,15 +2510,15 @@
     {
      "source": "website",
      "url": "https://www.balco.se/",
-     "retrieved_at": "2026-10-05T05:42:24Z",
-     "source_date": "Sun, 04 Oct 2026 18:47:54 GMT",
+     "retrieved_at": "2026-10-10T13:35:11Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "resolved from the registry-declared website"
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2282,7 +2531,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
-     "retrieved_at": "2026-10-05T05:42:24Z",
+     "retrieved_at": "2026-10-10T13:35:11Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2290,7 +2539,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:27Z",
-   "last_seen": "2026-10-05T05:42:24Z",
+   "last_seen": "2026-10-10T13:35:11Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2303,7 +2552,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:24Z",
+   "retrieved_at": "2026-10-10T13:35:11Z",
    "facts": 17,
    "requests": 1,
    "checks": [
@@ -2321,7 +2570,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/984997353/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:24Z",
+   "retrieved_at": "2026-10-10T13:35:11Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -2339,7 +2588,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=984997353&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:24Z",
+   "retrieved_at": "2026-10-10T13:35:11Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2357,7 +2606,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/984997353",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:24Z",
+   "retrieved_at": "2026-10-10T13:35:11Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2385,7 +2634,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=984997353&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:24Z",
+   "retrieved_at": "2026-10-10T13:35:11Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2399,7 +2648,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22984997353%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:24Z",
+   "retrieved_at": "2026-10-10T13:35:11Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2409,13 +2658,59 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=BALCO+AB&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:35:11Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=c%2Fo+Balco+AS+Sandstuveien+60A&postnummer=1184&treffPerSide=1&fuzzy=true",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:35:11Z",
+   "facts": 0,
+   "requests": 1,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "address 'c/o Balco AS Sandstuveien 60A', 1184 not found in the national address register"
+   ]
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/984997353",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:35:11Z",
+   "facts": 2,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=984997353; looked up 984997353"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://www.balco.se/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:42:24Z",
-   "facts": 11,
-   "requests": 3,
+   "retrieved_at": "2026-10-10T13:35:11Z",
+   "facts": 17,
+   "requests": 6,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2425,7 +2720,7 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 984997353 printed on https://www.balco.se/"
+     "detail": "org number 984997353 not found on the pages checked"
     },
     {
      "check": "name_on_page",
@@ -2447,7 +2742,133 @@
    "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2029-05-09",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/984997353/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av glasskonstruksjoner og fasadekledning",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Ansvarlig søker",
+      "subject_area": "(for alle typer tiltak)",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Konstruksjonssikkerhet",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "www.balco.se"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Balcos unika balkonglösningar är en investering som förstärker husets karaktär och gör boendemiljön mer attraktiv. Balco har ett brett utbud av öppna balkonger anpassade för både nybyggnation och renovering. Den unika Balco-metoden innebär att gamla balkonger plockas ner helt eller delvis – och ersätts med nya, oftast större, balkonger. Balco är en ledande balkongleverantör med egen utveckling och tillverkning av öppna och inglasade balkonger. Vi hjälper bostadsrättsföreningar, fastighetsägare och byggherrar med balkongrenovering, vid nyproduktion och komplettering av balkonger i hela Sverige. Huvudkontoret med egen produktionsenhet ligger i småländska Växjö och vi har dotterbolag i N"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Öppna och inglasade balkonger för brf och fastighetsägare"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.balco.se/oppna-balkonger/"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Inglasade balkonger",
+    "Öppna balkonger",
+    "Loftgångar",
+    "Fasadrenovering",
+    "Energieffektivisering",
+    "Balco Maritime",
+    "Om Balco",
+    "Inspiration",
+    "FAQ",
+    "Balkonger med svensk kvalitet som ger trygghet",
+    "Vi hjälper er med öppna balkonger",
+    "Våra balkonger med räcken",
+    "Se våra referenser med öppna balkonger från Balco",
+    "Öppna balkonger i detalj",
+    "Balkongplatta"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.balco.se/kontakta-oss/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "info@balco.se",
+    "slick-carousel@1.8.1"
+   ],
+   "new": [
+    "balco@balco.se",
+    "info@balco.se",
+    "slick-carousel@1.8.1"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.balco.se/",
+    "contact": "https://www.balco.se/kontakta-oss/",
+    "about": "https://www.balco.se/om-balco/",
+    "news": "https://www.balco.se/category/nyheter/",
+    "products": "https://www.balco.se/oppna-balkonger/"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:17:27Z",
@@ -3329,17 +3750,189 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Från början var våra resurser små, men med entusiasm och hårt arbete kommer man långt. Idag är vi marknadsledande och våra öppna och inglasade balkongsystem efterfrågas över hela Europa. Vi är också stolta över att våra innovativa lösningar har skänkt många människor ökad livskvalitet. Vi stöttar och hjälper till genom hela byggprocessen, från de första funderingarna fram till utförd slutbesiktning. Hög kvalitet och lång erfarenhet i kombination med en sund och solid ekonomi gör oss till en trygg och stabil samarbetspartner. Vi arbetar ständigt med att utveckla nya lösningar som kan bidra till att ytterligare minska vår miljöpåverkan. Exempelvis är merparten av de material som används i våra inglasningssystem underhållsfria och återvinningsbara. Material med lång livslängd och robusta konstruktioner bidrar till att göra våra produkter långsiktigt hållbara, både för plånboken och miljön. Dessutom tillverkar vi alla balkonger i moduler för att minimera transporterna För oss är det inte bara slutresultatet som räknas. Vi vill att alla våra kunder ska känna trygghet redan vid första kontakten. Därför har varje objekt bara en säljare och varje projekt en projektledare, helt enkelt en eg"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2029-05-09",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/984997353/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": false,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av glasskonstruksjoner og fasadekledning",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Montering av bærende metall- eller betongkonstruksjoner",
+      "grade": "2",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Plasstøpte betongkonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Ansvarlig søker",
+      "subject_area": "(for alle typer tiltak)",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Konstruksjonssikkerhet",
+      "grade": "2",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "www.balco.se"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Balcos unika balkonglösningar är en investering som förstärker husets karaktär och gör boendemiljön mer attraktiv. Balco har ett brett utbud av öppna balkonger anpassade för både nybyggnation och renovering. Den unika Balco-metoden innebär att gamla balkonger plockas ner helt eller delvis – och ersätts med nya, oftast större, balkonger. Balco är en ledande balkongleverantör med egen utveckling och tillverkning av öppna och inglasade balkonger. Vi hjälper bostadsrättsföreningar, fastighetsägare och byggherrar med balkongrenovering, vid nyproduktion och komplettering av balkonger i hela Sverige. Huvudkontoret med egen produktionsenhet ligger i småländska Växjö och vi har dotterbolag i N"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Öppna och inglasade balkonger för brf och fastighetsägare"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.balco.se/oppna-balkonger/"
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Inglasade balkonger",
+    "Öppna balkonger",
+    "Loftgångar",
+    "Fasadrenovering",
+    "Energieffektivisering",
+    "Balco Maritime",
+    "Om Balco",
+    "Inspiration",
+    "FAQ",
+    "Balkonger med svensk kvalitet som ger trygghet",
+    "Vi hjälper er med öppna balkonger",
+    "Våra balkonger med räcken",
+    "Se våra referenser med öppna balkonger från Balco",
+    "Öppna balkonger i detalj",
+    "Balkongplatta"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.balco.se/kontakta-oss/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "info@balco.se",
+    "slick-carousel@1.8.1"
+   ],
+   "new": [
+    "balco@balco.se",
+    "info@balco.se",
+    "slick-carousel@1.8.1"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:35:11Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.balco.se/",
+    "contact": "https://www.balco.se/kontakta-oss/",
+    "about": "https://www.balco.se/om-balco/",
+    "news": "https://www.balco.se/category/nyheter/",
+    "products": "https://www.balco.se/oppna-balkonger/"
+   }
   }
  ],
  "stats": {
-  "active_facts": 88,
+  "active_facts": 96,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 10,
-  "seconds": 14.02
+  "requests": 18,
+  "seconds": 15.93
  },
  "explanation": {
   "mode": "template",
-  "text": "BALCO AB (org.nr 984 997 353) is registered as Norskregistrert utenlandsk foretak (NUF), registered 2002-11-07. Business address: c/o Balco AS, Sandstuveien 60A, 1184 OSLO. Main industry (NACE): 43.320 Snekkerarbeid. Registered employees: 7 (as of 2026-08-10). Latest filed annual accounts (2025, company statement): revenue SEK 613,177,000; operating result SEK 27,978,000; net result SEK 7,464,000; total assets SEK 318,306,000; equity SEK 113,062,000. Sub-units registered: 1. Website: www.balco.se. The website describes the company as: \"Balco är störst på inglasade balkonger för brf och fastighetsägare. Elegant design och innovativa lösningar ger dig minskade energikostnader.\"\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run.\nNot available: gleif, wikidata."
+  "text": "BALCO AB (org.nr 984 997 353) is registered as Norskregistrert utenlandsk foretak (NUF), registered 2002-11-07. [brreg_enheter] Main industry (NACE 43.320): Snekkerarbeid. [brreg_enheter] Registered activity: \"Leveranse og montasje av balkonger og \"innglassing\" av balkonger.\" [brreg_enheter] The company's website describes it as: \"Balco är störst på inglasade balkonger för brf och fastighetsägare. Elegant design och innovativa lösningar ger dig minskade energikostnader.\" [website] Business address: c/o Balco AS, Sandstuveien 60A, 1184 OSLO. [brreg_enheter] Products / services named on its website: Inglasade balkonger; Öppna balkonger; Loftgångar; Fasadrenovering; Energieffektivisering; Balco Maritime; Om Balco; Inspiration. [website]\n\nKey numbers:\n- Registered employees: 7 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue SEK 613,177,000 (+7% vs 2024); operating result SEK 27,978,000 (-28% vs 2024); net result SEK 7,464,000 (+39% vs 2024); total assets SEK 318,306,000 (+29% vs 2024); equity SEK 113,062,000 (+7% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- DiBK central approval: valid until 2029-05-09, 5 approval area(s). [dibk]\n\nChanges in this run (9):\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2029-05-09', 'certificate...)\n- approvals.dibk_declared_website: added (www.balco.se)\n- web.home_text: added (Balcos unika balkonglösningar är en investering som fö...)\n- web.headline: added (Öppna och inglasade balkonger för brf och fastighetsägare)\n- web.products_url: added (https://www.balco.se/oppna-balkonger/)\n- web.products: added (['Inglasade balkonger', 'Öppna balkonger', 'Loftgångar', ...)\n- web.contact_page: added ({'url': 'https://www.balco.se/kontakta-oss/'})\n- web.emails: ['info@balco.se', 'slick-carousel@1.8.1'] -> ['balco@balco.se', 'info@balco.se', 'slick-carousel@1.8.1']\n- web.pages_checked: added ({'home': 'https://www.balco.se/', 'contact': 'https://www...)\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No map coordinates of the business address: checked geonorge: nothing registered (address 'c/o Balco AS Sandstuveien 60A', 1184 not found in the national address register).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: not_found (address 'c/o Balco AS Sandstuveien 60A', 1184 not found in the national address register)\n- dibk: approval record addressed by org number; record echoes the number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "BALCO AB (org.nr 984 997 353) is registered as Norskregistrert utenlandsk foretak (NUF), registered 2002-11-07. [brreg_enheter]",
+    "Main industry (NACE 43.320): Snekkerarbeid. [brreg_enheter]",
+    "Registered activity: \"Leveranse og montasje av balkonger og \"innglassing\" av balkonger.\" [brreg_enheter]",
+    "The company's website describes it as: \"Balco är störst på inglasade balkonger för brf och fastighetsägare. Elegant design och innovativa lösningar ger dig minskade energikostnader.\" [website]",
+    "Business address: c/o Balco AS, Sandstuveien 60A, 1184 OSLO. [brreg_enheter]",
+    "Products / services named on its website: Inglasade balkonger; Öppna balkonger; Loftgångar; Fasadrenovering; Energieffektivisering; Balco Maritime; Om Balco; Inspiration. [website]"
+   ],
+   "key_numbers": [
+    "Registered employees: 7 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue SEK 613,177,000 (+7% vs 2024); operating result SEK 27,978,000 (-28% vs 2024); net result SEK 7,464,000 (+39% vs 2024); total assets SEK 318,306,000 (+29% vs 2024); equity SEK 113,062,000 (+7% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "DiBK central approval: valid until 2029-05-09, 5 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (9):",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2029-05-09', 'certificate...)",
+    "- approvals.dibk_declared_website: added (www.balco.se)",
+    "- web.home_text: added (Balcos unika balkonglösningar är en investering som fö...)",
+    "- web.headline: added (Öppna och inglasade balkonger för brf och fastighetsägare)",
+    "- web.products_url: added (https://www.balco.se/oppna-balkonger/)",
+    "- web.products: added (['Inglasade balkonger', 'Öppna balkonger', 'Loftgångar', ...)",
+    "- web.contact_page: added ({'url': 'https://www.balco.se/kontakta-oss/'})",
+    "- web.emails: ['info@balco.se', 'slick-carousel@1.8.1'] -> ['balco@balco.se', 'info@balco.se', 'slick-carousel@1.8.1']",
+    "- web.pages_checked: added ({'home': 'https://www.balco.se/', 'contact': 'https://www...)"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No map coordinates of the business address: checked geonorge: nothing registered (address 'c/o Balco AS Sandstuveien 60A', 1184 not found in the national address register).",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: not_found (address 'c/o Balco AS Sandstuveien 60A', 1184 not found in the national address register)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

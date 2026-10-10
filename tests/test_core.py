@@ -103,3 +103,67 @@ class GroundingTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class NewSourceTests(unittest.TestCase):
+    def test_nav_name_matching(self):
+        from signalpost.sources.nav_jobs import norm_name, search_term
+        self.assertEqual(norm_name("H-FASADER AS AVD FREDRIKSTAD"), "h fasader as avd fredrikstad")
+        self.assertEqual(norm_name("Kjell & Co Norway AS"), "kjell og co norway as")
+        self.assertEqual(search_term("KJELDAAS AS"), "KJELDAAS")
+        self.assertEqual(search_term("AS"), "AS")
+
+    def test_guess_domains(self):
+        from signalpost.sources.website import guess_domains
+        self.assertEqual(guess_domains("KJELDAAS AS", "AS"), ["https://kjeldaas.no"])
+        self.assertEqual(guess_domains("OLA NORDMANN", "ENK"), [])
+        self.assertEqual(guess_domains("NORGE AS", "AS"), [])
+        self.assertEqual(guess_domains("BJØRN BYGG AS", "AS"), ["https://bjornbygg.no"])
+
+    def test_parse_feed(self):
+        from signalpost.sources.website import parse_feed
+        rss = """<?xml version="1.0"?><rss><channel><item><title>Ny kontrakt</title><link>/nyheter/kontrakt</link>
+                 <pubDate>Mon, 06 Oct 2026 08:00:00 +0200</pubDate><description>&lt;p&gt;Vi har signert.&lt;/p&gt;</description></item></channel></rss>"""
+        items = parse_feed(rss, "https://example.no/feed")
+        self.assertEqual(items[0]["title"], "Ny kontrakt")
+        self.assertEqual(items[0]["url"], "https://example.no/nyheter/kontrakt")
+        self.assertEqual(items[0]["date"], "2026-10-06")
+        self.assertEqual(items[0]["summary"], "Vi har signert.")
+        atom = """<feed xmlns="http://www.w3.org/2005/Atom"><entry><title>Hello</title><link href="https://example.no/a"/><updated>2026-01-02T00:00:00Z</updated></entry></feed>"""
+        self.assertEqual(parse_feed(atom, "https://example.no/")[0]["date"], "2026-01-02")
+
+    def test_classify_links(self):
+        from bs4 import BeautifulSoup
+        from signalpost.sources.website import classify_links
+        html = """<a href="/om-oss">Om oss</a><a href="/kontakt">Kontakt</a><a href="/karriere">Ledige stillinger</a>
+                  <a href="https://other.example/news">Nyheter</a><a href="/aktuelt">Aktuelt</a><a href="/tjenester">Tjenester</a>"""
+        picks = classify_links(BeautifulSoup(html, "html.parser"), "https://example.no/")
+        self.assertEqual(picks["about"], "https://example.no/om-oss")
+        self.assertEqual(picks["contact"], "https://example.no/kontakt")
+        self.assertEqual(picks["careers"], "https://example.no/karriere")
+        self.assertEqual(picks["news"], "https://example.no/aktuelt")   # external news link ignored
+        self.assertEqual(picks["products"], "https://example.no/tjenester")
+
+    def test_fact_types(self):
+        from signalpost.facttypes import fact_type
+        self.assertEqual(fact_type("jobs.posting.abc"), "jobs")
+        self.assertEqual(fact_type("web.careers.listings"), "jobs")
+        self.assertEqual(fact_type("news.item.x"), "news")
+        self.assertEqual(fact_type("finance.2024.selskap.revenue"), "finance")
+        self.assertEqual(fact_type("web.social"), "social")
+        self.assertEqual(fact_type("name"), "identity")
+
+    def test_explanation_sections(self):
+        from signalpost.explain import template_explanation
+        profile = {"orgnr": "923609016", "name": "X AS", "run_count": 2, "last_run_changes": [{"key": "employees", "type": "changed", "old": 1, "new": 2}],
+                   "matching": {"summary": ["brreg_enheter: ok"]},
+                   "sources": [{"source": "nav_jobs", "status": "not_found", "notes": ["no active ads"]}, {"source": "website", "status": "skipped", "notes": ["no usable website declared"]}],
+                   "facts": [_f("name", "X AS").to_dict(), _f("employees", 2).to_dict(),
+                             _f("finance.2024.selskap.revenue", {"amount": 200.0, "currency": "NOK"}, "brreg_regnskap").to_dict(),
+                             _f("finance.2023.selskap.revenue", {"amount": 100.0, "currency": "NOK"}, "brreg_regnskap").to_dict(),
+                             _f("finance.latest", {"year": "2024", "statement_type": "selskap"}, "brreg_regnskap").to_dict()]}
+        ex = template_explanation(profile)
+        self.assertIn("[brreg_enheter]", ex["sections"]["what_it_does"][0])
+        self.assertTrue(any("+100% vs 2023" in s for s in ex["sections"]["key_numbers"]))
+        self.assertTrue(any(s.startswith("No job postings") for s in ex["sections"]["unknown"]))
+        self.assertIn("employees: 1 -> 2", ex["text"])

@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:12:54Z",
- "last_run": "2026-10-05T05:41:06Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:26:07Z",
+ "run_count": 5,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -51,6 +51,18 @@
     "detail": "filing journalnr=2026688914 virksomhet.organisasjonsnummer=963772459 (2025, selskap)"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Industriveien 9C' 2020 -> matched 'Industriveien 9C' 2020"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=963772459; looked up 963772459"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -60,7 +72,7 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 963772459 printed on https://nortekk.no/"
+    "detail": "org number 963772459 not found on the pages checked"
    },
    {
     "source": "website",
@@ -91,6 +103,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
@@ -102,7 +117,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -110,7 +125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -133,7 +148,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -141,11 +156,74 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2026-11-10",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/963772459/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Taktekkingsarbeid",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/963772459",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": "2026-11-10",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_declared_website",
+   "value": "www.nortekk.no",
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/963772459",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": null,
+     "match": "orgnr_exact",
+     "confidence": "medium",
+     "note": "website as given to DiBK"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "bylaws_date",
@@ -154,7 +232,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2026-04-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -162,7 +240,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -180,7 +258,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2005-12-21",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -188,7 +266,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -201,7 +279,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -209,7 +287,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -222,7 +300,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2026-07-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -230,7 +308,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -243,7 +321,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -251,7 +329,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -269,7 +347,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -277,7 +355,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -295,7 +373,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -303,7 +381,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -321,7 +399,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -329,7 +407,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -347,7 +425,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -355,7 +433,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -373,7 +451,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -381,7 +459,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -407,7 +485,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -415,7 +493,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -433,7 +511,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -441,7 +519,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -459,7 +537,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -467,7 +545,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -485,7 +563,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -493,7 +571,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -511,7 +589,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -519,7 +597,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -537,7 +615,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -545,7 +623,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -563,7 +641,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -571,7 +649,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -589,7 +667,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -597,7 +675,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -615,7 +693,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -623,7 +701,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -641,7 +719,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -649,7 +727,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -667,7 +745,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -675,7 +753,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -693,7 +771,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -701,7 +779,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -719,7 +797,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -727,7 +805,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -745,7 +823,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -753,7 +831,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -771,7 +849,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -779,7 +857,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -797,7 +875,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -805,7 +883,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -823,7 +901,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -831,7 +909,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -857,7 +935,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -865,7 +943,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -883,7 +961,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -891,7 +969,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -909,7 +987,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -917,7 +995,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -935,7 +1013,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -943,7 +1021,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -961,7 +1039,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -969,7 +1047,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -987,7 +1065,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -995,7 +1073,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1013,7 +1091,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1021,7 +1099,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1039,7 +1117,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1047,7 +1125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1065,7 +1143,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1073,7 +1151,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1091,7 +1169,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1099,7 +1177,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1117,7 +1195,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1125,7 +1203,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1143,7 +1221,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1151,7 +1229,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1169,7 +1247,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1177,7 +1255,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1195,7 +1273,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1203,7 +1281,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1221,7 +1299,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1229,7 +1307,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1247,7 +1325,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1255,7 +1333,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1273,7 +1351,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1281,7 +1359,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1307,7 +1385,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1315,7 +1393,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1333,7 +1411,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1341,7 +1419,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1359,7 +1437,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1367,7 +1445,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1385,7 +1463,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1393,7 +1471,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1411,7 +1489,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1419,7 +1497,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1437,7 +1515,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1445,7 +1523,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1463,7 +1541,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1471,7 +1549,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1489,7 +1567,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1497,7 +1575,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1515,7 +1593,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1523,7 +1601,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1541,7 +1619,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1549,7 +1627,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1567,7 +1645,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1575,7 +1653,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1593,7 +1671,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1601,7 +1679,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1617,7 +1695,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1625,7 +1703,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1638,7 +1716,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "1991-11-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1646,7 +1724,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1659,7 +1737,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1667,7 +1745,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1683,7 +1761,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1691,7 +1769,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1704,7 +1782,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1712,7 +1790,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1725,7 +1803,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1733,7 +1811,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1746,7 +1824,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1754,11 +1832,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 60.007982908097425,
+    "lon": 11.04329995407703,
+    "crs": "EPSG:4326",
+    "matched_address": "Industriveien 9C",
+    "postal_code": "2020",
+    "city": "SKEDSMOKORSET",
+    "municipality": "LILLESTRØM",
+    "municipality_number": "3205",
+    "cadastral": {
+     "gnr": 37,
+     "bnr": 638
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.007982908097425&lon=11.04329995407703&markerLat=60.007982908097425&markerLon=11.04329995407703"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Industriveien+9C&postnummer=2020&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1767,7 +1880,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1775,7 +1888,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1791,7 +1904,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1799,7 +1912,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1812,7 +1925,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1820,7 +1933,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1833,7 +1946,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2026-04-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1841,7 +1954,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1854,7 +1967,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "1995-02-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1862,7 +1975,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1875,7 +1988,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "1992-05-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1883,7 +1996,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1903,7 +2016,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1911,7 +2024,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1927,7 +2040,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459/roller",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2012-01-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1935,7 +2048,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1950,7 +2063,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459/roller",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2026-02-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1958,7 +2071,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1975,7 +2088,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459/roller",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2026-02-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1983,7 +2096,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2009,7 +2122,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459/roller",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2026-02-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2017,7 +2130,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2032,7 +2145,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459/roller",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": "2014-11-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2040,7 +2153,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2056,7 +2169,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2064,7 +2177,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2081,7 +2194,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2089,7 +2202,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2102,7 +2215,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=963772459&size=100",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2110,7 +2223,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2123,7 +2236,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=963772459&size=100",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2131,7 +2244,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2153,7 +2266,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=963772459&size=100",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2161,7 +2274,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2169,12 +2282,12 @@
   },
   {
    "key": "web.about_text",
-   "value": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både proff- og privatmarkedet.",
+   "value": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Blikkenslagerarbeid med eget verksted for produksjon av beslag og spesialtilpassede løsninger Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både pr",
    "evidence": [
     {
      "source": "website",
      "url": "https://nortekk.no/om-oss",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2182,7 +2295,56 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [
+    {
+     "value": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både proff- og privatmarkedet.",
+     "until": "2026-10-05T05:41:06Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://nortekk.no/ledige-stillinger",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://nortekk.no/ledige-stillinger",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://nortekk.no/kontaktpersoner"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://nortekk.no/kontaktpersoner",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2195,7 +2357,7 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2203,7 +2365,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2212,23 +2374,55 @@
   {
    "key": "web.emails",
    "value": [
+    "ak@nortekk.no",
+    "bjorn@nortekk.no",
     "bootstrap-icons@1.11.3",
     "bootstrap@5.3.3",
-    "post@nortekk.no"
+    "celine@nortekk.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
-     "note": null
+     "note": "e-mail addresses printed on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "bootstrap-icons@1.11.3",
+      "bootstrap@5.3.3",
+      "post@nortekk.no"
+     ],
+     "until": "2026-10-05T05:41:06Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Nortekk utfører taktekking av flate tak både på nye og eksisterende bygg. Vi har løsninger og kompetanse til å hjelpe deg gjennom hele prosessen. Nortekk tekker alle typer skråtak på bygårder, boligblokker, næringsbygg, rekkehus, flermannsboliger og eneboliger. Med utdannede tømrere som har erfaring fra mange forskjellige takprosjekter, vil vi kunne sikre deg ett tett og funksjonelt tak i mange år fremover. Har du behov for blikkenslager for et stort eller lite oppdrag? Nortekk har fagutdannede blikkenslagere, og vi tar oss av hele prosjektet ditt med alt av blikkenslagerarbeid, samt tilhørende produksjon og montering av beslag. Med solcellepanel på taket reduserer du egne strømkostnader sam",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://nortekk.no/",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2241,7 +2435,7 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2249,7 +2443,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2262,7 +2456,7 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2270,7 +2464,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2283,7 +2477,7 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2291,7 +2485,34 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://nortekk.no/",
+    "contact": "https://nortekk.no/kontaktpersoner",
+    "about": "https://nortekk.no/om-oss",
+    "careers": "https://nortekk.no/ledige-stillinger",
+    "news": "https://nortekk.no/nyheter/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://nortekk.no/",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2306,15 +2527,15 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
-     "note": null
+     "note": "tel: links on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2327,7 +2548,7 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2335,7 +2556,30 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "https://www.facebook.com/nortekkgruppen"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://nortekk.no/",
+     "retrieved_at": "2026-10-10T13:26:07Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:26:07Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2348,7 +2592,7 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2356,7 +2600,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2369,7 +2613,7 @@
     {
      "source": "website",
      "url": "https://nortekk.no/",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2377,7 +2621,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2390,7 +2634,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
-     "retrieved_at": "2026-10-05T05:41:06Z",
+     "retrieved_at": "2026-10-10T13:26:07Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2398,7 +2642,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:12:54Z",
-   "last_seen": "2026-10-05T05:41:06Z",
+   "last_seen": "2026-10-10T13:26:07Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2411,7 +2655,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:06Z",
+   "retrieved_at": "2026-10-10T13:26:07Z",
    "facts": 23,
    "requests": 1,
    "checks": [
@@ -2429,7 +2673,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/963772459/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:06Z",
+   "retrieved_at": "2026-10-10T13:26:07Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -2447,7 +2691,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=963772459&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:06Z",
+   "retrieved_at": "2026-10-10T13:26:07Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2465,7 +2709,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/963772459",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:06Z",
+   "retrieved_at": "2026-10-10T13:26:07Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2493,7 +2737,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=963772459&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:06Z",
+   "retrieved_at": "2026-10-10T13:26:07Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2507,7 +2751,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22963772459%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:06Z",
+   "retrieved_at": "2026-10-10T13:26:07Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2517,13 +2761,63 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=NORTEKK&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:26:07Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Industriveien+9C&postnummer=2020&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:07Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Industriveien 9C' 2020 -> matched 'Industriveien 9C' 2020"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/963772459",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:26:07Z",
+   "facts": 2,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=963772459; looked up 963772459"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://www.nortekk.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:41:06Z",
-   "facts": 10,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:26:07Z",
+   "facts": 15,
+   "requests": 7,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2533,7 +2827,7 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 963772459 printed on https://nortekk.no/"
+     "detail": "org number 963772459 not found on the pages checked"
     },
     {
      "check": "name_on_page",
@@ -2555,7 +2849,125 @@
    "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 60.007982908097425,
+    "lon": 11.04329995407703,
+    "crs": "EPSG:4326",
+    "matched_address": "Industriveien 9C",
+    "postal_code": "2020",
+    "city": "SKEDSMOKORSET",
+    "municipality": "LILLESTRØM",
+    "municipality_number": "3205",
+    "cadastral": {
+     "gnr": 37,
+     "bnr": 638
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.007982908097425&lon=11.04329995407703&markerLat=60.007982908097425&markerLon=11.04329995407703"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2026-11-10",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/963772459/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Taktekkingsarbeid",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "www.nortekk.no"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Nortekk utfører taktekking av flate tak både på nye og eksisterende bygg. Vi har løsninger og kompetanse til å hjelpe deg gjennom hele prosessen. Nortekk tekker alle typer skråtak på bygårder, boligblokker, næringsbygg, rekkehus, flermannsboliger og eneboliger. Med utdannede tømrere som har erfaring fra mange forskjellige takprosjekter, vil vi kunne sikre deg ett tett og funksjonelt tak i mange år fremover. Har du behov for blikkenslager for et stort eller lite oppdrag? Nortekk har fagutdannede blikkenslagere, og vi tar oss av hele prosjektet ditt med alt av blikkenslagerarbeid, samt tilhørende produksjon og montering av beslag. Med solcellepanel på taket reduserer du egne strømkostnader sam"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både proff- og privatmarkedet.",
+   "new": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Blikkenslagerarbeid med eget verksted for produksjon av beslag og spesialtilpassede løsninger Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både pr"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://nortekk.no/ledige-stillinger"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://nortekk.no/kontaktpersoner"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/nortekkgruppen"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "bootstrap-icons@1.11.3",
+    "bootstrap@5.3.3",
+    "post@nortekk.no"
+   ],
+   "new": [
+    "ak@nortekk.no",
+    "bjorn@nortekk.no",
+    "bootstrap-icons@1.11.3",
+    "bootstrap@5.3.3",
+    "celine@nortekk.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://nortekk.no/",
+    "contact": "https://nortekk.no/kontaktpersoner",
+    "about": "https://nortekk.no/om-oss",
+    "careers": "https://nortekk.no/ledige-stillinger",
+    "news": "https://nortekk.no/nyheter/"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:12:54Z",
@@ -3470,17 +3882,182 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både proff- og privatmarkedet."
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 60.007982908097425,
+    "lon": 11.04329995407703,
+    "crs": "EPSG:4326",
+    "matched_address": "Industriveien 9C",
+    "postal_code": "2020",
+    "city": "SKEDSMOKORSET",
+    "municipality": "LILLESTRØM",
+    "municipality_number": "3205",
+    "cadastral": {
+     "gnr": 37,
+     "bnr": 638
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=60.007982908097425&lon=11.04329995407703&markerLat=60.007982908097425&markerLon=11.04329995407703"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2026-11-10",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/963772459/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Utførende",
+      "subject_area": "Tømrerarbeid og montering av trekonstruksjoner",
+      "grade": "1",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Taktekkingsarbeid",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "www.nortekk.no"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Nortekk utfører taktekking av flate tak både på nye og eksisterende bygg. Vi har løsninger og kompetanse til å hjelpe deg gjennom hele prosessen. Nortekk tekker alle typer skråtak på bygårder, boligblokker, næringsbygg, rekkehus, flermannsboliger og eneboliger. Med utdannede tømrere som har erfaring fra mange forskjellige takprosjekter, vil vi kunne sikre deg ett tett og funksjonelt tak i mange år fremover. Har du behov for blikkenslager for et stort eller lite oppdrag? Nortekk har fagutdannede blikkenslagere, og vi tar oss av hele prosjektet ditt med alt av blikkenslagerarbeid, samt tilhørende produksjon og montering av beslag. Med solcellepanel på taket reduserer du egne strømkostnader sam"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både proff- og privatmarkedet.",
+   "new": "Nortekk AS er en av Norges største og mest erfarne aktører innen taktekking og takrelaterte løsninger. Siden oppstarten i 1982 har vi levert og montert flere millioner kvadratmeter tak til både privat- og proffmarkedet. Nortekk AS er en ledende takentreprenør med bred kompetanse innen alle typer takarbeid – både på nybygg og ved rehabilitering av eksisterende bygg. Vi har en egen blikkenslageravdeling som spesialproduserer, monterer og reparerer alle typer blikk og beslag. I tillegg tilbyr vi moderne og bærekraftige løsninger som solceller og grønne tak. Vår serviceavdeling utfører vedlikeholdsoppdrag for privatpersoner, næringsliv, borettslag og sameier. Nortekk AS har sitt primære nedslagsfelt i Oslo og Akershus. Vi har også vårt eget blikkenslagerverksted, hvor vi spesiallager alt av blikk og beslag til våre tak-og fasade-prosjekter. Blikkenslagerarbeid med eget verksted for produksjon av beslag og spesialtilpassede løsninger Nortekk AS er et av landes ledende selskaper innen taktekking. Vi legger nye tak, rehabiliterer eksisterende tak og leverer alt av blikkenslagerarbeid. I butikken vår på Skedsmokorset finner du et bredt utvalg av takprodukter. Taksenteret selger til både pr"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://nortekk.no/ledige-stillinger"
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://nortekk.no/kontaktpersoner"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/nortekkgruppen"
+   }
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "bootstrap-icons@1.11.3",
+    "bootstrap@5.3.3",
+    "post@nortekk.no"
+   ],
+   "new": [
+    "ak@nortekk.no",
+    "bjorn@nortekk.no",
+    "bootstrap-icons@1.11.3",
+    "bootstrap@5.3.3",
+    "celine@nortekk.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:26:07Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://nortekk.no/",
+    "contact": "https://nortekk.no/kontaktpersoner",
+    "about": "https://nortekk.no/om-oss",
+    "careers": "https://nortekk.no/ledige-stillinger",
+    "news": "https://nortekk.no/nyheter/"
+   }
   }
  ],
  "stats": {
-  "active_facts": 93,
+  "active_facts": 101,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 10.87
+  "requests": 19,
+  "seconds": 16.01
  },
  "explanation": {
   "mode": "template",
-  "text": "NORTEKK AS (org.nr 963 772 459) is registered as Aksjeselskap (AS), founded 1991-11-15, registered 1995-02-20. Business address: Industriveien 9C, 2020 SKEDSMOKORSET. Main industry (NACE): 43.410 Takarbeid. Registered employees: 68 (as of 2026-07-10). Latest filed annual accounts (2025, company statement): revenue NOK 153,065,259; operating result NOK 11,109,393; net result NOK 9,417,883; total assets NOK 58,648,829; equity NOK 20,836,948. Leadership: general manager (daglig leder) Bjørn-Fredrik Johanssen; board chair Aarstein Rebne; 4 other board members. Sub-units registered: 1. Website: www.nortekk.no. The website describes the company as: \"Nortekk er totalleverandør av tak. Vi har 40 års erfaring og alt innen takløsninger.\"\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run.\nNot available: gleif, wikidata."
+  "text": "NORTEKK AS (org.nr 963 772 459) is registered as Aksjeselskap (AS), founded 1991-11-15, registered 1995-02-20. [brreg_enheter] Main industry (NACE 43.410): Takarbeid. [brreg_enheter] Registered purpose: \"Bygge- og anleggsvirksomhet, da særskilt taktekking og blikkenslagerarbeider samt produksjon av bygningsbeslag i eget blikkenslagerverksted.\" [brreg_enheter] The company's website describes it as: \"Nortekk er totalleverandør av tak. Vi har 40 års erfaring og alt innen takløsninger.\" [website] Business address: Industriveien 9C, 2020 SKEDSMOKORSET. [brreg_enheter] Leadership: general manager (daglig leder) Bjørn-Fredrik Johanssen; board chair Aarstein Rebne; 4 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 68 (as of 2026-07-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 153,065,259 (-12% vs 2024); operating result NOK 11,109,393 (-36% vs 2024); net result NOK 9,417,883 (-34% vs 2024); total assets NOK 58,648,829 (-15% vs 2024); equity NOK 20,836,948 (+10% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 4,100,000. [brreg_enheter]\n- DiBK central approval: valid until 2026-11-10, 2 approval area(s). [dibk]\n\nChanges in this run (10):\n- location.business.geo: added ({'lat': 60.007982908097425, 'lon': 11.04329995407703, 'cr...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2026-11-10', 'certificate...)\n- approvals.dibk_declared_website: added (www.nortekk.no)\n- web.home_text: added (Nortekk utfører taktekking av flate tak både på nye og ek...)\n- web.about_text: Nortekk AS er en av Norges største og mest erfarne aktøre... -> Nortekk AS er en av Norges største og mest erfarne aktøre...\n- web.careers_url: added (https://nortekk.no/ledige-stillinger)\n- web.contact_page: added ({'url': 'https://nortekk.no/kontaktpersoner'})\n- web.social: added ({'facebook': 'https://www.facebook.com/nortekkgruppen'})\n- web.emails: ['bootstrap-icons@1.11.3', 'bootstrap@5.3.3', 'post@norte... -> ['ak@nortekk.no', 'bjorn@nortekk.no', 'bootstrap-icons@1....\n- web.pages_checked: added ({'home': 'https://nortekk.no/', 'contact': 'https://norte...)\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "NORTEKK AS (org.nr 963 772 459) is registered as Aksjeselskap (AS), founded 1991-11-15, registered 1995-02-20. [brreg_enheter]",
+    "Main industry (NACE 43.410): Takarbeid. [brreg_enheter]",
+    "Registered purpose: \"Bygge- og anleggsvirksomhet, da særskilt taktekking og blikkenslagerarbeider samt produksjon av bygningsbeslag i eget blikkenslagerverksted.\" [brreg_enheter]",
+    "The company's website describes it as: \"Nortekk er totalleverandør av tak. Vi har 40 års erfaring og alt innen takløsninger.\" [website]",
+    "Business address: Industriveien 9C, 2020 SKEDSMOKORSET. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Bjørn-Fredrik Johanssen; board chair Aarstein Rebne; 4 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 68 (as of 2026-07-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 153,065,259 (-12% vs 2024); operating result NOK 11,109,393 (-36% vs 2024); net result NOK 9,417,883 (-34% vs 2024); total assets NOK 58,648,829 (-15% vs 2024); equity NOK 20,836,948 (+10% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 4,100,000. [brreg_enheter]",
+    "DiBK central approval: valid until 2026-11-10, 2 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (10):",
+    "- location.business.geo: added ({'lat': 60.007982908097425, 'lon': 11.04329995407703, 'cr...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2026-11-10', 'certificate...)",
+    "- approvals.dibk_declared_website: added (www.nortekk.no)",
+    "- web.home_text: added (Nortekk utfører taktekking av flate tak både på nye og ek...)",
+    "- web.about_text: Nortekk AS er en av Norges største og mest erfarne aktøre... -> Nortekk AS er en av Norges største og mest erfarne aktøre...",
+    "- web.careers_url: added (https://nortekk.no/ledige-stillinger)",
+    "- web.contact_page: added ({'url': 'https://nortekk.no/kontaktpersoner'})",
+    "- web.social: added ({'facebook': 'https://www.facebook.com/nortekkgruppen'})",
+    "- web.emails: ['bootstrap-icons@1.11.3', 'bootstrap@5.3.3', 'post@norte... -> ['ak@nortekk.no', 'bjorn@nortekk.no', 'bootstrap-icons@1....",
+    "- web.pages_checked: added ({'home': 'https://nortekk.no/', 'contact': 'https://norte...)"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

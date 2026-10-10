@@ -7,11 +7,11 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:16:56Z",
- "last_run": "2026-10-05T05:39:34Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:33:29Z",
+ "run_count": 5,
  "entity_status": "ok",
  "matching": {
-  "overall": "high",
+  "overall": "medium",
   "registry_name": "WATERCIRCLES FORSIKRING ASA",
   "checks": [
    {
@@ -45,6 +45,18 @@
     "detail": "Q65239231 has P2333 (Norwegian organisation number) = 915495486"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Strandveien 50' 1366 -> matched 'Strandveien 50' 1366"
+   },
+   {
+    "source": "wikipedia",
+    "check": "linked_via_wikidata",
+    "passed": true,
+    "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -54,13 +66,13 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 915495486 printed on https://www.watercircles.no/"
+    "detail": "org number 915495486 not found on the pages checked"
    },
    {
     "source": "website",
     "check": "name_on_page",
     "passed": true,
-    "detail": "company name 'WATERCIRCLES FORSIKRING ASA' found in page text"
+    "detail": "company name 'WATERCIRCLES FORSIKRING ASA' matches the domain name"
    },
    {
     "source": "website",
@@ -71,7 +83,7 @@
    {
     "source": "website",
     "check": "not_placeholder",
-    "passed": true,
+    "passed": false,
     "detail": "page has real content (not parked/for sale)"
    },
    {
@@ -86,7 +98,8 @@
    }
   ],
   "failed_checks": [
-   "orgnr_on_page"
+   "orgnr_on_page",
+   "not_placeholder"
   ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
@@ -95,7 +108,10 @@
    "brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))",
    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
    "wikidata: item carries P2333 = org number",
-   "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
+   "website: URL declared by the company in the registry; page match = unverified (low)"
   ]
  },
  "facts": [
@@ -106,7 +122,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -114,7 +130,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -137,7 +153,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -145,7 +161,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -158,7 +174,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-03-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -166,7 +182,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -184,7 +200,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-04-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -192,7 +208,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -205,7 +221,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -213,7 +229,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -226,7 +242,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -234,7 +250,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -247,7 +263,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2015-05-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -255,7 +271,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +284,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +292,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -292,7 +308,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -300,7 +316,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -313,7 +329,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -321,7 +337,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -334,7 +350,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -342,7 +358,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -355,15 +371,15 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
-     "note": "GLEIF golden copy published 2026-10-04T16:00:00Z"
+     "note": "GLEIF golden copy published 2026-10-10T00:00:00Z"
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -380,7 +396,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -388,7 +404,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -401,7 +417,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2015-05-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -409,7 +425,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -422,7 +438,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -430,7 +446,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -451,7 +467,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -459,7 +475,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -480,7 +496,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -488,7 +504,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -501,7 +517,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -509,7 +525,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -522,7 +538,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -530,7 +546,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -552,7 +568,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -560,7 +576,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -578,7 +594,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -586,7 +602,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -606,7 +622,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/549300F451JG4EK5SG97",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-07-15T08:50:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -614,7 +630,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -627,7 +643,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -635,11 +651,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.90849362683295,
+    "lon": 10.641516938606527,
+    "crs": "EPSG:4326",
+    "matched_address": "Strandveien 50",
+    "postal_code": "1366",
+    "city": "LYSAKER",
+    "municipality": "BÆRUM",
+    "municipality_number": "3201",
+    "cadastral": {
+     "gnr": 41,
+     "bnr": 13
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.90849362683295&lon=10.641516938606527&markerLat=59.90849362683295&markerLon=10.641516938606527"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Strandveien+50&postnummer=1366&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:33:29Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:29Z",
+   "last_seen": "2026-10-10T13:33:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -648,7 +699,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -656,7 +707,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -680,7 +731,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -688,7 +739,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -704,7 +755,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -712,7 +763,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -725,7 +776,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-03-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -733,7 +784,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -746,7 +797,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2015-06-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -754,7 +805,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -767,7 +818,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2015-06-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -775,7 +826,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -795,7 +846,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -803,7 +854,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -819,7 +870,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486/roller",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2020-01-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -827,7 +878,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -843,7 +894,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486/roller",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2023-11-21",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -851,7 +902,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -866,7 +917,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486/roller",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2025-06-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -874,7 +925,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -900,7 +951,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486/roller",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2025-06-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -908,7 +959,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -923,7 +974,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486/roller",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2025-11-20",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -931,7 +982,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -947,7 +998,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -955,7 +1006,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -972,7 +1023,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -980,7 +1031,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -993,7 +1044,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915495486&size=100",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1001,7 +1052,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1014,7 +1065,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915495486&size=100",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1022,7 +1073,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1044,7 +1095,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915495486&size=100",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1052,7 +1103,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1074,8 +1125,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Hver invitasjon som gir et kundeforhold vil gi deg NOK 1.000,- inn på din Egenandelskonto Du kan opparbeide Egenandelsfordeler for hvert skadeforebyggende kurs du tar i regi av WaterCircles Forsikring. WaterCircles Bonusprogram gir deg bonus for hver inviterte venn/bekjent som fører til et kundeforhold hos oss. Du får også fordeler for å fullføre skadeforebyggende kurs i regi av oss. Dine invitasjoner og fullførte kurs belønnes med vennebonus og egenandelsfordeler.",
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1095,8 +1151,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Ved kun å fokusere på utvalgte og ansvarlige forsikringskunder kan WaterCircles forsikring gi personlig rådgivning og service i toppklasse.",
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1125,8 +1186,22 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": {
+      "name": "WaterCircles Forsikring",
+      "logo": "https://www.watercircles.no/wp-content/uploads/2021/11/logo-water-circles-.svg",
+      "same_as": [
+       "https://www.facebook.com/WaterCirclesforsikring",
+       "https://www.youtube.com/@watercirclesforsikring5188",
+       "https://www.linkedin.com/company/watercircles-norge-as",
+       "https://www.instagram.com/watercirclesnorge/"
+      ]
+     },
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1146,8 +1221,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "nb-NO",
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1167,8 +1247,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "https://www.watercircles.no/wp-content/uploads/2022/02/F_W02069.jpg",
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1188,8 +1273,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": false,
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1211,8 +1301,15 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": [
+      "+4767206050"
+     ],
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1232,8 +1329,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "WaterCircles Forsikring",
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1257,8 +1359,17 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": {
+      "facebook": "https://www.facebook.com/WaterCirclesforsikring",
+      "instagram": "https://www.instagram.com/watercirclesnorge",
+      "linkedin": "https://www.linkedin.com/company/watercircles-norge-as"
+     },
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1278,8 +1389,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "WaterCircles Forsikring | For deg som tar vare på tingene dine",
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1299,8 +1415,13 @@
    ],
    "first_seen": "2026-10-05T05:16:56Z",
    "last_seen": "2026-10-05T05:39:34Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "https://www.watercircles.no/",
+     "until": "2026-10-05T05:39:34Z"
+    }
+   ],
    "stale": false,
    "confidence": "medium"
   },
@@ -1311,7 +1432,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -1319,7 +1440,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1334,7 +1455,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -1342,7 +1463,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1355,7 +1476,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1363,7 +1484,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1376,7 +1497,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2015-05-11",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -1384,7 +1505,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1399,7 +1520,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -1407,7 +1528,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1420,7 +1541,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1428,7 +1549,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1443,7 +1564,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -1451,7 +1572,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1464,7 +1585,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q65239231",
-     "retrieved_at": "2026-10-05T05:39:34Z",
+     "retrieved_at": "2026-10-10T13:33:29Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1472,11 +1593,36 @@
     }
    ],
    "first_seen": "2026-10-05T05:16:56Z",
-   "last_seen": "2026-10-05T05:39:34Z",
+   "last_seen": "2026-10-10T13:33:29Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "wikipedia.no.summary",
+   "value": {
+    "title": "WaterCircles Forsikring",
+    "extract": "WaterCircles Forsikring er et norsk forsikringsselskap. Det har hovedkontor på Lysaker.",
+    "last_edited": "2024-07-26"
+   },
+   "evidence": [
+    {
+     "source": "wikipedia",
+     "url": "https://no.wikipedia.org/wiki/WaterCircles_Forsikring",
+     "retrieved_at": "2026-10-10T13:33:29Z",
+     "source_date": "2024-07-26",
+     "match": "wikidata_p2333",
+     "confidence": "medium",
+     "note": "article is linked from the Wikidata item carrying this organisation number; encyclopaedic text, not a registry fact"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:29Z",
+   "last_seen": "2026-10-10T13:33:29Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -1485,7 +1631,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:34Z",
+   "retrieved_at": "2026-10-10T13:33:29Z",
    "facts": 21,
    "requests": 1,
    "checks": [
@@ -1503,7 +1649,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/915495486/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:34Z",
+   "retrieved_at": "2026-10-10T13:33:29Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -1521,7 +1667,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=915495486&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:34Z",
+   "retrieved_at": "2026-10-10T13:33:29Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -1539,7 +1685,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/915495486",
    "status": "error",
    "http_status": 500,
-   "retrieved_at": "2026-10-05T05:39:34Z",
+   "retrieved_at": "2026-10-10T13:33:29Z",
    "facts": 0,
    "requests": 3,
    "checks": [],
@@ -1553,7 +1699,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=915+495+486&page%5Bsize%5D=10",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:34Z",
+   "retrieved_at": "2026-10-10T13:33:29Z",
    "facts": 11,
    "requests": 2,
    "checks": [
@@ -1571,7 +1717,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22915495486%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:34Z",
+   "retrieved_at": "2026-10-10T13:33:29Z",
    "facts": 8,
    "requests": 1,
    "checks": [
@@ -1585,13 +1731,63 @@
    "notes": []
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=WATERCIRCLES+FORSIKRING&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:33:29Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Strandveien+50&postnummer=1366&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:33:29Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Strandveien 50' 1366 -> matched 'Strandveien 50' 1366"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "wikipedia",
+   "url": "https://no.wikipedia.org/api/rest_v1/page/summary/WaterCircles_Forsikring",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:33:29Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "linked_via_wikidata",
+     "passed": true,
+     "detail": "article URL taken from the Wikidata item whose P2333 equals the org number"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://www.watercircles.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:34Z",
-   "facts": 11,
-   "requests": 3,
+   "retrieved_at": "2026-10-10T13:33:29Z",
+   "facts": 0,
+   "requests": 5,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -1601,12 +1797,12 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 915495486 printed on https://www.watercircles.no/"
+     "detail": "org number 915495486 not found on the pages checked"
     },
     {
      "check": "name_on_page",
      "passed": true,
-     "detail": "company name 'WATERCIRCLES FORSIKRING ASA' found in page text"
+     "detail": "company name 'WATERCIRCLES FORSIKRING ASA' matches the domain name"
     },
     {
      "check": "same_host_after_redirect",
@@ -1615,15 +1811,146 @@
     },
     {
      "check": "not_placeholder",
-     "passed": true,
+     "passed": false,
      "detail": "page has real content (not parked/for sale)"
     }
    ],
-   "rejected": [],
-   "notes": []
+   "rejected": [
+    {
+     "key": "web.url",
+     "reason": "page could not be tied to 915495486 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.title",
+     "reason": "page could not be tied to 915495486 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.language",
+     "reason": "page could not be tied to 915495486 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.orgnr_on_page",
+     "reason": "page could not be tied to 915495486 (no org number or company name on page); confidence=low"
+    }
+   ],
+   "notes": [
+    "website-derived facts withheld: page does not identify the company"
+   ]
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.90849362683295,
+    "lon": 10.641516938606527,
+    "crs": "EPSG:4326",
+    "matched_address": "Strandveien 50",
+    "postal_code": "1366",
+    "city": "LYSAKER",
+    "municipality": "BÆRUM",
+    "municipality_number": "3201",
+    "cadastral": {
+     "gnr": 41,
+     "bnr": 13
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.90849362683295&lon=10.641516938606527&markerLat=59.90849362683295&markerLon=10.641516938606527"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "wikipedia.no.summary",
+   "type": "added",
+   "new": {
+    "title": "WaterCircles Forsikring",
+    "extract": "WaterCircles Forsikring er et norsk forsikringsselskap. Det har hovedkontor på Lysaker.",
+    "last_edited": "2024-07-26"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.about_text",
+   "type": "retracted",
+   "old": "Hver invitasjon som gir et kundeforhold vil gi deg NOK 1.000,- inn på din Egenandelskonto Du kan opparbeide Egenandelsfordeler for hvert skadeforebyggende kurs du tar i regi av WaterCircles Forsikring. WaterCircles Bonusprogram gir deg bonus for hver inviterte venn/bekjent som fører til et kundeforhold hos oss. Du får også fordeler for å fullføre skadeforebyggende kurs i regi av oss. Dine invitasjoner og fullførte kurs belønnes med vennebonus og egenandelsfordeler."
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.description",
+   "type": "retracted",
+   "old": "Ved kun å fokusere på utvalgte og ansvarlige forsikringskunder kan WaterCircles forsikring gi personlig rådgivning og service i toppklasse."
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.jsonld_organization",
+   "type": "retracted",
+   "old": {
+    "name": "WaterCircles Forsikring",
+    "logo": "https://www.watercircles.no/wp-content/uploads/2021/11/logo-water-circles-.svg",
+    "same_as": [
+     "https://www.facebook.com/WaterCirclesforsikring",
+     "https://www.youtube.com/@watercirclesforsikring5188",
+     "https://www.linkedin.com/company/watercircles-norge-as",
+     "https://www.instagram.com/watercirclesnorge/"
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.language",
+   "type": "retracted",
+   "old": "nb-NO"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.og_image",
+   "type": "retracted",
+   "old": "https://www.watercircles.no/wp-content/uploads/2022/02/F_W02069.jpg"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.orgnr_on_page",
+   "type": "retracted",
+   "old": false
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.phones",
+   "type": "retracted",
+   "old": [
+    "+4767206050"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.site_name",
+   "type": "retracted",
+   "old": "WaterCircles Forsikring"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.social",
+   "type": "retracted",
+   "old": {
+    "facebook": "https://www.facebook.com/WaterCirclesforsikring",
+    "instagram": "https://www.instagram.com/watercirclesnorge",
+    "linkedin": "https://www.linkedin.com/company/watercircles-norge-as"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.title",
+   "type": "retracted",
+   "old": "WaterCircles Forsikring | For deg som tar vare på tingene dine"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.url",
+   "type": "retracted",
+   "old": "https://www.watercircles.no/"
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:16:56Z",
@@ -2118,17 +2445,181 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Hver invitasjon som gir et kundeforhold vil gi deg NOK 1.000,- inn på din Egenandelskonto Du kan opparbeide Egenandelsfordeler for hvert skadeforebyggende kurs du tar i regi av WaterCircles Forsikring. WaterCircles Bonusprogram gir deg bonus for hver inviterte venn/bekjent som fører til et kundeforhold hos oss. Du får også fordeler for å fullføre skadeforebyggende kurs i regi av oss. Dine invitasjoner og fullførte kurs belønnes med vennebonus og egenandelsfordeler."
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.90849362683295,
+    "lon": 10.641516938606527,
+    "crs": "EPSG:4326",
+    "matched_address": "Strandveien 50",
+    "postal_code": "1366",
+    "city": "LYSAKER",
+    "municipality": "BÆRUM",
+    "municipality_number": "3201",
+    "cadastral": {
+     "gnr": 41,
+     "bnr": 13
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.90849362683295&lon=10.641516938606527&markerLat=59.90849362683295&markerLon=10.641516938606527"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "wikipedia.no.summary",
+   "type": "added",
+   "new": {
+    "title": "WaterCircles Forsikring",
+    "extract": "WaterCircles Forsikring er et norsk forsikringsselskap. Det har hovedkontor på Lysaker.",
+    "last_edited": "2024-07-26"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.about_text",
+   "type": "retracted",
+   "old": "Hver invitasjon som gir et kundeforhold vil gi deg NOK 1.000,- inn på din Egenandelskonto Du kan opparbeide Egenandelsfordeler for hvert skadeforebyggende kurs du tar i regi av WaterCircles Forsikring. WaterCircles Bonusprogram gir deg bonus for hver inviterte venn/bekjent som fører til et kundeforhold hos oss. Du får også fordeler for å fullføre skadeforebyggende kurs i regi av oss. Dine invitasjoner og fullførte kurs belønnes med vennebonus og egenandelsfordeler."
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.description",
+   "type": "retracted",
+   "old": "Ved kun å fokusere på utvalgte og ansvarlige forsikringskunder kan WaterCircles forsikring gi personlig rådgivning og service i toppklasse."
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.jsonld_organization",
+   "type": "retracted",
+   "old": {
+    "name": "WaterCircles Forsikring",
+    "logo": "https://www.watercircles.no/wp-content/uploads/2021/11/logo-water-circles-.svg",
+    "same_as": [
+     "https://www.facebook.com/WaterCirclesforsikring",
+     "https://www.youtube.com/@watercirclesforsikring5188",
+     "https://www.linkedin.com/company/watercircles-norge-as",
+     "https://www.instagram.com/watercirclesnorge/"
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.language",
+   "type": "retracted",
+   "old": "nb-NO"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.og_image",
+   "type": "retracted",
+   "old": "https://www.watercircles.no/wp-content/uploads/2022/02/F_W02069.jpg"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.orgnr_on_page",
+   "type": "retracted",
+   "old": false
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.phones",
+   "type": "retracted",
+   "old": [
+    "+4767206050"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.site_name",
+   "type": "retracted",
+   "old": "WaterCircles Forsikring"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.social",
+   "type": "retracted",
+   "old": {
+    "facebook": "https://www.facebook.com/WaterCirclesforsikring",
+    "instagram": "https://www.instagram.com/watercirclesnorge",
+    "linkedin": "https://www.linkedin.com/company/watercircles-norge-as"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.title",
+   "type": "retracted",
+   "old": "WaterCircles Forsikring | For deg som tar vare på tingene dine"
+  },
+  {
+   "at": "2026-10-10T13:33:29Z",
+   "key": "web.url",
+   "type": "retracted",
+   "old": "https://www.watercircles.no/"
   }
  ],
  "stats": {
-  "active_facts": 59,
-  "retracted_facts": 0,
+  "active_facts": 50,
+  "retracted_facts": 11,
   "stale_facts": 0,
-  "requests": 12,
-  "seconds": 18.57
+  "requests": 19,
+  "seconds": 25.89
  },
  "explanation": {
   "mode": "template",
-  "text": "WATERCIRCLES FORSIKRING ASA (org.nr 915 495 486) is registered as Allmennaksjeselskap (ASA), founded 2015-05-11, registered 2015-06-08. Business address: Strandveien 50, 1366 LYSAKER. Main industry (NACE): 65.120 Skadeforsikring. Registered employees: 56 (as of 2026-09-10). Leadership: general manager (daglig leder) Stefan Pedersen Langva; board chair Åsmund Bjørndal Heen; 4 other board members. Sub-units registered: 1. The website describes the company as: \"Ved kun å fokusere på utvalgte og ansvarlige forsikringskunder kan WaterCircles forsikring gi personlig rådgivning og service i toppklasse.\" LEI: 549300F451JG4EK5SG97 (ACTIVE). Wikipedia: https://no.wikipedia.org/wiki/WaterCircles_Forsikring.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: item carries P2333 = org number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run.\nCould not be checked this run (previous values kept and marked stale): brreg_regnskap."
+  "text": "WATERCIRCLES FORSIKRING ASA (org.nr 915 495 486) is registered as Allmennaksjeselskap (ASA), founded 2015-05-11, registered 2015-06-08. [brreg_enheter] Main industry (NACE 65.120): Skadeforsikring. [brreg_enheter] Registered purpose: \"Direkte skadeforsikringsvirksomhet innenfor de forsikringsklasser selskapet har konsesjon, herunder rene risikoforsikringer av høyst ett års varighet, samt virksomhet som naturlig henger sammen med forsikringsvirksomhet.\" [brreg_enheter] Wikipedia: \"WaterCircles Forsikring er et norsk forsikringsselskap. Det har hovedkontor på Lysaker.\" [wikipedia] Business address: Strandveien 50, 1366 LYSAKER. [brreg_enheter] Leadership: general manager (daglig leder) Stefan Pedersen Langva; board chair Åsmund Bjørndal Heen; 4 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 56 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Share capital: NOK 456,520,103.50. [brreg_enheter]\n- LEI: 549300F451JG4EK5SG97 (ACTIVE). [gleif]\n\nChanges in this run (13):\n- location.business.geo: added ({'lat': 59.90849362683295, 'lon': 10.641516938606527, 'cr...)\n- wikipedia.no.summary: added ({'title': 'WaterCircles Forsikring', 'extract': 'WaterCir...)\n- web.about_text: retracted\n- web.description: retracted\n- web.jsonld_organization: retracted\n- web.language: retracted\n- web.og_image: retracted\n- web.orgnr_on_page: retracted\n- web.phones: retracted\n- web.site_name: retracted\n- web.social: retracted\n- web.title: retracted\n- web.url: retracted\n\nWhat remains unknown:\n- No filed annual accounts: brreg_regnskap could not be reached this run (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats)).\n- No website or contact details: website reached, but website-derived facts withheld: page does not identify the company.\n- No website content (description, about text): website reached, but website-derived facts withheld: page does not identify the company.\n- No social media profiles: website reached, but website-derived facts withheld: page does not identify the company.\n- No news items: website reached, but website-derived facts withheld: page does not identify the company.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but website-derived facts withheld: page does not identify the company.\n- 4 website fact(s) withheld because the page could not be tied to the company (see sources[].rejected).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: item carries P2333 = org number\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- wikipedia: article linked from the Wikidata item whose P2333 equals the org number\n- website: URL declared by the company in the registry; page match = unverified (low)",
+  "sections": {
+   "what_it_does": [
+    "WATERCIRCLES FORSIKRING ASA (org.nr 915 495 486) is registered as Allmennaksjeselskap (ASA), founded 2015-05-11, registered 2015-06-08. [brreg_enheter]",
+    "Main industry (NACE 65.120): Skadeforsikring. [brreg_enheter]",
+    "Registered purpose: \"Direkte skadeforsikringsvirksomhet innenfor de forsikringsklasser selskapet har konsesjon, herunder rene risikoforsikringer av høyst ett års varighet, samt virksomhet som naturlig henger sammen med forsikringsvirksomhet.\" [brreg_enheter]",
+    "Wikipedia: \"WaterCircles Forsikring er et norsk forsikringsselskap. Det har hovedkontor på Lysaker.\" [wikipedia]",
+    "Business address: Strandveien 50, 1366 LYSAKER. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Stefan Pedersen Langva; board chair Åsmund Bjørndal Heen; 4 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 56 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Share capital: NOK 456,520,103.50. [brreg_enheter]",
+    "LEI: 549300F451JG4EK5SG97 (ACTIVE). [gleif]"
+   ],
+   "changes": [
+    "Changes in this run (13):",
+    "- location.business.geo: added ({'lat': 59.90849362683295, 'lon': 10.641516938606527, 'cr...)",
+    "- wikipedia.no.summary: added ({'title': 'WaterCircles Forsikring', 'extract': 'WaterCir...)",
+    "- web.about_text: retracted",
+    "- web.description: retracted",
+    "- web.jsonld_organization: retracted",
+    "- web.language: retracted",
+    "- web.og_image: retracted",
+    "- web.orgnr_on_page: retracted",
+    "- web.phones: retracted",
+    "- web.site_name: retracted",
+    "- web.social: retracted",
+    "- web.title: retracted",
+    "- web.url: retracted"
+   ],
+   "unknown": [
+    "No filed annual accounts: brreg_regnskap could not be reached this run (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats)).",
+    "No website or contact details: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No website content (description, about text): website reached, but website-derived facts withheld: page does not identify the company.",
+    "No social media profiles: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No news items: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but website-derived facts withheld: page does not identify the company.",
+    "4 website fact(s) withheld because the page could not be tied to the company (see sources[].rejected)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: error (unexpected HTTP 500 (the open API answers 500 for some filers, typically banks, insurers and foundations with special statement formats))",
+    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
+    "wikidata: item carries P2333 = org number",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "wikipedia: article linked from the Wikidata item whose P2333 equals the org number",
+    "website: URL declared by the company in the registry; page match = unverified (low)"
+   ]
+  }
  }
 }

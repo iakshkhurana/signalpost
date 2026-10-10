@@ -7,11 +7,11 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:10:00Z",
- "last_run": "2026-10-05T05:10:00Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:20:04Z",
+ "run_count": 3,
  "entity_status": "ok",
  "matching": {
-  "overall": "high",
+  "overall": "medium",
   "registry_name": "ADVOKATFIRMA HAAKSTAD & CO DA",
   "checks": [
    {
@@ -51,6 +51,12 @@
     "detail": "filing journalnr=2026326350 virksomhet.organisasjonsnummer=994232398 (2025, selskap)"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Kirkegaten 2A' 4836 -> matched 'Kirkegaten 2A' 4836"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -59,14 +65,14 @@
    {
     "source": "website",
     "check": "orgnr_on_page",
-    "passed": true,
-    "detail": "org number 994232398 printed on https://haakstad.no/"
+    "passed": false,
+    "detail": "org number 994232398 not found on the pages checked"
    },
    {
     "source": "website",
     "check": "name_on_page",
-    "passed": true,
-    "detail": "company name 'ADVOKATFIRMA HAAKSTAD & CO DA' found in page text"
+    "passed": false,
+    "detail": "company name 'ADVOKATFIRMA HAAKSTAD & CO DA' not found in page text or domain"
    },
    {
     "source": "website",
@@ -77,11 +83,15 @@
    {
     "source": "website",
     "check": "not_placeholder",
-    "passed": true,
+    "passed": false,
     "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page",
+   "name_on_page",
+   "not_placeholder"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -89,7 +99,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: URL declared by the company in the registry; page match = unverified (low)"
   ]
  },
  "facts": [
@@ -100,7 +112,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -108,7 +120,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -131,7 +143,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -139,7 +151,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -152,7 +164,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2026-01-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -160,7 +172,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -173,7 +185,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -181,7 +193,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -194,7 +206,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -202,7 +214,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -220,7 +232,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -228,7 +240,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -246,7 +258,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -254,7 +266,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -272,7 +284,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -280,7 +292,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -298,7 +310,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -306,7 +318,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -324,7 +336,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -332,7 +344,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -358,7 +370,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -366,7 +378,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -384,7 +396,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -392,7 +404,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -410,7 +422,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -418,7 +430,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -436,7 +448,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -444,7 +456,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -462,7 +474,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -470,7 +482,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -488,7 +500,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -496,7 +508,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -514,7 +526,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -522,7 +534,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -540,7 +552,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -548,7 +560,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -566,7 +578,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -574,7 +586,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -592,7 +604,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -600,7 +612,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -618,7 +630,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -626,7 +638,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -644,7 +656,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -652,7 +664,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -670,7 +682,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -678,7 +690,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -696,7 +708,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -704,7 +716,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -722,7 +734,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -730,7 +742,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -748,7 +760,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -756,7 +768,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -782,7 +794,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -790,7 +802,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -808,7 +820,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -816,7 +828,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -834,7 +846,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -842,7 +854,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -860,7 +872,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -868,7 +880,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -886,7 +898,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -894,7 +906,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -912,7 +924,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -920,7 +932,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -938,7 +950,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -946,7 +958,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -964,7 +976,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -972,7 +984,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -990,7 +1002,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -998,7 +1010,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1016,7 +1028,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1024,7 +1036,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1042,7 +1054,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1050,7 +1062,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1068,7 +1080,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1076,7 +1088,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1094,7 +1106,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1102,7 +1114,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1120,7 +1132,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1128,7 +1140,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1154,7 +1166,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1162,7 +1174,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1180,7 +1192,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1188,7 +1200,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1206,7 +1218,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1214,7 +1226,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1232,7 +1244,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1240,7 +1252,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1258,7 +1270,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1266,7 +1278,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1284,7 +1296,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1292,7 +1304,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1310,7 +1322,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1318,7 +1330,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1336,7 +1348,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1344,7 +1356,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1362,7 +1374,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1370,7 +1382,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1388,7 +1400,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1396,7 +1408,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1414,7 +1426,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1422,7 +1434,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1438,7 +1450,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1446,7 +1458,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1459,7 +1471,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2009-06-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1467,7 +1479,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1480,7 +1492,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1488,7 +1500,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1504,7 +1516,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1512,7 +1524,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1525,7 +1537,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1533,7 +1545,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1546,7 +1558,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1554,7 +1566,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1567,7 +1579,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1575,11 +1587,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 58.45931010710107,
+    "lon": 8.766457225579538,
+    "crs": "EPSG:4326",
+    "matched_address": "Kirkegaten 2A",
+    "postal_code": "4836",
+    "city": "ARENDAL",
+    "municipality": "ARENDAL",
+    "municipality_number": "4203",
+    "cadastral": {
+     "gnr": 501,
+     "bnr": 383
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.45931010710107&lon=8.766457225579538&markerLat=58.45931010710107&markerLon=8.766457225579538"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Kirkegaten+2A&postnummer=4836&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:20:04Z",
+     "source_date": "2020-08-27",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:17:09Z",
+   "last_seen": "2026-10-10T13:20:04Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1588,7 +1635,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1596,7 +1643,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1612,7 +1659,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1620,7 +1667,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1633,7 +1680,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1641,7 +1688,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1654,7 +1701,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2026-01-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1662,7 +1709,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1675,7 +1722,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2009-06-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1683,7 +1730,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1696,7 +1743,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2009-06-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1704,7 +1751,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1724,7 +1771,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1732,7 +1779,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1748,7 +1795,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398/roller",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2022-05-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1756,7 +1803,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1772,7 +1819,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398/roller",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2021-08-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1780,7 +1827,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1818,7 +1865,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398/roller",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": "2026-02-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1826,7 +1873,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1842,7 +1889,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1850,7 +1897,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1867,7 +1914,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1875,7 +1922,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1888,7 +1935,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=994232398&size=100",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1896,7 +1943,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1917,7 +1964,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=994232398&size=100",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1925,7 +1972,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1947,8 +1994,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Vi er et moderne advokatfirma i Agder med mange advokater som hjelper næringsliv, privatpersoner og offentlige myndigheter. Vi tilstreber å være løsningsorienterte og kostnadsbevisste, samt å sikre våre klienter helhetlige og praktiske løsninger. Vårt mål er kvalitet, god service og oppfølgning. Vi bistår privatpersoner, næringsliv og offentlige myndigheter innen en rekke fagområder. Interessert i å jobbe sammen med oss i Haakstad? Ta kontakt med advokat og partner Karsten A. Anfinsen på telefonnummer 37 00 60 70.",
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -1968,8 +2020,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Vi er et moderne advokatfirma i Agder som hjelper næringsliv, privatpersoner og offentlige myndigheter.",
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -1991,8 +2048,15 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": [
+      "post@haakstad.no"
+     ],
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2019,8 +2083,20 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": {
+      "name": "Advokatfirma Haakstad & Co",
+      "logo": "https://haakstad.no/wp-content/uploads/2024/09/logo-haakstad-adv-farge.svg",
+      "same_as": [
+       "https://www.facebook.com/AdvokatfirmaHaakstad/",
+       "https://www.linkedin.com/company/advokatfirma-haakstad-&-co-da"
+      ]
+     },
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2040,8 +2116,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "nb-NO",
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2061,8 +2142,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "https://haakstad.no/wp-content/uploads/2024/10/haakstad_small_foto-9010.jpg",
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2082,8 +2168,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": true,
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2103,8 +2194,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Advokatfirma Haakstad & Co",
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2127,8 +2223,16 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": {
+      "facebook": "https://www.facebook.com/AdvokatfirmaHaakstad",
+      "linkedin": "https://www.linkedin.com/company/advokatfirma-haakstad-"
+     },
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2148,8 +2252,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "Løsninger finnes! - Advokatfirma Haakstad & Co",
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2169,8 +2278,13 @@
    ],
    "first_seen": "2026-10-05T05:10:00Z",
    "last_seen": "2026-10-05T05:10:00Z",
-   "status": "active",
-   "history": [],
+   "status": "retracted",
+   "history": [
+    {
+     "value": "https://haakstad.no/",
+     "until": "2026-10-05T05:10:00Z"
+    }
+   ],
    "stale": false,
    "confidence": "high"
   },
@@ -2181,7 +2295,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
-     "retrieved_at": "2026-10-05T05:10:00Z",
+     "retrieved_at": "2026-10-10T13:20:04Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2189,7 +2303,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:00Z",
-   "last_seen": "2026-10-05T05:10:00Z",
+   "last_seen": "2026-10-10T13:20:04Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2202,7 +2316,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:00Z",
+   "retrieved_at": "2026-10-10T13:20:04Z",
    "facts": 21,
    "requests": 1,
    "checks": [
@@ -2220,7 +2334,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/994232398/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:00Z",
+   "retrieved_at": "2026-10-10T13:20:04Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2238,7 +2352,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=994232398&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:00Z",
+   "retrieved_at": "2026-10-10T13:20:04Z",
    "facts": 2,
    "requests": 1,
    "checks": [
@@ -2256,7 +2370,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/994232398",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:00Z",
+   "retrieved_at": "2026-10-10T13:20:04Z",
    "facts": 47,
    "requests": 1,
    "checks": [
@@ -2284,7 +2398,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=994232398&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:00Z",
+   "retrieved_at": "2026-10-10T13:20:04Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2298,7 +2412,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22994232398%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:00Z",
+   "retrieved_at": "2026-10-10T13:20:04Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2308,13 +2422,45 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=ADVOKATFIRMA+HAAKSTAD+%26+CO&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:20:04Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Kirkegaten+2A&postnummer=4836&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:20:04Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Kirkegaten 2A' 4836 -> matched 'Kirkegaten 2A' 4836"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://www.haakstad.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:00Z",
-   "facts": 11,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:20:04Z",
+   "facts": 0,
+   "requests": 2,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2323,13 +2469,13 @@
     },
     {
      "check": "orgnr_on_page",
-     "passed": true,
-     "detail": "org number 994232398 printed on https://haakstad.no/"
+     "passed": false,
+     "detail": "org number 994232398 not found on the pages checked"
     },
     {
      "check": "name_on_page",
-     "passed": true,
-     "detail": "company name 'ADVOKATFIRMA HAAKSTAD & CO DA' found in page text"
+     "passed": false,
+     "detail": "company name 'ADVOKATFIRMA HAAKSTAD & CO DA' not found in page text or domain"
     },
     {
      "check": "same_host_after_redirect",
@@ -2338,858 +2484,34 @@
     },
     {
      "check": "not_placeholder",
-     "passed": true,
+     "passed": false,
      "detail": "page has real content (not parked/for sale)"
     }
    ],
-   "rejected": [],
-   "notes": []
+   "rejected": [
+    {
+     "key": "web.url",
+     "reason": "page could not be tied to 994232398 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.title",
+     "reason": "page could not be tied to 994232398 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.language",
+     "reason": "page could not be tied to 994232398 (no org number or company name on page); confidence=low"
+    },
+    {
+     "key": "web.orgnr_on_page",
+     "reason": "page could not be tied to 994232398 (no org number or company name on page); confidence=low"
+    }
+   ],
+   "notes": [
+    "website-derived facts withheld: page does not identify the company"
+   ]
   }
  ],
- "last_run_changes": [
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "name",
-   "type": "added",
-   "new": "ADVOKATFIRMA HAAKSTAD & CO DA"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "org_form",
-   "type": "added",
-   "new": {
-    "code": "DA",
-    "description": "Ansvarlig selskap med delt ansvar"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2009-06-10"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2009-06-18"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2009-06-18"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Kirkegaten 2A"
-    ],
-    "postal_code": "4836",
-    "city": "ARENDAL",
-    "municipality": "ARENDAL",
-    "municipality_number": "4203",
-    "country": "Norge",
-    "country_code": "NO"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "industry.nace1",
-   "type": "added",
-   "new": {
-    "code": "69.100",
-    "description": "Juridisk tjenesteyting"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2300",
-    "description": "Personlige foretak"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "website",
-   "type": "added",
-   "new": "www.haakstad.no"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "phone",
-   "type": "added",
-   "new": "37 00 60 70"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "email",
-   "type": "added",
-   "new": "post@haakstad.no"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Drift av advokatvirksomhet, og tilknyttet virksomhet."
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Salg av advokattjenester m.v."
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2026-01-06"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/994232398"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "roles.partners",
-   "type": "added",
-   "new": [
-    {
-     "name": "Lars Gunnar Nag"
-    },
-    {
-     "name": "Øyvind Sund"
-    },
-    {
-     "name": "Per Jakob Ali Haakstad"
-    },
-    {
-     "name": "Karsten Alexander Anfinsen"
-    },
-    {
-     "name": "Helge Ståle Granerud"
-    },
-    {
-     "name": "Preben Vangen Myrdal"
-    },
-    {
-     "name": "Joakim Boye"
-    },
-    {
-     "name": "Ragnhild Camilla Pedersen"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "KORSLUND AS",
-    "orgnr": "924825855"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "LANDBØ REGNSKAP AS",
-    "orgnr": "997842731"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "994249630",
-     "name": "ADVOKATFIRMA HAAKSTAD & CO DA",
-     "city": "ARENDAL",
-     "municipality": "ARENDAL",
-     "nace": "69.100"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 12137807.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 12137807.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 10003158.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 2134649.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -92091.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 2042558.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 2042558.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 5483656.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1218.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 5482438.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 61520.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 2490532.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 2993124.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 2193124.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 800000.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024390302",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 14176048.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 14176048.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 9386668.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 4789380.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -6377.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 4783003.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 4783003.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 6700708.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 6700708.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 13949.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 5296060.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 1404648.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 904648.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 500000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025392497",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 13505657.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 13505657.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 10110519.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 3395138.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 19617.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 3414755.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 3414755.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 5870207.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 5870207.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 502488.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 4958581.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 911626.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 911626.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026326350",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.url",
-   "type": "added",
-   "new": "https://haakstad.no/"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.orgnr_on_page",
-   "type": "added",
-   "new": true
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.title",
-   "type": "added",
-   "new": "Løsninger finnes! - Advokatfirma Haakstad & Co"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.description",
-   "type": "added",
-   "new": "Vi er et moderne advokatfirma i Agder som hjelper næringsliv, privatpersoner og offentlige myndigheter."
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.site_name",
-   "type": "added",
-   "new": "Advokatfirma Haakstad & Co"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.language",
-   "type": "added",
-   "new": "nb-NO"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.og_image",
-   "type": "added",
-   "new": "https://haakstad.no/wp-content/uploads/2024/10/haakstad_small_foto-9010.jpg"
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.social",
-   "type": "added",
-   "new": {
-    "facebook": "https://www.facebook.com/AdvokatfirmaHaakstad",
-    "linkedin": "https://www.linkedin.com/company/advokatfirma-haakstad-"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.emails",
-   "type": "added",
-   "new": [
-    "post@haakstad.no"
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.jsonld_organization",
-   "type": "added",
-   "new": {
-    "name": "Advokatfirma Haakstad & Co",
-    "logo": "https://haakstad.no/wp-content/uploads/2024/09/logo-haakstad-adv-farge.svg",
-    "same_as": [
-     "https://www.facebook.com/AdvokatfirmaHaakstad/",
-     "https://www.linkedin.com/company/advokatfirma-haakstad-&-co-da"
-    ]
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:00Z",
-   "key": "web.about_text",
-   "type": "added",
-   "new": "Vi er et moderne advokatfirma i Agder med mange advokater som hjelper næringsliv, privatpersoner og offentlige myndigheter. Vi tilstreber å være løsningsorienterte og kostnadsbevisste, samt å sikre våre klienter helhetlige og praktiske løsninger. Vårt mål er kvalitet, god service og oppfølgning. Vi bistår privatpersoner, næringsliv og offentlige myndigheter innen en rekke fagområder. Interessert i å jobbe sammen med oss i Haakstad? Ta kontakt med advokat og partner Karsten A. Anfinsen på telefonnummer 37 00 60 70."
-  }
- ],
+ "last_run_changes": [],
  "changes": [
   {
    "at": "2026-10-05T05:10:00Z",
@@ -4032,17 +3354,152 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Vi er et moderne advokatfirma i Agder med mange advokater som hjelper næringsliv, privatpersoner og offentlige myndigheter. Vi tilstreber å være løsningsorienterte og kostnadsbevisste, samt å sikre våre klienter helhetlige og praktiske løsninger. Vårt mål er kvalitet, god service og oppfølgning. Vi bistår privatpersoner, næringsliv og offentlige myndigheter innen en rekke fagområder. Interessert i å jobbe sammen med oss i Haakstad? Ta kontakt med advokat og partner Karsten A. Anfinsen på telefonnummer 37 00 60 70."
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 58.45931010710107,
+    "lon": 8.766457225579538,
+    "crs": "EPSG:4326",
+    "matched_address": "Kirkegaten 2A",
+    "postal_code": "4836",
+    "city": "ARENDAL",
+    "municipality": "ARENDAL",
+    "municipality_number": "4203",
+    "cadastral": {
+     "gnr": 501,
+     "bnr": 383
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=58.45931010710107&lon=8.766457225579538&markerLat=58.45931010710107&markerLon=8.766457225579538"
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.about_text",
+   "type": "retracted",
+   "old": "Vi er et moderne advokatfirma i Agder med mange advokater som hjelper næringsliv, privatpersoner og offentlige myndigheter. Vi tilstreber å være løsningsorienterte og kostnadsbevisste, samt å sikre våre klienter helhetlige og praktiske løsninger. Vårt mål er kvalitet, god service og oppfølgning. Vi bistår privatpersoner, næringsliv og offentlige myndigheter innen en rekke fagområder. Interessert i å jobbe sammen med oss i Haakstad? Ta kontakt med advokat og partner Karsten A. Anfinsen på telefonnummer 37 00 60 70."
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.description",
+   "type": "retracted",
+   "old": "Vi er et moderne advokatfirma i Agder som hjelper næringsliv, privatpersoner og offentlige myndigheter."
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.emails",
+   "type": "retracted",
+   "old": [
+    "post@haakstad.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.jsonld_organization",
+   "type": "retracted",
+   "old": {
+    "name": "Advokatfirma Haakstad & Co",
+    "logo": "https://haakstad.no/wp-content/uploads/2024/09/logo-haakstad-adv-farge.svg",
+    "same_as": [
+     "https://www.facebook.com/AdvokatfirmaHaakstad/",
+     "https://www.linkedin.com/company/advokatfirma-haakstad-&-co-da"
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.language",
+   "type": "retracted",
+   "old": "nb-NO"
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.og_image",
+   "type": "retracted",
+   "old": "https://haakstad.no/wp-content/uploads/2024/10/haakstad_small_foto-9010.jpg"
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.orgnr_on_page",
+   "type": "retracted",
+   "old": true
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.site_name",
+   "type": "retracted",
+   "old": "Advokatfirma Haakstad & Co"
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.social",
+   "type": "retracted",
+   "old": {
+    "facebook": "https://www.facebook.com/AdvokatfirmaHaakstad",
+    "linkedin": "https://www.linkedin.com/company/advokatfirma-haakstad-"
+   }
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.title",
+   "type": "retracted",
+   "old": "Løsninger finnes! - Advokatfirma Haakstad & Co"
+  },
+  {
+   "at": "2026-10-10T13:17:09Z",
+   "key": "web.url",
+   "type": "retracted",
+   "old": "https://haakstad.no/"
   }
  ],
  "stats": {
-  "active_facts": 84,
-  "retracted_facts": 0,
+  "active_facts": 74,
+  "retracted_facts": 11,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 19.06
+  "requests": 13,
+  "seconds": 12.28
  },
  "explanation": {
   "mode": "template",
-  "text": "ADVOKATFIRMA HAAKSTAD & CO DA (org.nr 994 232 398) is registered as Ansvarlig selskap med delt ansvar (DA), founded 2009-06-10, registered 2009-06-18. Business address: Kirkegaten 2A, 4836 ARENDAL. Main industry (NACE): 69.100 Juridisk tjenesteyting. Latest filed annual accounts (2025, company statement): revenue NOK 13,505,657; operating result NOK 3,395,138; net result NOK 3,414,755; total assets NOK 5,870,207; equity NOK 4,958,581. Sub-units registered: 1. Website: www.haakstad.no. The website describes the company as: \"Vi er et moderne advokatfirma i Agder som hjelper næringsliv, privatpersoner og offentlige myndigheter.\"\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)\n\nFirst run: 84 facts recorded.\nNot available: gleif, wikidata."
+  "text": "ADVOKATFIRMA HAAKSTAD & CO DA (org.nr 994 232 398) is registered as Ansvarlig selskap med delt ansvar (DA), founded 2009-06-10, registered 2009-06-18. [brreg_enheter] Main industry (NACE 69.100): Juridisk tjenesteyting. [brreg_enheter] Registered purpose: \"Drift av advokatvirksomhet, og tilknyttet virksomhet.\" [brreg_enheter] Business address: Kirkegaten 2A, 4836 ARENDAL. [brreg_enheter]\n\nKey numbers:\n- Latest filed annual accounts (2025, company statement): revenue NOK 13,505,657 (-5% vs 2024); operating result NOK 3,395,138 (-29% vs 2024); net result NOK 3,414,755 (-29% vs 2024); total assets NOK 5,870,207 (-12% vs 2024); equity NOK 4,958,581 (-6% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n\nNo changes since the previous run.\n\nWhat remains unknown:\n- No registered employee count: the registry holds no employee count for this entity.\n- No website content (description, about text): website reached, but website-derived facts withheld: page does not identify the company.\n- No social media profiles: website reached, but website-derived facts withheld: page does not identify the company.\n- No news items: website reached, but website-derived facts withheld: page does not identify the company.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but website-derived facts withheld: page does not identify the company.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n- 4 website fact(s) withheld because the page could not be tied to the company (see sources[].rejected).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: URL declared by the company in the registry; page match = unverified (low)",
+  "sections": {
+   "what_it_does": [
+    "ADVOKATFIRMA HAAKSTAD & CO DA (org.nr 994 232 398) is registered as Ansvarlig selskap med delt ansvar (DA), founded 2009-06-10, registered 2009-06-18. [brreg_enheter]",
+    "Main industry (NACE 69.100): Juridisk tjenesteyting. [brreg_enheter]",
+    "Registered purpose: \"Drift av advokatvirksomhet, og tilknyttet virksomhet.\" [brreg_enheter]",
+    "Business address: Kirkegaten 2A, 4836 ARENDAL. [brreg_enheter]"
+   ],
+   "key_numbers": [
+    "Latest filed annual accounts (2025, company statement): revenue NOK 13,505,657 (-5% vs 2024); operating result NOK 3,395,138 (-29% vs 2024); net result NOK 3,414,755 (-29% vs 2024); total assets NOK 5,870,207 (-12% vs 2024); equity NOK 4,958,581 (-6% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025."
+   ],
+   "changes": [
+    "No changes since the previous run."
+   ],
+   "unknown": [
+    "No registered employee count: the registry holds no employee count for this entity.",
+    "No website content (description, about text): website reached, but website-derived facts withheld: page does not identify the company.",
+    "No social media profiles: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No news items: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but website-derived facts withheld: page does not identify the company.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).",
+    "4 website fact(s) withheld because the page could not be tied to the company (see sources[].rejected)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: URL declared by the company in the registry; page match = unverified (low)"
+   ]
+  }
  }
 }

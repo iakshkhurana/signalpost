@@ -45,7 +45,11 @@ for `--llm`. No API keys are needed for the data sources.
 | Brreg **Regnskapsregisteret** (`data.brreg.no/regnskapsregisteret/regnskap/{orgnr}`) | filed annual accounts: revenue, operating result, net result, assets, equity, debt, cash, audit info; company and group statements for the years the API returns | NLOD 2.0 | each filing's `virksomhet.organisasjonsnummer` must equal the org number; values are copied verbatim, never computed |
 | **GLEIF** LEI API | LEI, legal name, addresses, legal form (ELF), registration status, parent reporting | CC0 | `entity.registeredAs` (digits) must equal the org number and the record must be Norwegian (RA000472 / NO) |
 | **Wikidata** SPARQL | Wikipedia links, description, websites, inception, HQ, industries, employees, parent/owner, CEO, tickers | CC0 | item must carry property P2333 (Norwegian organisation number) = org number |
-| **Company website** | title, description, language, e-mails, phones, social profiles, JSON-LD organisation data, about-page text | the company's own public pages; `robots.txt` honoured; at most 2 pages; identified user agent | URL is the one the company declared to Enhetsregisteret (or Wikidata). Page facts are published only if the page itself identifies the company: org number printed on the page (**high**) or company name on the page / in the domain (**medium**). Otherwise the facts are withheld and listed under `sources[].rejected`. |
+| **Wikipedia** REST summary | article description and lead paragraph (en / no) | CC BY-SA | article URL taken from the Wikidata item with P2333 = org number |
+| **NAV job board** (`arbeidsplassen.nav.no/stillinger/api/search`) | active job postings: title, ad URL, published / expiry / application dates, location, engagement type, extent, positions | public state job board, robots.txt allows all | search by name; an ad is kept **only** if its employer name equals the registry name of the entity or one of its registered sub-units (fetched from Brreg) |
+| **DiBK** central approval register (`sgregister.dibk.no/api/enterprises/{orgnr}`) | sentral godkjenning: valid-to date, approval areas (function / subject / class), insurance flags, certificate URL | public register, open JSON | addressed by org number; record must echo it; only queried for NACE 41-43 / 71 |
+| **Kartverket** address API (`ws.geonorge.no/adresser`) | WGS84 coordinates, cadastral reference and map link for the registered business address | CC BY 4.0 | registry address looked up; postal code must match (labelled `address_lookup`, confidence medium) |
+| **Company website** | home page title, description, headline, first paragraphs, language, JSON-LD organisation data; **contact** page (e-mails, phones); **about** page text; **careers** page (vacancy links, schema.org `JobPosting`); **news** via RSS/Atom feed or news page (dated items, `NewsArticle`); **products / services** page (headings, `Product`); social profiles | the company's own public pages; `robots.txt` honoured; home + at most 4 linked pages; identified user agent | URL is the one the company declared to Enhetsregisteret (or Wikidata). When none is declared, one guess `<name>.no` is tried and used **only** if the org number is printed on it (or the full registered name appears on a page whose domain is the name). Facts are published only if the site identifies the company: org number on any fetched page (**high**) or company name on the page / in the domain (**medium**). Otherwise the facts are withheld and listed under `sources[].rejected`. |
 
 Not used on purpose: commercial aggregators (proff.no, 1881.no, Purehelp, etc.)
 whose terms forbid automated access, search engines, social networks' own
@@ -85,7 +89,8 @@ pages, and anything requiring login.
   "sources": [ { "source": "website", "status": "ok", "url": "...", "requests": 3, "checks": [...], "rejected": [...] } ],
   "last_run_changes": [ { "at": "...", "key": "employees", "type": "changed", "old": 21272, "new": 21300 } ],
   "changes": [ ... ],                         // full change log (last 500)
-  "explanation": { "mode": "template", "text": "..." },   // or mode "llm" with summary/highlights/caveats
+  "explanation": { "mode": "template", "text": "...",     // or mode "llm" with summary/highlights/caveats
+                   "sections": { "what_it_does": [...], "key_numbers": [...], "changes": [...], "unknown": [...], "sources": [...] } },
   "stats": { "active_facts": 170, "retracted_facts": 0, "stale_facts": 0, "requests": 9, "seconds": 4.0 }
 }
 ```
@@ -94,9 +99,30 @@ Fact keys are stable, dotted names: `name`, `org_form`, `founded`,
 `address.business`, `industry.nace1`, `employees`, `website`, `status`,
 `registers`, `capital.share`, `roles.ceo`, `roles.board_chair`,
 `roles.board_members`, `subunits.count`, `finance.<year>.<selskap|konsern>.<metric>`,
-`lei`, `lei.registration`, `wikipedia.en`, `wikidata.description`, `web.title`,
-`web.description`, `web.social`, `web.emails`, ... Use `python -m signalpost show <orgnr>`
-to see them as a table.
+`lei`, `wikipedia.en.summary`, `web.description`, `web.about_text`, `web.social`,
+`web.emails`, `web.products`, `web.careers.listings`, `news.item.<id>`,
+`jobs.active_count`, `jobs.posting.<uuid>`, `jobs.web_posting.<id>`,
+`location.business.geo`, `approvals.dibk_central_approval`, ... Each key maps to
+one **information type** (`signalpost/facttypes.py`): identity, industry,
+address, location, contacts, social, people, employees, subunits, finance,
+capital, ownership, jobs, news, products, web, approvals, lei, wikipedia. Use
+`python -m signalpost show <orgnr>` for a table or the web viewer below.
+
+## Web viewer (desktop and mobile)
+
+`index.html` at the repository root is a dependency-free viewer over
+`profiles/`: search by name or org number, filter by information type and
+match level, open a profile (what the company does, key numbers, what changed,
+what remains unknown, every fact grouped by type with its evidence URL, source
+date, fetch time and match type), and compare up to four companies side by
+side with a link to the evidence behind each cell.
+
+```sh
+python -m signalpost serve          # http://127.0.0.1:8765/
+```
+
+It is plain HTML + JS over the JSON files, so it also works on any static
+host (GitHub Pages from the repository root).
 
 ## Keeping profiles current
 
@@ -106,6 +132,9 @@ to see them as a table.
   fetched* source no longer reports are **retracted** (kept with
   `status: retracted`), and keys whose source errored or ran out of budget are
   kept and marked `stale` rather than deleted.
+* `--sources nav_jobs,website` re-fetches only the named sources; the other
+  sources' facts are kept from the stored profile without being marked stale
+  (cheap daily re-checks of the fast-moving sources).
 * `python -m signalpost refresh` asks Brreg's update feed
   (`/oppdateringer/enheter`) which stored companies changed since the last run,
   adds profiles older than `--stale-days` (default 7, because accounts, LEI and
@@ -129,9 +158,14 @@ to see them as a table.
 
 ## Explanations
 
-Each profile carries a deterministic, template-based explanation: a short brief
-of the company, how each source was tied to it, what changed in this run, and
-which sources were unavailable. With `--llm` and `ANTHROPIC_API_KEY` set, Claude
+Each profile carries a deterministic, template-based explanation in five
+sections, each sentence cited with its source: **what the company does**
+(registry form and purpose, industry, website and Wikipedia descriptions,
+address, products, leadership, ownership), **key numbers** (employees, latest
+accounts with year-over-year change, share capital, open jobs, news, LEI,
+approvals), **what changed** in this run, **what remains unknown** (information
+types looked for and not found, with the reason per source) and **how each
+source was tied** to the company. With `--llm` and `ANTHROPIC_API_KEY` set, Claude
 (`claude-opus-5-5` by default, `--model` to change) writes a richer
 summary/highlights/caveats from the same facts. Its output is accepted only if
 every number of four or more digits it mentions exists in the input facts;
@@ -142,9 +176,10 @@ otherwise the template is used. The LLM never adds facts to the profile.
 | Item | Detail |
 |---|---|
 | Data APIs | Brreg (Enhetsregisteret, Regnskapsregisteret), GLEIF, Wikidata: free, no key, no declared cost |
-| Website fetches | ≤ 2 pages + robots.txt per company, only the registry-declared site |
-| Requests per company | measured over 1000 companies: mean 8.0, median 7, p95 11, max 16; hard cap `--per-company-requests 25` |
-| 100 companies / day | ≈ 800 outbound requests (cap 2000), ≈ 2 minutes at `--concurrency 8` (1000 companies took 17.7 min and 8036 requests) |
+| Website fetches | robots.txt + home + ≤ 4 linked pages (contact, about, careers, news/RSS, products) per company; the registry-declared site, or one `<name>.no` guess when none is declared |
+| Other per-company lookups | NAV job search (1, paced 3 s apart), Kartverket geocoding (1), DiBK (1, construction / engineering only), Wikipedia (≤ 2, only when Wikidata links an article) |
+| Requests per company | measured over 1000 companies: mean 11.8, median 11, p95 17, max 20; hard cap `--per-company-requests 25` |
+| 100 companies / day | ≈ 1200 outbound requests (cap 2000), ≈ 6 minutes at `--concurrency 8` (1000 companies took 35 min at `--concurrency 14`) |
 | LLM (optional) | `claude-opus-5-5` via the Anthropic API, structured JSON output, low effort, server-side refusal fallback enabled; ≈ 3k input + 400 output tokens per company → ≈ $0.02 per company, ≈ $2 per 100 companies; hard cap `--max-cost 8` |
 | Declared daily external API cost | **$0.00** without `--llm`; **≈ $2 (≤ $8 cap)** with `--llm` |
 
@@ -153,13 +188,23 @@ otherwise the template is used. The LLM never adds facts to the profile.
 | | |
 |---|---|
 | Profiles | 1000, `validate` reports 0 problems |
-| Facts per profile | mean 80.6 (min 16, max 170) |
+| Facts per profile | mean 83.6 (min 17, max 182) |
 | Brreg entity / roles / sub-units | 100 % |
 | Filed annual accounts | 88 % (10.8 % have no accounts in the open API, 1.2 % the API answers HTTP 500) |
-| Company website | 33 % of companies declare a site; 27 % could be fetched. Of the pages fetched, 23 % print the org number (high), 62 % match by name (medium), 15 % withheld as unverifiable |
-| GLEIF LEI | 21 % |
-| Wikidata / Wikipedia | 9.5 % |
+| Map coordinates of the business address (Kartverket) | 86.8 % |
+| Company website | 33 % declare a site; with the `<name>.no` guess 30.5 % of all companies yielded a verified site (54 of them guessed, all with the org number printed on the site). Of the sites fetched, 32 % print the org number (high), 44 % match by name (medium), 23 % withheld as unverifiable |
+| Contact details (website, phone, e-mail) | 68.3 % |
+| Social media profiles | 19.5 % |
+| Job postings (NAV board, careers page) | 10.5 % of companies (188 postings); NAV's board rate-limited the bulk run after the first requests (HTTP 429), so most of the 1000 profiles still lack NAV data; requests to it are now paced at one per 3 s |
+| News (RSS/Atom feed, news page) | 9.8 % (418 items) |
+| Products / services | 5.0 % |
+| DiBK central approval | 6.3 % (45 % of the construction / engineering companies queried) |
+| GLEIF LEI | 20.9 % |
+| Wikidata / Wikipedia | 9.5 % (Wikipedia summaries for 7.5 %) |
 | Entity-match verdict | high 91 %, medium 9 % (medium = website facts matched by name only) |
+
+`python -m signalpost stats` prints the per-type table (companies with at least
+one fact of the type, and the number of facts).
 
 ## Commands
 
@@ -171,6 +216,8 @@ python -m signalpost show <orgnr> [--json] [--all]    print explanation and fact
 python -m signalpost validate                         integrity checks over the store
 python -m signalpost stats                            coverage statistics
 python -m signalpost export --out-file profiles.jsonl single-file export
+python -m signalpost serve                            web viewer at http://127.0.0.1:8765/
+python -m signalpost index                            rebuild profiles/index.json
 python -m unittest discover -s tests                  unit tests (offline)
 ```
 
@@ -186,7 +233,10 @@ signalpost/
   match.py        cross-source entity-matching summary
   explain.py      template explanation      llm.py  optional Claude explanation
   discover.py     sampling companies from the registry
-  sources/        brreg.py  regnskap.py  gleif.py  wikidata.py  website.py
+  facttypes.py    fact key -> information type
+  sources/        brreg.py  regnskap.py  gleif.py  wikidata.py  wikipedia.py  website.py
+                  nav_jobs.py  dibk.py  geonorge.py
+index.html                web viewer over profiles/ (python -m signalpost serve)
 data/companies-1000.txt   the sample used for the submitted profiles
 profiles/                 1000+ generated profiles + index.json
 tests/                    unit tests

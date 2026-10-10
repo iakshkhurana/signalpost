@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:25:04Z",
- "last_run": "2026-10-05T05:39:24Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:52:02Z",
+ "run_count": 5,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -51,6 +51,18 @@
     "detail": "filing journalnr=2026557679 virksomhet.organisasjonsnummer=912326098 (2025, selskap)"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Terminalveien 10' 8006 -> matched 'Terminalveien 10' 8006"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=912326098; looked up 912326098"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -60,7 +72,7 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 912326098 printed on https://www.haneseth.no/haneseth-bodo/"
+    "detail": "org number 912326098 not found on the pages checked"
    },
    {
     "source": "website",
@@ -91,6 +103,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
@@ -102,7 +117,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -110,7 +125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -133,7 +148,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -141,7 +156,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -164,7 +179,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -172,11 +187,86 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2028-09-01",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912326098/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/912326098",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": "2028-09-01",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_declared_website",
+   "value": "bodo.haneseth.no",
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/912326098",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "orgnr_exact",
+     "confidence": "medium",
+     "note": "website as given to DiBK"
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "bylaws_date",
@@ -185,7 +275,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2022-02-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -193,7 +283,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -211,7 +301,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2003-12-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -219,7 +309,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -232,7 +322,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -240,7 +330,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -253,7 +343,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2026-08-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -261,7 +351,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -274,7 +364,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -282,7 +372,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -300,7 +390,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -308,7 +398,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -326,7 +416,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -334,7 +424,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -352,7 +442,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -360,7 +450,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -378,7 +468,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -386,7 +476,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -404,7 +494,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -412,7 +502,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -438,7 +528,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -446,7 +536,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -464,7 +554,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -472,7 +562,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -490,7 +580,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -498,7 +588,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -516,7 +606,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -524,7 +614,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -542,7 +632,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -550,7 +640,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -568,7 +658,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -576,7 +666,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -594,7 +684,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -602,7 +692,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -620,7 +710,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -628,7 +718,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -646,7 +736,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -654,7 +744,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -672,7 +762,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -680,7 +770,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -698,7 +788,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -706,7 +796,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -724,7 +814,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -732,7 +822,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -750,7 +840,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -758,7 +848,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -776,7 +866,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -784,7 +874,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -802,7 +892,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -810,7 +900,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -828,7 +918,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -836,7 +926,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -854,7 +944,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -862,7 +952,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -888,7 +978,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -896,7 +986,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -914,7 +1004,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -922,7 +1012,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -940,7 +1030,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -948,7 +1038,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -966,7 +1056,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -974,7 +1064,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -992,7 +1082,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1000,7 +1090,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1018,7 +1108,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1026,7 +1116,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1044,7 +1134,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1052,7 +1142,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1070,7 +1160,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1078,7 +1168,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1096,7 +1186,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1104,7 +1194,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1122,7 +1212,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1130,7 +1220,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1148,7 +1238,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1156,7 +1246,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1174,7 +1264,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1182,7 +1272,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1200,7 +1290,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1208,7 +1298,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1226,7 +1316,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1234,7 +1324,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1252,7 +1342,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1260,7 +1350,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1278,7 +1368,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1286,7 +1376,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1304,7 +1394,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1312,7 +1402,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1338,7 +1428,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1346,7 +1436,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1364,7 +1454,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1372,7 +1462,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1390,7 +1480,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1398,7 +1488,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1416,7 +1506,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1424,7 +1514,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1442,7 +1532,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1450,7 +1540,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1468,7 +1558,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1476,7 +1566,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1494,7 +1584,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1502,7 +1592,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1520,7 +1610,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1528,7 +1618,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1546,7 +1636,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1554,7 +1644,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1572,7 +1662,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1580,7 +1670,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1598,7 +1688,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1606,7 +1696,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1624,7 +1714,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1632,7 +1722,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1648,7 +1738,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1656,7 +1746,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1669,7 +1759,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "1959-12-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1677,7 +1767,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1690,7 +1780,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1698,7 +1788,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1714,7 +1804,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1722,7 +1812,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1735,7 +1825,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1743,7 +1833,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1756,7 +1846,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1764,7 +1854,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1777,7 +1867,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1785,11 +1875,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 67.28897509850574,
+    "lon": 14.401654085307186,
+    "crs": "EPSG:4326",
+    "matched_address": "Terminalveien 10",
+    "postal_code": "8006",
+    "city": "BODØ",
+    "municipality": "BODØ",
+    "municipality_number": "1804",
+    "cadastral": {
+     "gnr": 138,
+     "bnr": 4478
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=67.28897509850574&lon=14.401654085307186&markerLat=67.28897509850574&markerLon=14.401654085307186"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Terminalveien+10&postnummer=8006&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "mobile",
@@ -1798,7 +1923,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1806,7 +1931,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1819,7 +1944,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1827,7 +1952,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1846,7 +1971,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1854,7 +1979,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1870,7 +1995,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1878,7 +2003,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1891,7 +2016,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1899,7 +2024,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1912,7 +2037,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2022-02-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1920,7 +2045,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1933,7 +2058,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "1995-03-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1941,7 +2066,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1954,7 +2079,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "1989-04-28",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1962,7 +2087,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1982,7 +2107,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1990,7 +2115,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2006,7 +2131,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098/roller",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2020-10-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2014,7 +2139,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2029,7 +2154,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098/roller",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-06-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2037,7 +2162,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2057,7 +2182,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098/roller",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2025-06-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2065,7 +2190,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2080,7 +2205,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098/roller",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": "2014-12-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2088,7 +2213,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2104,7 +2229,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2112,7 +2237,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2129,7 +2254,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2137,7 +2262,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2150,7 +2275,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912326098&size=100",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2158,7 +2283,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2171,7 +2296,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912326098&size=100",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2179,7 +2304,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2201,7 +2326,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912326098&size=100",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2209,7 +2334,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2222,7 +2347,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/om-oss",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2230,7 +2355,110 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers.listings",
+   "value": [
+    {
+     "title": "Haneseth Bodø AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Bod%C3%B8+AS"
+    },
+    {
+     "title": "Har du lyst å jobbe med internkontroll?",
+     "url": "https://www.haneseth.no/ledige-stillinger/elektrikerogsvakstromsmontor"
+    },
+    {
+     "title": "Vi søker Elektriker på Fauske",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ypm7z-spntb"
+    },
+    {
+     "title": "Elektroingeniør - prosjektering",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ypm7z-gdjkj"
+    },
+    {
+     "title": "Haneseth Energi AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Energi+AS"
+    },
+    {
+     "title": "Energimontør ute etter gode vilkår og spennende utfordringer? Se her!",
+     "url": "https://www.haneseth.no/ledige-stillinger/energimontor"
+    },
+    {
+     "title": "Haneseth Elservice",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Elservice"
+    },
+    {
+     "title": "Vi søker etter automatiker og elektriker i Vesterålen",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-automatiker-og-elektriker-i-vesteraalen"
+    },
+    {
+     "title": "Haneseth Elektro Narvik AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Elektro+Narvik+AS"
+    },
+    {
+     "title": "Vi søker en elektriker som vil mer enn å bare trekke kabel",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-elektriker-haneseth-elektro-narvik"
+    },
+    {
+     "title": "Anleggsleder svakstrøm/ekom",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ksnlg"
+    },
+    {
+     "title": "Er du vår nye elektriker lærling?",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-teletekniker-r9ezz"
+    },
+    {
+     "title": "Er du vår nye kontroll- og kvalitetstekniker?",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-teletekniker"
+    },
+    {
+     "title": "Haneseth VVS Bodø",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+VVS+Bod%C3%B8"
+    },
+    {
+     "title": "Vi søker ventilasjonsmontør",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-anleggsleder-i-bodo-sm42c-mtfp9"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/ledige-stillinger",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "links on the careers page that look like individual vacancies; titles as printed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://www.haneseth.no/ledige-stillinger",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/ledige-stillinger",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2241,23 +2469,76 @@
    "value": [
     "ab@haneseth.no",
     "ajs@haneseth.no",
-    "bruker@domene.no",
-    "elisabeth.osterhus@haneseth.no",
-    "hans-kristian.lind@haneseth.no"
+    "anders.guneriussen@haneseth.no",
+    "arny.enoksen@haneseth.no",
+    "ase.tveiteras@haneseth.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:25:04Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "ab@haneseth.no",
+      "ajs@haneseth.no",
+      "bruker@domene.no",
+      "elisabeth.osterhus@haneseth.no",
+      "hans-kristian.lind@haneseth.no"
+     ],
+     "until": "2026-10-05T05:39:24Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Strøm til hytta?",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/haneseth-bodo/",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Gå til: Kampanje elbil-lader | Kampanje Sikkerhet | Kontakt oss | Se referanser | Trygg Serviceavtale | Tjenester | Om Haneseth Bodø Eksempel: kr 20 000: 0/24 mnd. Årsrente 0%. Etableringsgebyr kr 0. Adm.gebyr/mnd. kr 79. Effektiv rente 8,82%. Ord. delbet./mnd. kr 913. Kredittkostnad kr 1 896. Totalbeløp kr 21 896. Elektro Vi tilbyr med våre elektrikere og svakstrømsmontører, ulike elektrotjenester til privat- og bedriftsmarkedet. Vi tar oppdrag ved feil og mangler, oppussing og rehabilitering av bygg og nybygg. Vi tilbyr også ladeanlegg for elbil og utbytte av lysrørarmaturer til miljøvennlige LED armaturer. Les mer Vi tilbyr med våre elektrikere og svakstrømsmontører, ulike elektrotjeneste",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/haneseth-bodo/",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2270,7 +2551,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2278,7 +2559,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2291,7 +2572,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2299,7 +2580,45 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.news.headlines",
+   "value": [
+    {
+     "title": "Haneseth Elektro Narvik",
+     "url": "https://www.haneseth.no/aktuelt/category/Haneseth+Elektro+Narvik"
+    },
+    {
+     "title": "Emilie og Marit trosser strømmen",
+     "url": "https://www.haneseth.no/aktuelt/emilie-og-marit-trosser-strommen"
+    },
+    {
+     "title": "Brannforebyggende el-kontroll",
+     "url": "https://www.haneseth.no/aktuelt/brannforebyggende-el-kontroll"
+    },
+    {
+     "title": "Nå blir det slutt på lysrør",
+     "url": "https://www.haneseth.no/aktuelt/na-blir-det-slutt-pa-lysror"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/aktuelt",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "latest headlines linked from the news page (no dates given on the page)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2312,7 +2631,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2320,7 +2639,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2333,7 +2652,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2341,7 +2660,34 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.haneseth.no/haneseth-bodo/",
+    "about": "https://www.haneseth.no/om-oss",
+    "careers": "https://www.haneseth.no/ledige-stillinger",
+    "news": "https://www.haneseth.no/aktuelt",
+    "products": "https://www.haneseth.no/tjenester-"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/haneseth-bodo/",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2351,24 +2697,86 @@
    "key": "web.phones",
    "value": [
     "+4741230471",
+    "+4745879289",
     "+4746627376",
     "+4747408088",
-    "+4748017651",
-    "+4748084501"
+    "+4747701885"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:25:04Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "+4741230471",
+      "+4746627376",
+      "+4747408088",
+      "+4748017651",
+      "+4748084501"
+     ],
+     "until": "2026-10-05T05:39:24Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Elektro",
+    "Rørlegger",
+    "Ventilasjon",
+    "Sikkerhet",
+    "Automasjon",
+    "Vannkraft",
+    "Høyspent",
+    "Personell"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/tjenester-",
+     "retrieved_at": "2026-10-10T13:52:02Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://www.haneseth.no/tjenester-",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.haneseth.no/tjenester-",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "first_seen": "2026-10-10T13:52:02Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2381,7 +2789,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2389,7 +2797,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2405,7 +2813,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2413,7 +2821,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2426,7 +2834,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2434,7 +2842,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2447,7 +2855,7 @@
     {
      "source": "website",
      "url": "https://www.haneseth.no/haneseth-bodo/",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "name_on_page",
      "confidence": "medium",
@@ -2455,7 +2863,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2468,7 +2876,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
-     "retrieved_at": "2026-10-05T05:39:24Z",
+     "retrieved_at": "2026-10-10T13:52:02Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2476,7 +2884,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:25:04Z",
-   "last_seen": "2026-10-05T05:39:24Z",
+   "last_seen": "2026-10-10T13:52:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2489,7 +2897,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:24Z",
+   "retrieved_at": "2026-10-10T13:52:02Z",
    "facts": 26,
    "requests": 1,
    "checks": [
@@ -2507,7 +2915,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/912326098/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:24Z",
+   "retrieved_at": "2026-10-10T13:52:02Z",
    "facts": 4,
    "requests": 1,
    "checks": [
@@ -2525,7 +2933,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=912326098&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:24Z",
+   "retrieved_at": "2026-10-10T13:52:02Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2543,7 +2951,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/912326098",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:24Z",
+   "retrieved_at": "2026-10-10T13:52:02Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2571,7 +2979,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=912326098&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:24Z",
+   "retrieved_at": "2026-10-10T13:52:02Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2585,7 +2993,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22912326098%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:24Z",
+   "retrieved_at": "2026-10-10T13:52:02Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2595,13 +3003,63 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=HANESETH+BOD%C3%98&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:52:02Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Terminalveien+10&postnummer=8006&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:52:02Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Terminalveien 10' 8006 -> matched 'Terminalveien 10' 8006"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/912326098",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:52:02Z",
+   "facts": 2,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=912326098; looked up 912326098"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://bodo.haneseth.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:24Z",
-   "facts": 11,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:52:02Z",
+   "facts": 19,
+   "requests": 7,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2611,7 +3069,7 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 912326098 printed on https://www.haneseth.no/haneseth-bodo/"
+     "detail": "org number 912326098 not found on the pages checked"
     },
     {
      "check": "name_on_page",
@@ -2633,7 +3091,252 @@
    "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 67.28897509850574,
+    "lon": 14.401654085307186,
+    "crs": "EPSG:4326",
+    "matched_address": "Terminalveien 10",
+    "postal_code": "8006",
+    "city": "BODØ",
+    "municipality": "BODØ",
+    "municipality_number": "1804",
+    "cadastral": {
+     "gnr": 138,
+     "bnr": 4478
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=67.28897509850574&lon=14.401654085307186&markerLat=67.28897509850574&markerLon=14.401654085307186"
+   }
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2028-09-01",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912326098/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "bodo.haneseth.no"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Gå til: Kampanje elbil-lader | Kampanje Sikkerhet | Kontakt oss | Se referanser | Trygg Serviceavtale | Tjenester | Om Haneseth Bodø Eksempel: kr 20 000: 0/24 mnd. Årsrente 0%. Etableringsgebyr kr 0. Adm.gebyr/mnd. kr 79. Effektiv rente 8,82%. Ord. delbet./mnd. kr 913. Kredittkostnad kr 1 896. Totalbeløp kr 21 896. Elektro Vi tilbyr med våre elektrikere og svakstrømsmontører, ulike elektrotjenester til privat- og bedriftsmarkedet. Vi tar oppdrag ved feil og mangler, oppussing og rehabilitering av bygg og nybygg. Vi tilbyr også ladeanlegg for elbil og utbytte av lysrørarmaturer til miljøvennlige LED armaturer. Les mer Vi tilbyr med våre elektrikere og svakstrømsmontører, ulike elektrotjeneste"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Strøm til hytta?"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://www.haneseth.no/ledige-stillinger"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Haneseth Bodø AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Bod%C3%B8+AS"
+    },
+    {
+     "title": "Har du lyst å jobbe med internkontroll?",
+     "url": "https://www.haneseth.no/ledige-stillinger/elektrikerogsvakstromsmontor"
+    },
+    {
+     "title": "Vi søker Elektriker på Fauske",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ypm7z-spntb"
+    },
+    {
+     "title": "Elektroingeniør - prosjektering",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ypm7z-gdjkj"
+    },
+    {
+     "title": "Haneseth Energi AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Energi+AS"
+    },
+    {
+     "title": "Energimontør ute etter gode vilkår og spennende utfordringer? Se her!",
+     "url": "https://www.haneseth.no/ledige-stillinger/energimontor"
+    },
+    {
+     "title": "Haneseth Elservice",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Elservice"
+    },
+    {
+     "title": "Vi søker etter automatiker og elektriker i Vesterålen",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-automatiker-og-elektriker-i-vesteraalen"
+    },
+    {
+     "title": "Haneseth Elektro Narvik AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Elektro+Narvik+AS"
+    },
+    {
+     "title": "Vi søker en elektriker som vil mer enn å bare trekke kabel",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-elektriker-haneseth-elektro-narvik"
+    },
+    {
+     "title": "Anleggsleder svakstrøm/ekom",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ksnlg"
+    },
+    {
+     "title": "Er du vår nye elektriker lærling?",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-teletekniker-r9ezz"
+    },
+    {
+     "title": "Er du vår nye kontroll- og kvalitetstekniker?",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-teletekniker"
+    },
+    {
+     "title": "Haneseth VVS Bodø",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+VVS+Bod%C3%B8"
+    },
+    {
+     "title": "Vi søker ventilasjonsmontør",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-anleggsleder-i-bodo-sm42c-mtfp9"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "Haneseth Elektro Narvik",
+     "url": "https://www.haneseth.no/aktuelt/category/Haneseth+Elektro+Narvik"
+    },
+    {
+     "title": "Emilie og Marit trosser strømmen",
+     "url": "https://www.haneseth.no/aktuelt/emilie-og-marit-trosser-strommen"
+    },
+    {
+     "title": "Brannforebyggende el-kontroll",
+     "url": "https://www.haneseth.no/aktuelt/brannforebyggende-el-kontroll"
+    },
+    {
+     "title": "Nå blir det slutt på lysrør",
+     "url": "https://www.haneseth.no/aktuelt/na-blir-det-slutt-pa-lysror"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.haneseth.no/tjenester-"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Elektro",
+    "Rørlegger",
+    "Ventilasjon",
+    "Sikkerhet",
+    "Automasjon",
+    "Vannkraft",
+    "Høyspent",
+    "Personell"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "ab@haneseth.no",
+    "ajs@haneseth.no",
+    "bruker@domene.no",
+    "elisabeth.osterhus@haneseth.no",
+    "hans-kristian.lind@haneseth.no"
+   ],
+   "new": [
+    "ab@haneseth.no",
+    "ajs@haneseth.no",
+    "anders.guneriussen@haneseth.no",
+    "arny.enoksen@haneseth.no",
+    "ase.tveiteras@haneseth.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "+4741230471",
+    "+4746627376",
+    "+4747408088",
+    "+4748017651",
+    "+4748084501"
+   ],
+   "new": [
+    "+4741230471",
+    "+4745879289",
+    "+4746627376",
+    "+4747408088",
+    "+4747701885"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.haneseth.no/haneseth-bodo/",
+    "about": "https://www.haneseth.no/om-oss",
+    "careers": "https://www.haneseth.no/ledige-stillinger",
+    "news": "https://www.haneseth.no/aktuelt",
+    "products": "https://www.haneseth.no/tjenester-"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:25:04Z",
@@ -3581,17 +4284,311 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Konsernet Haneseth Gruppen er en slagkraftig aktør innen elektroinstallasjon, automasjon, VVS/rør, høyspent, ventilasjon, små-kraftverk, kommunikasjon og sikkerhet. Haneseth Gruppen dekker hele Nord-Norge, samt i Bergen, Trondheim og Oslo, og har passert 500 ansatte. Dette gjør gjør oss til en av Norges største tekniske entreprenør. Haneseth Gruppen har sentral godkjenning med ansvarsrett for prosjektering og utførelse i høyeste tiltaksklasse innenfor brann og nødlys. Haneseth Gruppen er også autorisert Ekom installatør og sertifisert fiberinstallatør. Vi har sentral godkjenning i tiltaksklasse 2 innen rør, sanitær, varme/kjøleanlegg og sprinkleranlegg. Gruppen har flere landsdekkende avtaler. Haneseth er godkjent som opplæringsbedrift innenfor fagene telekommunikasjon, rørlegger, automatiker, elektriker og energimontør, og har i dag flere lærlinger innenfor disse områdene. Merkenavnet Haneseth Gruppen ble etablert i 2005, men historien går helt tilbake til 1959. Merkenavnet Haneseth Gruppen ble etablert i 2005, men historien går helt tilbake til 1959 da K. Haneseth AS ble stiftet. Vi er et stort totalteknisk konsern i Norge. Hovedtyngden ligger i dag i Nord-Norge, men vi jobber ak"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 67.28897509850574,
+    "lon": 14.401654085307186,
+    "crs": "EPSG:4326",
+    "matched_address": "Terminalveien 10",
+    "postal_code": "8006",
+    "city": "BODØ",
+    "municipality": "BODØ",
+    "municipality_number": "1804",
+    "cadastral": {
+     "gnr": 138,
+     "bnr": 4478
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=67.28897509850574&lon=14.401654085307186&markerLat=67.28897509850574&markerLon=14.401654085307186"
+   }
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2028-09-01",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/912326098/approval_certificate",
+    "liability_insurance": false,
+    "industrial_injury_insurance": false,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "bodo.haneseth.no"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Gå til: Kampanje elbil-lader | Kampanje Sikkerhet | Kontakt oss | Se referanser | Trygg Serviceavtale | Tjenester | Om Haneseth Bodø Eksempel: kr 20 000: 0/24 mnd. Årsrente 0%. Etableringsgebyr kr 0. Adm.gebyr/mnd. kr 79. Effektiv rente 8,82%. Ord. delbet./mnd. kr 913. Kredittkostnad kr 1 896. Totalbeløp kr 21 896. Elektro Vi tilbyr med våre elektrikere og svakstrømsmontører, ulike elektrotjenester til privat- og bedriftsmarkedet. Vi tar oppdrag ved feil og mangler, oppussing og rehabilitering av bygg og nybygg. Vi tilbyr også ladeanlegg for elbil og utbytte av lysrørarmaturer til miljøvennlige LED armaturer. Les mer Vi tilbyr med våre elektrikere og svakstrømsmontører, ulike elektrotjeneste"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Strøm til hytta?"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://www.haneseth.no/ledige-stillinger"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.careers.listings",
+   "type": "added",
+   "new": [
+    {
+     "title": "Haneseth Bodø AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Bod%C3%B8+AS"
+    },
+    {
+     "title": "Har du lyst å jobbe med internkontroll?",
+     "url": "https://www.haneseth.no/ledige-stillinger/elektrikerogsvakstromsmontor"
+    },
+    {
+     "title": "Vi søker Elektriker på Fauske",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ypm7z-spntb"
+    },
+    {
+     "title": "Elektroingeniør - prosjektering",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ypm7z-gdjkj"
+    },
+    {
+     "title": "Haneseth Energi AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Energi+AS"
+    },
+    {
+     "title": "Energimontør ute etter gode vilkår og spennende utfordringer? Se her!",
+     "url": "https://www.haneseth.no/ledige-stillinger/energimontor"
+    },
+    {
+     "title": "Haneseth Elservice",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Elservice"
+    },
+    {
+     "title": "Vi søker etter automatiker og elektriker i Vesterålen",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-automatiker-og-elektriker-i-vesteraalen"
+    },
+    {
+     "title": "Haneseth Elektro Narvik AS",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+Elektro+Narvik+AS"
+    },
+    {
+     "title": "Vi søker en elektriker som vil mer enn å bare trekke kabel",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-elektriker-haneseth-elektro-narvik"
+    },
+    {
+     "title": "Anleggsleder svakstrøm/ekom",
+     "url": "https://www.haneseth.no/ledige-stillinger/prosjektleder-ksnlg"
+    },
+    {
+     "title": "Er du vår nye elektriker lærling?",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-teletekniker-r9ezz"
+    },
+    {
+     "title": "Er du vår nye kontroll- og kvalitetstekniker?",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-teletekniker"
+    },
+    {
+     "title": "Haneseth VVS Bodø",
+     "url": "https://www.haneseth.no/ledige-stillinger/category/Haneseth+VVS+Bod%C3%B8"
+    },
+    {
+     "title": "Vi søker ventilasjonsmontør",
+     "url": "https://www.haneseth.no/ledige-stillinger/vi-soker-anleggsleder-i-bodo-sm42c-mtfp9"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "Haneseth Elektro Narvik",
+     "url": "https://www.haneseth.no/aktuelt/category/Haneseth+Elektro+Narvik"
+    },
+    {
+     "title": "Emilie og Marit trosser strømmen",
+     "url": "https://www.haneseth.no/aktuelt/emilie-og-marit-trosser-strommen"
+    },
+    {
+     "title": "Brannforebyggende el-kontroll",
+     "url": "https://www.haneseth.no/aktuelt/brannforebyggende-el-kontroll"
+    },
+    {
+     "title": "Nå blir det slutt på lysrør",
+     "url": "https://www.haneseth.no/aktuelt/na-blir-det-slutt-pa-lysror"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://www.haneseth.no/tjenester-"
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Elektro",
+    "Rørlegger",
+    "Ventilasjon",
+    "Sikkerhet",
+    "Automasjon",
+    "Vannkraft",
+    "Høyspent",
+    "Personell"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "ab@haneseth.no",
+    "ajs@haneseth.no",
+    "bruker@domene.no",
+    "elisabeth.osterhus@haneseth.no",
+    "hans-kristian.lind@haneseth.no"
+   ],
+   "new": [
+    "ab@haneseth.no",
+    "ajs@haneseth.no",
+    "anders.guneriussen@haneseth.no",
+    "arny.enoksen@haneseth.no",
+    "ase.tveiteras@haneseth.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.phones",
+   "type": "changed",
+   "old": [
+    "+4741230471",
+    "+4746627376",
+    "+4747408088",
+    "+4748017651",
+    "+4748084501"
+   ],
+   "new": [
+    "+4741230471",
+    "+4745879289",
+    "+4746627376",
+    "+4747408088",
+    "+4747701885"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:52:02Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.haneseth.no/haneseth-bodo/",
+    "about": "https://www.haneseth.no/om-oss",
+    "careers": "https://www.haneseth.no/ledige-stillinger",
+    "news": "https://www.haneseth.no/aktuelt",
+    "products": "https://www.haneseth.no/tjenester-"
+   }
   }
  ],
  "stats": {
-  "active_facts": 96,
+  "active_facts": 107,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 9.93
+  "requests": 19,
+  "seconds": 13.4
  },
  "explanation": {
   "mode": "template",
-  "text": "HANESETH BODØ AS (org.nr 912 326 098) is registered as Aksjeselskap (AS), founded 1959-12-12, registered 1995-03-12. Business address: Terminalveien 10, 8006 BODØ. Main industry (NACE): 43.210 Elektrisk installasjonsarbeid. Registered employees: 105 (as of 2026-08-10). Latest filed annual accounts (2025, company statement): revenue NOK 201,422,621; operating result NOK 6,998,481; net result NOK 5,599,225; total assets NOK 62,854,913; equity NOK 13,925,804. Leadership: general manager (daglig leder) Kjell Gunnar Hansen; board chair Per Reinert Gårseth; 2 other board members. Sub-units registered: 1. Website: bodo.haneseth.no.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run.\nNot available: gleif, wikidata."
+  "text": "HANESETH BODØ AS (org.nr 912 326 098) is registered as Aksjeselskap (AS), founded 1959-12-12, registered 1995-03-12. [brreg_enheter] Main industry (NACE 43.210): Elektrisk installasjonsarbeid. [brreg_enheter] Registered purpose: \"Drive handel, produksjon og prosjektering innen elektrisk installasjon og elektrisk forretning, tele og automasjonsinstallasjoner, samt totaltekniske entrepriser, samt aksjetegning, eller på annen måte gjøre seg interessert i foretak innen, og utenfor bransjen.\" [brreg_enheter] The company's website describes it as: \"Konsernet Haneseth Gruppen er en slagkraftig aktør innen elektroinstallasjon, automasjon, VVS/rør, høyspent, ventilasjon, små-kraftverk, kommunikasjon og sikkerhet. Haneseth Gruppen dekker hele Nord-Norge, samt i Bergen, Trondheim og Oslo, og har passert 500 ansatte. Dette gjør gjør oss til en av No\" [website] Business address: Terminalveien 10, 8006 BODØ. [brreg_enheter] Products / services named on its website: Elektro; Rørlegger; Ventilasjon; Sikkerhet; Automasjon; Vannkraft; Høyspent; Personell. [website] Leadership: general manager (daglig leder) Kjell Gunnar Hansen; board chair Per Reinert Gårseth; 2 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 105 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 201,422,621 (+5% vs 2024); operating result NOK 6,998,481 (-22% vs 2024); net result NOK 5,599,225 (-21% vs 2024); total assets NOK 62,854,913 (+27% vs 2024); equity NOK 13,925,804 (+20% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 105,600. [brreg_enheter]\n- DiBK central approval: valid until 2028-09-01, 4 approval area(s). [dibk]\n\nChanges in this run (13):\n- location.business.geo: added ({'lat': 67.28897509850574, 'lon': 14.401654085307186, 'cr...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-09-01', 'certificate...)\n- approvals.dibk_declared_website: added (bodo.haneseth.no)\n- web.home_text: added (Gå til: Kampanje elbil-lader | Kampanje Sikkerhet | Konta...)\n- web.headline: added (Strøm til hytta?)\n- web.careers_url: added (https://www.haneseth.no/ledige-stillinger)\n- web.careers.listings: added ([{'title': 'Haneseth Bodø AS', 'url': 'https://www.hanese...)\n- web.news.headlines: added ([{'title': 'Haneseth Elektro Narvik', 'url': 'https://www...)\n- web.products_url: added (https://www.haneseth.no/tjenester-)\n- web.products: added (['Elektro', 'Rørlegger', 'Ventilasjon', 'Sikkerhet', 'Aut...)\n- web.emails: ['ab@haneseth.no', 'ajs@haneseth.no', 'bruker@domene.no',... -> ['ab@haneseth.no', 'ajs@haneseth.no', 'anders.guneriussen...\n- web.phones: ['+4741230471', '+4746627376', '+4747408088', '+474801765... -> ['+4741230471', '+4745879289', '+4746627376', '+474740808...\n- web.pages_checked: added ({'home': 'https://www.haneseth.no/haneseth-bodo/', 'about...)\n\nWhat remains unknown:\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "HANESETH BODØ AS (org.nr 912 326 098) is registered as Aksjeselskap (AS), founded 1959-12-12, registered 1995-03-12. [brreg_enheter]",
+    "Main industry (NACE 43.210): Elektrisk installasjonsarbeid. [brreg_enheter]",
+    "Registered purpose: \"Drive handel, produksjon og prosjektering innen elektrisk installasjon og elektrisk forretning, tele og automasjonsinstallasjoner, samt totaltekniske entrepriser, samt aksjetegning, eller på annen måte gjøre seg interessert i foretak innen, og utenfor bransjen.\" [brreg_enheter]",
+    "The company's website describes it as: \"Konsernet Haneseth Gruppen er en slagkraftig aktør innen elektroinstallasjon, automasjon, VVS/rør, høyspent, ventilasjon, små-kraftverk, kommunikasjon og sikkerhet. Haneseth Gruppen dekker hele Nord-Norge, samt i Bergen, Trondheim og Oslo, og har passert 500 ansatte. Dette gjør gjør oss til en av No\" [website]",
+    "Business address: Terminalveien 10, 8006 BODØ. [brreg_enheter]",
+    "Products / services named on its website: Elektro; Rørlegger; Ventilasjon; Sikkerhet; Automasjon; Vannkraft; Høyspent; Personell. [website]",
+    "Leadership: general manager (daglig leder) Kjell Gunnar Hansen; board chair Per Reinert Gårseth; 2 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 105 (as of 2026-08-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 201,422,621 (+5% vs 2024); operating result NOK 6,998,481 (-22% vs 2024); net result NOK 5,599,225 (-21% vs 2024); total assets NOK 62,854,913 (+27% vs 2024); equity NOK 13,925,804 (+20% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 105,600. [brreg_enheter]",
+    "DiBK central approval: valid until 2028-09-01, 4 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (13):",
+    "- location.business.geo: added ({'lat': 67.28897509850574, 'lon': 14.401654085307186, 'cr...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2028-09-01', 'certificate...)",
+    "- approvals.dibk_declared_website: added (bodo.haneseth.no)",
+    "- web.home_text: added (Gå til: Kampanje elbil-lader | Kampanje Sikkerhet | Konta...)",
+    "- web.headline: added (Strøm til hytta?)",
+    "- web.careers_url: added (https://www.haneseth.no/ledige-stillinger)",
+    "- web.careers.listings: added ([{'title': 'Haneseth Bodø AS', 'url': 'https://www.hanese...)",
+    "- web.news.headlines: added ([{'title': 'Haneseth Elektro Narvik', 'url': 'https://www...)",
+    "- web.products_url: added (https://www.haneseth.no/tjenester-)",
+    "- web.products: added (['Elektro', 'Rørlegger', 'Ventilasjon', 'Sikkerhet', 'Aut...)",
+    "- web.emails: ['ab@haneseth.no', 'ajs@haneseth.no', 'bruker@domene.no',... -> ['ab@haneseth.no', 'ajs@haneseth.no', 'anders.guneriussen...",
+    "- web.phones: ['+4741230471', '+4746627376', '+4747408088', '+474801765... -> ['+4741230471', '+4745879289', '+4746627376', '+474740808...",
+    "- web.pages_checked: added ({'home': 'https://www.haneseth.no/haneseth-bodo/', 'about...)"
+   ],
+   "unknown": [
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

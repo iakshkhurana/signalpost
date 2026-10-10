@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:21:25Z",
- "last_run": "2026-10-05T05:40:52Z",
- "run_count": 4,
+ "last_run": "2026-10-10T14:00:17Z",
+ "run_count": 6,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -63,6 +63,12 @@
     "detail": "Q127060440 has P2333 (Norwegian organisation number) = 954475492"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Malvikvegen 1333' 7550 -> matched 'Malvikvegen 1333' 7550"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -72,7 +78,7 @@
     "source": "website",
     "check": "orgnr_on_page",
     "passed": false,
-    "detail": "org number 954475492 printed on https://camphill.no/"
+    "detail": "org number 954475492 not found on the pages checked"
    },
    {
     "source": "website",
@@ -95,16 +101,17 @@
    {
     "check": "name_consistency.gleif_vs_brreg",
     "passed": true,
-    "detail": "GLEIF legal name 'CAMPHILL LANDSBYSTIFTELSE I NORGE' vs registry name 'CAMPHILL LANDSBYSTIFTELSE I NORGE'"
+    "detail": "GLEIF legal name None vs registry name 'CAMPHILL LANDSBYSTIFTELSE I NORGE'"
    },
    {
     "check": "name_consistency.wikidata_vs_brreg",
-    "passed": true,
-    "detail": "Wikidata label 'Camphill Landsbystiftelse I Norge' vs registry name 'CAMPHILL LANDSBYSTIFTELSE I NORGE'"
+    "passed": false,
+    "detail": "Wikidata label None vs registry name 'CAMPHILL LANDSBYSTIFTELSE I NORGE'"
    }
   ],
   "failed_checks": [
-   "orgnr_on_page"
+   "orgnr_on_page",
+   "name_consistency.wikidata_vs_brreg"
   ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
@@ -113,6 +120,8 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
    "wikidata: item carries P2333 = org number",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
   ]
  },
@@ -124,7 +133,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -132,7 +141,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -155,7 +164,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -163,7 +172,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -176,7 +185,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2010-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -184,7 +193,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -201,7 +210,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2007-05-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -209,7 +218,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -222,7 +231,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -230,7 +239,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -243,7 +252,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -251,7 +260,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -264,7 +273,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -272,7 +281,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -290,7 +299,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -298,7 +307,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -316,7 +325,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -324,7 +333,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -342,7 +351,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -350,7 +359,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -368,7 +377,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -376,7 +385,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -394,7 +403,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -402,7 +411,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -428,7 +437,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -436,7 +445,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -454,7 +463,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -462,7 +471,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -480,7 +489,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -488,7 +497,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -506,7 +515,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -514,7 +523,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -532,7 +541,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -540,7 +549,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -558,7 +567,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -566,7 +575,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -584,7 +593,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -592,7 +601,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -610,7 +619,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -618,7 +627,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -636,7 +645,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -644,7 +653,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -662,7 +671,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -670,7 +679,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -688,7 +697,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -696,7 +705,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -714,7 +723,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -722,7 +731,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -740,7 +749,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -748,7 +757,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -766,7 +775,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -774,7 +783,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -792,7 +801,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -800,7 +809,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -818,7 +827,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -826,7 +835,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -852,7 +861,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -860,7 +869,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -878,7 +887,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -886,7 +895,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -904,7 +913,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -912,7 +921,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -930,7 +939,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -938,7 +947,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -956,7 +965,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -964,7 +973,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -982,7 +991,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -990,7 +999,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1008,7 +1017,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1016,7 +1025,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1034,7 +1043,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1042,7 +1051,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1060,7 +1069,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1068,7 +1077,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1086,7 +1095,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1094,7 +1103,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1112,7 +1121,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1120,7 +1129,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1138,7 +1147,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1146,7 +1155,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1164,7 +1173,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1172,7 +1181,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1190,7 +1199,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1198,7 +1207,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1216,7 +1225,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1224,7 +1233,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1242,7 +1251,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1250,7 +1259,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1276,7 +1285,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1284,7 +1293,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1302,7 +1311,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1310,7 +1319,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1328,7 +1337,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1336,7 +1345,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1354,7 +1363,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1362,7 +1371,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1380,7 +1389,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1388,7 +1397,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1406,7 +1415,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1414,7 +1423,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1432,7 +1441,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1440,7 +1449,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1458,7 +1467,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1466,7 +1475,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1484,7 +1493,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1492,7 +1501,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1510,7 +1519,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1518,7 +1527,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1536,7 +1545,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1544,7 +1553,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1560,7 +1569,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1568,7 +1577,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1581,7 +1590,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "1966-05-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1589,7 +1598,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1602,7 +1611,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1610,7 +1619,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1626,7 +1635,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1634,7 +1643,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1650,7 +1659,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1658,7 +1667,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1674,7 +1683,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1682,7 +1691,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1695,7 +1704,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1703,7 +1712,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1716,7 +1725,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1724,7 +1733,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1737,15 +1746,15 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
-     "note": "GLEIF golden copy published 2026-10-04T16:00:00Z"
+     "note": "GLEIF golden copy published 2026-10-10T00:00:00Z"
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1758,7 +1767,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "1966-05-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1766,7 +1775,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1779,7 +1788,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1787,7 +1796,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1808,7 +1817,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1816,7 +1825,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1837,7 +1846,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1845,7 +1854,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1858,7 +1867,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1866,7 +1875,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1879,7 +1888,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1887,7 +1896,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1905,7 +1914,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1913,7 +1922,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1933,7 +1942,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/636700PKFF6E6UACD469",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-11-07T13:05:00Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1941,7 +1950,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1954,7 +1963,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1962,11 +1971,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 63.41113928251092,
+    "lon": 10.794168707699528,
+    "crs": "EPSG:4326",
+    "matched_address": "Malvikvegen 1333",
+    "postal_code": "7550",
+    "city": "HOMMELVIK",
+    "municipality": "MALVIK",
+    "municipality_number": "5031",
+    "cadastral": {
+     "gnr": 53,
+     "bnr": 3
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=63.41113928251092&lon=10.794168707699528&markerLat=63.41113928251092&markerLon=10.794168707699528"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Malvikvegen+1333&postnummer=7550&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:43:19Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:43:19Z",
+   "last_seen": "2026-10-10T13:43:19Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1975,7 +2019,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1983,7 +2027,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2002,7 +2046,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2010,11 +2054,139 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "news.item.3fb22ae91329",
+   "value": {
+    "title": "Nordisk Sosial Allkunst 2026",
+    "url": "https://camphill.no/nyhetsarkiv/nordisk-sosial-allkunst-2026",
+    "date": "2026-07-23",
+    "summary": "I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet."
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/nyhetsarkiv/nordisk-sosial-allkunst-2026",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-07-23",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.4773f66e0e7d",
+   "value": {
+    "title": "45 år med Fellesskap",
+    "url": "https://camphill.no/nyhetsarkiv/45-ar-med-fellesskap",
+    "date": "2026-07-11",
+    "summary": "I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige!"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/nyhetsarkiv/45-ar-med-fellesskap",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-07-11",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.6cdd43dd2d23",
+   "value": {
+    "title": "Sommeren på Camphill Rotvoll",
+    "url": "https://camphill.no/nyhetsarkiv/sommeren-pa-camphill-rotvoll",
+    "date": "2026-07-15",
+    "summary": "Fellesferie"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/nyhetsarkiv/sommeren-pa-camphill-rotvoll",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-07-15",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.dd9671604671",
+   "value": {
+    "title": "Tilbake til hverdagen",
+    "url": "https://camphill.no/nyhetsarkiv/tilbake-til-hverdagen",
+    "date": "2026-07-19"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/nyhetsarkiv/tilbake-til-hverdagen",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-07-19",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.e0fe92a48d18",
+   "value": {
+    "title": "Høsttakkefest",
+    "url": "https://camphill.no/nyhetsarkiv/hosttakkefest",
+    "date": "2026-07-07"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/nyhetsarkiv/hosttakkefest",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-07-07",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "org_form",
@@ -2026,7 +2198,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2034,7 +2206,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2047,7 +2219,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2055,7 +2227,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2068,7 +2240,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2010-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2076,7 +2248,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2089,7 +2261,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "1995-03-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2097,7 +2269,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2110,7 +2282,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "1990-02-21",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2118,7 +2290,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2138,7 +2310,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2146,7 +2318,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2162,7 +2334,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492/roller",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2025-10-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2170,7 +2342,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2186,7 +2358,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492/roller",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2005-01-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2194,7 +2366,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2209,7 +2381,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492/roller",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-01-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2217,7 +2389,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2237,7 +2409,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492/roller",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-01-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2245,7 +2417,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2277,7 +2449,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492/roller",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-01-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2285,7 +2457,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2300,7 +2472,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492/roller",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2017-05-16",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2308,7 +2480,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2324,7 +2496,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2332,7 +2504,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2349,7 +2521,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2357,7 +2529,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2370,7 +2542,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=954475492&size=100",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2378,7 +2550,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2391,7 +2563,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=954475492&size=100",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2399,7 +2571,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2524,7 +2696,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=954475492&size=100",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2532,7 +2704,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2540,20 +2712,48 @@
   },
   {
    "key": "web.about_text",
-   "value": "Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det ansetter generalsekretær i sekretariatet og møtes jevnlig.",
+   "value": "Om Camphill Vårt tilbud Våre verdier Historikk Finansiering Tidsskriftet Landsbyliv Ansatte i sekretariatet Nyhetsarkiv Ola – landsbyprisen Nyttige lenker Årsmeldinger Personvern på våre nettsider Filmer fra landsbyene med mer Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Representantskapet Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Hovedstyret Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det anse",
    "evidence": [
     {
      "source": "website",
      "url": "https://camphill.no/om-oss/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": null,
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-09",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "first paragraphs of the company's about page"
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [
+    {
+     "value": "Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det ansetter generalsekretær i sekretariatet og møtes jevnlig.",
+     "until": "2026-10-05T05:40:52Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://camphill.no/kontakt-oss/category29.html"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/kontakt-oss/category29.html",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2566,15 +2766,15 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2589,15 +2789,57 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:21:25Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Camphill - Fellesskap fremfor utenforskap",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Nordisk Sosial Allkunst 2026 I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet. I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet. 45 år med Fellesskap I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige! I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige!",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2610,15 +2852,15 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2631,15 +2873,15 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2652,15 +2894,41 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://camphill.no/",
+    "contact": "https://camphill.no/kontakt-oss/category29.html",
+    "about": "https://camphill.no/om-oss/",
+    "feed": "https://camphill.no/nyheter/category224.html"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://camphill.no/",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:00:17Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2673,15 +2941,15 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2696,15 +2964,15 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2717,15 +2985,15 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2738,15 +3006,15 @@
     {
      "source": "website",
      "url": "https://camphill.no/",
-     "retrieved_at": "2026-10-05T05:40:52Z",
-     "source_date": "Mon, 05 Oct 2026 03:21:35 GMT",
+     "retrieved_at": "2026-10-10T14:00:17Z",
+     "source_date": "2026-10-10",
      "match": "name_on_page",
      "confidence": "medium",
      "note": "resolved from the registry-declared website"
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T14:00:17Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2759,7 +3027,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2767,7 +3035,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2780,7 +3048,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2788,7 +3056,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2801,7 +3069,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2809,7 +3077,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2824,7 +3092,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2832,7 +3100,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2845,7 +3113,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2853,7 +3121,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2866,7 +3134,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2006-09-13",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2874,7 +3142,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2889,7 +3157,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2897,7 +3165,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2910,7 +3178,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2918,7 +3186,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2933,7 +3201,7 @@
     {
      "source": "wikidata",
      "url": "https://www.wikidata.org/wiki/Q127060440",
-     "retrieved_at": "2026-10-05T05:40:52Z",
+     "retrieved_at": "2026-10-10T13:43:19Z",
      "source_date": "2026-06-06",
      "match": "orgnr_exact",
      "confidence": "medium",
@@ -2941,7 +3209,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:21:25Z",
-   "last_seen": "2026-10-05T05:40:52Z",
+   "last_seen": "2026-10-10T13:43:19Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2954,9 +3222,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:40:52Z",
-   "facts": 26,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2965,16 +3233,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/954475492/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:40:52Z",
-   "facts": 6,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2983,16 +3253,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=954475492&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:40:52Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -3001,16 +3273,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/954475492",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:40:52Z",
-   "facts": 49,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -3029,16 +3303,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=954+475+492&page%5Bsize%5D=10",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:40:52Z",
-   "facts": 9,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "lei_registered_as",
@@ -3047,16 +3323,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "wikidata",
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22954475492%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:40:52Z",
-   "facts": 8,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "wikidata_p2333",
@@ -3065,16 +3343,53 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=CAMPHILL+LANDSBYSTIFTELSE+I+NORGE&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Malvikvegen+1333&postnummer=7550&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:43:19Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Malvikvegen 1333' 7550 -> matched 'Malvikvegen 1333' 7550"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "website",
    "url": "https://www.camphill.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:40:52Z",
-   "facts": 10,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T14:00:17Z",
+   "facts": 19,
+   "requests": 6,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -3084,7 +3399,7 @@
     {
      "check": "orgnr_on_page",
      "passed": false,
-     "detail": "org number 954475492 printed on https://camphill.no/"
+     "detail": "org number 954475492 not found on the pages checked"
     },
     {
      "check": "name_on_page",
@@ -3106,7 +3421,99 @@
    "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Nordisk Sosial Allkunst 2026 I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet. I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet. 45 år med Fellesskap I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige! I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige!"
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Camphill - Fellesskap fremfor utenforskap"
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det ansetter generalsekretær i sekretariatet og møtes jevnlig.",
+   "new": "Om Camphill Vårt tilbud Våre verdier Historikk Finansiering Tidsskriftet Landsbyliv Ansatte i sekretariatet Nyhetsarkiv Ola – landsbyprisen Nyttige lenker Årsmeldinger Personvern på våre nettsider Filmer fra landsbyene med mer Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Representantskapet Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Hovedstyret Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det anse"
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.3fb22ae91329",
+   "type": "added",
+   "new": {
+    "title": "Nordisk Sosial Allkunst 2026",
+    "url": "https://camphill.no/nyhetsarkiv/nordisk-sosial-allkunst-2026",
+    "date": "2026-07-23",
+    "summary": "I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet."
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.dd9671604671",
+   "type": "added",
+   "new": {
+    "title": "Tilbake til hverdagen",
+    "url": "https://camphill.no/nyhetsarkiv/tilbake-til-hverdagen",
+    "date": "2026-07-19"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.6cdd43dd2d23",
+   "type": "added",
+   "new": {
+    "title": "Sommeren på Camphill Rotvoll",
+    "url": "https://camphill.no/nyhetsarkiv/sommeren-pa-camphill-rotvoll",
+    "date": "2026-07-15",
+    "summary": "Fellesferie"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.4773f66e0e7d",
+   "type": "added",
+   "new": {
+    "title": "45 år med Fellesskap",
+    "url": "https://camphill.no/nyhetsarkiv/45-ar-med-fellesskap",
+    "date": "2026-07-11",
+    "summary": "I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige!"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.e0fe92a48d18",
+   "type": "added",
+   "new": {
+    "title": "Høsttakkefest",
+    "url": "https://camphill.no/nyhetsarkiv/hosttakkefest",
+    "date": "2026-07-07"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://camphill.no/kontakt-oss/category29.html"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://camphill.no/",
+    "contact": "https://camphill.no/kontakt-oss/category29.html",
+    "about": "https://camphill.no/om-oss/",
+    "feed": "https://camphill.no/nyheter/category224.html"
+   }
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:21:25Z",
@@ -4272,17 +4679,175 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det ansetter generalsekretær i sekretariatet og møtes jevnlig."
+  },
+  {
+   "at": "2026-10-10T13:43:19Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 63.41113928251092,
+    "lon": 10.794168707699528,
+    "crs": "EPSG:4326",
+    "matched_address": "Malvikvegen 1333",
+    "postal_code": "7550",
+    "city": "HOMMELVIK",
+    "municipality": "MALVIK",
+    "municipality_number": "5031",
+    "cadastral": {
+     "gnr": 53,
+     "bnr": 3
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=63.41113928251092&lon=10.794168707699528&markerLat=63.41113928251092&markerLon=10.794168707699528"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Nordisk Sosial Allkunst 2026 I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet. I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet. 45 år med Fellesskap I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige! I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige!"
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Camphill - Fellesskap fremfor utenforskap"
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det ansetter generalsekretær i sekretariatet og møtes jevnlig.",
+   "new": "Om Camphill Vårt tilbud Våre verdier Historikk Finansiering Tidsskriftet Landsbyliv Ansatte i sekretariatet Nyhetsarkiv Ola – landsbyprisen Nyttige lenker Årsmeldinger Personvern på våre nettsider Filmer fra landsbyene med mer Ved å trykke på menyen til høyre kan du lese litt om vårt tilbud, både for beboere men også litt om hvordan du kan bli medarbeider i en av våre landsbyer. I tillegg finner du en oversikt over vårt styre og ansatte i sekretariatet (vår benevnelse for hovedkontor). Ikke minst finner du litt kortfattet informasjon om historien bak Camphill-bevegelsen og opprinnelsen til landsbyene i Norge. Representantskapet Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Dette er åndslivsorganet til Camphill Landsbystiftelse i Norge. Det velger/forkaster hovedstyret, møtes to ganger i året og har rådgivende funksjon overfor de andre av stiftelsens organer. Hovedstyret Dette er stiftelsens øverste rettslige og juridiske organ. Det kan delegere administrativt ansvar til sekretariatet, lokalstyrene og de daglige lederne i landsbyene. Det anse"
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.3fb22ae91329",
+   "type": "added",
+   "new": {
+    "title": "Nordisk Sosial Allkunst 2026",
+    "url": "https://camphill.no/nyhetsarkiv/nordisk-sosial-allkunst-2026",
+    "date": "2026-07-23",
+    "summary": "I juni reiste en gruppe fra Jøssåsen til Sandefjord for å delta på Nordisk Sosial Allkunst, en konferanse om menneskeverd, likestilling og rettferdighet."
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.dd9671604671",
+   "type": "added",
+   "new": {
+    "title": "Tilbake til hverdagen",
+    "url": "https://camphill.no/nyhetsarkiv/tilbake-til-hverdagen",
+    "date": "2026-07-19"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.6cdd43dd2d23",
+   "type": "added",
+   "new": {
+    "title": "Sommeren på Camphill Rotvoll",
+    "url": "https://camphill.no/nyhetsarkiv/sommeren-pa-camphill-rotvoll",
+    "date": "2026-07-15",
+    "summary": "Fellesferie"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.4773f66e0e7d",
+   "type": "added",
+   "new": {
+    "title": "45 år med Fellesskap",
+    "url": "https://camphill.no/nyhetsarkiv/45-ar-med-fellesskap",
+    "date": "2026-07-11",
+    "summary": "I år fyller Vallersund Gård 45 år, og vi feirer alt som har gjort disse årene minneverdige!"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "news.item.e0fe92a48d18",
+   "type": "added",
+   "new": {
+    "title": "Høsttakkefest",
+    "url": "https://camphill.no/nyhetsarkiv/hosttakkefest",
+    "date": "2026-07-07"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://camphill.no/kontakt-oss/category29.html"
+   }
+  },
+  {
+   "at": "2026-10-10T14:00:17Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://camphill.no/",
+    "contact": "https://camphill.no/kontakt-oss/category29.html",
+    "about": "https://camphill.no/om-oss/",
+    "feed": "https://camphill.no/nyheter/category224.html"
+   }
   }
  ],
  "stats": {
-  "active_facts": 111,
+  "active_facts": 121,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 10,
-  "seconds": 14.5
+  "requests": 6,
+  "seconds": 34.57
  },
  "explanation": {
   "mode": "template",
-  "text": "CAMPHILL LANDSBYSTIFTELSE I NORGE (org.nr 954 475 492) is registered as Stiftelse (STI), founded 1966-05-01, registered 1995-03-12. Business address: Malvikvegen 1333, 7550 HOMMELVIK. Main industry (NACE): 88.996 Andre sosialtjenester uten botilbud ellers. Registered employees: 214 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 188,633,889; operating result NOK 8,531,313; net result NOK 7,732,661; total assets NOK 296,617,940; equity NOK 159,138,295. Leadership: general manager (daglig leder) Hanna Schmeding; board chair Tom Oscar Collett; 6 other board members. Sub-units registered: 14. Website: www.camphill.no. The website describes the company as: \"Camphill Norge\" LEI: 636700PKFF6E6UACD469 (ACTIVE).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: item carries P2333 = org number\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run."
+  "text": "CAMPHILL LANDSBYSTIFTELSE I NORGE (org.nr 954 475 492) is registered as Stiftelse (STI), founded 1966-05-01, registered 1995-03-12. [brreg_enheter] Main industry (NACE 88.996): Andre sosialtjenester uten botilbud ellers; also Omsorgstjenester i botilbud for personer med utviklingshemming eller med tilsvarende funksjonsnedsettelse; Arbeidstrening og varig tilrettelagt arbeid. [brreg_enheter] Registered purpose: \"Å opprette virksomheter som yter sosialtjenester samt å drive botilbud og tilrettelagt dagaktiviteter i samsvar med gjeldende lovgivning for mennesker som trenger omsorg, eller som har spesielle behov. Virksomheten kan også tilby helsetjenester.  I denne forbindelse vil Landsbystiftelsen arbeide for\" [brreg_enheter] The company's website describes it as: \"Camphill Norge\" [website] Wikidata describes it as: foundation in Norway. [wikidata] Business address: Malvikvegen 1333, 7550 HOMMELVIK. [brreg_enheter] Leadership: general manager (daglig leder) Hanna Schmeding; board chair Tom Oscar Collett; 6 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 214 (as of 2026-09-10); 14 registered sub-units. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 188,633,889 (+3% vs 2024); operating result NOK 8,531,313 (-5% vs 2024); net result NOK 7,732,661 (-10% vs 2024); total assets NOK 296,617,940 (+12% vs 2024); equity NOK 159,138,295 (+5% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 200,000. [brreg_enheter]\n- 5 news items from the company's own site, latest 2026-07-23. [website]\n- LEI: 636700PKFF6E6UACD469 (ACTIVE). [gleif]\n\nChanges in this run (10):\n- web.home_text: added (Nordisk Sosial Allkunst 2026 I juni reiste en gruppe fra ...)\n- web.headline: added (Camphill - Fellesskap fremfor utenforskap)\n- web.about_text: Ved å trykke på menyen til høyre kan du lese litt om vårt... -> Om Camphill Vårt tilbud Våre verdier Historikk Finansieri...\n- news.item.3fb22ae91329: added ({'title': 'Nordisk Sosial Allkunst 2026', 'url': 'https:/...)\n- news.item.dd9671604671: added ({'title': 'Tilbake til hverdagen', 'url': 'https://camphi...)\n- news.item.6cdd43dd2d23: added ({'title': 'Sommeren på Camphill Rotvoll', 'url': 'https:/...)\n- news.item.4773f66e0e7d: added ({'title': '45 år med Fellesskap', 'url': 'https://camphil...)\n- news.item.e0fe92a48d18: added ({'title': 'Høsttakkefest', 'url': 'https://camphill.no/ny...)\n- web.contact_page: added ({'url': 'https://camphill.no/kontakt-oss/category29.html'})\n- web.pages_checked: added ({'home': 'https://camphill.no/', 'contact': 'https://camp...)\n\nWhat remains unknown:\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: item carries P2333 = org number\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "CAMPHILL LANDSBYSTIFTELSE I NORGE (org.nr 954 475 492) is registered as Stiftelse (STI), founded 1966-05-01, registered 1995-03-12. [brreg_enheter]",
+    "Main industry (NACE 88.996): Andre sosialtjenester uten botilbud ellers; also Omsorgstjenester i botilbud for personer med utviklingshemming eller med tilsvarende funksjonsnedsettelse; Arbeidstrening og varig tilrettelagt arbeid. [brreg_enheter]",
+    "Registered purpose: \"Å opprette virksomheter som yter sosialtjenester samt å drive botilbud og tilrettelagt dagaktiviteter i samsvar med gjeldende lovgivning for mennesker som trenger omsorg, eller som har spesielle behov. Virksomheten kan også tilby helsetjenester.  I denne forbindelse vil Landsbystiftelsen arbeide for\" [brreg_enheter]",
+    "The company's website describes it as: \"Camphill Norge\" [website]",
+    "Wikidata describes it as: foundation in Norway. [wikidata]",
+    "Business address: Malvikvegen 1333, 7550 HOMMELVIK. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Hanna Schmeding; board chair Tom Oscar Collett; 6 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 214 (as of 2026-09-10); 14 registered sub-units. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 188,633,889 (+3% vs 2024); operating result NOK 8,531,313 (-5% vs 2024); net result NOK 7,732,661 (-10% vs 2024); total assets NOK 296,617,940 (+12% vs 2024); equity NOK 159,138,295 (+5% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 200,000. [brreg_enheter]",
+    "5 news items from the company's own site, latest 2026-07-23. [website]",
+    "LEI: 636700PKFF6E6UACD469 (ACTIVE). [gleif]"
+   ],
+   "changes": [
+    "Changes in this run (10):",
+    "- web.home_text: added (Nordisk Sosial Allkunst 2026 I juni reiste en gruppe fra ...)",
+    "- web.headline: added (Camphill - Fellesskap fremfor utenforskap)",
+    "- web.about_text: Ved å trykke på menyen til høyre kan du lese litt om vårt... -> Om Camphill Vårt tilbud Våre verdier Historikk Finansieri...",
+    "- news.item.3fb22ae91329: added ({'title': 'Nordisk Sosial Allkunst 2026', 'url': 'https:/...)",
+    "- news.item.dd9671604671: added ({'title': 'Tilbake til hverdagen', 'url': 'https://camphi...)",
+    "- news.item.6cdd43dd2d23: added ({'title': 'Sommeren på Camphill Rotvoll', 'url': 'https:/...)",
+    "- news.item.4773f66e0e7d: added ({'title': '45 år med Fellesskap', 'url': 'https://camphil...)",
+    "- news.item.e0fe92a48d18: added ({'title': 'Høsttakkefest', 'url': 'https://camphill.no/ny...)",
+    "- web.contact_page: added ({'url': 'https://camphill.no/kontakt-oss/category29.html'})",
+    "- web.pages_checked: added ({'home': 'https://camphill.no/', 'contact': 'https://camp...)"
+   ],
+   "unknown": [
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
+    "wikidata: item carries P2333 = org number",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

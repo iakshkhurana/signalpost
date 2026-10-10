@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:11:11Z",
- "last_run": "2026-10-05T05:11:11Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:21:45Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,47 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026420468 virksomhet.organisasjonsnummer=921352018 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Vatnefjordvegen 18' 6265 -> matched 'Vatnefjordvegen 18' 6265"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://nvservice.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 921352018 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'NV SERVICE AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "nvservice.no -> nvservice.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +97,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +110,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +118,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +141,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +149,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -133,7 +173,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -141,7 +181,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -154,7 +194,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2026-08-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -162,7 +202,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -180,7 +220,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-02-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -188,7 +228,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -201,7 +241,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -209,7 +249,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -222,7 +262,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -230,7 +270,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -248,7 +288,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -256,7 +296,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -274,7 +314,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -282,7 +322,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -300,7 +340,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -308,7 +348,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -326,7 +366,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -334,7 +374,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -352,7 +392,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -360,7 +400,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -386,7 +426,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -394,7 +434,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -412,7 +452,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -420,7 +460,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -438,7 +478,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -446,7 +486,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -464,7 +504,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -472,7 +512,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -490,7 +530,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -498,7 +538,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -516,7 +556,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -524,7 +564,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -542,7 +582,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -550,7 +590,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -568,7 +608,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -576,7 +616,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -594,7 +634,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -602,7 +642,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -620,7 +660,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -628,7 +668,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -646,7 +686,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -654,7 +694,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -672,7 +712,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -680,7 +720,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -698,7 +738,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -706,7 +746,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -724,7 +764,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -732,7 +772,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -750,7 +790,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -758,7 +798,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -776,7 +816,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -784,7 +824,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -802,7 +842,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -810,7 +850,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -836,7 +876,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -844,7 +884,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -862,7 +902,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -870,7 +910,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -888,7 +928,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -896,7 +936,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -914,7 +954,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -922,7 +962,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -940,7 +980,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -948,7 +988,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -966,7 +1006,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -974,7 +1014,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -992,7 +1032,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1000,7 +1040,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1018,7 +1058,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1026,7 +1066,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1044,7 +1084,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1052,7 +1092,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1070,7 +1110,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1078,7 +1118,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1096,7 +1136,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1104,7 +1144,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1122,7 +1162,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1130,7 +1170,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1148,7 +1188,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1156,7 +1196,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1174,7 +1214,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1182,7 +1222,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1200,7 +1240,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1208,7 +1248,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1226,7 +1266,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1234,7 +1274,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1260,7 +1300,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1268,7 +1308,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1286,7 +1326,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1294,7 +1334,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1312,7 +1352,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1320,7 +1360,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1338,7 +1378,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1346,7 +1386,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1364,7 +1404,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1372,7 +1412,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1390,7 +1430,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1398,7 +1438,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1416,7 +1456,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1424,7 +1464,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1442,7 +1482,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1450,7 +1490,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1468,7 +1508,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1476,7 +1516,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1494,7 +1534,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1502,7 +1542,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1520,7 +1560,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1528,7 +1568,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1546,7 +1586,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1554,7 +1594,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1570,7 +1610,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1578,7 +1618,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1591,7 +1631,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2018-08-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1599,7 +1639,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1612,7 +1652,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1620,7 +1660,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1636,7 +1676,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1644,7 +1684,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1660,7 +1700,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1668,7 +1708,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1684,7 +1724,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1692,7 +1732,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1705,7 +1745,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1713,7 +1753,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1726,7 +1766,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1734,7 +1774,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1747,7 +1787,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1755,11 +1795,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 62.55976403655983,
+    "lon": 6.6171318898010885,
+    "crs": "EPSG:4326",
+    "matched_address": "Vatnefjordvegen 18",
+    "postal_code": "6265",
+    "city": "VATNE",
+    "municipality": "HARAM",
+    "municipality_number": "1580",
+    "cadastral": {
+     "gnr": 402,
+     "bnr": 362
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.55976403655983&lon=6.6171318898010885&markerLat=62.55976403655983&markerLon=6.6171318898010885"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Vatnefjordvegen+18&postnummer=6265&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1768,7 +1843,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1776,7 +1851,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1795,7 +1870,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1803,11 +1878,270 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "news.item.27417440f036",
+   "value": {
+    "title": "We’re hiring again: ” W A N T E D “",
+    "url": "https://www.nvservice.no/were-hiring-again-w-a-n-t-e-d/",
+    "date": "2021-01-20",
+    "summary": "NV Service South AS is looking for professional structural fitters for our clients in West-Norway! Scope of works: rebuilding and new building of ship hulls. We require e.g. valid hot works certificates, workshop drawing reading skills, using of acetylene torches, grinding machines, etc. Please cont"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/were-hiring-again-w-a-n-t-e-d/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2021-01-20",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.2e14767bb058",
+   "value": {
+    "title": "We’re hiring (again)!",
+    "url": "https://www.nvservice.no/were-hiring-again/",
+    "date": "2020-12-08",
+    "summary": "NV Service South AS is looking for professional structural fitters for our clients in West-Norway! Period of works: minimum 20.12.2020 – 15.01.2021 (with possible extension). Scope of works: rebuilding and new building of ship hulls. We require e.g. valid hot works certificates, workshop drawing rea"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/were-hiring-again/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2020-12-08",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.555f5a48d047",
+   "value": {
+    "title": "HR Specialist",
+    "url": "https://www.nvservice.no/hr-specialist/",
+    "date": "2021-02-05",
+    "summary": "We are looking for “HR SPECIALIST” to our office in Szczecin, Poland. Please submit your CV in English to us with your references: mpr@nvservice.no. The job announcement with all details can be downloaded here below:"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/hr-specialist/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2021-02-05",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.94d68317bd71",
+   "value": {
+    "title": "Recommend NV-campaign",
+    "url": "https://www.nvservice.no/recommend-nv-campaign/",
+    "date": "2021-08-13",
+    "summary": "W związku z dużym zapotrzebowaniem na pracowników, nasza firma ponownie rozpoczyna akcję „Poleć NV”. Jeśli znasz kolegów, którzy aktualnie mieszkają w Polsce lub Norwegii, którzy właśnie kończą umowę lub ich umowa już wygasła i są w trakcie poszukiwania pracy – bardzo chętnie zatrudnimy taką osobę z"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/recommend-nv-campaign/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2021-08-13",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.a3599cea9547",
+   "value": {
+    "title": "We’re hiring again!",
+    "url": "https://www.nvservice.no/were-hiring-again-2/",
+    "date": "2023-08-10",
+    "summary": "NV-Group (NV Service North AS and NV Service South AS) is hiring again! We need many new employees to our “winning team” at our projects – the various Norwegian shipyards! Welders (black steel / alu), fitters, pipers! Please take contact with our HR-Department: KAMILA SZYMANSKADepartment PolandHR-de"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/were-hiring-again-2/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2023-08-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.b988e2e0f0cf",
+   "value": {
+    "title": "Poszukiwany pracownik",
+    "url": "https://www.nvservice.no/poszukiwany-pracownik/",
+    "date": "2021-01-28",
+    "summary": "NV – Service Group (NV Service South & NV Service North) norweska firma działająca w sektorze stoczniowym poszukuje do pracy w okolicy Bergen I Alesund pracowników aktualnie przebywających w Norwegii na stanowiska: Monter Kadłubów Okrętowych Spawacz stoczniowy 135/136 Oferujemy: Atrakcyjne wynagrodz"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/poszukiwany-pracownik/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2021-01-28",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.d8e09b071fd5",
+   "value": {
+    "title": "News from projects- week 23/2021",
+    "url": "https://www.nvservice.no/news-from-projects-week-23-2021/",
+    "date": "2021-06-11",
+    "summary": "NV Service South AS continues fruitful, long-term co-operation with our client FMV AS. Our team supervised by Robert and Irek, work at the yard on various projects. One of those is the construction of hull and outfitting works on Project No FMV 53 “Volt Harvest”. The “Volt Harvest” is a fish process"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/news-from-projects-week-23-2021/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2021-06-11",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.e81eab829733",
+   "value": {
+    "title": "WANTED",
+    "url": "https://www.nvservice.no/wanted/",
+    "date": "2021-06-18",
+    "summary": "NV Service South AS firma działająca w sektorze stoczniowym na terenie Norwegii, PILNIE poszukuje SPAWACZY ALUMINIUM na projekt w okolicy Bergen . Szczegółowe informacje można uzyskać pod nr tel. +48 790 264 184, +48 533 030 656 lub mailowo mpr@nvservice.no , ksz@nvservice.no"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/wanted/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2021-06-18",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.f064e91fd01e",
+   "value": {
+    "title": "Happy Holidays!",
+    "url": "https://www.nvservice.no/happy-holidays/",
+    "date": "2020-12-20"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/happy-holidays/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2020-12-20",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "news.item.ffca06459b5d",
+   "value": {
+    "title": "News from new project: Dåfjorden Slipp",
+    "url": "https://www.nvservice.no/news-from-new-project-dafjorden-slipp/",
+    "date": "2021-10-08",
+    "summary": "NV Service South AS is proud to announce that at the end of August we started work on a new project at Dåfjorden Slipp. Our team is involved in the construction of prototype tugboats that also works as icebreakers. The shipyard patented design solutions that allow tugs to crush thicker ice with the "
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/news-from-new-project-dafjorden-slipp/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": "2021-10-08",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "from the site's RSS/Atom feed"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "org_form",
@@ -1819,7 +2153,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1827,7 +2161,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1840,7 +2174,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2026-08-26",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1848,7 +2182,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1861,7 +2195,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2018-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1869,7 +2203,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1882,7 +2216,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2018-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1890,7 +2224,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1910,7 +2244,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1918,7 +2252,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1934,7 +2268,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018/roller",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2025-06-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1942,7 +2276,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1958,7 +2292,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018/roller",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2018-09-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1966,7 +2300,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1981,7 +2315,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018/roller",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2018-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1989,7 +2323,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2006,7 +2340,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018/roller",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2018-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2014,7 +2348,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2029,7 +2363,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018/roller",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": "2018-09-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2037,7 +2371,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2053,7 +2387,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2061,7 +2395,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2078,7 +2412,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2086,7 +2420,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2099,7 +2433,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=921352018&size=100",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2107,7 +2441,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2120,7 +2454,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=921352018&size=100",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2128,7 +2462,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2270,7 +2604,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=921352018&size=100",
-     "retrieved_at": "2026-10-05T05:11:11Z",
+     "retrieved_at": "2026-10-10T13:21:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2278,11 +2612,257 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:11Z",
-   "last_seen": "2026-10-05T05:11:11Z",
+   "last_seen": "2026-10-10T13:21:45Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they have been operating e.g. in following countries: Norway, Poland, Finland, France, Romania and Russia together with more than several hundred co-workers. The most of company´s management members, project managers, supervisors and blue collar employees have been working in the branch with long track records in Norwegian and European shipbuilding and offshore related industry. The company have developed a huge database of experience candidates: almost 4.000 persons. Our HR-specialist have recruited over 700 workers and 50 engineers in past 15 years only for Norwegian market and about the same number of professionals to other European countries. Recruitment consultants are highly qualified, experienced and trained in complete recruitment cycle. More than 8 years experience in recruitment processes for shipbuilding and offshore industry in Norway, Finland, France, Romania, Russia and Poland.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/about/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.nvservice.no/contact/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/contact/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "jmo@nvservice.no",
+    "mro@nvservice.no",
+    "mza@nvservice.no",
+    "tja@nvservice.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Every day",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they have been operating e.g. in following countries: Norway, Poland, Finland, France, Romania and Russia together with more than several hundred co-workers. 🍁❄️ Bezpieczeństwo na drodze nie kończy się po odbiciu karty pracy! 🚗🦺 Drodzy Pracownicy, każdego dnia wielu z Was wsiada za kółko samochodów służbowych, reprezentując Miło nam poinformować, że od dzisiaj zmienia się nazwa naszej firmy z NV Servi",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "en-US",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.nvservice.no/",
+    "contact": "https://www.nvservice.no/contact/",
+    "about": "https://www.nvservice.no/about/",
+    "feed": "https://www.nvservice.no/feed/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "https://facebook.com/423262211070521",
+    "instagram": "https://www.instagram.com/nvserviceas"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "NV Service",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://www.nvservice.no/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.nvservice.no/",
+     "retrieved_at": "2026-10-10T13:21:45Z",
+     "source_date": null,
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:45Z",
+   "last_seen": "2026-10-10T13:21:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2291,7 +2871,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:11Z",
+   "retrieved_at": "2026-10-10T13:21:45Z",
    "facts": 24,
    "requests": 1,
    "checks": [
@@ -2309,7 +2889,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/921352018/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:11Z",
+   "retrieved_at": "2026-10-10T13:21:45Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -2327,7 +2907,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=921352018&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:11Z",
+   "retrieved_at": "2026-10-10T13:21:45Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2345,7 +2925,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/921352018",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:11Z",
+   "retrieved_at": "2026-10-10T13:21:45Z",
    "facts": 51,
    "requests": 1,
    "checks": [
@@ -2373,7 +2953,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=921352018&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:11Z",
+   "retrieved_at": "2026-10-10T13:21:45Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2387,7 +2967,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22921352018%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:11Z",
+   "retrieved_at": "2026-10-10T13:21:45Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2397,996 +2977,286 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:11:11Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=NV+SERVICE&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:21:45Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Vatnefjordvegen+18&postnummer=6265&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:21:45Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Vatnefjordvegen 18' 6265 -> matched 'Vatnefjordvegen 18' 6265"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://nvservice.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:21:45Z",
+   "facts": 21,
+   "requests": 6,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://nvservice.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 921352018 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'NV SERVICE AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "nvservice.no -> nvservice.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "name",
-   "type": "added",
-   "new": "NV SERVICE AS"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "NV SERVICE NORTH AS",
-     "from": "2018-09-06 10:12:28",
-     "to": "2026-09-21 17:37:06"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2018-08-23"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2018-09-06"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2018-09-06"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Vatnefjordvegen 18"
-    ],
+    "lat": 62.55976403655983,
+    "lon": 6.6171318898010885,
+    "crs": "EPSG:4326",
+    "matched_address": "Vatnefjordvegen 18",
     "postal_code": "6265",
     "city": "VATNE",
     "municipality": "HARAM",
     "municipality_number": "1580",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 402,
+     "bnr": 362
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.55976403655983&lon=6.6171318898010885&markerLat=62.55976403655983&markerLon=6.6171318898010885"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "address.postal",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.nvservice.no/"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "NV Service"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "en-US"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they have been operating e.g. in following countries: Norway, Poland, Finland, France, Romania and Russia together with more than several hundred co-workers. 🍁❄️ Bezpieczeństwo na drodze nie kończy się po odbiciu karty pracy! 🚗🦺 Drodzy Pracownicy, każdego dnia wielu z Was wsiada za kółko samochodów służbowych, reprezentując Miło nam poinformować, że od dzisiaj zmienia się nazwa naszej firmy z NV Servi"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Every day"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they have been operating e.g. in following countries: Norway, Poland, Finland, France, Romania and Russia together with more than several hundred co-workers. The most of company´s management members, project managers, supervisors and blue collar employees have been working in the branch with long track records in Norwegian and European shipbuilding and offshore related industry. The company have developed a huge database of experience candidates: almost 4.000 persons. Our HR-specialist have recruited over 700 workers and 50 engineers in past 15 years only for Norwegian market and about the same number of professionals to other European countries. Recruitment consultants are highly qualified, experienced and trained in complete recruitment cycle. More than 8 years experience in recruitment processes for shipbuilding and offshore industry in Norway, Finland, France, Romania, Russia and Poland."
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.a3599cea9547",
    "type": "added",
    "new": {
-    "street": [
-     "c/o Kontorfelleskap",
-     "Strandgata 165"
-    ],
-    "postal_code": "5525",
-    "city": "HAUGESUND",
-    "municipality": "HAUGESUND",
-    "municipality_number": "1106",
-    "country": "Norge",
-    "country_code": "NO"
+    "title": "We’re hiring again!",
+    "url": "https://www.nvservice.no/were-hiring-again-2/",
+    "date": "2023-08-10",
+    "summary": "NV-Group (NV Service North AS and NV Service South AS) is hiring again! We need many new employees to our “winning team” at our projects – the various Norwegian shipyards! Welders (black steel / alu), fitters, pipers! Please take contact with our HR-Department: KAMILA SZYMANSKADepartment PolandHR-de"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.ffca06459b5d",
    "type": "added",
    "new": {
-    "code": "30.110",
-    "description": "Bygging av sivile skip og flytende materiell"
+    "title": "News from new project: Dåfjorden Slipp",
+    "url": "https://www.nvservice.no/news-from-new-project-dafjorden-slipp/",
+    "date": "2021-10-08",
+    "summary": "NV Service South AS is proud to announce that at the end of August we started work on a new project at Dåfjorden Slipp. Our team is involved in the construction of prototype tugboats that also works as icebreakers. The shipyard patented design solutions that allow tugs to crush thicker ice with the "
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "industry.nace2",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.94d68317bd71",
    "type": "added",
    "new": {
-    "code": "78.200",
-    "description": "Utleie av arbeidskraft og andre personaladministrative tjenester"
+    "title": "Recommend NV-campaign",
+    "url": "https://www.nvservice.no/recommend-nv-campaign/",
+    "date": "2021-08-13",
+    "summary": "W związku z dużym zapotrzebowaniem na pracowników, nasza firma ponownie rozpoczyna akcję „Poleć NV”. Jeśli znasz kolegów, którzy aktualnie mieszkają w Polsce lub Norwegii, którzy właśnie kończą umowę lub ich umowa już wygasła i są w trakcie poszukiwania pracy – bardzo chętnie zatrudnimy taką osobę z"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "industry.nace3",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.e81eab829733",
    "type": "added",
    "new": {
-    "code": "25.110",
-    "description": "Produksjon av metallkonstruksjoner og deler"
+    "title": "WANTED",
+    "url": "https://www.nvservice.no/wanted/",
+    "date": "2021-06-18",
+    "summary": "NV Service South AS firma działająca w sektorze stoczniowym na terenie Norwegii, PILNIE poszukuje SPAWACZY ALUMINIUM na projekt w okolicy Bergen . Szczegółowe informacje można uzyskać pod nr tel. +48 790 264 184, +48 533 030 656 lub mailowo mpr@nvservice.no , ksz@nvservice.no"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.d8e09b071fd5",
    "type": "added",
    "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
+    "title": "News from projects- week 23/2021",
+    "url": "https://www.nvservice.no/news-from-projects-week-23-2021/",
+    "date": "2021-06-11",
+    "summary": "NV Service South AS continues fruitful, long-term co-operation with our client FMV AS. Our team supervised by Robert and Irek, work at the yard on various projects. One of those is the construction of hull and outfitting works on Project No FMV 53 “Volt Harvest”. The “Volt Harvest” is a fish process"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "employees",
-   "type": "added",
-   "new": 247
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Tjenesteyting innenfor skipsbygging, herunder prefabrikasjon, sveising, montering, tilpassing og reparasjon av skip, konstruksjoner, rørsystemer og maskiner, utleie av arbeidskraft og deltagelse i virksomheter i tilknytning til dette, samt alt hva hermed er forbundet."
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Skipsbygging, underleverandøraktivititet."
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.555f5a48d047",
    "type": "added",
    "new": {
-    "amount": 230000.0,
-    "currency": "NOK",
-    "shares": 23000,
-    "type": "Aksjekapital"
+    "title": "HR Specialist",
+    "url": "https://www.nvservice.no/hr-specialist/",
+    "date": "2021-02-05",
+    "summary": "We are looking for “HR SPECIALIST” to our office in Szczecin, Poland. Please submit your CV in English to us with your references: mpr@nvservice.no. The job announcement with all details can be downloaded here below:"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "status",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.b988e2e0f0cf",
    "type": "added",
    "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
+    "title": "Poszukiwany pracownik",
+    "url": "https://www.nvservice.no/poszukiwany-pracownik/",
+    "date": "2021-01-28",
+    "summary": "NV – Service Group (NV Service South & NV Service North) norweska firma działająca w sektorze stoczniowym poszukuje do pracy w okolicy Bergen I Alesund pracowników aktualnie przebywających w Norwegii na stanowiska: Monter Kadłubów Okrętowych Spawacz stoczniowy 135/136 Oferujemy: Atrakcyjne wynagrodz"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "registers",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.27417440f036",
    "type": "added",
    "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
+    "title": "We’re hiring again: ” W A N T E D “",
+    "url": "https://www.nvservice.no/were-hiring-again-w-a-n-t-e-d/",
+    "date": "2021-01-20",
+    "summary": "NV Service South AS is looking for professional structural fitters for our clients in West-Norway! Scope of works: rebuilding and new building of ship hulls. We require e.g. valid hot works certificates, workshop drawing reading skills, using of acetylene torches, grinding machines, etc. Please cont"
    }
   },
   {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "group.is_parent",
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.f064e91fd01e",
+   "type": "added",
+   "new": {
+    "title": "Happy Holidays!",
+    "url": "https://www.nvservice.no/happy-holidays/",
+    "date": "2020-12-20"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.2e14767bb058",
+   "type": "added",
+   "new": {
+    "title": "We’re hiring (again)!",
+    "url": "https://www.nvservice.no/were-hiring-again/",
+    "date": "2020-12-08",
+    "summary": "NV Service South AS is looking for professional structural fitters for our clients in West-Norway! Period of works: minimum 20.12.2020 – 15.01.2021 (with possible extension). Scope of works: rebuilding and new building of ship hulls. We require e.g. valid hot works certificates, workshop drawing rea"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.nvservice.no/contact/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://facebook.com/423262211070521",
+    "instagram": "https://www.instagram.com/nvserviceas"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "jmo@nvservice.no",
+    "mro@nvservice.no",
+    "mza@nvservice.no",
+    "tja@nvservice.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.nvservice.no/",
+    "contact": "https://www.nvservice.no/contact/",
+    "about": "https://www.nvservice.no/about/",
+    "feed": "https://www.nvservice.no/feed/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
    "new": false
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2026-08-26"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/921352018"
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Tomasz Pawel Jakubiak"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Marcin Zajdlic"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Tomasz Pawel Jakubiak"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "TSREVISJON AS",
-    "orgnr": "813855372"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "MTA GROUP AS",
-    "orgnr": "919017805"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 17
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "924459891",
-     "name": "NV SERVICE AS AVD DALSØYRA",
-     "city": "DALSØYRA",
-     "municipality": "GULEN",
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "936184766",
-     "name": "NV SERVICE AS AVD FEDA",
-     "city": "FEDA",
-     "municipality": "KVINESDAL",
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "922358745",
-     "name": "NV SERVICE AS AVD FISKERSTRAND",
-     "city": "FISKARSTRAND",
-     "municipality": "SULA",
-     "employees": 32,
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "928339483",
-     "name": "NV SERVICE AS AVD FISKÅ",
-     "city": "FISKÅ",
-     "municipality": "VANYLVEN",
-     "nace": "25.110"
-    },
-    {
-     "orgnr": "821411092",
-     "name": "NV SERVICE AS AVD FITJAR",
-     "city": "FITJAR",
-     "municipality": "FITJAR",
-     "employees": 44,
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "932096951",
-     "name": "NV SERVICE AS AVD FJELLSTRAND",
-     "city": "OMASTRAND",
-     "municipality": "KVAM",
-     "employees": 37,
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "922292027",
-     "name": "NV SERVICE AS AVD HALSNØY",
-     "city": "HØYLANDSBYGD",
-     "municipality": "KVINNHERAD",
-     "employees": 42,
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "921374348",
-     "name": "NV SERVICE AS AVD HAUGESUND",
-     "city": "HAUGESUND",
-     "municipality": "HAUGESUND",
-     "employees": 9,
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "821411122",
-     "name": "NV SERVICE AS AVD LEIRVIK",
-     "city": "LEIRVIK I SOGN",
-     "municipality": "HYLLESTAD",
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "923664459",
-     "name": "NV SERVICE AS AVD MYKLEBUST",
-     "city": "GURSKEN",
-     "municipality": "SANDE",
-     "employees": 22,
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "921410875",
-     "name": "NV SERVICE AS AVD SKOGSØY",
-     "city": "MANDAL",
-     "municipality": "LINDESNES",
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "822357792",
-     "name": "NV SERVICE AS AVD SOLUND",
-     "city": "HARDBAKKE",
-     "municipality": "SOLUND",
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "921886365",
-     "name": "NV SERVICE AS AVD SØVIK",
-     "city": "SØVIK",
-     "municipality": "HARAM",
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "921373368",
-     "name": "NV SERVICE AS AVD VATNE",
-     "city": "VATNE",
-     "municipality": "HARAM",
-     "employees": 7,
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "932366134",
-     "name": "NV SERVICE AS AVD VÅGLAND",
-     "city": "VÅGLAND",
-     "municipality": "HEIM",
-     "nace": "30.110"
-    },
-    {
-     "orgnr": "921411146",
-     "name": "NV SERVICE AS AVD. MOLDE",
-     "city": "MOLDE",
-     "municipality": "MOLDE",
-     "employees": 12,
-     "nace": "78.200"
-    },
-    {
-     "orgnr": "821411262",
-     "name": "NV SERVICE AS AVD. TOMREFJORD",
-     "city": "TOMREFJORD",
-     "municipality": "VESTNES",
-     "employees": 28,
-     "nace": "30.110"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 233
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 72724035.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 72724035.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 71269467.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 1454567.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 79467.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 1534034.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 337697.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 1196337.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 23082953.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 3986407.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 19096546.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 3274913.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 1965122.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 21117831.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 21117831.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024670868",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 104236029.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 104236029.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 112670438.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -8434409.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -52380.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -8486789.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -8486789.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 14829130.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 2063752.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 12765378.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 5168817.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": -6321666.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 21150796.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 21150796.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025730735",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 95168753.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 95168753.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 92293449.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 2875305.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -3604.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 2871701.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": -1233760.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 4105461.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 19777689.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 1843914.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 17933775.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 7801280.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 161562.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 19616128.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 19616128.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026420468",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:11Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
   }
  ],
  "changes": [
@@ -4365,17 +4235,280 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 62.55976403655983,
+    "lon": 6.6171318898010885,
+    "crs": "EPSG:4326",
+    "matched_address": "Vatnefjordvegen 18",
+    "postal_code": "6265",
+    "city": "VATNE",
+    "municipality": "HARAM",
+    "municipality_number": "1580",
+    "cadastral": {
+     "gnr": 402,
+     "bnr": 362
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=62.55976403655983&lon=6.6171318898010885&markerLat=62.55976403655983&markerLon=6.6171318898010885"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.nvservice.no/"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "NV Service"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "en-US"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they have been operating e.g. in following countries: Norway, Poland, Finland, France, Romania and Russia together with more than several hundred co-workers. 🍁❄️ Bezpieczeństwo na drodze nie kończy się po odbiciu karty pracy! 🚗🦺 Drodzy Pracownicy, każdego dnia wielu z Was wsiada za kółko samochodów służbowych, reprezentując Miło nam poinformować, że od dzisiaj zmienia się nazwa naszej firmy z NV Servi"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Every day"
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they have been operating e.g. in following countries: Norway, Poland, Finland, France, Romania and Russia together with more than several hundred co-workers. The most of company´s management members, project managers, supervisors and blue collar employees have been working in the branch with long track records in Norwegian and European shipbuilding and offshore related industry. The company have developed a huge database of experience candidates: almost 4.000 persons. Our HR-specialist have recruited over 700 workers and 50 engineers in past 15 years only for Norwegian market and about the same number of professionals to other European countries. Recruitment consultants are highly qualified, experienced and trained in complete recruitment cycle. More than 8 years experience in recruitment processes for shipbuilding and offshore industry in Norway, Finland, France, Romania, Russia and Poland."
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.a3599cea9547",
+   "type": "added",
+   "new": {
+    "title": "We’re hiring again!",
+    "url": "https://www.nvservice.no/were-hiring-again-2/",
+    "date": "2023-08-10",
+    "summary": "NV-Group (NV Service North AS and NV Service South AS) is hiring again! We need many new employees to our “winning team” at our projects – the various Norwegian shipyards! Welders (black steel / alu), fitters, pipers! Please take contact with our HR-Department: KAMILA SZYMANSKADepartment PolandHR-de"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.ffca06459b5d",
+   "type": "added",
+   "new": {
+    "title": "News from new project: Dåfjorden Slipp",
+    "url": "https://www.nvservice.no/news-from-new-project-dafjorden-slipp/",
+    "date": "2021-10-08",
+    "summary": "NV Service South AS is proud to announce that at the end of August we started work on a new project at Dåfjorden Slipp. Our team is involved in the construction of prototype tugboats that also works as icebreakers. The shipyard patented design solutions that allow tugs to crush thicker ice with the "
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.94d68317bd71",
+   "type": "added",
+   "new": {
+    "title": "Recommend NV-campaign",
+    "url": "https://www.nvservice.no/recommend-nv-campaign/",
+    "date": "2021-08-13",
+    "summary": "W związku z dużym zapotrzebowaniem na pracowników, nasza firma ponownie rozpoczyna akcję „Poleć NV”. Jeśli znasz kolegów, którzy aktualnie mieszkają w Polsce lub Norwegii, którzy właśnie kończą umowę lub ich umowa już wygasła i są w trakcie poszukiwania pracy – bardzo chętnie zatrudnimy taką osobę z"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.e81eab829733",
+   "type": "added",
+   "new": {
+    "title": "WANTED",
+    "url": "https://www.nvservice.no/wanted/",
+    "date": "2021-06-18",
+    "summary": "NV Service South AS firma działająca w sektorze stoczniowym na terenie Norwegii, PILNIE poszukuje SPAWACZY ALUMINIUM na projekt w okolicy Bergen . Szczegółowe informacje można uzyskać pod nr tel. +48 790 264 184, +48 533 030 656 lub mailowo mpr@nvservice.no , ksz@nvservice.no"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.d8e09b071fd5",
+   "type": "added",
+   "new": {
+    "title": "News from projects- week 23/2021",
+    "url": "https://www.nvservice.no/news-from-projects-week-23-2021/",
+    "date": "2021-06-11",
+    "summary": "NV Service South AS continues fruitful, long-term co-operation with our client FMV AS. Our team supervised by Robert and Irek, work at the yard on various projects. One of those is the construction of hull and outfitting works on Project No FMV 53 “Volt Harvest”. The “Volt Harvest” is a fish process"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.555f5a48d047",
+   "type": "added",
+   "new": {
+    "title": "HR Specialist",
+    "url": "https://www.nvservice.no/hr-specialist/",
+    "date": "2021-02-05",
+    "summary": "We are looking for “HR SPECIALIST” to our office in Szczecin, Poland. Please submit your CV in English to us with your references: mpr@nvservice.no. The job announcement with all details can be downloaded here below:"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.b988e2e0f0cf",
+   "type": "added",
+   "new": {
+    "title": "Poszukiwany pracownik",
+    "url": "https://www.nvservice.no/poszukiwany-pracownik/",
+    "date": "2021-01-28",
+    "summary": "NV – Service Group (NV Service South & NV Service North) norweska firma działająca w sektorze stoczniowym poszukuje do pracy w okolicy Bergen I Alesund pracowników aktualnie przebywających w Norwegii na stanowiska: Monter Kadłubów Okrętowych Spawacz stoczniowy 135/136 Oferujemy: Atrakcyjne wynagrodz"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.27417440f036",
+   "type": "added",
+   "new": {
+    "title": "We’re hiring again: ” W A N T E D “",
+    "url": "https://www.nvservice.no/were-hiring-again-w-a-n-t-e-d/",
+    "date": "2021-01-20",
+    "summary": "NV Service South AS is looking for professional structural fitters for our clients in West-Norway! Scope of works: rebuilding and new building of ship hulls. We require e.g. valid hot works certificates, workshop drawing reading skills, using of acetylene torches, grinding machines, etc. Please cont"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.f064e91fd01e",
+   "type": "added",
+   "new": {
+    "title": "Happy Holidays!",
+    "url": "https://www.nvservice.no/happy-holidays/",
+    "date": "2020-12-20"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "news.item.2e14767bb058",
+   "type": "added",
+   "new": {
+    "title": "We’re hiring (again)!",
+    "url": "https://www.nvservice.no/were-hiring-again/",
+    "date": "2020-12-08",
+    "summary": "NV Service South AS is looking for professional structural fitters for our clients in West-Norway! Period of works: minimum 20.12.2020 – 15.01.2021 (with possible extension). Scope of works: rebuilding and new building of ship hulls. We require e.g. valid hot works certificates, workshop drawing rea"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.nvservice.no/contact/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://facebook.com/423262211070521",
+    "instagram": "https://www.instagram.com/nvserviceas"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "jmo@nvservice.no",
+    "mro@nvservice.no",
+    "mza@nvservice.no",
+    "tja@nvservice.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.nvservice.no/",
+    "contact": "https://www.nvservice.no/contact/",
+    "about": "https://www.nvservice.no/about/",
+    "feed": "https://www.nvservice.no/feed/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:45Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 83,
+  "active_facts": 105,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.35
+  "requests": 17,
+  "seconds": 49.81
  },
  "explanation": {
   "mode": "template",
-  "text": "NV SERVICE AS (org.nr 921 352 018) is registered as Aksjeselskap (AS), founded 2018-08-23, registered 2018-09-06. Business address: Vatnefjordvegen 18, 6265 VATNE. Main industry (NACE): 30.110 Bygging av sivile skip og flytende materiell. Registered employees: 247 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 95,168,753; operating result NOK 2,875,305; net result NOK 4,105,461; total assets NOK 19,777,689; equity NOK 161,562. Leadership: general manager (daglig leder) Tomasz Pawel Jakubiak; board chair Marcin Zajdlic; 1 other board member. Sub-units registered: 17.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 83 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "NV SERVICE AS (org.nr 921 352 018) is registered as Aksjeselskap (AS), founded 2018-08-23, registered 2018-09-06. [brreg_enheter] Main industry (NACE 30.110): Bygging av sivile skip og flytende materiell; also Utleie av arbeidskraft og andre personaladministrative tjenester; Produksjon av metallkonstruksjoner og deler. [brreg_enheter] Registered purpose: \"Tjenesteyting innenfor skipsbygging, herunder prefabrikasjon, sveising, montering, tilpassing og reparasjon av skip, konstruksjoner, rørsystemer og maskiner, utleie av arbeidskraft og deltagelse i virksomheter i tilknytning til dette, samt alt hva hermed er forbundet.\" [brreg_enheter] The company's website describes it as: \"The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they\" [website] Business address: Vatnefjordvegen 18, 6265 VATNE. [brreg_enheter] Leadership: general manager (daglig leder) Tomasz Pawel Jakubiak; board chair Marcin Zajdlic; 1 other board member. [brreg_roller]\n\nKey numbers:\n- Registered employees: 247 (as of 2026-09-10); 17 registered sub-units. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 95,168,753 (-9% vs 2024); operating result NOK 2,875,305 (+134% vs 2024); net result NOK 4,105,461 (+148% vs 2024); total assets NOK 19,777,689 (+33% vs 2024); equity NOK 161,562 (+103% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 230,000. [brreg_enheter]\n- 10 news items from the company's own site, latest 2023-08-10. [website]\n\nChanges in this run (22):\n- location.business.geo: added ({'lat': 62.55976403655983, 'lon': 6.6171318898010885, 'cr...)\n- web.url: added (https://www.nvservice.no/)\n- web.title: added (NV Service)\n- web.language: added (en-US)\n- web.home_text: added (The history of NV-Group of companies is starting from the...)\n- web.headline: added (Every day)\n- web.about_text: added (The history of NV-Group of companies is starting from the...)\n- news.item.a3599cea9547: added ({'title': 'We’re hiring again!', 'url': 'https://www.nvse...)\n- news.item.ffca06459b5d: added ({'title': 'News from new project: Dåfjorden Slipp', 'url'...)\n- news.item.94d68317bd71: added ({'title': 'Recommend NV-campaign', 'url': 'https://www.nv...)\n- news.item.e81eab829733: added ({'title': 'WANTED', 'url': 'https://www.nvservice.no/want...)\n- news.item.d8e09b071fd5: added ({'title': 'News from projects- week 23/2021', 'url': 'htt...)\n- news.item.555f5a48d047: added ({'title': 'HR Specialist', 'url': 'https://www.nvservice....)\n- news.item.b988e2e0f0cf: added ({'title': 'Poszukiwany pracownik', 'url': 'https://www.nv...)\n- news.item.27417440f036: added ({'title': 'We’re hiring again: ” W A N T E D “', 'url': '...)\n- ... and 7 more\n\nWhat remains unknown:\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "NV SERVICE AS (org.nr 921 352 018) is registered as Aksjeselskap (AS), founded 2018-08-23, registered 2018-09-06. [brreg_enheter]",
+    "Main industry (NACE 30.110): Bygging av sivile skip og flytende materiell; also Utleie av arbeidskraft og andre personaladministrative tjenester; Produksjon av metallkonstruksjoner og deler. [brreg_enheter]",
+    "Registered purpose: \"Tjenesteyting innenfor skipsbygging, herunder prefabrikasjon, sveising, montering, tilpassing og reparasjon av skip, konstruksjoner, rørsystemer og maskiner, utleie av arbeidskraft og deltagelse i virksomheter i tilknytning til dette, samt alt hva hermed er forbundet.\" [brreg_enheter]",
+    "The company's website describes it as: \"The history of NV-Group of companies is starting from the springtime 2011. Company´s key personnel have been working since 2004 in this same branch: “delivery of yard services to European shipyard and offshore industry”. They have had substantial activity in this field during the last years and they\" [website]",
+    "Business address: Vatnefjordvegen 18, 6265 VATNE. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Tomasz Pawel Jakubiak; board chair Marcin Zajdlic; 1 other board member. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 247 (as of 2026-09-10); 17 registered sub-units. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 95,168,753 (-9% vs 2024); operating result NOK 2,875,305 (+134% vs 2024); net result NOK 4,105,461 (+148% vs 2024); total assets NOK 19,777,689 (+33% vs 2024); equity NOK 161,562 (+103% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 230,000. [brreg_enheter]",
+    "10 news items from the company's own site, latest 2023-08-10. [website]"
+   ],
+   "changes": [
+    "Changes in this run (22):",
+    "- location.business.geo: added ({'lat': 62.55976403655983, 'lon': 6.6171318898010885, 'cr...)",
+    "- web.url: added (https://www.nvservice.no/)",
+    "- web.title: added (NV Service)",
+    "- web.language: added (en-US)",
+    "- web.home_text: added (The history of NV-Group of companies is starting from the...)",
+    "- web.headline: added (Every day)",
+    "- web.about_text: added (The history of NV-Group of companies is starting from the...)",
+    "- news.item.a3599cea9547: added ({'title': 'We’re hiring again!', 'url': 'https://www.nvse...)",
+    "- news.item.ffca06459b5d: added ({'title': 'News from new project: Dåfjorden Slipp', 'url'...)",
+    "- news.item.94d68317bd71: added ({'title': 'Recommend NV-campaign', 'url': 'https://www.nv...)",
+    "- news.item.e81eab829733: added ({'title': 'WANTED', 'url': 'https://www.nvservice.no/want...)",
+    "- news.item.d8e09b071fd5: added ({'title': 'News from projects- week 23/2021', 'url': 'htt...)",
+    "- news.item.555f5a48d047: added ({'title': 'HR Specialist', 'url': 'https://www.nvservice....)",
+    "- news.item.b988e2e0f0cf: added ({'title': 'Poszukiwany pracownik', 'url': 'https://www.nv...)",
+    "- news.item.27417440f036: added ({'title': 'We’re hiring again: ” W A N T E D “', 'url': '...)",
+    "- ... and 7 more"
+   ],
+   "unknown": [
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

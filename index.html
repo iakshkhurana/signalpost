@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signalpost profiles</title>
+<meta name="description" content="Evidence-backed company profiles for Norwegian organisation numbers: find, compare and verify.">
+<style>
+:root{--bg:#f7f7f5;--fg:#1b1b1b;--muted:#5f6368;--card:#fff;--line:#e3e3df;--accent:#0b5fff;--ok:#1b7f3b;--warn:#b26a00;--bad:#b3261e;--chip:#eef0f3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121314;--fg:#ecebe8;--muted:#9a9c9f;--card:#1c1d1f;--line:#2c2e31;--accent:#7aa2ff;--ok:#5bc27a;--warn:#e0a53b;--bad:#ff7b72;--chip:#26282b}}
+:root[data-theme="dark"]{--bg:#121314;--fg:#ecebe8;--muted:#9a9c9f;--card:#1c1d1f;--line:#2c2e31;--accent:#7aa2ff;--ok:#5bc27a;--warn:#e0a53b;--bad:#ff7b72;--chip:#26282b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}header{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--line);z-index:5}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}header .wrap{display:flex;gap:12px;align-items:center;min-height:52px;flex-wrap:wrap}
+header h1{font-size:17px;margin:0}header h1 a{color:inherit;text-decoration:none}header nav a{margin-right:12px;font-size:14px}
+input[type=search],select{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);width:100%}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}.row>*{flex:1 1 180px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0}
+.muted{color:var(--muted)}.small{font-size:13px}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;background:var(--chip);color:var(--fg);white-space:nowrap}
+.badge.high{color:var(--ok)}.badge.medium{color:var(--warn)}.badge.low,.badge.none{color:var(--bad)}
+table{border-collapse:collapse;width:100%}th,td{text-align:left;vertical-align:top;padding:6px 8px;border-bottom:1px solid var(--line);font-size:14px}
+th{font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.list a.item{display:block;padding:10px 0;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.list a.item:hover{background:var(--chip)}.list .n{font-weight:600}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+h2{font-size:18px;margin:22px 0 8px}h3{font-size:15px;margin:14px 0 6px}
+.kv{display:grid;grid-template-columns:minmax(140px,220px) 1fr;gap:4px 12px}.kv dt{color:var(--muted);font-size:13px}.kv dd{margin:0;overflow-wrap:anywhere}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--chip);padding:8px;border-radius:8px;font-size:12.5px;margin:4px 0}
+details summary{cursor:pointer}.fact{padding:8px 0;border-bottom:1px solid var(--line)}.fact .k{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;color:var(--muted)}
+.fact .v{overflow-wrap:anywhere}.ev{font-size:12.5px;color:var(--muted)}.ev a{word-break:break-all}
+.sec{margin:6px 0}.sec li{margin:3px 0}.cite{color:var(--muted);font-size:12px}
+.compare{overflow:auto}.compare td,.compare th{min-width:180px}.compare td:first-child{position:sticky;left:0;background:var(--card);font-weight:600}
+button{font:inherit;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);cursor:pointer}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.retracted{opacity:.6}.stale{border-left:3px solid var(--warn);padding-left:6px}
+@media (max-width:640px){.kv{grid-template-columns:1fr}th,td{font-size:13px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1><a href="#/">Signalpost</a></h1>
+<nav><a href="#/">Companies</a><a href="#/compare">Compare</a><a href="#/about">About the data</a></nav>
+<span class="muted small" id="status"></span>
+</div></header>
+<main class="wrap" id="app"></main>
+<script>
+const DATA = 'profiles/';
+const TYPE_LABELS = {identity:'Identity and registration',industry:'Industry and purpose',address:'Addresses',location:'Location (map)',contacts:'Contact details',social:'Social media',people:'Leadership and roles',employees:'Employees',subunits:'Sub-units',finance:'Financial statements',capital:'Share capital',ownership:'Group and ownership',jobs:'Job postings',news:'News',products:'Products and services',web:'Website content',approvals:'Licences and approvals',lei:'LEI',wikipedia:'Wikipedia / Wikidata'};
+const TYPE_ORDER = Object.keys(TYPE_LABELS);
+const RULES = [[/^(jobs\.|web\.careers)/,'jobs'],[/^(news\.|web\.news)/,'news'],[/^finance\./,'finance'],[/^capital\./,'capital'],[/^roles\./,'people'],[/^(employees$|subunits\.employees_total$|wikidata\.employees$)/,'employees'],[/^subunits\./,'subunits'],[/^address\./,'address'],[/^location\./,'location'],[/^(industry\.|purpose$|activity$|sector\.)/,'industry'],[/^(website$|phone$|mobile$|email$|web\.emails$|web\.phones$|web\.contact_page$|web\.url$|approvals\.dibk_declared_website$)/,'contacts'],[/^web\.social$/,'social'],[/^web\.products/,'products'],[/^web\./,'web'],[/^approvals\./,'approvals'],[/^lei/,'lei'],[/^(wikidata\.|wikipedia\.)/,'wikipedia'],[/^(group\.|parent_orgnr$)/,'ownership']];
+const ftype = k => (RULES.find(([rx]) => rx.test(k)) || [null,'identity'])[1];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const spaced = o => o ? `${o.slice(0,3)} ${o.slice(3,6)} ${o.slice(6)}` : '';
+const app = document.getElementById('app'), status = document.getElementById('status');
+let index = null; const cache = {};
+
+async function loadIndex(){ if(index) return index; const r = await fetch(DATA+'index.json'); if(!r.ok) throw new Error('index.json not found'); index = await r.json(); return index; }
+async function loadProfile(o){ if(cache[o]) return cache[o]; const r = await fetch(DATA+o+'.json'); if(!r.ok) throw new Error('no profile '+o); return cache[o] = await r.json(); }
+const fmtMoney = v => (v && typeof v==='object' && v.amount!=null) ? `${v.currency||'NOK'} ${Number(v.amount).toLocaleString('en-GB',{maximumFractionDigits:0})}` : null;
+
+function fmtValue(v){
+  if(v==null) return '<span class="muted">—</span>';
+  if(typeof v==='boolean') return v?'yes':'no';
+  if(typeof v==='number') return v.toLocaleString('en-GB');
+  if(typeof v==='string') return /^https?:\/\//.test(v)?`<a href="${esc(v)}" target="_blank" rel="noopener">${esc(v)}</a>`:esc(v);
+  const m = fmtMoney(v); if(m) return esc(m)+(v.period_to?` <span class="muted small">(${esc(v.period_from||'')} – ${esc(v.period_to)})</span>`:'');
+  if(Array.isArray(v)){
+    if(v.every(x=>typeof x!=='object')) return v.map(fmtValue).join(', ');
+    return '<ul style="margin:0;padding-left:18px">'+v.slice(0,30).map(x=>'<li>'+fmtValue(x)+'</li>').join('')+(v.length>30?`<li class="muted">… ${v.length-30} more</li>`:'')+'</ul>';
+  }
+  if(v.name && Object.keys(v).length<=3) return esc(v.name)+(v.orgnr?` <a href="#/c/${esc(v.orgnr)}">(${esc(v.orgnr)})</a>`:'')+(v.role?` <span class="muted">– ${esc(v.role)}</span>`:'');
+  if(v.code!=null && v.description) return `${esc(v.code)} ${esc(v.description)}`;
+  if(v.title && v.url) return `<a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.title)}</a>`+(v.date||v.published?` <span class="muted small">${esc(v.date||v.published)}</span>`:'')+(v.employer_unit?` <span class="muted small">· ${esc(v.employer_unit)}</span>`:'')+(v.summary?`<div class="muted small">${esc(v.summary)}</div>`:'');
+  if(v.street||v.city) return esc([ (v.street||[]).join(', '), [v.postal_code,v.city].filter(Boolean).join(' '), v.country && v.country!=='Norge'?v.country:'' ].filter(Boolean).join(', '));
+  if(v.lat!=null) return `${v.lat.toFixed(5)}, ${v.lon.toFixed(5)}`+(v.map_url?` · <a href="${esc(v.map_url)}" target="_blank" rel="noopener">map</a>`:'')+(v.matched_address?` <span class="muted small">(${esc(v.matched_address)})</span>`:'');
+  if(v.extract) return `<em>${esc(v.description||'')}</em> ${esc(v.extract)}`;
+  return '<div class="kv">'+Object.entries(v).filter(([,x])=>x!=null&&x!=='').map(([k,x])=>`<dt>${esc(k)}</dt><dd>${fmtValue(x)}</dd>`).join('')+'</div>';
+}
+
+// ------------------------------------------------------------------ views
+async function viewList(){
+  const idx = await loadIndex();
+  const params = new URLSearchParams(location.hash.split('?')[1]||'');
+  const q=(params.get('q')||'').toLowerCase(), t=params.get('type')||'', m=params.get('match')||'', sort=params.get('sort')||'name';
+  let rows = idx.companies.filter(c => (!q || (c.name||'').toLowerCase().includes(q) || c.orgnr.includes(q.replace(/\s/g,''))) && (!t || (c.types||[]).includes(t)) && (!m || c.match===m));
+  rows.sort((a,b)=> sort==='facts' ? b.facts-a.facts : sort==='recent' ? (b.last_run||'').localeCompare(a.last_run||'') : (a.name||'').localeCompare(b.name||''));
+  const typeCount = {}; idx.companies.forEach(c => (c.types||[]).forEach(x => typeCount[x]=(typeCount[x]||0)+1));
+  app.innerHTML = `
+  <div class="card"><div class="row">
+    <input type="search" id="q" placeholder="Search name or organisation number" value="${esc(params.get('q')||'')}" aria-label="search">
+    <select id="type" aria-label="information type"><option value="">Any information type</option>${TYPE_ORDER.filter(x=>typeCount[x]).map(x=>`<option value="${x}" ${x===t?'selected':''}>${TYPE_LABELS[x]} (${typeCount[x]})</option>`).join('')}</select>
+    <select id="match" aria-label="match"><option value="">Any match level</option>${['high','medium','none'].map(x=>`<option ${x===m?'selected':''}>${x}</option>`).join('')}</select>
+    <select id="sort" aria-label="sort"><option value="name" ${sort==='name'?'selected':''}>Sort: name</option><option value="facts" ${sort==='facts'?'selected':''}>Sort: most facts</option><option value="recent" ${sort==='recent'?'selected':''}>Sort: last updated</option></select>
+  </div><div class="muted small">${rows.length} of ${idx.companies.length} companies · generated ${esc(idx.generated_at||'')} · tick boxes to <a href="#/compare">compare</a></div></div>
+  <div class="card list">${rows.slice(0,300).map(c=>`<a class="item" href="#/c/${c.orgnr}"><label style="float:right" onclick="event.stopPropagation()"><input type="checkbox" data-cmp="${c.orgnr}" ${cmpSel.has(c.orgnr)?'checked':''}> compare</label>
+    <span class="n">${esc(c.name||'(no name)')}</span> <span class="muted">${spaced(c.orgnr)}</span> <span class="badge ${c.match}">${c.match}</span> <span class="muted small">${c.facts} facts</span>
+    <div class="chips">${(c.types||[]).filter(x=>!['identity','address','industry','web'].includes(x)).map(x=>`<span class="badge">${TYPE_LABELS[x]||x}</span>`).join('')}</div></a>`).join('')}
+    ${rows.length>300?`<div class="muted small" style="padding:8px 0">Showing the first 300; refine the search.</div>`:''}</div>`;
+  const upd = () => { const p = new URLSearchParams(); const q=document.getElementById('q').value; if(q) p.set('q',q); const t=document.getElementById('type').value; if(t) p.set('type',t); const m=document.getElementById('match').value; if(m) p.set('match',m); const s=document.getElementById('sort').value; if(s!=='name') p.set('sort',s); location.hash = '#/'+(p.toString()?'?'+p:''); };
+  document.getElementById('q').addEventListener('input', debounce(upd,250)); ['type','match','sort'].forEach(id=>document.getElementById(id).addEventListener('change',upd));
+  app.querySelectorAll('input[data-cmp]').forEach(cb=>cb.addEventListener('change',e=>{ e.target.checked?cmpSel.add(e.target.dataset.cmp):cmpSel.delete(e.target.dataset.cmp); saveSel(); status.textContent = cmpSel.size?`${cmpSel.size} selected for compare`:''; }));
+}
+function debounce(f,ms){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>f(...a),ms)}}
+const cmpSel = new Set(); function saveSel(){ try{localStorage.setItem('cmp',JSON.stringify([...cmpSel]))}catch(e){} } try{JSON.parse(localStorage.getItem('cmp')||'[]').forEach(x=>cmpSel.add(x))}catch(e){}
+
+function evidenceHtml(f){
+  return f.evidence.map(e=>`<div class="ev">${esc(e.source)} · <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.url)}</a>${e.source_date?` · source date ${esc(e.source_date)}`:''} · fetched ${esc((e.retrieved_at||'').slice(0,10))} · match <b>${esc(e.match)}</b> (${esc(e.confidence)})${e.note?`<div>${esc(e.note)}</div>`:''}</div>`).join('');
+}
+function sectionList(title, items, cls){ if(!items||!items.length) return ''; return `<h3>${title}</h3><ul class="sec ${cls||''}">${items.map(s=>'<li>'+esc(s).replace(/\[([a-z_]+)\]/g,'<span class="cite">[$1]</span>')+'</li>').join('')}</ul>`; }
+
+async function viewCompany(orgnr){
+  app.innerHTML = '<div class="muted">Loading…</div>';
+  const p = await loadProfile(orgnr);
+  const active = p.facts.filter(f=>f.status==='active'), retracted = p.facts.filter(f=>f.status!=='active');
+  const groups = {}; active.forEach(f=>{ (groups[ftype(f.key)] ||= []).push(f); });
+  const ex = p.explanation||{}, sec = ex.sections||{};
+  const f = Object.fromEntries(active.map(x=>[x.key,x.value]));
+  const latest = f['finance.latest'];
+  const quick = [['Legal form', f.org_form && `${f.org_form.description} (${f.org_form.code})`],['Founded', f.founded],['Industry', f['industry.nace1'] && `${f['industry.nace1'].code} ${f['industry.nace1'].description}`],['Employees', f.employees],['Address', f['address.business'] && fmtValue(f['address.business'])],['Website', f['web.url']||f.website],['General manager', f['roles.ceo']?.name],['Board chair', f['roles.board_chair']?.name],['Latest revenue', latest && fmtMoney(f[`finance.${latest.year}.${latest.statement_type}.revenue`]) && `${fmtMoney(f[`finance.${latest.year}.${latest.statement_type}.revenue`])} (${latest.year}, ${latest.statement_type})`],['Open jobs (NAV)', f['jobs.active_count']],['LEI', f.lei]].filter(([,v])=>v!=null&&v!=='');
+  app.innerHTML = `
+  <div class="card"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline">
+    <div><h2 style="margin:0">${esc(p.name||'(no name)')}</h2><div class="muted">org.nr ${spaced(p.orgnr)} · <a href="https://virksomhet.brreg.no/nb/oppslag/enheter/${p.orgnr}" target="_blank" rel="noopener">registry page</a> · <a href="${DATA}${p.orgnr}.json" target="_blank">JSON</a></div></div>
+    <div><span class="badge ${p.matching?.overall}">entity match: ${esc(p.matching?.overall)}</span> <span class="badge">${esc(p.entity_status)}</span> <span class="badge">${active.length} facts</span> <span class="badge">run ${p.run_count} · ${esc((p.last_run||'').slice(0,10))}</span>
+    <button id="addcmp">${cmpSel.has(p.orgnr)?'In compare ✓':'Add to compare'}</button></div></div>
+    <dl class="kv" style="margin-top:12px">${quick.map(([k,v])=>`<dt>${k}</dt><dd>${typeof v==='string'&&v.startsWith('<')?v:fmtValue(v)}</dd>`).join('')}</dl></div>
+  <div class="card"><h2 style="margin-top:0">What this company does</h2>${(sec.what_it_does||[]).map(s=>'<p class="sec">'+esc(s).replace(/\[([a-z_]+)\]/g,'<span class="cite">[$1]</span>')+'</p>').join('') || `<pre>${esc(ex.text||'')}</pre>`}
+    ${ex.mode==='llm'?`<h3>Summary (Claude)</h3><p>${esc(ex.summary||'')}</p><ul class="sec">${(ex.highlights||[]).map(h=>'<li>'+esc(h)+'</li>').join('')}</ul>${(ex.caveats||[]).length?'<p class="muted small">Caveats: '+esc(ex.caveats.join(' ')) +'</p>':''}`:''}
+    ${sectionList('Key numbers', sec.key_numbers)}${sectionList('What changed', sec.changes)}${sectionList('What remains unknown', sec.unknown)}${sectionList('How each source was tied to this company', sec.sources)}
+  </div>
+  <div class="card"><h2 style="margin-top:0">Facts by information type</h2><p class="muted small">Every fact lists its source URL, the date the source attaches to it, when it was fetched and how the record was matched to this organisation number. Click a fact to see the evidence.</p>
+    ${TYPE_ORDER.filter(t=>groups[t]).map(t=>`<h3 id="t-${t}">${TYPE_LABELS[t]} <span class="muted small">(${groups[t].length})</span></h3>${groups[t].map(x=>`<details class="fact ${x.stale?'stale':''}"><summary><span class="k">${esc(x.key)}</span> <span class="badge ${x.confidence}">${x.confidence}</span><div class="v">${fmtValue(x.value)}</div></summary>${evidenceHtml(x)}${x.history?.length?`<div class="ev">Previous values: ${x.history.map(h=>esc(JSON.stringify(h.value)).slice(0,120)+' (until '+esc(h.until)+')').join('; ')}</div>`:''}</details>`).join('')}`).join('')}
+    ${retracted.length?`<h3>Retracted (${retracted.length})</h3>${retracted.map(x=>`<details class="fact retracted"><summary><span class="k">${esc(x.key)}</span> <span class="badge">retracted</span><div class="v">${fmtValue(x.value)}</div></summary>${evidenceHtml(x)}</details>`).join('')}`:''}
+  </div>
+  <div class="card"><h2 style="margin-top:0">Sources and entity-matching checks</h2>
+    <table><thead><tr><th>Source</th><th>Status</th><th>Facts</th><th>Req.</th><th>Checks / notes</th></tr></thead><tbody>${p.sources.map(s=>`<tr><td>${esc(s.source)}<br><a class="small" href="${esc(s.url)}" target="_blank" rel="noopener">${esc((s.url||'').slice(0,60))}</a></td><td><span class="badge ${s.status==='ok'?'high':s.status==='not_found'?'':'low'}">${esc(s.status)}</span></td><td>${s.facts}</td><td>${s.requests}</td><td class="small">${(s.checks||[]).map(c=>`${c.passed?'✔':'✘'} ${esc(c.check)}: ${esc(c.detail)}`).join('<br>')}${(s.notes||[]).map(n=>'<br><span class="muted">'+esc(n)+'</span>').join('')}${(s.rejected||[]).length?`<br><span class="muted">${s.rejected.length} fact(s) withheld: ${esc(s.rejected[0].reason)}</span>`:''}</td></tr>`).join('')}</tbody></table>
+    ${(p.changes||[]).length?`<details style="margin-top:10px"><summary>Full change log (${p.changes.length})</summary><table><thead><tr><th>When</th><th>Key</th><th>Type</th><th>Old</th><th>New</th></tr></thead><tbody>${p.changes.slice().reverse().slice(0,200).map(c=>`<tr><td>${esc((c.at||'').slice(0,10))}</td><td class="k">${esc(c.key)}</td><td>${esc(c.type)}</td><td class="small">${esc(JSON.stringify(c.old??'')).slice(0,80)}</td><td class="small">${esc(JSON.stringify(c.new??'')).slice(0,80)}</td></tr>`).join('')}</tbody></table></details>`:''}
+  </div>`;
+  document.getElementById('addcmp').onclick = e => { cmpSel.has(p.orgnr)?cmpSel.delete(p.orgnr):cmpSel.add(p.orgnr); saveSel(); e.target.textContent = cmpSel.has(p.orgnr)?'In compare ✓':'Add to compare'; };
+}
+
+async function viewCompare(list){
+  const ids = list.length?list:[...cmpSel];
+  if(!ids.length){ app.innerHTML = '<div class="card">Select companies to compare from the <a href="#/">list</a> (tick "compare") or open <code>#/compare/923609016,878703812</code>.</div>'; return; }
+  app.innerHTML = '<div class="muted">Loading…</div>';
+  const ps = await Promise.all(ids.slice(0,4).map(loadProfile));
+  const F = ps.map(p=>Object.fromEntries(p.facts.filter(x=>x.status==='active').map(x=>[x.key,x])));
+  const rows = [['Organisation number', p=>spaced(p.orgnr)],['Legal form','org_form'],['Founded','founded'],['Industry','industry.nace1'],['Purpose','purpose'],['Business address','address.business'],['Employees','employees'],['Sub-units','subunits.count'],['General manager','roles.ceo'],['Board chair','roles.board_chair'],['Website','web.url'],['Website description','web.description'],['Social media','web.social'],['Share capital','capital.share'],['Open jobs (NAV)','jobs.active_count'],['LEI','lei'],['Entity match', p=>p.matching?.overall],['Active facts', p=>p.facts.filter(x=>x.status==='active').length],['Last run', p=>(p.last_run||'').slice(0,10)]];
+  const years = new Set(); F.forEach(f=>Object.keys(f).forEach(k=>{const m=k.match(/^finance\.(\d{4})\.selskap\.revenue$/); if(m) years.add(m[1]);}));
+  [...years].sort().reverse().slice(0,3).forEach(y=>{ rows.push([`Revenue ${y} (company)`,`finance.${y}.selskap.revenue`]); rows.push([`Net result ${y} (company)`,`finance.${y}.selskap.net_result`]); });
+  app.innerHTML = `<div class="card compare"><h2 style="margin-top:0">Compare</h2><table><thead><tr><th></th>${ps.map(p=>`<th><a href="#/c/${p.orgnr}">${esc(p.name)}</a></th>`).join('')}</tr></thead><tbody>
+  ${rows.map(([label,key])=>`<tr><td>${label}</td>${ps.map((p,i)=>{ if(typeof key==='function') return '<td>'+esc(key(p))+'</td>'; const x=F[i][key]; return x?`<td title="${esc(x.evidence[0].source)} · ${esc(x.evidence[0].url)}">${fmtValue(x.value)} <a class="small" href="${esc(x.evidence[0].url)}" target="_blank" rel="noopener">↗</a></td>`:'<td class="muted">—</td>'; }).join('')}</tr>`).join('')}
+  </tbody></table><p class="muted small">Hover a cell for its source; ↗ opens the evidence URL.</p><button id="clear">Clear selection</button></div>`;
+  document.getElementById('clear').onclick = () => { cmpSel.clear(); saveSel(); location.hash='#/'; };
+}
+
+function viewAbout(){
+  app.innerHTML = `<div class="card"><h2 style="margin-top:0">About the data</h2>
+  <p>Signalpost builds a profile for a Norwegian organisation number from permitted public sources only: Brønnøysundregistrene (Enhetsregisteret, roles, sub-units, Regnskapsregisteret), GLEIF, Wikidata and Wikipedia, NAV's public job board, the Norwegian Building Authority's approval register (DiBK), Kartverket's address register and the company's own website.</p>
+  <p>Every fact carries evidence: the URL it came from, the date the source attaches to it, the time it was fetched and the way the record was tied to the organisation number (<b>orgnr_exact</b>: the record is addressed by or echoes the number; <b>orgnr_on_page</b>: the number is printed on the page; <b>registry_name_exact</b>: the employer name equals a registered unit name; <b>name_on_page</b>: the company name on the page or in the domain; <b>address_lookup</b>: the registered address was geocoded).</p>
+  <p>Re-running the agent merges new facts into stored profiles: additions, changes (old value kept in history) and retractions are logged per profile and shown under "What changed".</p>
+  <p>Code and profiles: <a href="https://github.com/iakshkhurana/signalpost" target="_blank" rel="noopener">github.com/iakshkhurana/signalpost</a>. Run locally with <code>python -m signalpost serve</code>.</p></div>`;
+}
+
+async function route(){
+  const h = location.hash || '#/';
+  try{
+    status.textContent = cmpSel.size?`${cmpSel.size} selected for compare`:'';
+    let m;
+    if((m = h.match(/^#\/c\/(\d{9})/))) await viewCompany(m[1]);
+    else if((m = h.match(/^#\/compare\/?([\d,]*)/))) await viewCompare(m[1]?m[1].split(',').filter(Boolean):[]);
+    else if(h.startsWith('#/about')) viewAbout();
+    else await viewList();
+    window.scrollTo(0,0);
+  }catch(e){ app.innerHTML = `<div class="card">Could not load data: ${esc(e.message)}. Serve this folder over HTTP (<code>python -m signalpost serve</code>) so that <code>${DATA}index.json</code> can be fetched.</div>`; }
+}
+window.addEventListener('hashchange', route); route();
+</script>
+</body>
+</html>

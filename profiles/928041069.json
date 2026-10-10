@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:11:42Z",
- "last_run": "2026-10-05T05:11:42Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:23:45Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,47 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026571012 virksomhet.organisasjonsnummer=928041069 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Instituttveien 18' 2007 -> matched 'Instituttveien 18' 2007"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://agilerapharma.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": true,
+    "detail": "org number 928041069 printed on https://agilera.no"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'AGILERA PHARMA AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": false,
+    "detail": "agilerapharma.no -> agilera.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "same_host_after_redirect"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +97,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: home page guessed from the registered name; page match = orgnr_on_page (high)"
   ]
  },
  "facts": [
@@ -70,7 +110,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +118,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -101,7 +141,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -109,7 +149,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -122,7 +162,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-06-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -130,7 +170,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -148,7 +188,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-08-14",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -156,7 +196,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -169,7 +209,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -177,7 +217,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -190,7 +230,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -198,7 +238,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -216,7 +256,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -224,7 +264,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -242,7 +282,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -250,7 +290,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -268,7 +308,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -276,7 +316,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -294,7 +334,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -302,7 +342,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -320,7 +360,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -328,7 +368,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -354,7 +394,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -362,7 +402,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -380,7 +420,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -388,7 +428,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -406,7 +446,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -414,7 +454,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -432,7 +472,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -440,7 +480,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -458,7 +498,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -466,7 +506,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -484,7 +524,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -492,7 +532,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -510,7 +550,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -518,7 +558,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -536,7 +576,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -544,7 +584,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -562,7 +602,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -570,7 +610,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -588,7 +628,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -596,7 +636,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -614,7 +654,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -622,7 +662,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -640,7 +680,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -648,7 +688,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -666,7 +706,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -674,7 +714,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -692,7 +732,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -700,7 +740,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -718,7 +758,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -726,7 +766,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +784,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +792,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -770,7 +810,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -778,7 +818,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -804,7 +844,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -812,7 +852,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -830,7 +870,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -838,7 +878,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -856,7 +896,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -864,7 +904,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -882,7 +922,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -890,7 +930,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -908,7 +948,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -916,7 +956,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -934,7 +974,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -942,7 +982,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -960,7 +1000,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -968,7 +1008,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -986,7 +1026,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -994,7 +1034,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1012,7 +1052,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1020,7 +1060,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1038,7 +1078,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1046,7 +1086,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1064,7 +1104,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1072,7 +1112,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1130,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1138,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1116,7 +1156,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1124,7 +1164,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1142,7 +1182,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1150,7 +1190,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1168,7 +1208,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1176,7 +1216,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1194,7 +1234,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1202,7 +1242,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1220,7 +1260,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1228,7 +1268,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1254,7 +1294,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1262,7 +1302,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1280,7 +1320,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1288,7 +1328,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1306,7 +1346,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1314,7 +1354,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1332,7 +1372,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1340,7 +1380,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1358,7 +1398,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1366,7 +1406,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1384,7 +1424,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1392,7 +1432,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1410,7 +1450,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1418,7 +1458,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1436,7 +1476,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1444,7 +1484,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1462,7 +1502,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1470,7 +1510,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1488,7 +1528,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1496,7 +1536,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1514,7 +1554,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1522,7 +1562,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1540,7 +1580,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1548,7 +1588,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1564,7 +1604,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1572,7 +1612,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1585,7 +1625,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2021-11-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1593,7 +1633,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1606,7 +1646,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1614,7 +1654,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1630,7 +1670,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1638,7 +1678,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1651,7 +1691,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1659,7 +1699,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1672,7 +1712,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1680,7 +1720,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1693,7 +1733,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1701,11 +1741,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.97443031958869,
+    "lon": 11.048794158114896,
+    "crs": "EPSG:4326",
+    "matched_address": "Instituttveien 18",
+    "postal_code": "2007",
+    "city": "KJELLER",
+    "municipality": "LILLESTRØM",
+    "municipality_number": "3205",
+    "cadastral": {
+     "gnr": 26,
+     "bnr": 21
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.97443031958869&lon=11.048794158114896&markerLat=59.97443031958869&markerLon=11.048794158114896"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Instituttveien+18&postnummer=2007&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1714,7 +1789,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1722,7 +1797,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1741,7 +1816,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1749,7 +1824,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1765,7 +1840,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1773,7 +1848,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1786,7 +1861,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2025-06-30",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1794,7 +1869,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1807,7 +1882,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2021-12-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1815,7 +1890,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1828,7 +1903,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2021-12-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1836,7 +1911,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1856,7 +1931,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1864,7 +1939,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1880,7 +1955,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069/roller",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2021-12-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1888,7 +1963,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1903,7 +1978,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069/roller",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2026-07-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1911,7 +1986,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1928,7 +2003,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069/roller",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2026-07-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1936,7 +2011,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1965,7 +2040,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069/roller",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2026-07-29",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1973,7 +2048,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1988,7 +2063,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069/roller",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": "2023-02-24",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1996,7 +2071,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2012,7 +2087,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2020,7 +2095,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2037,7 +2112,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2045,7 +2120,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2058,7 +2133,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=928041069&size=100",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2066,7 +2141,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2079,7 +2154,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=928041069&size=100",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2087,7 +2162,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2109,7 +2184,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=928041069&size=100",
-     "retrieved_at": "2026-10-05T05:11:42Z",
+     "retrieved_at": "2026-10-10T13:23:45Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2117,7 +2192,278 @@
     }
    ],
    "first_seen": "2026-10-05T05:11:42Z",
-   "last_seen": "2026-10-05T05:11:42Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "Agileras visjon er å realisere morgendagens kreftmedisin. Vi jobber tett med våre samarbeidspartnere for å bringe nye, innovative radiofarmaka fra konsept til pasient. Agilera er ett av få etablerte selskaper i verden som har både ekspertise og erfaring med produktutvikling og kommersiell produksjon av radiofarmaka. Vårt tverrfaglige team bidrar til teknologiutvikling og vekst gjennom å oversette forskning til kommersielt levedyktige produkter som forbedrer pasientbehandlingen. Agilera har bred kompetanse på å støtte preklinisk og klinisk utvikling for nye produktkandidater. Vår unike sammensetning av kompetanse, infrastruktur, teknologi og nærhet til forskningsmiljøene gir et sømløst og verdiskapende samarbeid med våre oppdragsgivere. Agilera er en ledende kontraktsutviklings- og tilvirknings organisasjon (CDMO). Med flere tiårs erfaring innen produksjon og distribusjon av radiofarmaka ble Agilera lansert fra Institutt for energiteknikk (IFE) i 2023. Vi tilbyr ekspertise og infrastruktur som gjør det mulig å bringe nye, innovative radiofarmaka fra konsept til klinikk og videre til kommersialisering. I tett samarbeid med våre oppdragsgivere realiserer vi morgendagens kreftmedisin. ",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no/om-oss/",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.careers_url",
+   "value": "https://agilera.no/jobb-med-oss/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no/jobb-med-oss/",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://agilera.no/kontakt/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no/kontakt/",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "anne.grethe.gustavsen@agilera.no",
+    "bente.tange.harbo@agilera.no",
+    "camilla.nordhei@agilera.no",
+    "erik.flatmark@agilera.no",
+    "faktura@ife.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.headline",
+   "value": "Vi realiserer morgendagens kreftmedisin",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Agilera er en ledende CDMO som bidrar til teknologiutvikling og vekst i radiofarmakamarkedet. Vi tilbyr hele verdikjeden for utvikling av nye radiofarmaka fra preklinisk fase til kommersiell produksjon og global distribusjon. Agilera er godkjent som tilvirker til USA, Japan, Europa, Latin-Amerika, Kina og en rekke andre land. Vi har et velutviklet globalt distribusjonsnettverk og leverer radiofarmaka til pasienter over hele verden Gjennom vår ekspertise server vi farmasøytisk industri og tilbyr våre oppdragsgivere omfattende tjenester som dekker hele utviklingsløpet for en ny produktkandidat. For å vite mer om hvordan du bruker nettsiden vår, vil vi lagre noen informasjonkapsler i nettlesere",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.language",
+   "value": "nb-NO",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": true,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://agilera.no",
+    "contact": "https://agilera.no/kontakt/",
+    "about": "https://agilera.no/om-oss/",
+    "careers": "https://agilera.no/jobb-med-oss/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "90209400",
+    "90590574",
+    "90678476",
+    "91156690",
+    "97060314"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.title",
+   "value": "Agilera",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.url",
+   "value": "https://agilera.no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://agilera.no",
+     "retrieved_at": "2026-10-10T13:23:45Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:23:45Z",
+   "last_seen": "2026-10-10T13:23:45Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2130,7 +2476,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:42Z",
+   "retrieved_at": "2026-10-10T13:23:45Z",
    "facts": 21,
    "requests": 1,
    "checks": [
@@ -2148,7 +2494,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928041069/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:42Z",
+   "retrieved_at": "2026-10-10T13:23:45Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -2166,7 +2512,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=928041069&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:42Z",
+   "retrieved_at": "2026-10-10T13:23:45Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2184,7 +2530,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/928041069",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:42Z",
+   "retrieved_at": "2026-10-10T13:23:45Z",
    "facts": 52,
    "requests": 1,
    "checks": [
@@ -2212,7 +2558,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=928041069&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:42Z",
+   "retrieved_at": "2026-10-10T13:23:45Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2226,7 +2572,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22928041069%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:11:42Z",
+   "retrieved_at": "2026-10-10T13:23:45Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2236,865 +2582,187 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:11:42Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=AGILERA+PHARMA&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:23:45Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Instituttveien+18&postnummer=2007&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:23:45Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Instituttveien 18' 2007 -> matched 'Instituttveien 18' 2007"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://agilerapharma.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:23:45Z",
+   "facts": 12,
+   "requests": 7,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://agilerapharma.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": true,
+     "detail": "org number 928041069 printed on https://agilera.no"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'AGILERA PHARMA AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": false,
+     "detail": "agilerapharma.no -> agilera.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "name",
-   "type": "added",
-   "new": "AGILERA PHARMA AS"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "IFE PHARMA AS",
-     "from": "2021-12-01 14:51:33",
-     "to": "2022-11-05 13:16:17"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:23:45Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2021-11-07"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2021-12-01"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2021-12-01"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Instituttveien 18"
-    ],
+    "lat": 59.97443031958869,
+    "lon": 11.048794158114896,
+    "crs": "EPSG:4326",
+    "matched_address": "Instituttveien 18",
     "postal_code": "2007",
     "city": "KJELLER",
     "municipality": "LILLESTRØM",
     "municipality_number": "3205",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 26,
+     "bnr": 21
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.97443031958869&lon=11.048794158114896&markerLat=59.97443031958869&markerLon=11.048794158114896"
    }
   },
   {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://agilera.no"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Agilera"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "nb-NO"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Agilera er en ledende CDMO som bidrar til teknologiutvikling og vekst i radiofarmakamarkedet. Vi tilbyr hele verdikjeden for utvikling av nye radiofarmaka fra preklinisk fase til kommersiell produksjon og global distribusjon. Agilera er godkjent som tilvirker til USA, Japan, Europa, Latin-Amerika, Kina og en rekke andre land. Vi har et velutviklet globalt distribusjonsnettverk og leverer radiofarmaka til pasienter over hele verden Gjennom vår ekspertise server vi farmasøytisk industri og tilbyr våre oppdragsgivere omfattende tjenester som dekker hele utviklingsløpet for en ny produktkandidat. For å vite mer om hvordan du bruker nettsiden vår, vil vi lagre noen informasjonkapsler i nettlesere"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Vi realiserer morgendagens kreftmedisin"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Agileras visjon er å realisere morgendagens kreftmedisin. Vi jobber tett med våre samarbeidspartnere for å bringe nye, innovative radiofarmaka fra konsept til pasient. Agilera er ett av få etablerte selskaper i verden som har både ekspertise og erfaring med produktutvikling og kommersiell produksjon av radiofarmaka. Vårt tverrfaglige team bidrar til teknologiutvikling og vekst gjennom å oversette forskning til kommersielt levedyktige produkter som forbedrer pasientbehandlingen. Agilera har bred kompetanse på å støtte preklinisk og klinisk utvikling for nye produktkandidater. Vår unike sammensetning av kompetanse, infrastruktur, teknologi og nærhet til forskningsmiljøene gir et sømløst og verdiskapende samarbeid med våre oppdragsgivere. Agilera er en ledende kontraktsutviklings- og tilvirknings organisasjon (CDMO). Med flere tiårs erfaring innen produksjon og distribusjon av radiofarmaka ble Agilera lansert fra Institutt for energiteknikk (IFE) i 2023. Vi tilbyr ekspertise og infrastruktur som gjør det mulig å bringe nye, innovative radiofarmaka fra konsept til klinikk og videre til kommersialisering. I tett samarbeid med våre oppdragsgivere realiserer vi morgendagens kreftmedisin. "
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://agilera.no/jobb-med-oss/"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "code": "21.200",
-    "description": "Produksjon av farmasøytiske preparater"
+    "url": "https://agilera.no/kontakt/"
    }
   },
   {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "employees",
-   "type": "added",
-   "new": 136
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Drive forskning, utvikling og produksjon av nye løsninger for medisin ved bruk av radioaktive kilder, samt andre aktiviteter som står i forbindelse hermed, herunder samarbeid med, deltakelse og eierskap i andre selskaper."
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Produksjon av farmasøytiske preparater."
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "capital.share",
-   "type": "added",
-   "new": {
-    "amount": 4530000.0,
-    "currency": "NOK",
-    "shares": 30000,
-    "type": "Aksjekapital"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2025-06-30"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/928041069"
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Erik Flatmark"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Etienne Louis Marie Robert Montagut"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "roles.board_members",
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.emails",
    "type": "added",
    "new": [
-    {
-     "name": "Wayne Brandon Ingersoll"
-    },
-    {
-     "name": "Elizabeth Halyce Pierson"
-    },
-    {
-     "name": "Nils Morten Huseby"
-    },
-    {
-     "name": "Elisabeth Strålberg"
-    },
-    {
-     "name": "Anne Elisabeth Laingen"
-    }
+    "anne.grethe.gustavsen@agilera.no",
+    "bente.tange.harbo@agilera.no",
+    "camilla.nordhei@agilera.no",
+    "erik.flatmark@agilera.no",
+    "faktura@ife.no"
    ]
   },
   {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "roles.board_deputies",
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.phones",
    "type": "added",
    "new": [
-    {
-     "name": "Inger Lill Skuland"
-    }
+    "90209400",
+    "90590574",
+    "90678476",
+    "91156690",
+    "97060314"
    ]
   },
   {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "roles.auditor",
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "name": "KPMG AS",
-    "orgnr": "935174627"
+    "home": "https://agilera.no",
+    "contact": "https://agilera.no/kontakt/",
+    "about": "https://agilera.no/om-oss/",
+    "careers": "https://agilera.no/jobb-med-oss/"
    }
   },
   {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "subunits.count",
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "928286134",
-     "name": "AGILERA PHARMA AS",
-     "city": "KJELLER",
-     "municipality": "LILLESTRØM",
-     "employees": 136,
-     "nace": "21.200"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 136
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 290815663.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 290815663.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 300877604.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -10061942.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -554808.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -10616750.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": -2298004.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -8318746.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 157781387.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 52008092.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 105773294.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 8398235.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 49772108.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 108009279.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 108009279.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024593445",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 357641299.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 357641299.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 386633157.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -28991858.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -3460433.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -32452291.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 2298004.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -34750295.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 149224699.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 48759388.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 100465311.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 19093602.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 15021814.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 134202886.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 89202886.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 45000000.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025688190",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 352523392.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 352523392.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 416495934.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -63972542.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": -5647849.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": -69620391.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": -69620391.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 185094511.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 54094992.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 130999519.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 11665259.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 18463486.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 166631025.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 79076263.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 87554762.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026571012",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:11:42Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
+   "new": true
   }
  ],
  "changes": [
@@ -3942,17 +3610,178 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.97443031958869,
+    "lon": 11.048794158114896,
+    "crs": "EPSG:4326",
+    "matched_address": "Instituttveien 18",
+    "postal_code": "2007",
+    "city": "KJELLER",
+    "municipality": "LILLESTRØM",
+    "municipality_number": "3205",
+    "cadastral": {
+     "gnr": 26,
+     "bnr": 21
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.97443031958869&lon=11.048794158114896&markerLat=59.97443031958869&markerLon=11.048794158114896"
+   }
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://agilera.no"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Agilera"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "nb-NO"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Agilera er en ledende CDMO som bidrar til teknologiutvikling og vekst i radiofarmakamarkedet. Vi tilbyr hele verdikjeden for utvikling av nye radiofarmaka fra preklinisk fase til kommersiell produksjon og global distribusjon. Agilera er godkjent som tilvirker til USA, Japan, Europa, Latin-Amerika, Kina og en rekke andre land. Vi har et velutviklet globalt distribusjonsnettverk og leverer radiofarmaka til pasienter over hele verden Gjennom vår ekspertise server vi farmasøytisk industri og tilbyr våre oppdragsgivere omfattende tjenester som dekker hele utviklingsløpet for en ny produktkandidat. For å vite mer om hvordan du bruker nettsiden vår, vil vi lagre noen informasjonkapsler i nettlesere"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Vi realiserer morgendagens kreftmedisin"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Agileras visjon er å realisere morgendagens kreftmedisin. Vi jobber tett med våre samarbeidspartnere for å bringe nye, innovative radiofarmaka fra konsept til pasient. Agilera er ett av få etablerte selskaper i verden som har både ekspertise og erfaring med produktutvikling og kommersiell produksjon av radiofarmaka. Vårt tverrfaglige team bidrar til teknologiutvikling og vekst gjennom å oversette forskning til kommersielt levedyktige produkter som forbedrer pasientbehandlingen. Agilera har bred kompetanse på å støtte preklinisk og klinisk utvikling for nye produktkandidater. Vår unike sammensetning av kompetanse, infrastruktur, teknologi og nærhet til forskningsmiljøene gir et sømløst og verdiskapende samarbeid med våre oppdragsgivere. Agilera er en ledende kontraktsutviklings- og tilvirknings organisasjon (CDMO). Med flere tiårs erfaring innen produksjon og distribusjon av radiofarmaka ble Agilera lansert fra Institutt for energiteknikk (IFE) i 2023. Vi tilbyr ekspertise og infrastruktur som gjør det mulig å bringe nye, innovative radiofarmaka fra konsept til klinikk og videre til kommersialisering. I tett samarbeid med våre oppdragsgivere realiserer vi morgendagens kreftmedisin. "
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.careers_url",
+   "type": "added",
+   "new": "https://agilera.no/jobb-med-oss/"
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://agilera.no/kontakt/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "anne.grethe.gustavsen@agilera.no",
+    "bente.tange.harbo@agilera.no",
+    "camilla.nordhei@agilera.no",
+    "erik.flatmark@agilera.no",
+    "faktura@ife.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "90209400",
+    "90590574",
+    "90678476",
+    "91156690",
+    "97060314"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://agilera.no",
+    "contact": "https://agilera.no/kontakt/",
+    "about": "https://agilera.no/om-oss/",
+    "careers": "https://agilera.no/jobb-med-oss/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:23:45Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": true
   }
  ],
  "stats": {
-  "active_facts": 81,
+  "active_facts": 94,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.26
+  "requests": 18,
+  "seconds": 48.78
  },
  "explanation": {
   "mode": "template",
-  "text": "AGILERA PHARMA AS (org.nr 928 041 069) is registered as Aksjeselskap (AS), founded 2021-11-07, registered 2021-12-01. Business address: Instituttveien 18, 2007 KJELLER. Main industry (NACE): 21.200 Produksjon av farmasøytiske preparater. Registered employees: 136 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 352,523,392; operating result NOK -63,972,542; net result NOK -69,620,391; total assets NOK 185,094,511; equity NOK 18,463,486. Leadership: general manager (daglig leder) Erik Flatmark; board chair Etienne Louis Marie Robert Montagut; 5 other board members. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 81 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "AGILERA PHARMA AS (org.nr 928 041 069) is registered as Aksjeselskap (AS), founded 2021-11-07, registered 2021-12-01. [brreg_enheter] Main industry (NACE 21.200): Produksjon av farmasøytiske preparater. [brreg_enheter] Registered purpose: \"Drive forskning, utvikling og produksjon av nye løsninger for medisin ved bruk av radioaktive kilder, samt andre aktiviteter som står i forbindelse hermed, herunder samarbeid med, deltakelse og eierskap i andre selskaper.\" [brreg_enheter] The company's website describes it as: \"Agileras visjon er å realisere morgendagens kreftmedisin. Vi jobber tett med våre samarbeidspartnere for å bringe nye, innovative radiofarmaka fra konsept til pasient. Agilera er ett av få etablerte selskaper i verden som har både ekspertise og erfaring med produktutvikling og kommersiell produksjon\" [website] Business address: Instituttveien 18, 2007 KJELLER. [brreg_enheter] Leadership: general manager (daglig leder) Erik Flatmark; board chair Etienne Louis Marie Robert Montagut; 5 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 136 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 352,523,392 (-1% vs 2024); operating result NOK -63,972,542 (-121% vs 2024); net result NOK -69,620,391 (-100% vs 2024); total assets NOK 185,094,511 (+24% vs 2024); equity NOK 18,463,486 (+23% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 4,530,000. [brreg_enheter]\n\nChanges in this run (13):\n- location.business.geo: added ({'lat': 59.97443031958869, 'lon': 11.048794158114896, 'cr...)\n- web.url: added (https://agilera.no)\n- web.title: added (Agilera)\n- web.language: added (nb-NO)\n- web.home_text: added (Agilera er en ledende CDMO som bidrar til teknologiutvikl...)\n- web.headline: added (Vi realiserer morgendagens kreftmedisin)\n- web.about_text: added (Agileras visjon er å realisere morgendagens kreftmedisin....)\n- web.careers_url: added (https://agilera.no/jobb-med-oss/)\n- web.contact_page: added ({'url': 'https://agilera.no/kontakt/'})\n- web.emails: added (['anne.grethe.gustavsen@agilera.no', 'bente.tange.harbo@a...)\n- web.phones: added (['90209400', '90590574', '90678476', '91156690', '97060314'])\n- web.pages_checked: added ({'home': 'https://agilera.no', 'contact': 'https://agiler...)\n- web.orgnr_on_page: added (True)\n\nWhat remains unknown:\n- No social media profiles: website reached, but it carries no such information.\n- No news items: website reached, but it carries no such information.\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: home page guessed from the registered name; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "AGILERA PHARMA AS (org.nr 928 041 069) is registered as Aksjeselskap (AS), founded 2021-11-07, registered 2021-12-01. [brreg_enheter]",
+    "Main industry (NACE 21.200): Produksjon av farmasøytiske preparater. [brreg_enheter]",
+    "Registered purpose: \"Drive forskning, utvikling og produksjon av nye løsninger for medisin ved bruk av radioaktive kilder, samt andre aktiviteter som står i forbindelse hermed, herunder samarbeid med, deltakelse og eierskap i andre selskaper.\" [brreg_enheter]",
+    "The company's website describes it as: \"Agileras visjon er å realisere morgendagens kreftmedisin. Vi jobber tett med våre samarbeidspartnere for å bringe nye, innovative radiofarmaka fra konsept til pasient. Agilera er ett av få etablerte selskaper i verden som har både ekspertise og erfaring med produktutvikling og kommersiell produksjon\" [website]",
+    "Business address: Instituttveien 18, 2007 KJELLER. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Erik Flatmark; board chair Etienne Louis Marie Robert Montagut; 5 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 136 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 352,523,392 (-1% vs 2024); operating result NOK -63,972,542 (-121% vs 2024); net result NOK -69,620,391 (-100% vs 2024); total assets NOK 185,094,511 (+24% vs 2024); equity NOK 18,463,486 (+23% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 4,530,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (13):",
+    "- location.business.geo: added ({'lat': 59.97443031958869, 'lon': 11.048794158114896, 'cr...)",
+    "- web.url: added (https://agilera.no)",
+    "- web.title: added (Agilera)",
+    "- web.language: added (nb-NO)",
+    "- web.home_text: added (Agilera er en ledende CDMO som bidrar til teknologiutvikl...)",
+    "- web.headline: added (Vi realiserer morgendagens kreftmedisin)",
+    "- web.about_text: added (Agileras visjon er å realisere morgendagens kreftmedisin....)",
+    "- web.careers_url: added (https://agilera.no/jobb-med-oss/)",
+    "- web.contact_page: added ({'url': 'https://agilera.no/kontakt/'})",
+    "- web.emails: added (['anne.grethe.gustavsen@agilera.no', 'bente.tange.harbo@a...)",
+    "- web.phones: added (['90209400', '90590574', '90678476', '91156690', '97060314'])",
+    "- web.pages_checked: added ({'home': 'https://agilera.no', 'contact': 'https://agiler...)",
+    "- web.orgnr_on_page: added (True)"
+   ],
+   "unknown": [
+    "No social media profiles: website reached, but it carries no such information.",
+    "No news items: website reached, but it carries no such information.",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: home page guessed from the registered name; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }

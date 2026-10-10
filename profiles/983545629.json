@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:24:14Z",
- "last_run": "2026-10-05T05:24:14Z",
- "run_count": 1,
+ "last_run": "2026-10-10T14:03:38Z",
+ "run_count": 3,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -49,9 +49,41 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026304558 virksomhet.organisasjonsnummer=983545629 (2025, selskap)"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://christianiasport.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 983545629 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'CHRISTIANIA SPORT AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "christianiasport.no -> christianiasport.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -59,7 +91,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: not_found (address 'Skullerud Park Olaf Helsets vei 5', 0694 not found in the national address register)",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -70,7 +104,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -78,7 +112,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -102,7 +136,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -110,7 +144,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -123,7 +157,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2009-12-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -131,7 +165,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -149,7 +183,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2010-05-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -157,7 +191,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -170,7 +204,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -178,7 +212,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -191,7 +225,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2026-06-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -199,7 +233,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -212,7 +246,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -220,7 +254,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -238,7 +272,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -246,7 +280,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -264,7 +298,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -272,7 +306,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -290,7 +324,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -298,7 +332,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -316,7 +350,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -324,7 +358,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -342,7 +376,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -350,7 +384,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -376,7 +410,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -384,7 +418,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -402,7 +436,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -410,7 +444,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -428,7 +462,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -436,7 +470,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -454,7 +488,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -462,7 +496,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -480,7 +514,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -488,7 +522,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -506,7 +540,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -514,7 +548,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -532,7 +566,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -540,7 +574,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -558,7 +592,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -566,7 +600,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -584,7 +618,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -592,7 +626,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -610,7 +644,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -618,7 +652,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -636,7 +670,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -644,7 +678,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -662,7 +696,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -670,7 +704,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -688,7 +722,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -696,7 +730,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -714,7 +748,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -722,7 +756,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -740,7 +774,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -748,7 +782,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -766,7 +800,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -774,7 +808,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -792,7 +826,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -800,7 +834,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -826,7 +860,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -834,7 +868,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -852,7 +886,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -860,7 +894,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -878,7 +912,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -886,7 +920,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -904,7 +938,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -912,7 +946,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -930,7 +964,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -938,7 +972,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -956,7 +990,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -964,7 +998,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -982,7 +1016,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -990,7 +1024,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1008,7 +1042,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1016,7 +1050,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1034,7 +1068,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1042,7 +1076,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1060,7 +1094,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1068,7 +1102,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1086,7 +1120,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1094,7 +1128,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1112,7 +1146,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1120,7 +1154,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1138,7 +1172,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1146,7 +1180,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1164,7 +1198,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1172,7 +1206,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1190,7 +1224,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1198,7 +1232,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1216,7 +1250,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1224,7 +1258,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1250,7 +1284,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1258,7 +1292,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1276,7 +1310,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1284,7 +1318,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1302,7 +1336,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1310,7 +1344,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1328,7 +1362,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1336,7 +1370,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1354,7 +1388,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1362,7 +1396,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1380,7 +1414,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1388,7 +1422,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1406,7 +1440,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1414,7 +1448,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1432,7 +1466,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1440,7 +1474,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1458,7 +1492,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1466,7 +1500,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1484,7 +1518,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1492,7 +1526,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1510,7 +1544,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1518,7 +1552,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1536,7 +1570,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1544,7 +1578,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1560,7 +1594,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1568,7 +1602,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1581,7 +1615,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2001-07-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1589,7 +1623,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1602,7 +1636,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1610,7 +1644,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1626,7 +1660,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1634,7 +1668,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1647,7 +1681,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1655,7 +1689,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1668,7 +1702,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1676,7 +1710,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1689,7 +1723,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1697,7 +1731,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1710,7 +1744,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1718,7 +1752,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1731,7 +1765,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1739,7 +1773,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1755,7 +1789,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1763,7 +1797,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1776,7 +1810,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2009-12-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1784,7 +1818,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1797,7 +1831,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2001-07-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1805,7 +1839,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1818,7 +1852,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2001-07-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1826,7 +1860,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1846,7 +1880,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1854,7 +1888,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1870,7 +1904,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629/roller",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2022-08-11",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1878,7 +1912,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1893,7 +1927,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629/roller",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2022-05-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1901,7 +1935,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1918,7 +1952,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629/roller",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2022-05-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1926,7 +1960,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1941,7 +1975,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629/roller",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": "2001-07-23",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1949,7 +1983,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1965,7 +1999,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1973,7 +2007,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1990,7 +2024,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1998,7 +2032,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2011,7 +2045,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=983545629&size=100",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2019,7 +2053,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2032,7 +2066,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=983545629&size=100",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2040,7 +2074,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2062,7 +2096,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=983545629&size=100",
-     "retrieved_at": "2026-10-05T05:24:14Z",
+     "retrieved_at": "2026-10-10T13:50:02Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2070,11 +2104,400 @@
     }
    ],
    "first_seen": "2026-10-05T05:24:14Z",
-   "last_seen": "2026-10-05T05:24:14Z",
+   "last_seen": "2026-10-10T13:50:02Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.about_text",
+   "value": "Vi bruker informasjonskapsler for å gi deg den beste mulige opplevelsen. De lar oss også analysere brukeratferd for å kontinuerlig forbedre nettstedet for deg. Christiania Sport AS ble etablert i Oslo 2001. Den gang som sportsbutikk med utsalgssted i Oslo og på Norefjell. Vår B2C-virksomhet ble avsluttet da Paleet kjøpesenter ble stengt for ombygging i 2013 Vi har vært en stabil leverandør av sportsutstyr og profileringsutstyr til næringslivet helt fra start, men det var først i 2018 vi la om driften. Vi er i dag en «total-leverandør» av merkevarer og profilprodukter i B2B-markedet. Vi brenner fortsatt for sporty produkter av høy kvalitet, men vi har lagt lista lavere. Som tidligere high-end leverandør i forbrukermarkedet, har vi naturlig nok tilpasset produkter og løsninger vi leverer til b2b-markedet. Som leverandør til bedrifter er vi svært opptatt av at «alle skal med». Vi tilfredsstiller de ansatte som skal sykle Trondheim-Oslo, men viktigere for din bedrift er å få med de som ikke er like glad i å trene. De som prioriterer Nettflix fremfor thigts. Målet er ikke å få tv-seere til å kle seg i thights, men kanskje en turbukse? Gjennom samhold og kompetanseflyt utenfor arbeidspla",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/om-oss",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first paragraphs of the company's about page"
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.christianiasport.no/kontakt"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/kontakt",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.description",
+   "value": "Vi hjelper deg med å synliggjøre din bedrift i forskjellige settinger. Enten om dere skal delta på sportsarrangement, messer eller om dere trenger personalantrekk.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "bendik@christianiasport.no",
+    "birger@christianiasport.no",
+    "firmapost@christianiasport.no",
+    "silje@christianiasport.no",
+    "siri@christianiasport.no"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Én bedrift. Én visjon. Ett lag.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Vi bruker informasjonskapsler for å gi deg den beste mulige opplevelsen. De lar oss også analysere brukeratferd for å kontinuerlig forbedre nettstedet for deg. Gjør Holmenkollstafetten til deres beste teambuilding. Vi leverer profilert treningstøy som skaper samhold og stolthet i hvert etappeskift. Christiania Sport har i dag rendyrket sin virksomhet i B2B markedet. Vi har levert klær og utstyr til firmaer som skal profilere sin virksomhet gjennom turer og arrangementer, løp, renn, ritt eller seilaser. Vi kan skilte med over 40 års erfaring fra sport- og profilbransjen og vår styrke er helt klart kunnskapen vi har når det gjelder funksjonalitet og synliggjøring.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.jsonld_organization",
+   "value": {
+    "name": "Christiania Sport AS",
+    "same_as": [
+     "https://www.facebook.com/christianiasportas",
+     "https://www.instagram.com/christiania_sport/"
+    ],
+    "telephone": "+47 40 40 44 20",
+    "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Olaf Helsets Vei 5",
+     "addressLocality": "Oslo",
+     "postalCode": "0694",
+     "addressCountry": "NO"
+    }
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.language",
+   "value": "no-NO",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.news.headlines",
+   "value": [
+    {
+     "title": "Gave til ansatte Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/gave-til-ansatte"
+    },
+    {
+     "title": "Klær med logo Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/klaer-med-logo"
+    },
+    {
+     "title": "Profileringsartikler Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/profileringsartikler"
+    },
+    {
+     "title": "Bedriftsgaver Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/bedriftsgaver"
+    }
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/aktuelt",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "latest headlines linked from the news page (no dates given on the page)"
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.og_image",
+   "value": "https://cdn.prod.website-files.com/621f2fb5e4e9f9333b403349/624c2ab243f3b37a0b8b55b0_opengraph.jpg",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.christianiasport.no/",
+    "contact": "https://www.christianiasport.no/kontakt",
+    "about": "https://www.christianiasport.no/om-oss",
+    "news": "https://www.christianiasport.no/aktuelt"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4747345389",
+    "+4790847188",
+    "+4791559033",
+    "+4799374777",
+    "004740404420"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.social",
+   "value": {
+    "facebook": "https://www.facebook.com/christianiasportas",
+    "instagram": "https://www.instagram.com/christiania_sport"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "Christiania Sport | 40 år med erfaring",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://www.christianiasport.no/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.christianiasport.no/",
+     "retrieved_at": "2026-10-10T14:03:38Z",
+     "source_date": "2026-10-10",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T14:03:38Z",
+   "last_seen": "2026-10-10T14:03:38Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -2083,9 +2506,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:24:14Z",
-   "facts": 22,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:50:02Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2094,16 +2517,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/983545629/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:24:14Z",
-   "facts": 4,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:50:02Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2112,16 +2537,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=983545629&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:24:14Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:50:02Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2130,16 +2557,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/983545629",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:24:14Z",
-   "facts": 51,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:50:02Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2158,20 +2587,23 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=983545629&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:24:14Z",
+   "retrieved_at": "2026-10-10T13:50:02Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no LEI record lists this organisation number"
+    "no LEI record lists this organisation number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2179,843 +2611,234 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22983545629%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:24:14Z",
-   "facts": 0,
-   "requests": 1,
-   "checks": [],
-   "rejected": [],
-   "notes": [
-    "no Wikidata item has P2333 = this org number"
-   ]
-  },
-  {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:24:14Z",
+   "retrieved_at": "2026-10-10T13:50:02Z",
    "facts": 0,
    "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "no Wikidata item has P2333 = this org number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=CHRISTIANIA+SPORT&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:50:02Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Skullerud+Park+Olaf+Helsets+vei+5&postnummer=0694&treffPerSide=1&fuzzy=true",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:50:02Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "address 'Skullerud Park Olaf Helsets vei 5', 0694 not found in the national address register",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "website",
+   "url": "https://christianiasport.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T14:03:38Z",
+   "facts": 16,
+   "requests": 6,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://christianiasport.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 983545629 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'CHRISTIANIA SPORT AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "christianiasport.no -> christianiasport.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "name",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.url",
    "type": "added",
-   "new": "CHRISTIANIA SPORT AS"
+   "new": "https://www.christianiasport.no/"
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "entity_type",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.title",
    "type": "added",
-   "new": "enhet"
+   "new": "Christiania Sport | 40 år med erfaring"
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "org_form",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "Vi hjelper deg med å synliggjøre din bedrift i forskjellige settinger. Enten om dere skal delta på sportsarrangement, messer eller om dere trenger personalantrekk."
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no-NO"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://cdn.prod.website-files.com/621f2fb5e4e9f9333b403349/624c2ab243f3b37a0b8b55b0_opengraph.jpg"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Vi bruker informasjonskapsler for å gi deg den beste mulige opplevelsen. De lar oss også analysere brukeratferd for å kontinuerlig forbedre nettstedet for deg. Gjør Holmenkollstafetten til deres beste teambuilding. Vi leverer profilert treningstøy som skaper samhold og stolthet i hvert etappeskift. Christiania Sport har i dag rendyrket sin virksomhet i B2B markedet. Vi har levert klær og utstyr til firmaer som skal profilere sin virksomhet gjennom turer og arrangementer, løp, renn, ritt eller seilaser. Vi kan skilte med over 40 års erfaring fra sport- og profilbransjen og vår styrke er helt klart kunnskapen vi har når det gjelder funksjonalitet og synliggjøring."
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Én bedrift. Én visjon. Ett lag."
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.jsonld_organization",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2001-07-11"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2001-07-23"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2001-07-23"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Skullerud Park",
-     "Olaf Helsets vei 5"
+    "name": "Christiania Sport AS",
+    "same_as": [
+     "https://www.facebook.com/christianiasportas",
+     "https://www.instagram.com/christiania_sport/"
     ],
-    "postal_code": "0694",
-    "city": "OSLO",
-    "municipality": "OSLO",
-    "municipality_number": "0301",
-    "country": "Norge",
-    "country_code": "NO"
+    "telephone": "+47 40 40 44 20",
+    "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Olaf Helsets Vei 5",
+     "addressLocality": "Oslo",
+     "postalCode": "0694",
+     "addressCountry": "NO"
+    }
    }
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Vi bruker informasjonskapsler for å gi deg den beste mulige opplevelsen. De lar oss også analysere brukeratferd for å kontinuerlig forbedre nettstedet for deg. Christiania Sport AS ble etablert i Oslo 2001. Den gang som sportsbutikk med utsalgssted i Oslo og på Norefjell. Vår B2C-virksomhet ble avsluttet da Paleet kjøpesenter ble stengt for ombygging i 2013 Vi har vært en stabil leverandør av sportsutstyr og profileringsutstyr til næringslivet helt fra start, men det var først i 2018 vi la om driften. Vi er i dag en «total-leverandør» av merkevarer og profilprodukter i B2B-markedet. Vi brenner fortsatt for sporty produkter av høy kvalitet, men vi har lagt lista lavere. Som tidligere high-end leverandør i forbrukermarkedet, har vi naturlig nok tilpasset produkter og løsninger vi leverer til b2b-markedet. Som leverandør til bedrifter er vi svært opptatt av at «alle skal med». Vi tilfredsstiller de ansatte som skal sykle Trondheim-Oslo, men viktigere for din bedrift er å få med de som ikke er like glad i å trene. De som prioriterer Nettflix fremfor thigts. Målet er ikke å få tv-seere til å kle seg i thights, men kanskje en turbukse? Gjennom samhold og kompetanseflyt utenfor arbeidspla"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "Gave til ansatte Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/gave-til-ansatte"
+    },
+    {
+     "title": "Klær med logo Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/klaer-med-logo"
+    },
+    {
+     "title": "Profileringsartikler Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/profileringsartikler"
+    },
+    {
+     "title": "Bedriftsgaver Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/bedriftsgaver"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "code": "47.631",
-    "description": "Detaljhandel med sportsvarer"
+    "url": "https://www.christianiasport.no/kontakt"
    }
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.social",
    "type": "added",
    "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
+    "facebook": "https://www.facebook.com/christianiasportas",
+    "instagram": "https://www.instagram.com/christiania_sport"
    }
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "employees",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.emails",
    "type": "added",
-   "new": 5
+   "new": [
+    "bendik@christianiasport.no",
+    "birger@christianiasport.no",
+    "firmapost@christianiasport.no",
+    "silje@christianiasport.no",
+    "siri@christianiasport.no"
+   ]
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "mobile",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.phones",
    "type": "added",
-   "new": "90847188"
+   "new": [
+    "+4747345389",
+    "+4790847188",
+    "+4791559033",
+    "+4799374777",
+    "004740404420"
+   ]
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "email",
-   "type": "added",
-   "new": "birger@christianiasport.no"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Eie og drive sportsforreninger samt å forestå slik annen virksomhet som naturlig hører inn under dette, herunder kjøp og salg av andre foretak innenfor samme segment."
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Butikkhandel med sport og fritidsutstyr. Salg av profileringsmateriell til bedrifter. Import av produkter relatert til dette."
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "capital.share",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.pages_checked",
    "type": "added",
    "new": {
-    "amount": 100000.0,
-    "currency": "NOK",
-    "shares": 600,
-    "type": "Aksjekapital"
+    "home": "https://www.christianiasport.no/",
+    "contact": "https://www.christianiasport.no/kontakt",
+    "about": "https://www.christianiasport.no/om-oss",
+    "news": "https://www.christianiasport.no/aktuelt"
    }
   },
   {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "group.is_parent",
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
    "new": false
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2009-12-23"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/983545629"
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Birger Bjune"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Birger Bjune"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "roles.board_deputies",
-   "type": "added",
-   "new": [
-    {
-     "name": "Bente Mimi Bjune"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "CENTER REVISJON AS",
-    "orgnr": "916788517"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "912935779",
-     "name": "CHRISTIANIA SPORT AS",
-     "city": "OSLO",
-     "municipality": "OSLO",
-     "employees": 5,
-     "nace": "47.631"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 5
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 9223340.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 9223340.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 9039760.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 183580.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 37152.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 220732.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 52088.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 168644.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 4552866.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 5199.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 4547667.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 2703074.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 2668949.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 1883917.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1882773.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1144.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024307737",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 11523671.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 11523671.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 11200041.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 323630.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 73459.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 397090.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 96475.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 300615.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 6179474.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 6179474.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 4094877.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 2969564.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 3209910.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 3209910.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025329710",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 11236012.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 11236012.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 11068394.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 167618.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 84089.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 251707.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 52930.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 198778.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 6815526.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 0.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 6815526.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 5121414.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 3018341.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 3797185.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 3795305.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026304558",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:24:14Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
   }
  ],
  "changes": [
@@ -3831,17 +3654,219 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://www.christianiasport.no/"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Christiania Sport | 40 år med erfaring"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.description",
+   "type": "added",
+   "new": "Vi hjelper deg med å synliggjøre din bedrift i forskjellige settinger. Enten om dere skal delta på sportsarrangement, messer eller om dere trenger personalantrekk."
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.language",
+   "type": "added",
+   "new": "no-NO"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.og_image",
+   "type": "added",
+   "new": "https://cdn.prod.website-files.com/621f2fb5e4e9f9333b403349/624c2ab243f3b37a0b8b55b0_opengraph.jpg"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Vi bruker informasjonskapsler for å gi deg den beste mulige opplevelsen. De lar oss også analysere brukeratferd for å kontinuerlig forbedre nettstedet for deg. Gjør Holmenkollstafetten til deres beste teambuilding. Vi leverer profilert treningstøy som skaper samhold og stolthet i hvert etappeskift. Christiania Sport har i dag rendyrket sin virksomhet i B2B markedet. Vi har levert klær og utstyr til firmaer som skal profilere sin virksomhet gjennom turer og arrangementer, løp, renn, ritt eller seilaser. Vi kan skilte med over 40 års erfaring fra sport- og profilbransjen og vår styrke er helt klart kunnskapen vi har når det gjelder funksjonalitet og synliggjøring."
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Én bedrift. Én visjon. Ett lag."
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.jsonld_organization",
+   "type": "added",
+   "new": {
+    "name": "Christiania Sport AS",
+    "same_as": [
+     "https://www.facebook.com/christianiasportas",
+     "https://www.instagram.com/christiania_sport/"
+    ],
+    "telephone": "+47 40 40 44 20",
+    "address": {
+     "@type": "PostalAddress",
+     "streetAddress": "Olaf Helsets Vei 5",
+     "addressLocality": "Oslo",
+     "postalCode": "0694",
+     "addressCountry": "NO"
+    }
+   }
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.about_text",
+   "type": "added",
+   "new": "Vi bruker informasjonskapsler for å gi deg den beste mulige opplevelsen. De lar oss også analysere brukeratferd for å kontinuerlig forbedre nettstedet for deg. Christiania Sport AS ble etablert i Oslo 2001. Den gang som sportsbutikk med utsalgssted i Oslo og på Norefjell. Vår B2C-virksomhet ble avsluttet da Paleet kjøpesenter ble stengt for ombygging i 2013 Vi har vært en stabil leverandør av sportsutstyr og profileringsutstyr til næringslivet helt fra start, men det var først i 2018 vi la om driften. Vi er i dag en «total-leverandør» av merkevarer og profilprodukter i B2B-markedet. Vi brenner fortsatt for sporty produkter av høy kvalitet, men vi har lagt lista lavere. Som tidligere high-end leverandør i forbrukermarkedet, har vi naturlig nok tilpasset produkter og løsninger vi leverer til b2b-markedet. Som leverandør til bedrifter er vi svært opptatt av at «alle skal med». Vi tilfredsstiller de ansatte som skal sykle Trondheim-Oslo, men viktigere for din bedrift er å få med de som ikke er like glad i å trene. De som prioriterer Nettflix fremfor thigts. Målet er ikke å få tv-seere til å kle seg i thights, men kanskje en turbukse? Gjennom samhold og kompetanseflyt utenfor arbeidspla"
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.news.headlines",
+   "type": "added",
+   "new": [
+    {
+     "title": "Gave til ansatte Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/gave-til-ansatte"
+    },
+    {
+     "title": "Klær med logo Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/klaer-med-logo"
+    },
+    {
+     "title": "Profileringsartikler Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/profileringsartikler"
+    },
+    {
+     "title": "Bedriftsgaver Les mer",
+     "url": "https://www.christianiasport.no/aktuelt/bedriftsgaver"
+    }
+   ]
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.christianiasport.no/kontakt"
+   }
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.social",
+   "type": "added",
+   "new": {
+    "facebook": "https://www.facebook.com/christianiasportas",
+    "instagram": "https://www.instagram.com/christiania_sport"
+   }
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "bendik@christianiasport.no",
+    "birger@christianiasport.no",
+    "firmapost@christianiasport.no",
+    "silje@christianiasport.no",
+    "siri@christianiasport.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4747345389",
+    "+4790847188",
+    "+4791559033",
+    "+4799374777",
+    "004740404420"
+   ]
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.christianiasport.no/",
+    "contact": "https://www.christianiasport.no/kontakt",
+    "about": "https://www.christianiasport.no/om-oss",
+    "news": "https://www.christianiasport.no/aktuelt"
+   }
+  },
+  {
+   "at": "2026-10-10T14:03:38Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 80,
+  "active_facts": 96,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.02
+  "requests": 6,
+  "seconds": 4.36
  },
  "explanation": {
   "mode": "template",
-  "text": "CHRISTIANIA SPORT AS (org.nr 983 545 629) is registered as Aksjeselskap (AS), founded 2001-07-11, registered 2001-07-23. Business address: Skullerud Park, Olaf Helsets vei 5, 0694 OSLO. Main industry (NACE): 47.631 Detaljhandel med sportsvarer. Registered employees: 5 (as of 2026-06-10). Latest filed annual accounts (2025, company statement): revenue NOK 11,236,012; operating result NOK 167,618; net result NOK 198,778; total assets NOK 6,815,526; equity NOK 3,018,341. Leadership: general manager (daglig leder) Birger Bjune; board chair Birger Bjune. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 80 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "CHRISTIANIA SPORT AS (org.nr 983 545 629) is registered as Aksjeselskap (AS), founded 2001-07-11, registered 2001-07-23. [brreg_enheter] Main industry (NACE 47.631): Detaljhandel med sportsvarer. [brreg_enheter] Registered purpose: \"Eie og drive sportsforreninger samt å forestå slik annen virksomhet som naturlig hører inn under dette, herunder kjøp og salg av andre foretak innenfor samme segment.\" [brreg_enheter] The company's website describes it as: \"Vi hjelper deg med å synliggjøre din bedrift i forskjellige settinger. Enten om dere skal delta på sportsarrangement, messer eller om dere trenger personalantrekk.\" [website] Business address: Skullerud Park, Olaf Helsets vei 5, 0694 OSLO. [brreg_enheter] Leadership: general manager (daglig leder) Birger Bjune; board chair Birger Bjune. [brreg_roller]\n\nKey numbers:\n- Registered employees: 5 (as of 2026-06-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 11,236,012 (-2% vs 2024); operating result NOK 167,618 (-48% vs 2024); net result NOK 198,778 (-34% vs 2024); total assets NOK 6,815,526 (+10% vs 2024); equity NOK 3,018,341 (+2% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 100,000. [brreg_enheter]\n\nChanges in this run (16):\n- web.url: added (https://www.christianiasport.no/)\n- web.title: added (Christiania Sport | 40 år med erfaring)\n- web.description: added (Vi hjelper deg med å synliggjøre din bedrift i forskjelli...)\n- web.language: added (no-NO)\n- web.og_image: added (https://cdn.prod.website-files.com/621f2fb5e4e9f9333b4033...)\n- web.home_text: added (Vi bruker informasjonskapsler for å gi deg den beste muli...)\n- web.headline: added (Én bedrift. Én visjon. Ett lag.)\n- web.jsonld_organization: added ({'name': 'Christiania Sport AS', 'same_as': ['https://www...)\n- web.about_text: added (Vi bruker informasjonskapsler for å gi deg den beste muli...)\n- web.news.headlines: added ([{'title': 'Gave til ansatte Les mer', 'url': 'https://ww...)\n- web.contact_page: added ({'url': 'https://www.christianiasport.no/kontakt'})\n- web.social: added ({'facebook': 'https://www.facebook.com/christianiasportas...)\n- web.emails: added (['bendik@christianiasport.no', 'birger@christianiasport.n...)\n- web.phones: added (['+4747345389', '+4790847188', '+4791559033', '+479937477...)\n- web.pages_checked: added ({'home': 'https://www.christianiasport.no/', 'contact': '...)\n- ... and 1 more\n\nWhat remains unknown:\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No map coordinates of the business address: checked geonorge: nothing registered (address 'Skullerud Park Olaf Helsets vei 5', 0694 not found in the national address register).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: not_found (address 'Skullerud Park Olaf Helsets vei 5', 0694 not found in the national address register)\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "CHRISTIANIA SPORT AS (org.nr 983 545 629) is registered as Aksjeselskap (AS), founded 2001-07-11, registered 2001-07-23. [brreg_enheter]",
+    "Main industry (NACE 47.631): Detaljhandel med sportsvarer. [brreg_enheter]",
+    "Registered purpose: \"Eie og drive sportsforreninger samt å forestå slik annen virksomhet som naturlig hører inn under dette, herunder kjøp og salg av andre foretak innenfor samme segment.\" [brreg_enheter]",
+    "The company's website describes it as: \"Vi hjelper deg med å synliggjøre din bedrift i forskjellige settinger. Enten om dere skal delta på sportsarrangement, messer eller om dere trenger personalantrekk.\" [website]",
+    "Business address: Skullerud Park, Olaf Helsets vei 5, 0694 OSLO. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Birger Bjune; board chair Birger Bjune. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 5 (as of 2026-06-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 11,236,012 (-2% vs 2024); operating result NOK 167,618 (-48% vs 2024); net result NOK 198,778 (-34% vs 2024); total assets NOK 6,815,526 (+10% vs 2024); equity NOK 3,018,341 (+2% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 100,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (16):",
+    "- web.url: added (https://www.christianiasport.no/)",
+    "- web.title: added (Christiania Sport | 40 år med erfaring)",
+    "- web.description: added (Vi hjelper deg med å synliggjøre din bedrift i forskjelli...)",
+    "- web.language: added (no-NO)",
+    "- web.og_image: added (https://cdn.prod.website-files.com/621f2fb5e4e9f9333b4033...)",
+    "- web.home_text: added (Vi bruker informasjonskapsler for å gi deg den beste muli...)",
+    "- web.headline: added (Én bedrift. Én visjon. Ett lag.)",
+    "- web.jsonld_organization: added ({'name': 'Christiania Sport AS', 'same_as': ['https://www...)",
+    "- web.about_text: added (Vi bruker informasjonskapsler for å gi deg den beste muli...)",
+    "- web.news.headlines: added ([{'title': 'Gave til ansatte Les mer', 'url': 'https://ww...)",
+    "- web.contact_page: added ({'url': 'https://www.christianiasport.no/kontakt'})",
+    "- web.social: added ({'facebook': 'https://www.facebook.com/christianiasportas...)",
+    "- web.emails: added (['bendik@christianiasport.no', 'birger@christianiasport.n...)",
+    "- web.phones: added (['+4747345389', '+4790847188', '+4791559033', '+479937477...)",
+    "- web.pages_checked: added ({'home': 'https://www.christianiasport.no/', 'contact': '...)",
+    "- ... and 1 more"
+   ],
+   "unknown": [
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No map coordinates of the business address: checked geonorge: nothing registered (address 'Skullerud Park Olaf Helsets vei 5', 0694 not found in the national address register).",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: not_found (address 'Skullerud Park Olaf Helsets vei 5', 0694 not found in the national address register)",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

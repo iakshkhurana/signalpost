@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:10:22Z",
- "last_run": "2026-10-05T05:10:22Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:21:08Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -51,6 +51,18 @@
     "detail": "filing journalnr=2026484375 virksomhet.organisasjonsnummer=897688182 (2025, selskap)"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Gråterudveien 5' 3036 -> matched 'Gråterudveien 5' 3036"
+   },
+   {
+    "source": "dibk",
+    "check": "orgnr_echo",
+    "passed": true,
+    "detail": "register record organizational_number=897688182; looked up 897688182"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -91,6 +103,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "dibk: approval record addressed by org number; record echoes the number",
    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
   ]
  },
@@ -102,7 +117,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -110,7 +125,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -133,7 +148,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -141,11 +156,86 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_central_approval",
+   "value": {
+    "approved": true,
+    "valid_to": "2029-08-12",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/897688182/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   },
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/897688182",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": "2029-08-12",
+     "match": "orgnr_exact",
+     "confidence": "high",
+     "note": "Sentral godkjenning for ansvarsrett (DiBK); areas = function / subject area / tiltaksklasse"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "approvals.dibk_declared_website",
+   "value": "www.pt-el.no",
+   "evidence": [
+    {
+     "source": "dibk",
+     "url": "https://sgregister.dibk.no/enterprises/897688182",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": null,
+     "match": "orgnr_exact",
+     "confidence": "medium",
+     "note": "website as given to DiBK"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "bylaws_date",
@@ -154,7 +244,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2026-02-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -162,7 +252,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -180,7 +270,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2013-12-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -188,7 +278,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -201,7 +291,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -209,7 +299,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -222,7 +312,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -230,7 +320,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -243,7 +333,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -251,7 +341,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -269,7 +359,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -277,7 +367,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -295,7 +385,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -303,7 +393,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -321,7 +411,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -329,7 +419,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -347,7 +437,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -355,7 +445,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -381,7 +471,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -389,7 +479,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -407,7 +497,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -415,7 +505,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -433,7 +523,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -441,7 +531,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -459,7 +549,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -467,7 +557,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -485,7 +575,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -493,7 +583,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -511,7 +601,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -519,7 +609,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -537,7 +627,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -545,7 +635,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -563,7 +653,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -571,7 +661,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -589,7 +679,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -597,7 +687,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -615,7 +705,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -623,7 +713,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -641,7 +731,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -649,7 +739,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -667,7 +757,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -675,7 +765,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -693,7 +783,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -701,7 +791,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -719,7 +809,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -727,7 +817,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -745,7 +835,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -753,7 +843,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -771,7 +861,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -779,7 +869,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -805,7 +895,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -813,7 +903,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -831,7 +921,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -839,7 +929,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -857,7 +947,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -865,7 +955,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -883,7 +973,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -891,7 +981,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -909,7 +999,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -917,7 +1007,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -935,7 +1025,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -943,7 +1033,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -961,7 +1051,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -969,7 +1059,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -987,7 +1077,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -995,7 +1085,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1013,7 +1103,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1021,7 +1111,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1039,7 +1129,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1047,7 +1137,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1065,7 +1155,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1073,7 +1163,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1091,7 +1181,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1099,7 +1189,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1117,7 +1207,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1125,7 +1215,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1143,7 +1233,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1151,7 +1241,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1169,7 +1259,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1177,7 +1267,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1195,7 +1285,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1203,7 +1293,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1229,7 +1319,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1237,7 +1327,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1255,7 +1345,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1263,7 +1353,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1281,7 +1371,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1289,7 +1379,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1307,7 +1397,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1315,7 +1405,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1333,7 +1423,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1341,7 +1431,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1359,7 +1449,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1367,7 +1457,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1385,7 +1475,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1393,7 +1483,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1411,7 +1501,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1419,7 +1509,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1437,7 +1527,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1445,7 +1535,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1463,7 +1553,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1471,7 +1561,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1489,7 +1579,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1497,7 +1587,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1515,7 +1605,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1523,7 +1613,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1539,7 +1629,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1547,7 +1637,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1560,7 +1650,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2011-11-18",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1568,7 +1658,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1581,7 +1671,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1589,7 +1679,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1605,7 +1695,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1613,7 +1703,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1626,7 +1716,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1634,7 +1724,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1647,7 +1737,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1655,7 +1745,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1668,7 +1758,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1676,11 +1766,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.69837464401062,
+    "lon": 10.247561955179291,
+    "crs": "EPSG:4326",
+    "matched_address": "Gråterudveien 5",
+    "postal_code": "3036",
+    "city": "DRAMMEN",
+    "municipality": "DRAMMEN",
+    "municipality_number": "3301",
+    "cadastral": {
+     "gnr": 33,
+     "bnr": 46
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.69837464401062&lon=10.247561955179291&markerLat=59.69837464401062&markerLon=10.247561955179291"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Gr%C3%A5terudveien+5&postnummer=3036&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": "2024-01-01",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1689,7 +1814,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1697,7 +1822,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1716,7 +1841,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1724,7 +1849,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1740,7 +1865,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1748,7 +1873,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1761,7 +1886,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1769,7 +1894,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1782,7 +1907,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2026-02-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1790,7 +1915,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1803,7 +1928,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2011-12-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1811,7 +1936,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1824,7 +1949,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2011-12-06",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1832,7 +1957,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1852,7 +1977,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1860,7 +1985,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1876,7 +2001,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182/roller",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2018-11-19",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1884,7 +2009,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1899,7 +2024,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182/roller",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2026-07-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1907,7 +2032,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1927,7 +2052,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182/roller",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2026-07-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1935,7 +2060,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1970,7 +2095,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182/roller",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2026-07-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1978,7 +2103,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1993,7 +2118,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182/roller",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": "2026-06-15",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2001,7 +2126,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2017,7 +2142,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2025,7 +2150,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2042,7 +2167,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2050,7 +2175,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2063,7 +2188,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=897688182&size=100",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2071,7 +2196,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2084,7 +2209,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=897688182&size=100",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2092,7 +2217,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2162,7 +2287,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=897688182&size=100",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2170,7 +2295,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2183,7 +2308,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro/jobbe-i-granitor-electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2191,7 +2316,30 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://www.granitor.se/no/electro/kontakt-oss"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.granitor.se/no/electro/kontakt-oss",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2204,7 +2352,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2212,7 +2360,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2222,24 +2370,77 @@
    "key": "web.emails",
    "value": [
     "backup@wtcmalmo.se",
+    "elprod@elprod.no",
     "info@granitor.se",
     "linus.bjarnelo@granitor.se",
-    "post.oslo.electro@granitor.no",
-    "post.systemsas@granitor.no"
+    "post.electroas@granitor.no"
    ],
    "evidence": [
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [
+    {
+     "value": [
+      "backup@wtcmalmo.se",
+      "info@granitor.se",
+      "linus.bjarnelo@granitor.se",
+      "post.oslo.electro@granitor.no",
+      "post.systemsas@granitor.no"
+     ],
+     "until": "2026-10-05T05:10:22Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.headline",
+   "value": "Granitor Electro",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.granitor.se/no/electro",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Med vår lange erfaring, brede kompetanse og vår leverandøruavhengighet kan vi tilby løsninger som varer over tid – både for lommeboken og klimaet. Vi har et gjennomgående fokus på sikkerhet og setter alltid våre ansattes arbeidsmiljø først. Med kontorer i både Norge og Sverige jobber vi alltid tett på deg for å sikre resultater og tillit. Hos oss kan du jobbe og utvikle deg på mange ulike måter – på byggeplasser, i industrien eller med varierte serviceoppdrag, alt fra sykehusmiljøer til privatkunder.",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.granitor.se/no/electro",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2252,7 +2453,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2260,7 +2461,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2273,7 +2474,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2281,7 +2482,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2294,7 +2495,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2302,7 +2503,59 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://www.granitor.se/no/electro",
+    "contact": "https://www.granitor.se/no/electro/kontakt-oss",
+    "about": "https://www.granitor.se/no/electro/jobbe-i-granitor-electro"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.granitor.se/no/electro",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "+4723898411",
+    "+4732266200",
+    "+4764983040",
+    "+4767572020",
+    "+4769878707"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://www.granitor.se/no/electro",
+     "retrieved_at": "2026-10-10T13:21:08Z",
+     "source_date": null,
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:21:08Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2315,7 +2568,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2323,7 +2576,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2339,7 +2592,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2347,7 +2600,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2360,7 +2613,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2368,7 +2621,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2381,7 +2634,7 @@
     {
      "source": "website",
      "url": "https://www.granitor.se/no/electro",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "orgnr_on_page",
      "confidence": "high",
@@ -2389,7 +2642,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2402,7 +2655,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
-     "retrieved_at": "2026-10-05T05:10:22Z",
+     "retrieved_at": "2026-10-10T13:21:08Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2410,7 +2663,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:10:22Z",
-   "last_seen": "2026-10-05T05:10:22Z",
+   "last_seen": "2026-10-10T13:21:08Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2423,7 +2676,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:22Z",
+   "retrieved_at": "2026-10-10T13:21:08Z",
    "facts": 24,
    "requests": 1,
    "checks": [
@@ -2441,7 +2694,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/897688182/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:22Z",
+   "retrieved_at": "2026-10-10T13:21:08Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -2459,7 +2712,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=897688182&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:22Z",
+   "retrieved_at": "2026-10-10T13:21:08Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -2477,7 +2730,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/897688182",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:22Z",
+   "retrieved_at": "2026-10-10T13:21:08Z",
    "facts": 49,
    "requests": 1,
    "checks": [
@@ -2505,7 +2758,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=897688182&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:22Z",
+   "retrieved_at": "2026-10-10T13:21:08Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -2519,7 +2772,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22897688182%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:22Z",
+   "retrieved_at": "2026-10-10T13:21:08Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -2529,13 +2782,63 @@
    ]
   },
   {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=GRANITOR+ELECTRO&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:21:08Z",
+   "facts": 0,
+   "requests": 3,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Gr%C3%A5terudveien+5&postnummer=3036&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:21:08Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Gråterudveien 5' 3036 -> matched 'Gråterudveien 5' 3036"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "dibk",
+   "url": "https://sgregister.dibk.no/api/enterprises/897688182",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:21:08Z",
+   "facts": 2,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "orgnr_echo",
+     "passed": true,
+     "detail": "register record organizational_number=897688182; looked up 897688182"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
    "source": "website",
    "url": "https://www.pt-el.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:10:22Z",
-   "facts": 10,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:21:08Z",
+   "facts": 15,
+   "requests": 5,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2569,960 +2872,130 @@
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "name",
-   "type": "added",
-   "new": "GRANITOR ELECTRO AS"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "name.history",
-   "type": "added",
-   "new": [
-    {
-     "name": "POWERTECH AS",
-     "from": "2011-12-06 08:59:34",
-     "to": "2026-03-16 20:10:47"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:21:08Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2011-11-18"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2011-12-06"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2011-12-06"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Gråterudveien 5"
-    ],
+    "lat": 59.69837464401062,
+    "lon": 10.247561955179291,
+    "crs": "EPSG:4326",
+    "matched_address": "Gråterudveien 5",
     "postal_code": "3036",
     "city": "DRAMMEN",
     "municipality": "DRAMMEN",
     "municipality_number": "3301",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 33,
+     "bnr": 46
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.69837464401062&lon=10.247561955179291&markerLat=59.69837464401062&markerLon=10.247561955179291"
    }
   },
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:21:08Z",
+   "key": "approvals.dibk_central_approval",
    "type": "added",
    "new": {
-    "code": "43.210",
-    "description": "Elektrisk installasjonsarbeid"
+    "approved": true,
+    "valid_to": "2029-08-12",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/897688182/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
    }
   },
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "sector.institutional",
-   "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "employees",
-   "type": "added",
-   "new": 491
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "website",
+   "at": "2026-10-10T13:21:08Z",
+   "key": "approvals.dibk_declared_website",
    "type": "added",
    "new": "www.pt-el.no"
   },
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "phone",
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.home_text",
    "type": "added",
-   "new": "99 57 69 37"
+   "new": "Med vår lange erfaring, brede kompetanse og vår leverandøruavhengighet kan vi tilby løsninger som varer over tid – både for lommeboken og klimaet. Vi har et gjennomgående fokus på sikkerhet og setter alltid våre ansattes arbeidsmiljø først. Med kontorer i både Norge og Sverige jobber vi alltid tett på deg for å sikre resultater og tillit. Hos oss kan du jobbe og utvikle deg på mange ulike måter – på byggeplasser, i industrien eller med varierte serviceoppdrag, alt fra sykehusmiljøer til privatkunder."
   },
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "email",
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.headline",
    "type": "added",
-   "new": "post@pt-el.no"
+   "new": "Granitor Electro"
   },
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "purpose",
-   "type": "added",
-   "new": "Utføre tjenester innen elektro og automasjon. Det skal være anledning til å eie aksjer og andeler i andre selskaper, samt hva herved naturlig står i forbindelse."
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "activity",
-   "type": "added",
-   "new": "Utføre elektro- og automasjonstjenester. Produksjon av elektriske fordelings- og kontrolltavler og paneler."
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.contact_page",
    "type": "added",
    "new": {
-    "amount": 300000.0,
-    "currency": "NOK",
-    "shares": 3000,
-    "type": "Aksjekapital"
+    "url": "https://www.granitor.se/no/electro/kontakt-oss"
    }
   },
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "group.is_parent",
-   "type": "added",
-   "new": false
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2026-02-27"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Bokmål"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/897688182"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Arve Syvertsen"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Björn Olof Wigström"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Arve Syvertsen"
-    },
-    {
-     "name": "Jane Sollien"
-    },
-    {
-     "name": "Johnny Widar Langeland"
-    },
-    {
-     "name": "Thomas Ebbesen Tufte"
-    },
-    {
-     "name": "Martine Andersen"
-    },
-    {
-     "name": "Tage Mikael Vestlund"
-    },
-    {
-     "name": "Edith Hedvig Pernilla Börjesson"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "roles.board_deputies",
-   "type": "added",
-   "new": [
-    {
-     "name": "Lasse Falsen Møller"
-    },
-    {
-     "name": "Aleksander Hempel Hansen"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "FORVIS MAZARS AS",
-    "orgnr": "979605994"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 7
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "937495455",
-     "name": "GRANITOR ELECTRO AS AVD BYGGAUTOMASJON DRAMMEN",
-     "city": "DRAMMEN",
-     "municipality": "DRAMMEN",
-     "employees": 44,
-     "nace": "71.121"
-    },
-    {
-     "orgnr": "937495528",
-     "name": "GRANITOR ELECTRO AS AVD BYGGAUTOMASJON ØSTFOLD",
-     "city": "GRÅLUM",
-     "municipality": "SARPSBORG",
-     "employees": 11,
-     "nace": "71.121"
-    },
-    {
-     "orgnr": "997701046",
-     "name": "GRANITOR ELECTRO AS AVD ELEKTROTJENESTER",
-     "city": "DRAMMEN",
-     "municipality": "DRAMMEN",
-     "employees": 223,
-     "nace": "43.210"
-    },
-    {
-     "orgnr": "871792062",
-     "name": "GRANITOR ELECTRO AS AVD OSLO",
-     "city": "SLEPENDEN",
-     "municipality": "BÆRUM",
-     "employees": 72,
-     "nace": "43.210"
-    },
-    {
-     "orgnr": "971681985",
-     "name": "GRANITOR ELECTRO AS AVD SARPSBORG ELEKTROTJENESTER",
-     "city": "GRÅLUM",
-     "municipality": "SARPSBORG",
-     "employees": 71,
-     "nace": "43.210"
-    },
-    {
-     "orgnr": "913207424",
-     "name": "GRANITOR ELECTRO AS AVD SERVICE",
-     "city": "LIERSTRANDA",
-     "municipality": "LIER",
-     "employees": 42,
-     "nace": "43.210"
-    },
-    {
-     "orgnr": "934044479",
-     "name": "GRANITOR ELECTRO AS AVD VESTBY",
-     "city": "VESTBY",
-     "municipality": "VESTBY",
-     "employees": 28,
-     "nace": "43.210"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 491
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 462519733.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 462519733.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 442728358.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 19791375.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 3423160.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 23214535.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 5124219.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 18090316.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 244116534.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 2212760.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 241903774.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 55618403.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 188498131.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 178778825.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 9719305.0,
-    "currency": "NOK",
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2023.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2023-01-01",
-    "period_to": "2023-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2024322085",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 272750982.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 272690982.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 273329250.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": -578268.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 2810714.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 2232445.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 500063.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 1732382.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 139266969.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 3188586.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 136078383.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 46584668.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 92682301.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 85577081.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 7105220.0,
-    "currency": "NOK",
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2024.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2024-01-01",
-    "period_to": "2024-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2025332040",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 626752969.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 625249048.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 599025312.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 27727657.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 4639854.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 32367511.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 7125711.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 25241800.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 246682078.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 6306685.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 240375393.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 103054432.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 143627646.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 129712579.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.long_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 13915067.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": false,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026484375",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.url",
-   "type": "added",
-   "new": "https://www.granitor.se/no/electro"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.orgnr_on_page",
-   "type": "added",
-   "new": true
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.title",
-   "type": "added",
-   "new": "Granitor Electro er et elektro- og teknologiselskap med sterk lokal forankring i Skandinavia.  | Granitor"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.description",
-   "type": "added",
-   "new": "Granitor Electro er et elektro- og teknologiselskap med sterk lokal forankring i Skandinavia. Fokuset vårt er på utvikling av entreprise og servicetjenester innen bygg, eiendom og industri."
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.site_name",
-   "type": "added",
-   "new": "Granitor"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.language",
-   "type": "added",
-   "new": "no"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.og_image",
-   "type": "added",
-   "new": "https://cms.granitor.se/globalassets/mediaflowpro/20230615_granitor_world_of_volvo__30710.jpg"
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.social",
-   "type": "added",
-   "new": {
-    "facebook": "https://www.facebook.com/granitor.se",
-    "linkedin": "https://www.linkedin.com/company/granitor"
-   }
-  },
-  {
-   "at": "2026-10-05T05:10:22Z",
+   "at": "2026-10-10T13:21:08Z",
    "key": "web.emails",
-   "type": "added",
-   "new": [
+   "type": "changed",
+   "old": [
     "backup@wtcmalmo.se",
     "info@granitor.se",
     "linus.bjarnelo@granitor.se",
     "post.oslo.electro@granitor.no",
     "post.systemsas@granitor.no"
+   ],
+   "new": [
+    "backup@wtcmalmo.se",
+    "elprod@elprod.no",
+    "info@granitor.se",
+    "linus.bjarnelo@granitor.se",
+    "post.electroas@granitor.no"
    ]
   },
   {
-   "at": "2026-10-05T05:10:22Z",
-   "key": "web.about_text",
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.phones",
    "type": "added",
-   "new": "Hos oss kan du jobbe og utvikle deg på mange ulike måter – på byggeplasser, i industrien eller med varierte serviceoppdrag, alt fra sykehusmiljøer til privatkunder. Hos oss jobber blant annet elektrikere, prosjektingeniører, sikkerhetsteknikere, spesialister innen byggautomasjon, mekanikere, serviceteknikere og konstruktører. I Granitor Electro tar vi vare på hverandre i en familiær kultur preget av gode selskapsverdier, ansettelsessikkerhet og økonomisk stabilitet. Med lokal tilstedeværelse, engasjerte eiere og gode kollegaer og mentorer, gir vi deg et trygt og stabilt miljø å utvikle deg i. I Granitor Electro tilbyr vi store utviklingsmuligheter der du kan vokse både personlig og profesjonelt. Her får du ta ansvar i et fremtidsrettet yrke med flere karriereveier og ulike opplæringsløp. I Granitor Electro bidrar vi til en bedre fremtid gjennom våre løsninger for bærekraftige samfunn og industrier. Vår misjon er å gjøre en positiv forskjell – hver eneste dag. Vi er blant annet med på å bygge sykehus av høy kvalitet, sikre infrastrukturløsninger og bærekraftige el-installasjoner. I Granitor Electro jobber vi med spennende, kreative, teknisk avanserte og interessante prosjekter innen"
+   "new": [
+    "+4723898411",
+    "+4732266200",
+    "+4764983040",
+    "+4767572020",
+    "+4769878707"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.granitor.se/no/electro",
+    "contact": "https://www.granitor.se/no/electro/kontakt-oss",
+    "about": "https://www.granitor.se/no/electro/jobbe-i-granitor-electro"
+   }
   }
  ],
  "changes": [
@@ -4481,17 +3954,191 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Hos oss kan du jobbe og utvikle deg på mange ulike måter – på byggeplasser, i industrien eller med varierte serviceoppdrag, alt fra sykehusmiljøer til privatkunder. Hos oss jobber blant annet elektrikere, prosjektingeniører, sikkerhetsteknikere, spesialister innen byggautomasjon, mekanikere, serviceteknikere og konstruktører. I Granitor Electro tar vi vare på hverandre i en familiær kultur preget av gode selskapsverdier, ansettelsessikkerhet og økonomisk stabilitet. Med lokal tilstedeværelse, engasjerte eiere og gode kollegaer og mentorer, gir vi deg et trygt og stabilt miljø å utvikle deg i. I Granitor Electro tilbyr vi store utviklingsmuligheter der du kan vokse både personlig og profesjonelt. Her får du ta ansvar i et fremtidsrettet yrke med flere karriereveier og ulike opplæringsløp. I Granitor Electro bidrar vi til en bedre fremtid gjennom våre løsninger for bærekraftige samfunn og industrier. Vår misjon er å gjøre en positiv forskjell – hver eneste dag. Vi er blant annet med på å bygge sykehus av høy kvalitet, sikre infrastrukturløsninger og bærekraftige el-installasjoner. I Granitor Electro jobber vi med spennende, kreative, teknisk avanserte og interessante prosjekter innen"
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.69837464401062,
+    "lon": 10.247561955179291,
+    "crs": "EPSG:4326",
+    "matched_address": "Gråterudveien 5",
+    "postal_code": "3036",
+    "city": "DRAMMEN",
+    "municipality": "DRAMMEN",
+    "municipality_number": "3301",
+    "cadastral": {
+     "gnr": 33,
+     "bnr": 46
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.69837464401062&lon=10.247561955179291&markerLat=59.69837464401062&markerLon=10.247561955179291"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "approvals.dibk_central_approval",
+   "type": "added",
+   "new": {
+    "approved": true,
+    "valid_to": "2029-08-12",
+    "certificate_url": "https://sgregister.dibk.no/enterprises/897688182/approval_certificate",
+    "liability_insurance": true,
+    "industrial_injury_insurance": true,
+    "approved_training_enterprise": true,
+    "areas": [
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av ledesystem",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Utførende",
+      "subject_area": "Installasjon av brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     },
+     {
+      "function": "Prosjekterende",
+      "subject_area": "Brannalarmanlegg",
+      "grade": "3",
+      "law": "PBL 2016"
+     }
+    ]
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "approvals.dibk_declared_website",
+   "type": "added",
+   "new": "www.pt-el.no"
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Med vår lange erfaring, brede kompetanse og vår leverandøruavhengighet kan vi tilby løsninger som varer over tid – både for lommeboken og klimaet. Vi har et gjennomgående fokus på sikkerhet og setter alltid våre ansattes arbeidsmiljø først. Med kontorer i både Norge og Sverige jobber vi alltid tett på deg for å sikre resultater og tillit. Hos oss kan du jobbe og utvikle deg på mange ulike måter – på byggeplasser, i industrien eller med varierte serviceoppdrag, alt fra sykehusmiljøer til privatkunder."
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Granitor Electro"
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://www.granitor.se/no/electro/kontakt-oss"
+   }
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.emails",
+   "type": "changed",
+   "old": [
+    "backup@wtcmalmo.se",
+    "info@granitor.se",
+    "linus.bjarnelo@granitor.se",
+    "post.oslo.electro@granitor.no",
+    "post.systemsas@granitor.no"
+   ],
+   "new": [
+    "backup@wtcmalmo.se",
+    "elprod@elprod.no",
+    "info@granitor.se",
+    "linus.bjarnelo@granitor.se",
+    "post.electroas@granitor.no"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "+4723898411",
+    "+4732266200",
+    "+4764983040",
+    "+4767572020",
+    "+4769878707"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:21:08Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://www.granitor.se/no/electro",
+    "contact": "https://www.granitor.se/no/electro/kontakt-oss",
+    "about": "https://www.granitor.se/no/electro/jobbe-i-granitor-electro"
+   }
   }
  ],
  "stats": {
-  "active_facts": 91,
+  "active_facts": 99,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 11,
-  "seconds": 48.22
+  "requests": 17,
+  "seconds": 31.74
  },
  "explanation": {
   "mode": "template",
-  "text": "GRANITOR ELECTRO AS (org.nr 897 688 182) is registered as Aksjeselskap (AS), founded 2011-11-18, registered 2011-12-06. Business address: Gråterudveien 5, 3036 DRAMMEN. Main industry (NACE): 43.210 Elektrisk installasjonsarbeid. Registered employees: 491 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 626,752,969; operating result NOK 27,727,657; net result NOK 25,241,800; total assets NOK 246,682,078; equity NOK 103,054,432. Leadership: general manager (daglig leder) Arve Syvertsen; board chair Björn Olof Wigström; 7 other board members. Sub-units registered: 7. Website: www.pt-el.no. The website describes the company as: \"Granitor Electro er et elektro- og teknologiselskap med sterk lokal forankring i Skandinavia. Fokuset vårt er på utvikling av entreprise og servicetjenester innen bygg, eiendom og industri.\"\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)\n\nFirst run: 91 facts recorded.\nNot available: gleif, wikidata."
+  "text": "GRANITOR ELECTRO AS (org.nr 897 688 182) is registered as Aksjeselskap (AS), founded 2011-11-18, registered 2011-12-06. [brreg_enheter] Main industry (NACE 43.210): Elektrisk installasjonsarbeid. [brreg_enheter] Registered purpose: \"Utføre tjenester innen elektro og automasjon. Det skal være anledning til å eie aksjer og andeler i andre selskaper, samt hva herved naturlig står i forbindelse.\" [brreg_enheter] The company's website describes it as: \"Granitor Electro er et elektro- og teknologiselskap med sterk lokal forankring i Skandinavia. Fokuset vårt er på utvikling av entreprise og servicetjenester innen bygg, eiendom og industri.\" [website] Business address: Gråterudveien 5, 3036 DRAMMEN. [brreg_enheter] Leadership: general manager (daglig leder) Arve Syvertsen; board chair Björn Olof Wigström; 7 other board members. [brreg_roller]\n\nKey numbers:\n- Registered employees: 491 (as of 2026-09-10); 7 registered sub-units. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 626,752,969 (+130% vs 2024); operating result NOK 27,727,657 (+4895% vs 2024); net result NOK 25,241,800 (+1357% vs 2024); total assets NOK 246,682,078 (+77% vs 2024); equity NOK 103,054,432 (+121% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 300,000. [brreg_enheter]\n- DiBK central approval: valid until 2029-08-12, 4 approval area(s). [dibk]\n\nChanges in this run (9):\n- location.business.geo: added ({'lat': 59.69837464401062, 'lon': 10.247561955179291, 'cr...)\n- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2029-08-12', 'certificate...)\n- approvals.dibk_declared_website: added (www.pt-el.no)\n- web.home_text: added (Med vår lange erfaring, brede kompetanse og vår leverandø...)\n- web.headline: added (Granitor Electro)\n- web.contact_page: added ({'url': 'https://www.granitor.se/no/electro/kontakt-oss'})\n- web.emails: ['backup@wtcmalmo.se', 'info@granitor.se', 'linus.bjarnel... -> ['backup@wtcmalmo.se', 'elprod@elprod.no', 'info@granitor...\n- web.phones: added (['+4723898411', '+4732266200', '+4764983040', '+476757202...)\n- web.pages_checked: added ({'home': 'https://www.granitor.se/no/electro', 'contact':...)\n\nWhat remains unknown:\n- No news items: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- dibk: approval record addressed by org number; record echoes the number\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "GRANITOR ELECTRO AS (org.nr 897 688 182) is registered as Aksjeselskap (AS), founded 2011-11-18, registered 2011-12-06. [brreg_enheter]",
+    "Main industry (NACE 43.210): Elektrisk installasjonsarbeid. [brreg_enheter]",
+    "Registered purpose: \"Utføre tjenester innen elektro og automasjon. Det skal være anledning til å eie aksjer og andeler i andre selskaper, samt hva herved naturlig står i forbindelse.\" [brreg_enheter]",
+    "The company's website describes it as: \"Granitor Electro er et elektro- og teknologiselskap med sterk lokal forankring i Skandinavia. Fokuset vårt er på utvikling av entreprise og servicetjenester innen bygg, eiendom og industri.\" [website]",
+    "Business address: Gråterudveien 5, 3036 DRAMMEN. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Arve Syvertsen; board chair Björn Olof Wigström; 7 other board members. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 491 (as of 2026-09-10); 7 registered sub-units. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 626,752,969 (+130% vs 2024); operating result NOK 27,727,657 (+4895% vs 2024); net result NOK 25,241,800 (+1357% vs 2024); total assets NOK 246,682,078 (+77% vs 2024); equity NOK 103,054,432 (+121% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 300,000. [brreg_enheter]",
+    "DiBK central approval: valid until 2029-08-12, 4 approval area(s). [dibk]"
+   ],
+   "changes": [
+    "Changes in this run (9):",
+    "- location.business.geo: added ({'lat': 59.69837464401062, 'lon': 10.247561955179291, 'cr...)",
+    "- approvals.dibk_central_approval: added ({'approved': True, 'valid_to': '2029-08-12', 'certificate...)",
+    "- approvals.dibk_declared_website: added (www.pt-el.no)",
+    "- web.home_text: added (Med vår lange erfaring, brede kompetanse og vår leverandø...)",
+    "- web.headline: added (Granitor Electro)",
+    "- web.contact_page: added ({'url': 'https://www.granitor.se/no/electro/kontakt-oss'})",
+    "- web.emails: ['backup@wtcmalmo.se', 'info@granitor.se', 'linus.bjarnel... -> ['backup@wtcmalmo.se', 'elprod@elprod.no', 'info@granitor...",
+    "- web.phones: added (['+4723898411', '+4732266200', '+4764983040', '+476757202...)",
+    "- web.pages_checked: added ({'home': 'https://www.granitor.se/no/electro', 'contact':...)"
+   ],
+   "unknown": [
+    "No news items: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "dibk: approval record addressed by org number; record echoes the number",
+    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }

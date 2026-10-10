@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:00Z",
- "last_run": "2026-10-05T05:17:00Z",
- "run_count": 1,
+ "last_run": "2026-10-10T13:33:53Z",
+ "run_count": 2,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -37,9 +37,47 @@
     "check": "filing_orgnr",
     "passed": true,
     "detail": "filing journalnr=2026574978 virksomhet.organisasjonsnummer=934967429 (2025, selskap)"
+   },
+   {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Stølen 16' 5551 -> matched 'Stølen 16' 5551"
+   },
+   {
+    "source": "website",
+    "check": "guessed_from_name",
+    "passed": true,
+    "detail": "no website declared in the registry; https://auklandshamnlandhandel.no was derived from the registered name and must identify the company itself"
+   },
+   {
+    "source": "website",
+    "check": "orgnr_on_page",
+    "passed": false,
+    "detail": "org number 934967429 not found on the pages checked"
+   },
+   {
+    "source": "website",
+    "check": "name_on_page",
+    "passed": true,
+    "detail": "company name 'AUKLANDSHAMN LANDHANDEL AS' found in page text"
+   },
+   {
+    "source": "website",
+    "check": "same_host_after_redirect",
+    "passed": true,
+    "detail": "auklandshamnlandhandel.no -> auklandshamnlandhandel.no"
+   },
+   {
+    "source": "website",
+    "check": "not_placeholder",
+    "passed": true,
+    "detail": "page has real content (not parked/for sale)"
    }
   ],
-  "failed_checks": [],
+  "failed_checks": [
+   "orgnr_on_page"
+  ],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -47,7 +85,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: skipped (no usable website declared)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: home page guessed from the registered name; page match = name_on_page (medium)"
   ]
  },
  "facts": [
@@ -58,7 +98,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -66,7 +106,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -89,7 +129,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -97,7 +137,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -120,7 +160,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -128,7 +168,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -141,7 +181,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-01-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -149,7 +189,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -167,7 +207,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-02-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -175,7 +215,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -188,7 +228,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-08-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -196,7 +236,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -209,7 +249,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -217,7 +257,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -235,7 +275,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -243,7 +283,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -261,7 +301,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -269,7 +309,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -287,7 +327,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -295,7 +335,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -313,7 +353,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -321,7 +361,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -347,7 +387,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -355,7 +395,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -373,7 +413,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -381,7 +421,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -399,7 +439,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -407,7 +447,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -425,7 +465,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -433,7 +473,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -451,7 +491,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -459,7 +499,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -477,7 +517,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -485,7 +525,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -503,7 +543,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -511,7 +551,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -529,7 +569,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -537,7 +577,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -555,7 +595,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -563,7 +603,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -581,7 +621,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -589,7 +629,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -607,7 +647,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -615,7 +655,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -633,7 +673,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -641,7 +681,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -657,7 +697,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -665,7 +705,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -678,7 +718,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-01-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -686,7 +726,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -699,7 +739,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -707,7 +747,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -723,7 +763,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -731,7 +771,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -744,7 +784,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -752,7 +792,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -765,7 +805,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -773,7 +813,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -786,7 +826,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -794,11 +834,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.63816391311728,
+    "lon": 5.383969208975236,
+    "crs": "EPSG:4326",
+    "matched_address": "Stølen 16",
+    "postal_code": "5551",
+    "city": "AUKLANDSHAMN",
+    "municipality": "SVEIO",
+    "municipality_number": "4612",
+    "cadastral": {
+     "gnr": 36,
+     "bnr": 189
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.63816391311728&lon=5.383969208975236&markerLat=59.63816391311728&markerLon=5.383969208975236"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=St%C3%B8len+16&postnummer=5551&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -807,7 +882,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -815,7 +890,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -831,7 +906,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -839,7 +914,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -852,7 +927,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-01-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -860,7 +935,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -873,7 +948,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-02-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -881,7 +956,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -894,7 +969,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-02-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -902,7 +977,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -922,7 +997,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -930,7 +1005,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -946,7 +1021,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429/roller",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-03-12",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -954,7 +1029,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -970,7 +1045,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429/roller",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-11-08",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -978,7 +1053,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -993,7 +1068,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429/roller",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-02-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1001,7 +1076,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1018,7 +1093,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429/roller",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-02-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1026,7 +1101,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1041,7 +1116,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429/roller",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": "2025-02-03",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1049,7 +1124,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1065,7 +1140,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1073,7 +1148,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1090,7 +1165,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1098,7 +1173,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1111,7 +1186,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=934967429&size=100",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1119,7 +1194,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1132,7 +1207,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=934967429&size=100",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1140,7 +1215,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1162,7 +1237,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=934967429&size=100",
-     "retrieved_at": "2026-10-05T05:17:00Z",
+     "retrieved_at": "2026-10-10T13:33:53Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1170,11 +1245,183 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:00Z",
-   "last_seen": "2026-10-05T05:17:00Z",
+   "last_seen": "2026-10-10T13:33:53Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "web.emails",
+   "value": [
+    "marryelhauge@gmail.com"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.headline",
+   "value": "Auklandshamn Landhandel AS",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Vi planlegg oppstart innan påske 2025 i Forretningsbygg Stølen SA sine lokaler Stølen 18, 5551 Auklandshamn. Besøk oss i butikken eller send oss melding på Facebook og Instagram for spørsmål, tilbakemeldinger eller bare for å si hei!",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.orgnr_on_page",
+   "value": false,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.phones",
+   "value": [
+    "45813272"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "tel: links on the site (home/contact pages)"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.site_name",
+   "value": "Auklandshamn Landhandel AS",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.title",
+   "value": "Auklandshamn Landhandel AS",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
+  },
+  {
+   "key": "web.url",
+   "value": "https://auklandshamnlandhandel.no",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://auklandshamnlandhandel.no",
+     "retrieved_at": "2026-10-10T13:33:53Z",
+     "source_date": "2025-01-17",
+     "match": "name_on_page",
+     "confidence": "medium",
+     "note": "home page found from the registered name; org number printed on the site"
+    }
+   ],
+   "first_seen": "2026-10-10T13:33:53Z",
+   "last_seen": "2026-10-10T13:33:53Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   }
  ],
  "sources": [
@@ -1183,7 +1430,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:00Z",
+   "retrieved_at": "2026-10-10T13:33:53Z",
    "facts": 21,
    "requests": 1,
    "checks": [
@@ -1201,7 +1448,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/934967429/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:00Z",
+   "retrieved_at": "2026-10-10T13:33:53Z",
    "facts": 5,
    "requests": 1,
    "checks": [
@@ -1219,7 +1466,7 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=934967429&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:00Z",
+   "retrieved_at": "2026-10-10T13:33:53Z",
    "facts": 3,
    "requests": 1,
    "checks": [
@@ -1237,7 +1484,7 @@
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/934967429",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:00Z",
+   "retrieved_at": "2026-10-10T13:33:53Z",
    "facts": 17,
    "requests": 1,
    "checks": [
@@ -1255,7 +1502,7 @@
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=934967429&page%5Bsize%5D=10",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:00Z",
+   "retrieved_at": "2026-10-10T13:33:53Z",
    "facts": 0,
    "requests": 2,
    "checks": [],
@@ -1269,7 +1516,7 @@
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22934967429%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:17:00Z",
+   "retrieved_at": "2026-10-10T13:33:53Z",
    "facts": 0,
    "requests": 1,
    "checks": [],
@@ -1279,455 +1526,148 @@
    ]
   },
   {
-   "source": "website",
-   "url": "",
-   "status": "skipped",
-   "http_status": null,
-   "retrieved_at": "2026-10-05T05:17:00Z",
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=AUKLANDSHAMN+LANDHANDEL&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:33:53Z",
    "facts": 0,
-   "requests": 0,
+   "requests": 3,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no usable website declared"
+    "HTTP 429"
    ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=St%C3%B8len+16&postnummer=5551&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:33:53Z",
+   "facts": 1,
+   "requests": 1,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Stølen 16' 5551 -> matched 'Stølen 16' 5551"
+    }
+   ],
+   "rejected": [],
+   "notes": []
+  },
+  {
+   "source": "website",
+   "url": "https://auklandshamnlandhandel.no",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:33:53Z",
+   "facts": 8,
+   "requests": 2,
+   "checks": [
+    {
+     "check": "guessed_from_name",
+     "passed": true,
+     "detail": "no website declared in the registry; https://auklandshamnlandhandel.no was derived from the registered name and must identify the company itself"
+    },
+    {
+     "check": "orgnr_on_page",
+     "passed": false,
+     "detail": "org number 934967429 not found on the pages checked"
+    },
+    {
+     "check": "name_on_page",
+     "passed": true,
+     "detail": "company name 'AUKLANDSHAMN LANDHANDEL AS' found in page text"
+    },
+    {
+     "check": "same_host_after_redirect",
+     "passed": true,
+     "detail": "auklandshamnlandhandel.no -> auklandshamnlandhandel.no"
+    },
+    {
+     "check": "not_placeholder",
+     "passed": true,
+     "detail": "page has real content (not parked/for sale)"
+    }
+   ],
+   "rejected": [],
+   "notes": []
   }
  ],
  "last_run_changes": [
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "name",
-   "type": "added",
-   "new": "AUKLANDSHAMN LANDHANDEL AS"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "entity_type",
-   "type": "added",
-   "new": "enhet"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "org_form",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "location.business.geo",
    "type": "added",
    "new": {
-    "code": "AS",
-    "description": "Aksjeselskap"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "founded",
-   "type": "added",
-   "new": "2025-01-17"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "registered.enhetsregisteret",
-   "type": "added",
-   "new": "2025-02-03"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "registered.foretaksregisteret",
-   "type": "added",
-   "new": "2025-02-03"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "address.business",
-   "type": "added",
-   "new": {
-    "street": [
-     "Stølen 16"
-    ],
+    "lat": 59.63816391311728,
+    "lon": 5.383969208975236,
+    "crs": "EPSG:4326",
+    "matched_address": "Stølen 16",
     "postal_code": "5551",
     "city": "AUKLANDSHAMN",
     "municipality": "SVEIO",
     "municipality_number": "4612",
-    "country": "Norge",
-    "country_code": "NO"
+    "cadastral": {
+     "gnr": 36,
+     "bnr": 189
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.63816391311728&lon=5.383969208975236&markerLat=59.63816391311728&markerLon=5.383969208975236"
    }
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "address.postal",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.url",
    "type": "added",
-   "new": {
-    "street": [
-     "Nedre Økland 45"
-    ],
-    "postal_code": "5551",
-    "city": "AUKLANDSHAMN",
-    "municipality": "SVEIO",
-    "municipality_number": "4612",
-    "country": "Norge",
-    "country_code": "NO"
-   }
+   "new": "https://auklandshamnlandhandel.no"
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "industry.nace1",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.title",
    "type": "added",
-   "new": {
-    "code": "47.110",
-    "description": "Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler"
-   }
+   "new": "Auklandshamn Landhandel AS"
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "sector.institutional",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.site_name",
    "type": "added",
-   "new": {
-    "code": "2100",
-    "description": "Private aksjeselskaper mv."
-   }
+   "new": "Auklandshamn Landhandel AS"
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "employees",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.home_text",
    "type": "added",
-   "new": 5
+   "new": "Vi planlegg oppstart innan påske 2025 i Forretningsbygg Stølen SA sine lokaler Stølen 18, 5551 Auklandshamn. Besøk oss i butikken eller send oss melding på Facebook og Instagram for spørsmål, tilbakemeldinger eller bare for å si hei!"
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "purpose",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.headline",
    "type": "added",
-   "new": "Detaljhandel, grossistvirksomhet og annen tilknyttet virksomhet, samt investering i eiendom og kapitalforvaltning."
+   "new": "Auklandshamn Landhandel AS"
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "activity",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.emails",
    "type": "added",
-   "new": "Dagligvarebutikk."
+   "new": [
+    "marryelhauge@gmail.com"
+   ]
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "capital.share",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.phones",
    "type": "added",
-   "new": {
-    "amount": 30000.0,
-    "currency": "NOK",
-    "shares": 300,
-    "type": "Aksjekapital"
-   }
+   "new": [
+    "45813272"
+   ]
   },
   {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "status",
-   "type": "added",
-   "new": {
-    "bankrupt": false,
-    "under_liquidation": false,
-    "forced_liquidation_or_dissolution": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "registers",
-   "type": "added",
-   "new": {
-    "foretaksregisteret": true,
-    "vat": true,
-    "voluntary_vat": false,
-    "foundation_register": false,
-    "voluntary_register": false,
-    "party_register": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "group.is_parent",
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.orgnr_on_page",
    "type": "added",
    "new": false
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "last_filed_annual_accounts_year",
-   "type": "added",
-   "new": "2025"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "bylaws_date",
-   "type": "added",
-   "new": "2025-01-17"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "language_form",
-   "type": "added",
-   "new": "Nynorsk"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "links.brreg_public_page",
-   "type": "added",
-   "new": "https://virksomhet.brreg.no/nb/oppslag/enheter/934967429"
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "roles.ceo",
-   "type": "added",
-   "new": {
-    "name": "Marryel Hognestad Velde"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "roles.board_chair",
-   "type": "added",
-   "new": {
-    "name": "Ole Velde"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "roles.board_members",
-   "type": "added",
-   "new": [
-    {
-     "name": "Marryel Hognestad Velde"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "roles.auditor",
-   "type": "added",
-   "new": {
-    "name": "ERNST & YOUNG AS",
-    "orgnr": "976389387"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "roles.accountant",
-   "type": "added",
-   "new": {
-    "name": "NORGESGRUPPEN REGNSKAP AS",
-    "orgnr": "883743512"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "subunits.count",
-   "type": "added",
-   "new": 1
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "subunits.list",
-   "type": "added",
-   "new": [
-    {
-     "orgnr": "934998952",
-     "name": "AUKLANDSHAMN LANDHANDEL AS",
-     "city": "AUKLANDSHAMN",
-     "municipality": "SVEIO",
-     "employees": 5,
-     "nace": "47.110"
-    }
-   ]
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "subunits.employees_total",
-   "type": "added",
-   "new": 5
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.revenue",
-   "type": "added",
-   "new": {
-    "amount": 5345020.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.sales_revenue",
-   "type": "added",
-   "new": {
-    "amount": 5293922.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.operating_costs",
-   "type": "added",
-   "new": {
-    "amount": 4983851.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.operating_result",
-   "type": "added",
-   "new": {
-    "amount": 361169.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.net_financial_items",
-   "type": "added",
-   "new": {
-    "amount": 1363.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.result_before_tax",
-   "type": "added",
-   "new": {
-    "amount": 362532.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.tax",
-   "type": "added",
-   "new": {
-    "amount": 79757.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.net_result",
-   "type": "added",
-   "new": {
-    "amount": 282775.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.total_assets",
-   "type": "added",
-   "new": {
-    "amount": 1381314.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.fixed_assets",
-   "type": "added",
-   "new": {
-    "amount": 298176.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.current_assets",
-   "type": "added",
-   "new": {
-    "amount": 1083138.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.cash",
-   "type": "added",
-   "new": {
-    "amount": 323754.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.equity",
-   "type": "added",
-   "new": {
-    "amount": 312775.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.total_debt",
-   "type": "added",
-   "new": {
-    "amount": 1068539.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.short_term_debt",
-   "type": "added",
-   "new": {
-    "amount": 1062037.0,
-    "currency": "NOK",
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31"
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.2025.selskap.meta",
-   "type": "added",
-   "new": {
-    "period_from": "2025-01-01",
-    "period_to": "2025-12-31",
-    "currency": "NOK",
-    "statement_type": "SELSKAP",
-    "layout": "store",
-    "audited": true,
-    "audit_waived": false,
-    "small_company": true,
-    "accounting_rules": "regnskapslovenAlminneligRegler",
-    "liquidation_accounts": false,
-    "journalnr": "2026574978",
-    "parent_company": false
-   }
-  },
-  {
-   "at": "2026-10-05T05:17:00Z",
-   "key": "finance.latest",
-   "type": "added",
-   "new": {
-    "year": "2025",
-    "statement_type": "selskap"
-   }
   }
  ],
  "changes": [
@@ -2165,17 +2105,135 @@
     "year": "2025",
     "statement_type": "selskap"
    }
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.63816391311728,
+    "lon": 5.383969208975236,
+    "crs": "EPSG:4326",
+    "matched_address": "Stølen 16",
+    "postal_code": "5551",
+    "city": "AUKLANDSHAMN",
+    "municipality": "SVEIO",
+    "municipality_number": "4612",
+    "cadastral": {
+     "gnr": 36,
+     "bnr": 189
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.63816391311728&lon=5.383969208975236&markerLat=59.63816391311728&markerLon=5.383969208975236"
+   }
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.url",
+   "type": "added",
+   "new": "https://auklandshamnlandhandel.no"
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.title",
+   "type": "added",
+   "new": "Auklandshamn Landhandel AS"
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.site_name",
+   "type": "added",
+   "new": "Auklandshamn Landhandel AS"
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Vi planlegg oppstart innan påske 2025 i Forretningsbygg Stølen SA sine lokaler Stølen 18, 5551 Auklandshamn. Besøk oss i butikken eller send oss melding på Facebook og Instagram for spørsmål, tilbakemeldinger eller bare for å si hei!"
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.headline",
+   "type": "added",
+   "new": "Auklandshamn Landhandel AS"
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.emails",
+   "type": "added",
+   "new": [
+    "marryelhauge@gmail.com"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.phones",
+   "type": "added",
+   "new": [
+    "45813272"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:33:53Z",
+   "key": "web.orgnr_on_page",
+   "type": "added",
+   "new": false
   }
  ],
  "stats": {
-  "active_facts": 46,
+  "active_facts": 55,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 7,
-  "seconds": 1.29
+  "requests": 13,
+  "seconds": 12.21
  },
  "explanation": {
   "mode": "template",
-  "text": "AUKLANDSHAMN LANDHANDEL AS (org.nr 934 967 429) is registered as Aksjeselskap (AS), founded 2025-01-17, registered 2025-02-03. Business address: Stølen 16, 5551 AUKLANDSHAMN. Main industry (NACE): 47.110 Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler. Registered employees: 5 (as of 2025-08-10). Latest filed annual accounts (2025, company statement): revenue NOK 5,345,020; operating result NOK 361,169; net result NOK 282,775; total assets NOK 1,381,314; equity NOK 312,775. Leadership: general manager (daglig leder) Marryel Hognestad Velde; board chair Ole Velde; 1 other board member. Sub-units registered: 1.\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: skipped (no usable website declared)\n\nFirst run: 46 facts recorded.\nNot available: gleif, wikidata, website."
+  "text": "AUKLANDSHAMN LANDHANDEL AS (org.nr 934 967 429) is registered as Aksjeselskap (AS), founded 2025-01-17, registered 2025-02-03. [brreg_enheter] Main industry (NACE 47.110): Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler. [brreg_enheter] Registered purpose: \"Detaljhandel, grossistvirksomhet og annen tilknyttet virksomhet, samt investering i eiendom og kapitalforvaltning.\" [brreg_enheter] The company's website describes it as: \"Vi planlegg oppstart innan påske 2025 i Forretningsbygg Stølen SA sine lokaler Stølen 18, 5551 Auklandshamn. Besøk oss i butikken eller send oss melding på Facebook og Instagram for spørsmål, tilbakemeldinger eller bare for å si hei!\" [website] Business address: Stølen 16, 5551 AUKLANDSHAMN. [brreg_enheter] Leadership: general manager (daglig leder) Marryel Hognestad Velde; board chair Ole Velde; 1 other board member. [brreg_roller]\n\nKey numbers:\n- Registered employees: 5 (as of 2025-08-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 5,345,020; operating result NOK 361,169; net result NOK 282,775; total assets NOK 1,381,314; equity NOK 312,775. [brreg_regnskap]\n- Share capital: NOK 30,000. [brreg_enheter]\n\nChanges in this run (9):\n- location.business.geo: added ({'lat': 59.63816391311728, 'lon': 5.383969208975236, 'crs...)\n- web.url: added (https://auklandshamnlandhandel.no)\n- web.title: added (Auklandshamn Landhandel AS)\n- web.site_name: added (Auklandshamn Landhandel AS)\n- web.home_text: added (Vi planlegg oppstart innan påske 2025 i Forretningsbygg S...)\n- web.headline: added (Auklandshamn Landhandel AS)\n- web.emails: added (['marryelhauge@gmail.com'])\n- web.phones: added (['45813272'])\n- web.orgnr_on_page: added (False)\n\nWhat remains unknown:\n- No social media profiles: website reached, but it carries no such information.\n- No news items: website reached, but it carries no such information.\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: website reached, but it carries no such information.\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: home page guessed from the registered name; page match = name_on_page (medium)",
+  "sections": {
+   "what_it_does": [
+    "AUKLANDSHAMN LANDHANDEL AS (org.nr 934 967 429) is registered as Aksjeselskap (AS), founded 2025-01-17, registered 2025-02-03. [brreg_enheter]",
+    "Main industry (NACE 47.110): Detaljhandel med bredt vareutvalg med hovedvekt på nærings- og nytelsesmidler. [brreg_enheter]",
+    "Registered purpose: \"Detaljhandel, grossistvirksomhet og annen tilknyttet virksomhet, samt investering i eiendom og kapitalforvaltning.\" [brreg_enheter]",
+    "The company's website describes it as: \"Vi planlegg oppstart innan påske 2025 i Forretningsbygg Stølen SA sine lokaler Stølen 18, 5551 Auklandshamn. Besøk oss i butikken eller send oss melding på Facebook og Instagram for spørsmål, tilbakemeldinger eller bare for å si hei!\" [website]",
+    "Business address: Stølen 16, 5551 AUKLANDSHAMN. [brreg_enheter]",
+    "Leadership: general manager (daglig leder) Marryel Hognestad Velde; board chair Ole Velde; 1 other board member. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 5 (as of 2025-08-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 5,345,020; operating result NOK 361,169; net result NOK 282,775; total assets NOK 1,381,314; equity NOK 312,775. [brreg_regnskap]",
+    "Share capital: NOK 30,000. [brreg_enheter]"
+   ],
+   "changes": [
+    "Changes in this run (9):",
+    "- location.business.geo: added ({'lat': 59.63816391311728, 'lon': 5.383969208975236, 'crs...)",
+    "- web.url: added (https://auklandshamnlandhandel.no)",
+    "- web.title: added (Auklandshamn Landhandel AS)",
+    "- web.site_name: added (Auklandshamn Landhandel AS)",
+    "- web.home_text: added (Vi planlegg oppstart innan påske 2025 i Forretningsbygg S...)",
+    "- web.headline: added (Auklandshamn Landhandel AS)",
+    "- web.emails: added (['marryelhauge@gmail.com'])",
+    "- web.phones: added (['45813272'])",
+    "- web.orgnr_on_page: added (False)"
+   ],
+   "unknown": [
+    "No social media profiles: website reached, but it carries no such information.",
+    "No news items: website reached, but it carries no such information.",
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No products and services: website reached, but it carries no such information.",
+    "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: not_found (no LEI record lists this organisation number)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: home page guessed from the registered name; page match = name_on_page (medium)"
+   ]
+  }
  }
 }

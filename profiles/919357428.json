@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:17:34Z",
- "last_run": "2026-10-05T05:39:53Z",
- "run_count": 4,
+ "last_run": "2026-10-10T13:58:27Z",
+ "run_count": 6,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -57,6 +57,12 @@
     "detail": "LEI 9845002A2FF511A9A542: registeredAs='919 357 428' registeredAt=RA000472 country=NO"
    },
    {
+    "source": "geonorge",
+    "check": "postal_code_match",
+    "passed": true,
+    "detail": "registry address 'Kongens gate 15' 0153 -> matched 'Kongens gate 15' 0153"
+   },
+   {
     "source": "website",
     "check": "declared_in_registry",
     "passed": true,
@@ -65,8 +71,8 @@
    {
     "source": "website",
     "check": "orgnr_on_page",
-    "passed": false,
-    "detail": "org number 919357428 printed on https://authorized.no/"
+    "passed": true,
+    "detail": "org number 919357428 printed on https://authorized.no/om-oss/"
    },
    {
     "source": "website",
@@ -89,12 +95,10 @@
    {
     "check": "name_consistency.gleif_vs_brreg",
     "passed": true,
-    "detail": "GLEIF legal name 'AUTHORIZED.NO AS' vs registry name 'AUTHORIZED.NO AS'"
+    "detail": "GLEIF legal name None vs registry name 'AUTHORIZED.NO AS'"
    }
   ],
-  "failed_checks": [
-   "orgnr_on_page"
-  ],
+  "failed_checks": [],
   "summary": [
    "brreg_enheter: looked up by org number; record echoes the number",
    "brreg_roller: roles endpoint addressed by org number",
@@ -102,7 +106,9 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "website: URL declared by the company in the registry; page match = name_on_page (medium)"
+   "nav_jobs: error (HTTP 429)",
+   "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+   "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
   ]
  },
  "facts": [
@@ -113,7 +119,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -121,7 +127,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -144,7 +150,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -152,7 +158,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -165,7 +171,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-12-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -173,7 +179,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -191,7 +197,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2018-01-17",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -199,7 +205,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -212,7 +218,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -220,7 +226,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -233,7 +239,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-09-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -241,7 +247,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -254,7 +260,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -262,7 +268,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -280,7 +286,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -288,7 +294,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -306,7 +312,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -314,7 +320,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -332,7 +338,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -340,7 +346,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -358,7 +364,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -366,7 +372,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -384,7 +390,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -392,7 +398,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -418,7 +424,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -426,7 +432,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -444,7 +450,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -452,7 +458,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -470,7 +476,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -478,7 +484,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -496,7 +502,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -504,7 +510,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -522,7 +528,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -530,7 +536,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -548,7 +554,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -556,7 +562,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -574,7 +580,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -582,7 +588,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -600,7 +606,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -608,7 +614,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -626,7 +632,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -634,7 +640,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -652,7 +658,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -660,7 +666,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -678,7 +684,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -686,7 +692,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -704,7 +710,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2023-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -712,7 +718,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -730,7 +736,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -738,7 +744,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -756,7 +762,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -764,7 +770,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -782,7 +788,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -790,7 +796,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -808,7 +814,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -816,7 +822,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -834,7 +840,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -842,7 +848,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -868,7 +874,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -876,7 +882,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -894,7 +900,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -902,7 +908,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -920,7 +926,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -928,7 +934,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -946,7 +952,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -954,7 +960,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -972,7 +978,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -980,7 +986,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -998,7 +1004,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1006,7 +1012,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1024,7 +1030,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1032,7 +1038,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1050,7 +1056,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1058,7 +1064,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1076,7 +1082,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1084,7 +1090,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1102,7 +1108,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1110,7 +1116,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1128,7 +1134,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1136,7 +1142,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1154,7 +1160,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2024-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1162,7 +1168,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1180,7 +1186,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1188,7 +1194,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1206,7 +1212,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1214,7 +1220,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1232,7 +1238,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1240,7 +1246,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1258,7 +1264,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1266,7 +1272,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1292,7 +1298,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1300,7 +1306,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1318,7 +1324,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1326,7 +1332,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1344,7 +1350,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1352,7 +1358,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1370,7 +1376,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1378,7 +1384,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1396,7 +1402,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1404,7 +1410,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1422,7 +1428,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1430,7 +1436,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1448,7 +1454,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1456,7 +1462,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1474,7 +1480,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1482,7 +1488,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1500,7 +1506,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1508,7 +1514,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1526,7 +1532,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1534,7 +1540,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1552,7 +1558,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1560,7 +1566,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1578,7 +1584,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2025-12-31",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1586,7 +1592,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1602,7 +1608,7 @@
     {
      "source": "brreg_regnskap",
      "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1610,7 +1616,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1623,7 +1629,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-07-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1631,7 +1637,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1644,7 +1650,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1652,7 +1658,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1668,7 +1674,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1676,7 +1682,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1689,7 +1695,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1697,7 +1703,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1710,7 +1716,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1718,7 +1724,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1731,15 +1737,15 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
-     "note": "GLEIF golden copy published 2026-10-04T16:00:00Z"
+     "note": "GLEIF golden copy published 2026-10-10T00:00:00Z"
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1752,7 +1758,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-07-05",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1760,7 +1766,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1773,7 +1779,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1781,7 +1787,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1802,7 +1808,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1810,7 +1816,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1831,7 +1837,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1839,7 +1845,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1852,7 +1858,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1860,7 +1866,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1873,7 +1879,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1881,7 +1887,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1899,7 +1905,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1907,7 +1913,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1927,7 +1933,7 @@
     {
      "source": "gleif",
      "url": "https://search.gleif.org/#/record/9845002A2FF511A9A542",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2026-05-10T12:53:21Z",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1935,7 +1941,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1948,7 +1954,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1956,11 +1962,46 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
    "confidence": "high"
+  },
+  {
+   "key": "location.business.geo",
+   "value": {
+    "lat": 59.91045277823502,
+    "lon": 10.741915500125605,
+    "crs": "EPSG:4326",
+    "matched_address": "Kongens gate 15",
+    "postal_code": "0153",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 207,
+     "bnr": 145
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.91045277823502&lon=10.741915500125605&markerLat=59.91045277823502&markerLon=10.741915500125605"
+   },
+   "evidence": [
+    {
+     "source": "geonorge",
+     "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Kongens+gate+15&postnummer=0153&treffPerSide=1&fuzzy=true",
+     "retrieved_at": "2026-10-10T13:35:16Z",
+     "source_date": "2020-06-15",
+     "match": "address_lookup",
+     "confidence": "medium",
+     "note": "coordinates of the registered business address (Kartverket address register, CC BY 4.0); an address match, not an identity match"
+    }
+   ],
+   "first_seen": "2026-10-10T13:35:16Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "medium"
   },
   {
    "key": "name",
@@ -1969,7 +2010,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -1977,7 +2018,59 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.0895dcaeccd0",
+   "value": {
+    "title": "Kontakt oss - Authorized.no",
+    "url": "https://authorized.no/kontakt-oss/",
+    "date": "2023-04-20",
+    "summary": "📍Butikk og lagerKongens gate 150153 Oslo"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://authorized.no/kontakt-oss/",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2023-04-20",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from structured data on the news page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:27Z",
+   "last_seen": "2026-10-10T13:58:27Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "news.item.13a732db6226",
+   "value": {
+    "title": "Om oss - Authorized.no",
+    "url": "https://authorized.no/om-oss/",
+    "date": "2023-04-20",
+    "summary": "Besøk oss i vår butikk i Oslo: Kongens gate 15, 0153 Oslo "
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://authorized.no/om-oss/",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2023-04-20",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "from structured data on the news page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:27Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -1993,7 +2086,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2001,7 +2094,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2014,7 +2107,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-12-27",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2022,7 +2115,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2035,7 +2128,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-08-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2043,7 +2136,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2056,7 +2149,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-08-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2064,7 +2157,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2084,7 +2177,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2092,7 +2185,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2108,7 +2201,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428/roller",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2019-02-04",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2116,7 +2209,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2132,7 +2225,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428/roller",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2019-07-10",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2140,7 +2233,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2155,7 +2248,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428/roller",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-12-07",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2163,7 +2256,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2178,7 +2271,7 @@
     {
      "source": "brreg_roller",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428/roller",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": "2017-08-01",
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2186,7 +2279,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2202,7 +2295,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2210,7 +2303,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2227,7 +2320,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2235,7 +2328,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2248,7 +2341,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=919357428&size=100",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2256,7 +2349,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2269,7 +2362,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=919357428&size=100",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2277,7 +2370,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2299,7 +2392,7 @@
     {
      "source": "brreg_underenheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=919357428&size=100",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "orgnr_exact",
      "confidence": "high",
@@ -2307,7 +2400,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2315,24 +2408,52 @@
   },
   {
    "key": "web.about_text",
-   "value": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og reservedeler – fra merker som Anycubic og Creality. Dronetilbehør : propeller, batteri",
+   "value": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. Unitree : firbeinte roboter utviklet for utdanning, programmering og forskningsformål 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og ",
    "evidence": [
     {
      "source": "website",
      "url": "https://authorized.no/om-oss/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": null,
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": "first paragraphs of the company's about page"
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
+   "status": "active",
+   "history": [
+    {
+     "value": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og reservedeler – fra merker som Anycubic og Creality. Dronetilbehør : propeller, batteri",
+     "until": "2026-10-05T05:39:53Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.contact_page",
+   "value": {
+    "url": "https://authorized.no/kontakt-oss/"
+   },
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://authorized.no/kontakt-oss/",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:27Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.description",
@@ -2341,19 +2462,19 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.emails",
@@ -2364,19 +2485,40 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
-     "note": null
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "e-mail addresses printed on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
+  },
+  {
+   "key": "web.home_text",
+   "value": "Gjør ideene dine til virkelighet med presisjon – vi tilbyr 3D-printere samt lasergraverings- og laserkuttemaskiner fra ledende merker. Xiaomi kombinerer smart teknologi med god pris – fra mobiltelefoner og aktivitetsarmbånd til elsparkesykler og robotstøvsugere. Gjør hverdagen enklere og mer effektiv med produkter du kan stole på. Utforsk stilrent og praktisk tilbehør for iPhone, iPad, Apple Watch og AirPods – nøye utvalgt for en enklere og mer fleksibel hverdag. Meld deg på nyhetsbrevet vårt og få siste nytt om produkter, kampanjer og tilbud. Smart livsstil Smart Hjem Støvsuger og Luftrenser Sikkerhet og Kamera Lyd og Bilde Smart Belysning Kjøkken For Kjæledyr Livsstil Wearables Utendørsliv",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://authorized.no/",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "first substantive paragraphs of the home page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:27Z",
+   "last_seen": "2026-10-10T13:58:27Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
   },
   {
    "key": "web.jsonld_organization",
@@ -2388,19 +2530,19 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.language",
@@ -2409,19 +2551,19 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.og_image",
@@ -2430,40 +2572,72 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.orgnr_on_page",
-   "value": false,
+   "value": true,
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://authorized.no/om-oss/",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-05T05:17:34Z",
+   "last_seen": "2026-10-10T13:58:27Z",
+   "status": "active",
+   "history": [
+    {
+     "value": false,
+     "until": "2026-10-05T05:39:53Z"
+    }
+   ],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.pages_checked",
+   "value": {
+    "home": "https://authorized.no/",
+    "contact": "https://authorized.no/kontakt-oss/",
+    "about": "https://authorized.no/om-oss/",
+    "news": "https://authorized.no/nyheter/",
+    "products": "https://authorized.no/produkter/"
+   },
    "evidence": [
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
-   "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "first_seen": "2026-10-10T13:58:27Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.phones",
@@ -2474,19 +2648,77 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
-     "note": null
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "tel: links on the site (home/contact pages)"
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
+  },
+  {
+   "key": "web.products",
+   "value": [
+    "Anycubic ACE Pro",
+    "Anycubic Kobra 3 Max Combo",
+    "Anycubic Kobra S1 Combo",
+    "Aulumu 10000mAh Multi-Charging Dual-Mag Power Bank",
+    "Aulumu Frosted Case for iPhone 17 Pro, 17 Pro Max",
+    "Aulumu Ghost Infinite 360° MagSafe Stand",
+    "Aulumu Rugged Outdoor Case for iPhone 17 Pro, 17Pro Max /18 Pro, 18Pro Max",
+    "AUTHORIZED Neck Strap Self-Balancing Mount",
+    "AUTHORIZED Square Drone Landing Pad (65x65cm)",
+    "Authorized Waterproof Case For Osmo 360",
+    "Creality CR-Scan Raptor",
+    "Creality Ender-3 V3 SE",
+    "240W Magnetic Braided USB-C Cable – Selvorganiserende Magnetisk Ladekabel 1m",
+    "Anycubic Kobra 3 Max",
+    "Anycubic Kobra 3 V2 Combo"
+   ],
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://authorized.no/produkter/",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": "product / service names as headed on the products page"
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:27Z",
+   "last_seen": "2026-10-10T13:58:27Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
+  },
+  {
+   "key": "web.products_url",
+   "value": "https://authorized.no/produkter/",
+   "evidence": [
+    {
+     "source": "website",
+     "url": "https://authorized.no/produkter/",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
+     "note": null
+    }
+   ],
+   "first_seen": "2026-10-10T13:58:27Z",
+   "last_seen": "2026-10-10T13:58:27Z",
+   "status": "active",
+   "history": [],
+   "stale": false,
+   "confidence": "high"
   },
   {
    "key": "web.site_name",
@@ -2495,19 +2727,19 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.social",
@@ -2520,19 +2752,19 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.title",
@@ -2541,19 +2773,19 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": null
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "web.url",
@@ -2562,19 +2794,19 @@
     {
      "source": "website",
      "url": "https://authorized.no/",
-     "retrieved_at": "2026-10-05T05:39:53Z",
-     "source_date": "Mon, 05 Oct 2026 05:16:44 GMT",
-     "match": "name_on_page",
-     "confidence": "medium",
+     "retrieved_at": "2026-10-10T13:58:27Z",
+     "source_date": "2026-10-10",
+     "match": "orgnr_on_page",
+     "confidence": "high",
      "note": "resolved from the registry-declared website"
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:58:27Z",
    "status": "active",
    "history": [],
    "stale": false,
-   "confidence": "medium"
+   "confidence": "high"
   },
   {
    "key": "website",
@@ -2583,7 +2815,7 @@
     {
      "source": "brreg_enheter",
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
-     "retrieved_at": "2026-10-05T05:39:53Z",
+     "retrieved_at": "2026-10-10T13:35:16Z",
      "source_date": null,
      "match": "registry_declared",
      "confidence": "high",
@@ -2591,7 +2823,7 @@
     }
    ],
    "first_seen": "2026-10-05T05:17:34Z",
-   "last_seen": "2026-10-05T05:39:53Z",
+   "last_seen": "2026-10-10T13:35:16Z",
    "status": "active",
    "history": [],
    "stale": false,
@@ -2604,9 +2836,9 @@
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:53Z",
-   "facts": 22,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2615,16 +2847,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919357428/roller",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:53Z",
-   "facts": 4,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2633,16 +2867,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
    "url": "https://data.brreg.no/enhetsregisteret/api/underenheter?overordnetEnhet=919357428&size=100",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:53Z",
-   "facts": 3,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2651,16 +2887,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
    "url": "https://data.brreg.no/regnskapsregisteret/regnskap/919357428",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:53Z",
-   "facts": 51,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2679,16 +2917,18 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
    "url": "https://api.gleif.org/api/v1/lei-records?filter%5Bentity.registeredAs%5D=919+357+428&page%5Bsize%5D=10",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:53Z",
-   "facts": 9,
-   "requests": 1,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "lei_registered_as",
@@ -2697,20 +2937,58 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "wikidata",
    "url": "https://query.wikidata.org/sparql?format=json&query=%0ASELECT+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0A++%28GROUP_CONCAT%28DISTINCT+%3Fwebsite%3B+separator%3D%22%7C%22%29+AS+%3Fwebsites%29%0A++%28SAMPLE%28%3Finception%29+AS+%3Finception%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FhqLabel%3B+separator%3D%22%7C%22%29+AS+%3Fhqs%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FindustryLabel%3B+separator%3D%22%7C%22%29+AS+%3Findustries%29%0A++%28SAMPLE%28%3Femployees%29+AS+%3Femployees%29%0A++%28SAMPLE%28%3Flogo%29+AS+%3Flogo%29%0A++%28SAMPLE%28%3Fen%29+AS+%3Fen%29+%28SAMPLE%28%3Fnb%29+AS+%3Fnb%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FparentLabel%3B+separator%3D%22%7C%22%29+AS+%3Fparents%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FownerLabel%3B+separator%3D%22%7C%22%29+AS+%3Fowners%29%0A++%28GROUP_CONCAT%28DISTINCT+%3FceoLabel%3B+separator%3D%22%7C%22%29+AS+%3Fceos%29%0A++%28GROUP_CONCAT%28DISTINCT+%3Fticker%3B+separator%3D%22%7C%22%29+AS+%3Ftickers%29%0AWHERE+%7B%0A++%3Fitem+wdt%3AP2333+%22919357428%22+.%0A++%3Fitem+schema%3AdateModified+%3Fmodified+.%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP856+%3Fwebsite+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP571+%3Finception+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP159+%3Fhq+.+%3Fhq+rdfs%3Alabel+%3FhqLabel+FILTER%28LANG%28%3FhqLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP452+%3Findustry+.+%3Findustry+rdfs%3Alabel+%3FindustryLabel+FILTER%28LANG%28%3FindustryLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP1128+%3Femployees+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP154+%3Flogo+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP749+%3Fparent+.+%3Fparent+rdfs%3Alabel+%3FparentLabel+FILTER%28LANG%28%3FparentLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP127+%3Fowner+.+%3Fowner+rdfs%3Alabel+%3FownerLabel+FILTER%28LANG%28%3FownerLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP169+%3Fceo+.+%3Fceo+rdfs%3Alabel+%3FceoLabel+FILTER%28LANG%28%3FceoLabel%29+%3D+%22en%22%29+%7D%0A++OPTIONAL+%7B+%3Fitem+wdt%3AP249+%3Fticker+%7D%0A++OPTIONAL+%7B+%3Fen+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fen.wikipedia.org%2F%3E+%7D%0A++OPTIONAL+%7B+%3Fnb+schema%3Aabout+%3Fitem+%3B+schema%3AisPartOf+%3Chttps%3A%2F%2Fno.wikipedia.org%2F%3E+%7D%0A++SERVICE+wikibase%3Alabel+%7B+bd%3AserviceParam+wikibase%3Alanguage+%22en%2Cnb%2Cno%22.+%7D%0A%7D%0AGROUP+BY+%3Fitem+%3FitemLabel+%3FitemDescription+%3Fmodified%0ALIMIT+3%0A",
    "status": "not_found",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:53Z",
+   "retrieved_at": "2026-10-10T13:35:16Z",
    "facts": 0,
-   "requests": 1,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no Wikidata item has P2333 = this org number"
+    "no Wikidata item has P2333 = this org number",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "nav_jobs",
+   "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=AUTHORIZED.NO&size=100&v=5",
+   "status": "error",
+   "http_status": 429,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [],
+   "rejected": [],
+   "notes": [
+    "HTTP 429",
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
+  },
+  {
+   "source": "geonorge",
+   "url": "https://ws.geonorge.no/adresser/v1/sok?sok=Kongens+gate+15&postnummer=0153&treffPerSide=1&fuzzy=true",
+   "status": "ok",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T13:35:16Z",
+   "facts": 0,
+   "requests": 0,
+   "checks": [
+    {
+     "check": "postal_code_match",
+     "passed": true,
+     "detail": "registry address 'Kongens gate 15' 0153 -> matched 'Kongens gate 15' 0153"
+    }
+   ],
+   "rejected": [],
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2718,9 +2996,9 @@
    "url": "https://www.authorized.no/",
    "status": "ok",
    "http_status": 200,
-   "retrieved_at": "2026-10-05T05:39:53Z",
-   "facts": 12,
-   "requests": 4,
+   "retrieved_at": "2026-10-10T13:58:27Z",
+   "facts": 19,
+   "requests": 7,
    "checks": [
     {
      "check": "declared_in_registry",
@@ -2729,8 +3007,8 @@
     },
     {
      "check": "orgnr_on_page",
-     "passed": false,
-     "detail": "org number 919357428 printed on https://authorized.no/"
+     "passed": true,
+     "detail": "org number 919357428 printed on https://authorized.no/om-oss/"
     },
     {
      "check": "name_on_page",
@@ -2752,7 +3030,98 @@
    "notes": []
   }
  ],
- "last_run_changes": [],
+ "last_run_changes": [
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Gjør ideene dine til virkelighet med presisjon – vi tilbyr 3D-printere samt lasergraverings- og laserkuttemaskiner fra ledende merker. Xiaomi kombinerer smart teknologi med god pris – fra mobiltelefoner og aktivitetsarmbånd til elsparkesykler og robotstøvsugere. Gjør hverdagen enklere og mer effektiv med produkter du kan stole på. Utforsk stilrent og praktisk tilbehør for iPhone, iPad, Apple Watch og AirPods – nøye utvalgt for en enklere og mer fleksibel hverdag. Meld deg på nyhetsbrevet vårt og få siste nytt om produkter, kampanjer og tilbud. Smart livsstil Smart Hjem Støvsuger og Luftrenser Sikkerhet og Kamera Lyd og Bilde Smart Belysning Kjøkken For Kjæledyr Livsstil Wearables Utendørsliv"
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og reservedeler – fra merker som Anycubic og Creality. Dronetilbehør : propeller, batteri",
+   "new": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. Unitree : firbeinte roboter utviklet for utdanning, programmering og forskningsformål 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og "
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://authorized.no/produkter/"
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Anycubic ACE Pro",
+    "Anycubic Kobra 3 Max Combo",
+    "Anycubic Kobra S1 Combo",
+    "Aulumu 10000mAh Multi-Charging Dual-Mag Power Bank",
+    "Aulumu Frosted Case for iPhone 17 Pro, 17 Pro Max",
+    "Aulumu Ghost Infinite 360° MagSafe Stand",
+    "Aulumu Rugged Outdoor Case for iPhone 17 Pro, 17Pro Max /18 Pro, 18Pro Max",
+    "AUTHORIZED Neck Strap Self-Balancing Mount",
+    "AUTHORIZED Square Drone Landing Pad (65x65cm)",
+    "Authorized Waterproof Case For Osmo 360",
+    "Creality CR-Scan Raptor",
+    "Creality Ender-3 V3 SE",
+    "240W Magnetic Braided USB-C Cable – Selvorganiserende Magnetisk Ladekabel 1m",
+    "Anycubic Kobra 3 Max",
+    "Anycubic Kobra 3 V2 Combo"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "news.item.0895dcaeccd0",
+   "type": "added",
+   "new": {
+    "title": "Kontakt oss - Authorized.no",
+    "url": "https://authorized.no/kontakt-oss/",
+    "date": "2023-04-20",
+    "summary": "📍Butikk og lagerKongens gate 150153 Oslo"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "news.item.13a732db6226",
+   "type": "added",
+   "new": {
+    "title": "Om oss - Authorized.no",
+    "url": "https://authorized.no/om-oss/",
+    "date": "2023-04-20",
+    "summary": "Besøk oss i vår butikk i Oslo: Kongens gate 15, 0153 Oslo "
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://authorized.no/kontakt-oss/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://authorized.no/",
+    "contact": "https://authorized.no/kontakt-oss/",
+    "about": "https://authorized.no/om-oss/",
+    "news": "https://authorized.no/nyheter/",
+    "products": "https://authorized.no/produkter/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.orgnr_on_page",
+   "type": "changed",
+   "old": false,
+   "new": true
+  }
+ ],
  "changes": [
   {
    "at": "2026-10-05T05:17:34Z",
@@ -3729,17 +4098,173 @@
    "key": "web.about_text",
    "type": "added",
    "new": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og reservedeler – fra merker som Anycubic og Creality. Dronetilbehør : propeller, batteri"
+  },
+  {
+   "at": "2026-10-10T13:35:16Z",
+   "key": "location.business.geo",
+   "type": "added",
+   "new": {
+    "lat": 59.91045277823502,
+    "lon": 10.741915500125605,
+    "crs": "EPSG:4326",
+    "matched_address": "Kongens gate 15",
+    "postal_code": "0153",
+    "city": "OSLO",
+    "municipality": "OSLO",
+    "municipality_number": "0301",
+    "cadastral": {
+     "gnr": 207,
+     "bnr": 145
+    },
+    "map_url": "https://www.norgeskart.no/#!?project=norgeskart&layers=1002&zoom=15&lat=59.91045277823502&lon=10.741915500125605&markerLat=59.91045277823502&markerLon=10.741915500125605"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.home_text",
+   "type": "added",
+   "new": "Gjør ideene dine til virkelighet med presisjon – vi tilbyr 3D-printere samt lasergraverings- og laserkuttemaskiner fra ledende merker. Xiaomi kombinerer smart teknologi med god pris – fra mobiltelefoner og aktivitetsarmbånd til elsparkesykler og robotstøvsugere. Gjør hverdagen enklere og mer effektiv med produkter du kan stole på. Utforsk stilrent og praktisk tilbehør for iPhone, iPad, Apple Watch og AirPods – nøye utvalgt for en enklere og mer fleksibel hverdag. Meld deg på nyhetsbrevet vårt og få siste nytt om produkter, kampanjer og tilbud. Smart livsstil Smart Hjem Støvsuger og Luftrenser Sikkerhet og Kamera Lyd og Bilde Smart Belysning Kjøkken For Kjæledyr Livsstil Wearables Utendørsliv"
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.about_text",
+   "type": "changed",
+   "old": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og reservedeler – fra merker som Anycubic og Creality. Dronetilbehør : propeller, batteri",
+   "new": "Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge. Authorized.no samler et bredt sortiment av produkter fra kvalitetsmerker som Xiaomi , Anker , Unitree , 3D-printere , dronetilbehør , mobiltilbehør og mye mer – alt på ett sted. Authorized.no AS ble etablert i 2017 og har siden den gang bygget opp solid erfaring med salg, distribusjon og kundeservice av forbrukerelektronikk i det norske markedet. Vi har gjennom årene jobbet med både fysiske butikker og nettbasert handel, og kjenner godt til behovene og forventningene til norske teknologibrukere. Vi har tidligere drevet mi-home.no (Xiaomi Norway) som en dedikert plattform for Xiaomi-produkter i Norge. Nå har vi valgt å flytte hele sortimentet og kundestøtten til Authorized.no for å kunne tilby et mer helhetlig og effektivt tilbud – både for eksisterende og nye kunder. Du finner nå alle dine favorittprodukter fra Xiaomi på authorized.no , sammen med en rekke nye produktkategorier og spennende merker. Unitree : firbeinte roboter utviklet for utdanning, programmering og forskningsformål 3D-print : 3D-printere basert på FDM- og LCD-teknologi, med tilhørende filament, resin og "
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.products_url",
+   "type": "added",
+   "new": "https://authorized.no/produkter/"
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.products",
+   "type": "added",
+   "new": [
+    "Anycubic ACE Pro",
+    "Anycubic Kobra 3 Max Combo",
+    "Anycubic Kobra S1 Combo",
+    "Aulumu 10000mAh Multi-Charging Dual-Mag Power Bank",
+    "Aulumu Frosted Case for iPhone 17 Pro, 17 Pro Max",
+    "Aulumu Ghost Infinite 360° MagSafe Stand",
+    "Aulumu Rugged Outdoor Case for iPhone 17 Pro, 17Pro Max /18 Pro, 18Pro Max",
+    "AUTHORIZED Neck Strap Self-Balancing Mount",
+    "AUTHORIZED Square Drone Landing Pad (65x65cm)",
+    "Authorized Waterproof Case For Osmo 360",
+    "Creality CR-Scan Raptor",
+    "Creality Ender-3 V3 SE",
+    "240W Magnetic Braided USB-C Cable – Selvorganiserende Magnetisk Ladekabel 1m",
+    "Anycubic Kobra 3 Max",
+    "Anycubic Kobra 3 V2 Combo"
+   ]
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "news.item.0895dcaeccd0",
+   "type": "added",
+   "new": {
+    "title": "Kontakt oss - Authorized.no",
+    "url": "https://authorized.no/kontakt-oss/",
+    "date": "2023-04-20",
+    "summary": "📍Butikk og lagerKongens gate 150153 Oslo"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "news.item.13a732db6226",
+   "type": "added",
+   "new": {
+    "title": "Om oss - Authorized.no",
+    "url": "https://authorized.no/om-oss/",
+    "date": "2023-04-20",
+    "summary": "Besøk oss i vår butikk i Oslo: Kongens gate 15, 0153 Oslo "
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.contact_page",
+   "type": "added",
+   "new": {
+    "url": "https://authorized.no/kontakt-oss/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.pages_checked",
+   "type": "added",
+   "new": {
+    "home": "https://authorized.no/",
+    "contact": "https://authorized.no/kontakt-oss/",
+    "about": "https://authorized.no/om-oss/",
+    "news": "https://authorized.no/nyheter/",
+    "products": "https://authorized.no/produkter/"
+   }
+  },
+  {
+   "at": "2026-10-10T13:58:27Z",
+   "key": "web.orgnr_on_page",
+   "type": "changed",
+   "old": false,
+   "new": true
   }
  ],
  "stats": {
-  "active_facts": 101,
+  "active_facts": 109,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 10,
-  "seconds": 13.76
+  "requests": 7,
+  "seconds": 25.76
  },
  "explanation": {
   "mode": "template",
-  "text": "AUTHORIZED.NO AS (org.nr 919 357 428) is registered as Aksjeselskap (AS), founded 2017-07-05, registered 2017-08-01. Business address: Kongens gate 15, 0153 OSLO. Main industry (NACE): 47.540 Detaljhandel med elektriske husholdningsapparater. Registered employees: 8 (as of 2026-09-10). Latest filed annual accounts (2025, company statement): revenue NOK 83,514,162; operating result NOK 9,803,857; net result NOK 8,511,425; total assets NOK 22,957,956; equity NOK 18,108,982. Leadership: general manager (daglig leder) Rambo Baiyun Lan; board chair Rambo Baiyun Lan. Sub-units registered: 1. Website: www.authorized.no. The website describes the company as: \"Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge.\" LEI: 9845002A2FF511A9A542 (ACTIVE).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- website: URL declared by the company in the registry; page match = name_on_page (medium)\n\nNo changes since the previous run.\nNot available: wikidata."
+  "text": "AUTHORIZED.NO AS (org.nr 919 357 428) is registered as Aksjeselskap (AS), founded 2017-07-05, registered 2017-08-01. [brreg_enheter] Main industry (NACE 47.540): Detaljhandel med elektriske husholdningsapparater. [brreg_enheter] Registered purpose: \"Kjøp og salg av fjernstyrte produkter og annen elektronikk som naturlig hører til.\" [brreg_enheter] The company's website describes it as: \"Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge.\" [website] Business address: Kongens gate 15, 0153 OSLO. [brreg_enheter] Products / services named on its website: Anycubic ACE Pro; Anycubic Kobra 3 Max Combo; Anycubic Kobra S1 Combo; Aulumu 10000mAh Multi-Charging Dual-Mag Power Bank; Aulumu Frosted Case for iPhone 17 Pro, 17 Pro Max; Aulumu Ghost Infinite 360° MagSafe Stand; Aulumu Rugged Outdoor Case for iPhone 17 Pro, 17Pro Max /18 Pro, 18Pro Max; AUTHORIZED Neck Strap Self-Balancing Mount. [website] Leadership: general manager (daglig leder) Rambo Baiyun Lan; board chair Rambo Baiyun Lan. [brreg_roller]\n\nKey numbers:\n- Registered employees: 8 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 83,514,162 (+66% vs 2024); operating result NOK 9,803,857 (+318% vs 2024); net result NOK 8,511,425 (+271% vs 2024); total assets NOK 22,957,956 (+35% vs 2024); equity NOK 18,108,982 (+89% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 715,000. [brreg_enheter]\n- 2 news items from the company's own site, latest 2023-04-20. [website]\n- LEI: 9845002A2FF511A9A542 (ACTIVE). [gleif]\n\nChanges in this run (9):\n- web.home_text: added (Gjør ideene dine til virkelighet med presisjon – vi tilby...)\n- web.about_text: Velkommen til Authorized.no – din nye destinasjon for ori... -> Velkommen til Authorized.no – din nye destinasjon for ori...\n- web.products_url: added (https://authorized.no/produkter/)\n- web.products: added (['Anycubic ACE Pro', 'Anycubic Kobra 3 Max Combo', 'Anycu...)\n- news.item.0895dcaeccd0: added ({'title': 'Kontakt oss - Authorized.no', 'url': 'https://...)\n- news.item.13a732db6226: added ({'title': 'Om oss - Authorized.no', 'url': 'https://autho...)\n- web.contact_page: added ({'url': 'https://authorized.no/kontakt-oss/'})\n- web.pages_checked: added ({'home': 'https://authorized.no/', 'contact': 'https://au...)\n- web.orgnr_on_page: False -> True\n\nWhat remains unknown:\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: URL declared by the company in the registry; page match = orgnr_on_page (high)",
+  "sections": {
+   "what_it_does": [
+    "AUTHORIZED.NO AS (org.nr 919 357 428) is registered as Aksjeselskap (AS), founded 2017-07-05, registered 2017-08-01. [brreg_enheter]",
+    "Main industry (NACE 47.540): Detaljhandel med elektriske husholdningsapparater. [brreg_enheter]",
+    "Registered purpose: \"Kjøp og salg av fjernstyrte produkter og annen elektronikk som naturlig hører til.\" [brreg_enheter]",
+    "The company's website describes it as: \"Velkommen til Authorized.no – din nye destinasjon for original merkevare-elektronikk og smart tilbehør i Norge.\" [website]",
+    "Business address: Kongens gate 15, 0153 OSLO. [brreg_enheter]",
+    "Products / services named on its website: Anycubic ACE Pro; Anycubic Kobra 3 Max Combo; Anycubic Kobra S1 Combo; Aulumu 10000mAh Multi-Charging Dual-Mag Power Bank; Aulumu Frosted Case for iPhone 17 Pro, 17 Pro Max; Aulumu Ghost Infinite 360° MagSafe Stand; Aulumu Rugged Outdoor Case for iPhone 17 Pro, 17Pro Max /18 Pro, 18Pro Max; AUTHORIZED Neck Strap Self-Balancing Mount. [website]",
+    "Leadership: general manager (daglig leder) Rambo Baiyun Lan; board chair Rambo Baiyun Lan. [brreg_roller]"
+   ],
+   "key_numbers": [
+    "Registered employees: 8 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]",
+    "Latest filed annual accounts (2025, company statement): revenue NOK 83,514,162 (+66% vs 2024); operating result NOK 9,803,857 (+318% vs 2024); net result NOK 8,511,425 (+271% vs 2024); total assets NOK 22,957,956 (+35% vs 2024); equity NOK 18,108,982 (+89% vs 2024). [brreg_regnskap]",
+    "Accounts on file for 2023, 2024, 2025.",
+    "Share capital: NOK 715,000. [brreg_enheter]",
+    "2 news items from the company's own site, latest 2023-04-20. [website]",
+    "LEI: 9845002A2FF511A9A542 (ACTIVE). [gleif]"
+   ],
+   "changes": [
+    "Changes in this run (9):",
+    "- web.home_text: added (Gjør ideene dine til virkelighet med presisjon – vi tilby...)",
+    "- web.about_text: Velkommen til Authorized.no – din nye destinasjon for ori... -> Velkommen til Authorized.no – din nye destinasjon for ori...",
+    "- web.products_url: added (https://authorized.no/produkter/)",
+    "- web.products: added (['Anycubic ACE Pro', 'Anycubic Kobra 3 Max Combo', 'Anycu...)",
+    "- news.item.0895dcaeccd0: added ({'title': 'Kontakt oss - Authorized.no', 'url': 'https://...)",
+    "- news.item.13a732db6226: added ({'title': 'Om oss - Authorized.no', 'url': 'https://autho...)",
+    "- web.contact_page: added ({'url': 'https://authorized.no/kontakt-oss/'})",
+    "- web.pages_checked: added ({'home': 'https://authorized.no/', 'contact': 'https://au...)",
+    "- web.orgnr_on_page: False -> True"
+   ],
+   "unknown": [
+    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
+   ],
+   "sources": [
+    "brreg_enheter: looked up by org number; record echoes the number",
+    "brreg_roller: roles endpoint addressed by org number",
+    "brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked",
+    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
+    "gleif: LEI record's registeredAs equals the org number (Norwegian registration authority)",
+    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
+    "nav_jobs: error (HTTP 429)",
+    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
+    "website: URL declared by the company in the registry; page match = orgnr_on_page (high)"
+   ]
+  }
  }
 }
