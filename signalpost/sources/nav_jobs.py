@@ -69,9 +69,9 @@ async def fetch_nav_jobs(ctx: Ctx, orgnr: str, name: str | None, subunit_names: 
     try:
         resp = await ctx.http.get(url, headers={"Accept": "application/json"}, tally=ctx.tally, max_bytes=3_000_000)
         res.http_status = resp.status
-        if resp.error:
+        if resp.error or resp.status == 429:
             res.status = "error"
-            res.notes.append(resp.error)
+            res.notes.append(resp.error or "HTTP 429: the job board rate-limits automated search; retried later by `refresh` / `--sources nav_jobs`")
             return res
         if not resp.ok:
             res.status = "error"

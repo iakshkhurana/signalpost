@@ -111,7 +111,8 @@ class Response:
 
 _RETRY_STATUSES = {408, 425, 429, 500, 502, 503, 504}
 _HOST_LIMITS = {"query.wikidata.org": 2, "api.gleif.org": 3, "data.brreg.no": 6, "arbeidsplassen.nav.no": 1}
-_HOST_INTERVAL = {"arbeidsplassen.nav.no": 3.0}     # minimum seconds between requests to a host (polite pacing)
+_HOST_INTERVAL = {"arbeidsplassen.nav.no": 6.0}     # minimum seconds between requests to a host (polite pacing)
+_TRIP_SECONDS = 15 * 60                               # after a host answers 429 twice in a row, leave it alone this long
 
 
 class Http:
@@ -125,6 +126,8 @@ class Http:
         self._global = asyncio.Semaphore(concurrency)
         self._per_host: dict[str, asyncio.Semaphore] = {}
         self._last_request: dict[str, float] = {}
+        self._tripped: dict[str, float] = {}        # host -> monotonic time until which we skip it (circuit breaker)
+        self._429s: dict[str, int] = {}
         self._per_host_limit = per_host
         self._robots: dict[str, Optional[RobotFileParser]] = {}
         self._robots_error: dict[str, Optional[str]] = {}   # base -> connection error seen while fetching robots.txt
@@ -194,6 +197,10 @@ class Http:
             return cached
 
         attempt = 0
+        host0 = urlsplit(url).netloc.lower()
+        if self._tripped.get(host0, 0.0) > time.monotonic():
+            return Response(url=url, status=429, text=None, final_url=url,
+                            error=f"{host0} rate-limited us (HTTP 429) earlier in this run; request skipped to respect the limit")
         while True:
             if tally is not None and tally.exhausted():
                 return Response(url=url, status=None, text=None, final_url=url, error="per-company request limit reached")
@@ -236,6 +243,12 @@ class Http:
                         retry_after = 0.0
                     await asyncio.sleep(min(30.0, retry_after or (15.0 if status == 429 else 1.5 * attempt)))
                     continue
+                if status == 429:
+                    self._429s[host0] = self._429s.get(host0, 0) + 1
+                    if self._429s[host0] >= 2:
+                        self._tripped[host0] = time.monotonic() + _TRIP_SECONDS
+                elif status and status < 400:
+                    self._429s[host0] = 0
                 self._cache_put(cpath, resp)
                 return resp
             except BudgetExceeded:

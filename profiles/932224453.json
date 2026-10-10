@@ -7,8 +7,8 @@
   "version": "0.1.0"
  },
  "created_at": "2026-10-05T05:09:03Z",
- "last_run": "2026-10-10T13:18:04Z",
- "run_count": 3,
+ "last_run": "2026-10-10T14:25:17Z",
+ "run_count": 4,
  "entity_status": "ok",
  "matching": {
   "overall": "high",
@@ -51,6 +51,12 @@
     "detail": "filing journalnr=2026763668 virksomhet.organisasjonsnummer=932224453 (2025, selskap)"
    },
    {
+    "source": "nav_jobs",
+    "check": "employer_is_registry_unit",
+    "passed": true,
+    "detail": "0 ad(s) whose employer name equals the registry name of 932224453 or one of its 1 registered sub-units; 0 other search hit(s) ignored"
+   },
+   {
     "source": "geonorge",
     "check": "postal_code_match",
     "passed": true,
@@ -85,7 +91,7 @@
    "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
    "gleif: not_found (no LEI record lists this organisation number)",
    "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-   "nav_jobs: error (HTTP 429)",
+   "nav_jobs: not_found (no active ads on arbeidsplassen.nav.no for employer 'AUTO BRAVIA AS' (search term 'AUTO BRAVIA'))",
    "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
    "website: not_found (guessed site https://autobravia.no does not identify the company; nothing taken from it)"
   ]
@@ -2068,8 +2074,8 @@
    "status": "ok",
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
-   "facts": 22,
-   "requests": 1,
+   "facts": 1,
+   "requests": 0,
    "checks": [
     {
      "check": "orgnr_echo",
@@ -2078,7 +2084,9 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_roller",
@@ -2086,8 +2094,8 @@
    "status": "ok",
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
-   "facts": 4,
-   "requests": 1,
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "url_scoped",
@@ -2096,7 +2104,9 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_underenheter",
@@ -2104,8 +2114,8 @@
    "status": "ok",
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
-   "facts": 3,
-   "requests": 1,
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "parent_filter",
@@ -2114,7 +2124,9 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "brreg_regnskap",
@@ -2122,8 +2134,8 @@
    "status": "ok",
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
-   "facts": 48,
-   "requests": 1,
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "filing_orgnr",
@@ -2142,7 +2154,9 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "gleif",
@@ -2151,11 +2165,12 @@
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no LEI record lists this organisation number"
+    "no LEI record lists this organisation number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
@@ -2165,25 +2180,32 @@
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
    "facts": 0,
-   "requests": 1,
+   "requests": 0,
    "checks": [],
    "rejected": [],
    "notes": [
-    "no Wikidata item has P2333 = this org number"
+    "no Wikidata item has P2333 = this org number",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   },
   {
    "source": "nav_jobs",
    "url": "https://arbeidsplassen.nav.no/stillinger/api/search?q=AUTO+BRAVIA&size=100&v=5",
-   "status": "error",
-   "http_status": 429,
-   "retrieved_at": "2026-10-10T13:18:04Z",
+   "status": "not_found",
+   "http_status": 200,
+   "retrieved_at": "2026-10-10T14:25:17Z",
    "facts": 0,
-   "requests": 3,
-   "checks": [],
+   "requests": 1,
+   "checks": [
+    {
+     "check": "employer_is_registry_unit",
+     "passed": true,
+     "detail": "0 ad(s) whose employer name equals the registry name of 932224453 or one of its 1 registered sub-units; 0 other search hit(s) ignored"
+    }
+   ],
    "rejected": [],
    "notes": [
-    "HTTP 429"
+    "no active ads on arbeidsplassen.nav.no for employer 'AUTO BRAVIA AS' (search term 'AUTO BRAVIA')"
    ]
   },
   {
@@ -2192,8 +2214,8 @@
    "status": "ok",
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
-   "facts": 1,
-   "requests": 1,
+   "facts": 0,
+   "requests": 0,
    "checks": [
     {
      "check": "postal_code_match",
@@ -2202,7 +2224,9 @@
     }
    ],
    "rejected": [],
-   "notes": []
+   "notes": [
+    "not re-fetched this run (--sources); values kept from the previous run"
+   ]
   },
   {
    "source": "website",
@@ -2211,7 +2235,7 @@
    "http_status": 200,
    "retrieved_at": "2026-10-10T13:18:04Z",
    "facts": 0,
-   "requests": 2,
+   "requests": 0,
    "checks": [
     {
      "check": "guessed_from_name",
@@ -2231,7 +2255,8 @@
    ],
    "rejected": [],
    "notes": [
-    "guessed site https://autobravia.no does not identify the company; nothing taken from it"
+    "guessed site https://autobravia.no does not identify the company; nothing taken from it",
+    "not re-fetched this run (--sources); values kept from the previous run"
    ]
   }
  ],
@@ -3041,12 +3066,12 @@
   "active_facts": 78,
   "retracted_facts": 0,
   "stale_facts": 0,
-  "requests": 13,
-  "seconds": 16.26
+  "requests": 1,
+  "seconds": 7.81
  },
  "explanation": {
   "mode": "template",
-  "text": "AUTO BRAVIA AS (org.nr 932 224 453) is registered as Aksjeselskap (AS), founded 2023-09-19, registered 2023-10-10. [brreg_enheter] Main industry (NACE 47.810): Detaljhandel med motorvogner. [brreg_enheter] Registered purpose: \"Drive med kjøp og salg av bil, samt virksomhet som står i forbindelse med dette.\" [brreg_enheter] Business address: Sælidvegen 40, 2322 RIDABU. [brreg_enheter] Leadership: general manager (daglig leder) Sondre Lundstad Hansen; board chair Benjamin Abbasi; 1 other board member. [brreg_roller]\n\nKey numbers:\n- Registered employees: 16 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 142,522,804 (+90% vs 2024); operating result NOK 2,232,138 (+56% vs 2024); net result NOK 1,733,488 (+64% vs 2024); total assets NOK 5,813,514 (+112% vs 2024); equity NOK 2,824,654 (+159% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 100,000. [brreg_enheter]\n\nNo changes since the previous run.\n\nWhat remains unknown:\n- No website content (description, about text): checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No social media profiles: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No news items: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No job postings: nav_jobs could not be reached this run (HTTP 429).\n- No products and services: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: error (HTTP 429)\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: not_found (guessed site https://autobravia.no does not identify the company; nothing taken from it)",
+  "text": "AUTO BRAVIA AS (org.nr 932 224 453) is registered as Aksjeselskap (AS), founded 2023-09-19, registered 2023-10-10. [brreg_enheter] Main industry (NACE 47.810): Detaljhandel med motorvogner. [brreg_enheter] Registered purpose: \"Drive med kjøp og salg av bil, samt virksomhet som står i forbindelse med dette.\" [brreg_enheter] Business address: Sælidvegen 40, 2322 RIDABU. [brreg_enheter] Leadership: general manager (daglig leder) Sondre Lundstad Hansen; board chair Benjamin Abbasi; 1 other board member. [brreg_roller]\n\nKey numbers:\n- Registered employees: 16 (as of 2026-09-10); 1 registered sub-unit. [brreg_enheter]\n- Latest filed annual accounts (2025, company statement): revenue NOK 142,522,804 (+90% vs 2024); operating result NOK 2,232,138 (+56% vs 2024); net result NOK 1,733,488 (+64% vs 2024); total assets NOK 5,813,514 (+112% vs 2024); equity NOK 2,824,654 (+159% vs 2024). [brreg_regnskap]\n- Accounts on file for 2023, 2024, 2025.\n- Share capital: NOK 100,000. [brreg_enheter]\n\nNo changes since the previous run.\n\nWhat remains unknown:\n- No website content (description, about text): checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No social media profiles: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No news items: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No job postings: checked nav_jobs: nothing registered (no active ads on arbeidsplassen.nav.no for employer 'AUTO BRAVIA AS' (search term 'AUTO BRAVIA')).\n- No products and services: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).\n- No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).\n- No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number).\n\nHow each source was tied to this company:\n- brreg_enheter: looked up by org number; record echoes the number\n- brreg_roller: roles endpoint addressed by org number\n- brreg_underenheter: sub-units filtered on overordnetEnhet = org number and re-checked\n- brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified\n- gleif: not_found (no LEI record lists this organisation number)\n- wikidata: not_found (no Wikidata item has P2333 = this org number)\n- nav_jobs: not_found (no active ads on arbeidsplassen.nav.no for employer 'AUTO BRAVIA AS' (search term 'AUTO BRAVIA'))\n- geonorge: registered business address looked up in Kartverket's address register (postal code must match)\n- website: not_found (guessed site https://autobravia.no does not identify the company; nothing taken from it)",
   "sections": {
    "what_it_does": [
     "AUTO BRAVIA AS (org.nr 932 224 453) is registered as Aksjeselskap (AS), founded 2023-09-19, registered 2023-10-10. [brreg_enheter]",
@@ -3068,7 +3093,7 @@
     "No website content (description, about text): checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).",
     "No social media profiles: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).",
     "No news items: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).",
-    "No job postings: nav_jobs could not be reached this run (HTTP 429).",
+    "No job postings: checked nav_jobs: nothing registered (no active ads on arbeidsplassen.nav.no for employer 'AUTO BRAVIA AS' (search term 'AUTO BRAVIA')).",
     "No products and services: checked website: nothing registered (guessed site https://autobravia.no does not identify the company; nothing taken from it).",
     "No Legal Entity Identifier: checked gleif: nothing registered (no LEI record lists this organisation number).",
     "No Wikipedia / Wikidata entry: checked wikidata: nothing registered (no Wikidata item has P2333 = this org number)."
@@ -3080,7 +3105,7 @@
     "brreg_regnskap: each filing's virksomhet.organisasjonsnummer verified",
     "gleif: not_found (no LEI record lists this organisation number)",
     "wikidata: not_found (no Wikidata item has P2333 = this org number)",
-    "nav_jobs: error (HTTP 429)",
+    "nav_jobs: not_found (no active ads on arbeidsplassen.nav.no for employer 'AUTO BRAVIA AS' (search term 'AUTO BRAVIA'))",
     "geonorge: registered business address looked up in Kartverket's address register (postal code must match)",
     "website: not_found (guessed site https://autobravia.no does not identify the company; nothing taken from it)"
    ]

@@ -177,7 +177,7 @@ otherwise the template is used. The LLM never adds facts to the profile.
 |---|---|
 | Data APIs | Brreg (Enhetsregisteret, Regnskapsregisteret), GLEIF, Wikidata: free, no key, no declared cost |
 | Website fetches | robots.txt + home + ≤ 4 linked pages (contact, about, careers, news/RSS, products) per company; the registry-declared site, or one `<name>.no` guess when none is declared |
-| Other per-company lookups | NAV job search (1, paced 3 s apart), Kartverket geocoding (1), DiBK (1, construction / engineering only), Wikipedia (≤ 2, only when Wikidata links an article) |
+| Other per-company lookups | NAV job search (1, paced 6 s apart, circuit breaker on 429), Kartverket geocoding (1), DiBK (1, construction / engineering only), Wikipedia (≤ 2, only when Wikidata links an article) |
 | Requests per company | measured over 1000 companies: mean 11.8, median 11, p95 17, max 20; hard cap `--per-company-requests 25` |
 | 100 companies / day | ≈ 1200 outbound requests (cap 2000), ≈ 6 minutes at `--concurrency 8` (1000 companies took 35 min at `--concurrency 14`) |
 | LLM (optional) | `claude-opus-5-5` via the Anthropic API, structured JSON output, low effort, server-side refusal fallback enabled; ≈ 3k input + 400 output tokens per company → ≈ $0.02 per company, ≈ $2 per 100 companies; hard cap `--max-cost 8` |
@@ -195,7 +195,7 @@ otherwise the template is used. The LLM never adds facts to the profile.
 | Company website | 33 % declare a site; with the `<name>.no` guess 30.5 % of all companies yielded a verified site (54 of them guessed, all with the org number printed on the site). Of the sites fetched, 32 % print the org number (high), 44 % match by name (medium), 23 % withheld as unverifiable |
 | Contact details (website, phone, e-mail) | 68.3 % |
 | Social media profiles | 19.5 % |
-| Job postings (NAV board, careers page) | 10.5 % of companies (188 postings); NAV's board rate-limited the bulk run after the first requests (HTTP 429), so most of the 1000 profiles still lack NAV data; requests to it are now paced at one per 3 s |
+| Job postings (NAV board, careers page) | 10.5 % of companies (188 postings). NAV's board rate-limits automated search tightly (HTTP 429 after roughly ten requests, for about an hour), so most of the 1000 profiles lack NAV data; requests to it are paced 6 s apart and a circuit breaker stops querying it for 15 min after two 429s, so no budget is wasted. Postings found on company careers pages are unaffected |
 | News (RSS/Atom feed, news page) | 9.8 % (418 items) |
 | Products / services | 5.0 % |
 | DiBK central approval | 6.3 % (45 % of the construction / engineering companies queried) |
